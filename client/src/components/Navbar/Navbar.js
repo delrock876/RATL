@@ -6,6 +6,7 @@ import Typography from '@material-ui/core/Typography'
 import Button from '@material-ui/core/Button'
 import IconButton from '@material-ui/core/IconButton'
 import MenuIcon from '@material-ui/icons/Menu'
+import {Link} from 'react-router-dom'
 
 
 const Navbar = () => {
@@ -20,11 +21,12 @@ const Navbar = () => {
     title: {
       flexGrow: 1,
     },
+    ButtonAppBar:()=>{}
   }))
 
-  export default function ButtonAppBar() {
+  
     const classes = useStyles()
-
+     
     return (
       <div className={classes.root}>
         <AppBar position="static">
@@ -35,9 +37,13 @@ const Navbar = () => {
             <Typography variant="h6" className={classes.title}>
               RATL
           </Typography>
-            <Button color="inherit">Archived</Button>
-            <Button color="inherit">Jobs</Button>
-            <Button color="inherit">Connections</Button>
+            <Link to = "/archived"><Button color="inherit">Archived</Button>
+            </Link>
+            <Link to = "/jobs"><Button color="inherit">Jobs</Button>
+            </Link>
+            <Link to = "/connections"><Button color="inherit">Connections</Button>
+            </Link>
+        
           </Toolbar>
         </AppBar>
       </div>

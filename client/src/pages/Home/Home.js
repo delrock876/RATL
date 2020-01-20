@@ -1,4 +1,5 @@
 import React from 'react'
+import SimCard from '../../components/Card'
 // import Navbar from '../../components/Navbar'
 
 const Home =()=>{
@@ -6,7 +7,10 @@ const Home =()=>{
   return(
 
     <>
-    <h1>THIS IS THR HOME PAGE</h1>
+    <h1>THIS IS THE HOME PAGE</h1>
+    <SimCard/>
     </>
   )
 }
+
+export default Home
