@@ -19,7 +19,8 @@ const App =()=>{
   return(
     <Router>
     <Navbar/>
-    {/* <BottomNav/> */}
+  
+    <BottomNav />
 
     <Switch>
    
@@ -42,7 +43,6 @@ const App =()=>{
 
 
 
-      <BottomNav />
     </Router>
   
     
