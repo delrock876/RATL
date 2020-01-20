@@ -27,7 +27,7 @@ const Navbar = () => {
     const classes = useStyles()
      
     return (
-      <Box display={{ xs: 'none', md: 'block' }} m={0}>
+      <Box display={{ xs: 'none', sm:'none', md: 'block' }} m={0} width="100%">
       
       <div className={classes.root}>
         <AppBar position="static">
