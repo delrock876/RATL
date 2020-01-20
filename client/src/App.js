@@ -18,6 +18,7 @@ const App =()=>{
 
   return(
     <Router>
+
     <Navbar/>
   
     <BottomNav />
@@ -40,8 +41,6 @@ const App =()=>{
         <Connections />
       </Route>
       </Switch>
-
-
 
     </Router>
   

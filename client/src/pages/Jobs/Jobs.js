@@ -1,10 +1,12 @@
 import React from 'react'
+import JobForm from '../../components/JobForm'
 
 const Jobs =()=>{
 
   return(
     <>
-  <h1>THIS IS WHERE ALL JOBS INFO SHOWS UP</h1>
+  <h1>Job Info</h1>
+  <JobForm/>
   </>
   )
 }
