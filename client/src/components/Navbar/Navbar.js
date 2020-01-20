@@ -34,16 +34,14 @@ const Navbar = () => {
             <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
               <MenuIcon />
             </IconButton>
-            <Typography variant="h6" className={classes.title}>
-              RATL
+            <Typography variant="h6" className={classes.title}><Link to = "/">Ratl</Link>
           </Typography>
-            <Link to = "/archived"><Button color="inherit">Archived</Button>
+            <Link to = "/archived"><Button color="green">Archived</Button>
             </Link>
             <Link to = "/jobs"><Button color="inherit">Jobs</Button>
             </Link>
             <Link to = "/connections"><Button color="inherit">Connections</Button>
             </Link>
-        
           </Toolbar>
         </AppBar>
       </div>
