@@ -24,8 +24,7 @@ const SimCard = () => {
     },
     pos: {
       marginBottom: 12,
-    },
-    SimpleCard:()=>{}
+    }
   })
 
     const classes = useStyles()

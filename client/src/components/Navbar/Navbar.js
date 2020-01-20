@@ -5,8 +5,8 @@ import Toolbar from '@material-ui/core/Toolbar'
 import Typography from '@material-ui/core/Typography'
 import Button from '@material-ui/core/Button'
 import IconButton from '@material-ui/core/IconButton'
-import MenuIcon from '@material-ui/icons/Menu'
 import {Link} from 'react-router-dom'
+import Box from '@material-ui/core/Box'
 
 
 const Navbar = () => {
@@ -20,23 +20,23 @@ const Navbar = () => {
     },
     title: {
       flexGrow: 1,
-    },
-    ButtonAppBar:()=>{}
+    }
   }))
 
   
     const classes = useStyles()
      
     return (
+      <Box display={{ xs: 'none', md: 'block' }} m={0}>
+      
       <div className={classes.root}>
         <AppBar position="static">
           <Toolbar>
             <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
-              <MenuIcon />
             </IconButton>
             <Typography variant="h6" className={classes.title}><Link to = "/">Ratl</Link>
           </Typography>
-            <Link to = "/archived"><Button color="green">Archived</Button>
+            <Link to = "/archived"><Button color="inherit">Archived</Button>
             </Link>
             <Link to = "/jobs"><Button color="inherit">Jobs</Button>
             </Link>
@@ -45,6 +45,7 @@ const Navbar = () => {
           </Toolbar>
         </AppBar>
       </div>
+      </Box>
     )
   }
 

@@ -1,5 +1,7 @@
 import React from 'react'
+import './App.css'
 import Navbar from './components/Navbar'
+import BottomNav from './components/BottomNav'
 import Home from './pages/Home'
 import Connections from './pages/Connections'
 import Archived from './pages/Archived'
@@ -17,6 +19,7 @@ const App =()=>{
   return(
     <Router>
     <Navbar/>
+    {/* <BottomNav/> */}
 
     <Switch>
    
@@ -37,7 +40,12 @@ const App =()=>{
       </Route>
       </Switch>
 
+
+
+      <BottomNav />
     </Router>
+  
+    
   )
 }
 
