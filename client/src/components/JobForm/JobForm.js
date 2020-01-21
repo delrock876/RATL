@@ -3,8 +3,7 @@ import { makeStyles } from '@material-ui/core/styles'
 import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
 import Grid from '@material-ui/core/Grid'
-
-
+import Tooltip from '@material-ui/core/Tooltip'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -37,12 +36,17 @@ const JobForm = () => {
             shrink: true,
           }}
         />
+
         <br />
+
+          <Tooltip title="Example: Hiring Manager">
         <TextField size="small" id="outlined-basic" label="Connection Type" variant="outlined" />
-        <TextField size="small" id="outlined-basic" label="Connection Name" variant="outlined" />
+        </Tooltip>
+
+        <TextField size="small" id="outlined-basic" label="Connection's Name" variant="outlined" />
         <br />
-        <TextField size="small" id="outlined-basic" label="Current Status" variant="outlined" />
-        <TextField size="small" id="outlined-basic" label="Next Step" variant="outlined" />
+        <TextField size="small" id="outlined-basic" label="Connection's Phone" variant="outlined" />
+        <TextField size="small" id="outlined-basic" label="Connection's Email" variant="outlined" />
         <br />
         <TextField
           id="filled-multiline-static"
@@ -52,6 +56,7 @@ const JobForm = () => {
           // defaultValue="Default Value"
           variant="filled"
         />
+        <Tooltip title="Example: Javascript">
         <TextField
           id="filled-multiline-static"
           label="Skill Requirements"
@@ -59,7 +64,7 @@ const JobForm = () => {
           rows="4"
           // defaultValue="Default Value"
           variant="filled"
-        />
+          /></Tooltip>
         <br />
         <Button>Submit</Button>
       </form>
