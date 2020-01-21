@@ -5,12 +5,11 @@ import Button from '@material-ui/core/Button'
 import Grid from '@material-ui/core/Grid'
 import Tooltip from '@material-ui/core/Tooltip'
 
+
 const useStyles = makeStyles(theme => ({
   root: {
     '& > *': {
       margin: theme.spacing(1),
-
-
     },
   },
 }))
@@ -20,6 +19,7 @@ const JobForm = () => {
   const classes = useStyles()
 
   return (
+
 
     <Grid container justify="center" width="100%">
 
@@ -37,7 +37,6 @@ const JobForm = () => {
           id="outlined-basic"
           label="Job Title"
           variant="outlined" />
-        
 
         <TextField
           size="small"
@@ -91,6 +90,7 @@ const JobForm = () => {
             variant="filled"
           />
         </Tooltip>
+
 
         <br />
         <Button>Submit</Button>
