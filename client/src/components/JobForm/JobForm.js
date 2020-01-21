@@ -30,18 +30,14 @@ const JobForm = () => {
           label="Company Name"
           variant="outlined" />
 
+        <br />
 
         <TextField
           size="small"
           id="outlined-basic"
-          label="Recent Activity"
+          label="Job Title"
           variant="outlined" />
-
-        <TextField
-          size="small"
-          id="outlined-basic"
-          label="Next Step"
-          variant="outlined" />
+        
 
         <TextField
           size="small"
@@ -53,6 +49,7 @@ const JobForm = () => {
           InputLabelProps={{
             shrink: true,
           }} />
+
         <br />
 
         <Tooltip title="Example: Hiring Manager">
@@ -80,25 +77,17 @@ const JobForm = () => {
           id="outlined-basic"
           label="Connection's Email"
           variant="outlined" />
-  
 
-        <br/>
-        <TextField
-          fullWidth
-          id="filled-multiline-static"
-          label="Required Skills"
-          multiline
-          rows="4"
-          variant="filled"
-        />
+
+        <br />
+      
         <Tooltip title="Example: Javascript">
           <TextField
             id="filled-multiline-static"
-            label="Notes"
+            label="Required Skills"
             multiline
             fullWidth
             rows="4"
-            // defaultValue="Default Value"
             variant="filled"
           />
         </Tooltip>
