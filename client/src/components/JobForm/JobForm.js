@@ -9,7 +9,8 @@ const useStyles = makeStyles(theme => ({
   root: {
     '& > *': {
       margin: theme.spacing(1),
-      width: 200,
+
+
     },
   },
 }))
@@ -20,51 +21,88 @@ const JobForm = () => {
 
   return (
 
-    <Grid container justify="flex-end">
+    <Grid container justify="center" width="100%">
 
       <form className={classes.root} noValidate autoComplete="off">
-        <TextField size="small" id="outlined-basic" label="Company Name" variant="outlined" />
+        <TextField
+          size="small"
+          id="outlined-basic"
+          label="Company Name"
+          variant="outlined" />
+
+
+        <TextField
+          size="small"
+          id="outlined-basic"
+          label="Recent Activity"
+          variant="outlined" />
+
+        <TextField
+          size="small"
+          id="outlined-basic"
+          label="Next Step"
+          variant="outlined" />
 
         <TextField
           size="small"
           id="date"
           label="Date Applied"
           type="date"
-          variant= "outlined"
+          variant="outlined"
           className={classes.textField}
           InputLabelProps={{
             shrink: true,
-          }}
-        />
-
+          }} />
         <br />
 
-          <Tooltip title="Example: Hiring Manager">
-        <TextField size="small" id="outlined-basic" label="Connection Type" variant="outlined" />
+        <Tooltip title="Example: Hiring Manager">
+          <TextField
+            size="small"
+            id="outlined-basic"
+            label="Connection Type"
+            variant="outlined" />
         </Tooltip>
 
-        <TextField size="small" id="outlined-basic" label="Connection's Name" variant="outlined" />
-        <br />
-        <TextField size="small" id="outlined-basic" label="Connection's Phone" variant="outlined" />
-        <TextField size="small" id="outlined-basic" label="Connection's Email" variant="outlined" />
-        <br />
         <TextField
+          size="small"
+          id="outlined-basic"
+          label="Connection's Name"
+          variant="outlined" />
+
+        <TextField
+          size="small"
+          id="outlined-basic"
+          label="Connection's Phone"
+          variant="outlined" />
+
+        <TextField
+          size="small"
+          id="outlined-basic"
+          label="Connection's Email"
+          variant="outlined" />
+  
+
+        <br/>
+        <TextField
+          fullWidth
           id="filled-multiline-static"
-          label="Notes"
+          label="Required Skills"
           multiline
           rows="4"
-          // defaultValue="Default Value"
           variant="filled"
         />
         <Tooltip title="Example: Javascript">
-        <TextField
-          id="filled-multiline-static"
-          label="Skill Requirements"
-          multiline
-          rows="4"
-          // defaultValue="Default Value"
-          variant="filled"
-          /></Tooltip>
+          <TextField
+            id="filled-multiline-static"
+            label="Notes"
+            multiline
+            fullWidth
+            rows="4"
+            // defaultValue="Default Value"
+            variant="filled"
+          />
+        </Tooltip>
+
         <br />
         <Button>Submit</Button>
       </form>
