@@ -19,7 +19,7 @@ const BottomNav =()=>{
 
   return (
 
-    <Box display={{ xs: 'block', sm: 'block', md: 'none' }} m={0} bottom={0} position="absolute" width="100%" >
+    <Box display={{ xs: 'block', sm: 'block', md: 'none' }} m={0} bottom={0} position="fixed" width="100%" >
     <BottomNavigation
       value={value}
       onChange={(event, newValue) => {
