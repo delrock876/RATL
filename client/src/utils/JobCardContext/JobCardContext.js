@@ -1,14 +1,17 @@
-import React, {createContext} from 'react'
+import {createContext} from 'react'
 
 const JobCardContext = createContext({
-  company: '',
-  contactName: '',
-  contactEmail: '',
-  contactPhone: '',
-  contactType: '',
-  date: '',
-  jobTitle: '',
-  skills: '',
+  jobs: [],
+  compName: '',
+  namee: '',
+  email: '',
+  phone: '',
+  type: '',
+  archived: Boolean,
+  dateApplied: '',
+  job: '',
+  skillsRequired: '',
+  handleInputChange: () => { },
   handleArchiveJob: () => { },
   handleAddJob: () => { },
   handleDeleteJob: () => { }

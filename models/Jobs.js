@@ -1,7 +1,7 @@
 module.exports = (model, Schema) => {
 
   const Jobs = new Schema({
-    company: String,
+    companyName: String,
     contactName: String,
     contactEmail: String,
     contactPhone: String,

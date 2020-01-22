@@ -9,7 +9,6 @@ module.exports = app => {
     .catch(e => console.log(e))
   })
 
-
   //Post one Job
   app.post('/jobs', (req, res) => {
     Jobs.create(req.body)
