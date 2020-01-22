@@ -77,7 +77,6 @@ const JobForm = () => {
           label="Connection's Email"
           variant="outlined" />
 
-
         <br />
       
         <Tooltip title="Example: Javascript">
