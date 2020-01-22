@@ -40,11 +40,7 @@ jobState.handleInputChange = (event) => {
       jobTitle: jobState.job,
       skills: jobState.skillsRequired
     })
-      .then(() => {
-        let compName = JSON.parse(JSON.stringify(compName))
-        setJobState({...jobState, compName})
-    }
-      )
+      .then(() => console.log('hello'))
     .catch(e => console.error(e))
   }
 
