@@ -5,7 +5,7 @@ import CardActions from '@material-ui/core/CardActions'
 import CardContent from '@material-ui/core/CardContent'
 import Button from '@material-ui/core/Button'
 import Typography from '@material-ui/core/Typography'
-import CardContext from '../../utils/CardContext/CardContext'
+// import CardContext from '../../utils/CardContext/CardContext'
 import PeopleAltIcon from '@material-ui/icons/PeopleAlt'
 
 const SimCard = () => {

@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
 import Grid from '@material-ui/core/Grid'
 import Tooltip from '@material-ui/core/Tooltip'
+import JobCardContext from '../../utils/JobCardContext'
 
 
 const useStyles = makeStyles(theme => ({
@@ -17,6 +18,7 @@ const useStyles = makeStyles(theme => ({
 const JobForm = () => {
 
   const classes = useStyles()
+  const { compName, namee, email, phone, type, archived, dateApplied, job, skillsRequired, handleInputChange, handleAddJob} = useContext(JobCardContext)
 
   return (
 
@@ -28,7 +30,11 @@ const JobForm = () => {
           size="small"
           id="outlined-basic"
           label="Company Name"
-          variant="outlined" />
+          variant="outlined"
+          name ="compName"
+          value= {compName}
+          onChange={handleInputChange}
+           />
 
         <br />
 
@@ -36,7 +42,10 @@ const JobForm = () => {
           size="small"
           id="outlined-basic"
           label="Job Title"
-          variant="outlined" />
+          variant="outlined"
+          name="job"
+          value= {job}
+          onChange={handleInputChange} />
 
         <TextField
           size="small"
@@ -47,7 +56,10 @@ const JobForm = () => {
           className={classes.textField}
           InputLabelProps={{
             shrink: true,
-          }} />
+          }}
+          name="dateApplied"
+          value= {dateApplied}
+          onChange={handleInputChange} />
 
         <br />
 
@@ -56,26 +68,38 @@ const JobForm = () => {
             size="small"
             id="outlined-basic"
             label="Connection Type"
-            variant="outlined" />
+            variant="outlined"
+            name="type"
+            value= {type}
+            onChange={handleInputChange} />
         </Tooltip>
 
         <TextField
           size="small"
           id="outlined-basic"
           label="Connection's Name"
-          variant="outlined" />
+          variant="outlined"
+          name="namee"
+          value={namee}
+          onChange={handleInputChange} />
 
         <TextField
           size="small"
           id="outlined-basic"
           label="Connection's Phone"
-          variant="outlined" />
+          variant="outlined"
+          name= "phone" 
+          value={phone}
+          onChange={handleInputChange}/>
 
         <TextField
           size="small"
           id="outlined-basic"
           label="Connection's Email"
-          variant="outlined" />
+          variant="outlined"
+          name="email"
+          value= {email}
+          onChange={handleInputChange} />
 
         <br />
       
@@ -87,12 +111,14 @@ const JobForm = () => {
             fullWidth
             rows="4"
             variant="filled"
+            name="skillsRequired"
+            value= {skillsRequired}
+            onChange={handleInputChange}
           />
         </Tooltip>
 
-
         <br />
-        <Button>Submit</Button>
+        <Button onClick={handleAddJob}>Submit</Button>
       </form>
     </Grid>
 
