@@ -31,15 +31,7 @@ module.exports = {
           location: `${res[i].location}`,
           datePosted: `${res[i].postDate}`
         })
-      // console.log(`
-      // Title: ${res[i].title},
-      // Company Name: ${res[i].company},
-      // location: ${res[i].location}
-      // URL: ${res[i].url},
-      // Salary: ${res[i].salary},
-      // Summary: ${res[i].summary}
-      // Date: ${res[i].postDate}`)
-      // }
+      }
     })
     .catch(e => console.log(e))
   }
