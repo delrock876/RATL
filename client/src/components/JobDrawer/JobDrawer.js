@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import JobCardContext from '../../utils/JobCardContext'
 import { makeStyles } from '@material-ui/core/styles'
 import SwipeableDrawer from '@material-ui/core/SwipeableDrawer'
 import Button from '@material-ui/core/Button'
@@ -18,21 +19,10 @@ const useStyles = makeStyles({
 })
 
 const JobDrawer = ()=> {
+
+  const { bottom, toggleDrawer } = useContext(JobCardContext)
   const classes = useStyles()
-  const [state, setState] = React.useState({
-    top: false,
-    left: false,
-    bottom: false,
-    right: false,
-  })
-
-  const toggleDrawer = (side, open) => event => {
-    if (event && event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
-      return
-    }
-    setState({ ...state, [side]: open });
-  };
-
+  
   const fullList = side => (
     <div
       className={classes.fullList}
@@ -50,14 +40,14 @@ const JobDrawer = ()=> {
 
   return (
     <div>
-      <Button onClick={toggleDrawer('bottom', true)}>+Add Job</Button>
+      <Button onClick={toggleDrawer(true)}>+Add Job</Button>
       
     
       <SwipeableDrawer
         anchor="bottom"
-        open={state.bottom}
-        onClose={toggleDrawer('bottom', false)}
-        onOpen={toggleDrawer('bottom', true)}
+        open={bottom}
+        onClose={toggleDrawer(false)}
+        onOpen={toggleDrawer(true)}
       >
         {fullList('bottom')}
       </SwipeableDrawer>
