@@ -1,14 +1,16 @@
 import React from 'react'
 import SimCard from '../../components/Card'
 // import Navbar from '../../components/Navbar'
+import Calendar from '../../components/Calendar'
 
-const Home =()=>{
+const Home = () => {
 
-  return(
+  return (
 
     <>
-    <h1>THIS IS THE HOME PAGE</h1>
-    <SimCard/>
+      <h1>THIS IS THE HOME PAGE</h1>
+      <SimCard />
+
     </>
   )
 }
