@@ -1,16 +1,16 @@
-module.exports = (model, Schema) => {
+  module.exports = (model, Schema) => {
 
-  const Jobs = new Schema({
-    companyName: String,
-    contactName: String,
-    contactEmail: String,
-    contactPhone: String,
-    contactType: String,
-    archived: Boolean,
-    date: String,
-    jobTitle: String,
-    skills: String
-  })
+    const Jobs = new Schema({
+      companyName: String,
+      contactName: String,
+      contactEmail: String,
+      contactPhone: String,
+      contactType: String,
+      archived: Boolean,
+      date: String,
+      jobTitle: String,
+      skills: String
+    })
 
-  return model('Jobs', Jobs)
-}
+    return model('Jobs', Jobs)
+  }
