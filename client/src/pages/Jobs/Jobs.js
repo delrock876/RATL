@@ -21,6 +21,7 @@ const Jobs = () => {
     job: '',
     skillsRequired: '',
     bottom: false
+    
   })
 
   jobState.toggleDrawer = bool => event => {
@@ -37,7 +38,8 @@ const Jobs = () => {
 
   jobState.handleAddJob = (event) => {
     event.preventDefault()
-    addJob({
+    let job = {
+
       companyName: jobState.compName,
       contactName: jobState.namee,
       contactEmail: jobState.email,
@@ -47,10 +49,16 @@ const Jobs = () => {
       date: jobState.dateApplied,
       jobTitle: jobState.job,
       skills: jobState.skillsRequired
-    })
+
+    }
+    addJob(job)
       .then(() => {
+
+        let jobs = JSON.parse(JSON.stringify(jobState.jobs))
+        jobs.push(job)
   
-        setJobState({...jobState, 
+        setJobState({...jobState,
+          jobs, 
           compName: '',
           namee: '',
           email: '',

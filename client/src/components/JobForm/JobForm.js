@@ -22,7 +22,6 @@ const JobForm = () => {
 
   return (
 
-
     <Grid container justify="center" width="100%">
 
       <form className={classes.root} noValidate autoComplete="off">
