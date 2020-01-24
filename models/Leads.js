@@ -6,7 +6,7 @@ module.exports = (model, Schema) => {
     url: String,
     salary: String,
     summary: String,
-    location: Boolean,
+    location: String,
     datePosted: String,
   })
 
