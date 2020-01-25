@@ -1,14 +1,18 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card'
 import CardActions from '@material-ui/core/CardActions'
 import CardContent from '@material-ui/core/CardContent'
 import Button from '@material-ui/core/Button'
 import Typography from '@material-ui/core/Typography'
-// import CardContext from '../../utils/CardContext/CardContext'
 import PeopleAltIcon from '@material-ui/icons/PeopleAlt'
+import JobCardContext from '../../utils/JobCardContext'
+import Switches from '../Switch'
+
 
 const SimCard = () => {
+
+  const { jobs, checkedA, checkedB, handleChange } = useContext(JobCardContext)
 
   const useStyles = makeStyles({
     card: {
@@ -27,35 +31,45 @@ const SimCard = () => {
     }
   })
 
-    const classes = useStyles()
-    const bull = <span className={classes.bullet}>•</span>
+  const classes = useStyles()
+  const bull = <span className={classes.bullet}>•</span>
 
-    return (
-      <Card className={classes.card}>
-        <CardContent>
-          <Typography className={classes.title} color="textSecondary" gutterBottom>
-            Date Applied: [insert date]
-        </Typography>
-          <Typography variant="h5" component="h2">
-            [Fake Company Name]
-        </Typography>
-          <Typography className={classes.pos} color="textSecondary">
-            Job Title : [Front End Developer]
-        </Typography>
-          <Typography variant="body2" component="p">
-            Current Status: [phone interview]
-          <br />
-            <br />
-            Next Step: [onsite]
-        </Typography>
-        </CardContent>
-        <CardActions>
-          <Button size="medium">
-            <PeopleAltIcon></PeopleAltIcon>Your Connection
-        </Button>
-        </CardActions>
-      </Card>
-    );
-  }
+  return (
+
+
+    <div>
+      {jobs.length ? jobs.map(job => (
+        
+        
+        <Card className={classes.card}>
+          <CardContent>
+            <Typography className={classes.title} color="textSecondary" gutterBottom>
+              job date {job.date}
+            </Typography>
+            <Typography variant="h5" component="h2">
+              {job.companyName}
+            </Typography>
+            <Typography className={classes.pos} color="textSecondary">
+              {job.jobTitle}
+            </Typography>
+            <Typography variant="body2" component="p">
+              Started interview process:  <Switches />
+              <br />
+
+            </Typography>
+
+          </CardContent>
+          <CardActions>
+            
+            <Button size="medium">
+              <PeopleAltIcon></PeopleAltIcon>{job.contactName}
+            </Button>
+          </CardActions>
+        </Card>
+      )) : null
+      }
+    </div>
+  )
+}
 
 export default SimCard
