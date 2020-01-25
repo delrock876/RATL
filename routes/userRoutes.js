@@ -3,7 +3,7 @@ const jwt = require('jsonwebtoken')
 
 module.exports = app => {
     //Register a User
-    app.post('/users', (req, res) =>{
+    app.post('/api/users', (req, res) =>{
         const { name, email, username } = req.body
         User.register(new User({ name, email, username }),req.body.password, e =>{
                 if(e) {
@@ -14,7 +14,7 @@ module.exports = app => {
     })  
 
     // Login 
-    app.post('/login', (req,res) => {
+    app.post('/api/login', (req,res) => {
         User.authenticate()(req.body.username, req.body.password, (e, user) => {
             if(e) {
                 console.log(e)

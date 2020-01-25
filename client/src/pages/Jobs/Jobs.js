@@ -32,14 +32,18 @@ const Jobs = () => {
   }
 
   jobState.handleInputChange = (event) => {
-    console.log(event.target.value)
     setJobState({ ...jobState, [event.target.name]: event.target.value })
   }
 
   jobState.handleAddJob = (event) => {
     event.preventDefault()
-    let job = {
 
+    // let skillsRequired = JSON.parse(JSON.stringify(jobState.skillsRequired))
+    // const regex = /(\w{ 1, 20}| [^ !@$%^&* ()_ 	~`=.:;,])/g
+    // skillsRequired.match(regex)
+    // setJobState({...jobState, skillsRequired})
+
+    let job = {
       companyName: jobState.compName,
       contactName: jobState.namee,
       contactEmail: jobState.email,
@@ -48,12 +52,10 @@ const Jobs = () => {
       archived: false,
       date: jobState.dateApplied,
       jobTitle: jobState.job,
-      skills: jobState.skillsRequired
-
+      skills: jobState.skillsRequired.split(',')
     }
     addJob(job)
       .then(() => {
-
         let jobs = JSON.parse(JSON.stringify(jobState.jobs))
         jobs.push(job)
   
@@ -66,15 +68,22 @@ const Jobs = () => {
           type: '',
           dateApplied: '',
           job: '',
-          skillsRequired: '',
+          skillsRequired: ' ',
           bottom: false
         })
-
-
-      }
-      )
+      })
       .catch(e => console.error(e))
   }
+
+  //get all jobs
+  useEffect(()=>{
+    getAllJobs()
+    .then(({data: jobs})=>{
+      console.log(jobs)
+      setJobState({...jobState, jobs})
+    })
+    .catch(e => console.error(e))
+  }, [])
 
   return (
     <>

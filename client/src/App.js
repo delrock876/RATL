@@ -24,7 +24,7 @@ const App = () => {
       <Navbar />
 
       <BottomNav />
-      {/* <LandingPage /> */}
+   
       <Switch>
 
         <Route exact path="/">
@@ -45,8 +45,14 @@ const App = () => {
       </Switch>
 
     </Router>
+<<<<<<< HEAD
 
 
+=======
+    
+  
+    
+>>>>>>> 9ecbc334b01ebde08750b7aa23951b5062ad0af1
   )
 }
 
