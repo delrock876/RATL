@@ -9,7 +9,7 @@ module.exports = (model, Schema) => {
     archived: Boolean,
     date: String,
     jobTitle: String,
-    skills: String
+    skills: [{ type: String }]
   })
 
   return model('Jobs', Jobs)

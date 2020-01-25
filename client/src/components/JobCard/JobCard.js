@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import Card from '@material-ui/core/Card'
 import CardActions from '@material-ui/core/CardActions'
@@ -6,6 +6,7 @@ import CardContent from '@material-ui/core/CardContent'
 import Button from '@material-ui/core/Button'
 import Typography from '@material-ui/core/Typography'
 import Chip from '@material-ui/core/Chip'
+import JobCardContext from '../../utils/JobCardContext'
 
 const useStyles = makeStyles({
   card: {
@@ -24,39 +25,50 @@ const useStyles = makeStyles({
   },
 })
 
+
 const JobCard =()=> {
+
+  const { jobs } = useContext(JobCardContext)
+
   const classes = useStyles()
-  const bull = <span className={classes.bullet}>•</span>
 
   return (
+
+  <div>
+    {
+    jobs.length ? jobs.map(job=>(
+
     <Card className={classes.card} variant="outlined">
       <CardContent>
         <Typography className={classes.title} color="textSecondary" gutterBottom>
-          [DATE APPLIED]
+         {job.date}
         </Typography>
         <Typography variant="h5" component="h2">
-          [FAKE COMPANY NAME]
+          {job.companyName}
         </Typography>
         <Typography className={classes.pos} color="textSecondary">
-          [JOBTITLE]
+          {job.jobTitle}
         </Typography>
 
 
         <Typography variant="body2" component="p">
           Job Requirements: 
           <br />
-          <Chip color= "primary" label="Javascript" variant="outlined" />
-          <Chip color="primary" label="MongoDb" variant="outlined" />
+          { 
+            job.skills.length ? job.skills.map(skill => (
+              <Chip color="primary" label={skill} variant="outlined" />
+            )) : null
+          }
         </Typography>
       
         <br/>
 
         <Typography className={classes.title} color="textSecondary" gutterBottom>
-          [CONNECTION POSITION]: [CONNECTION NAME]
+          {job.contactType}: {job.contactName}
           <br/>
-          [CONNECTION PHONE]
+          {job.contactPhone}
           <br />
-          [CONNECTION EMAIL]
+          {job.contactEmail}
           <br />
         </Typography>
       
@@ -65,6 +77,9 @@ const JobCard =()=> {
         <Button size="small">Learn More</Button>
       </CardActions>
     </Card>
+    )): null
+}
+    </div>
   )
 }
  export default JobCard
