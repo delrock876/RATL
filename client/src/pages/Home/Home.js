@@ -1,6 +1,5 @@
 import React from 'react'
 import SimCard from '../../components/Card'
-import Calendar from './../../components/Calender'
 // import Navbar from '../../components/Navbar'
 
 

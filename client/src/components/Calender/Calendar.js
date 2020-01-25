@@ -1,54 +1,70 @@
-import React, { Component } from "react";
-import { Calendar, momentLocalizer } from "react-big-calendar";
-import moment from "moment";
-import withDragAndDrop from "react-big-calendar/lib/addons/dragAndDrop";
+import React,{ Component } from 'react'
+import FullCalendar from '@fullcalendar/react'
+import dayGridPlugin from '@fullcalendar/daygrid'
+import timeGridPlugin from '@fullcalendar/timegrid'
+import interactionPlugin from '@fullcalendar/interaction' // needed for dayClick
+import './Calendar.scss'
 
-import "./Calendar.css";
-import "../../../node_modules/react-big-calendar/lib/addons/dragAndDrop/styles.css";
-import "../../../node_modules/react-big-calendar/lib/css/react-big-calendar.css";
 
-const localizer = momentLocalizer(moment);
-const DnDCalendar = withDragAndDrop(Calendar);
+class Calendar extends Component {
 
-class CalendarComponent extends Component {
+  calendarComponentRef = React.createRef()
   state = {
-    events: [
-      {
-        start: new Date(),
-        end: new Date(moment().add(1, "days")),
-        title: "Add something"
-      }
+    calendarWeekends: true,
+    calendarEvents: [ // initial event data
+      { title: 'Event Now', start: new Date() }
     ]
-  };
-
-  onEventResize = (type, { event, start, end, allDay }) => {
-    this.setState(state => {
-      state.events[0].start = start;
-      state.events[0].end = end;
-      return { events: state.events };
-    });
-  };
-
-  onEventDrop = ({ event, start, end, allDay }) => {
-    console.log(start);
-  };
+  }
 
   render() {
     return (
-      <div className="Calendar">
-        <DnDCalendar
-          defaultDate={new Date()}
-          defaultView="month"
-          events={this.state.events}
-          localizer={localizer}
-          onEventDrop={this.onEventDrop}
-          onEventResize={this.onEventResize}
-          resizable
-          style={{ height: "40vh" }}
-        />
+      <div className='demo-app'>
+        <div className='demo-app-top'>
+          <button onClick={ this.toggleWeekends }>toggle weekends</button>&nbsp;
+          <button onClick={ this.gotoPast }>go to a date in the past</button>&nbsp;
+          (also, click a date/time to add an event)
+        </div>
+        <div className='demo-app-calendar'>
+          <FullCalendar
+            defaultView="dayGridMonth"
+            header={{
+              left: 'prev,next today',
+              center: 'title',
+              right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
+            }}
+            plugins={[ dayGridPlugin, timeGridPlugin, interactionPlugin ]}
+            ref={ this.calendarComponentRef }
+            weekends={ this.state.calendarWeekends }
+            events={ this.state.calendarEvents }
+            dateClick={ this.handleDateClick }
+            />
+        </div>
       </div>
-    );
+    )
   }
-}
 
-export default CalendarComponent
+  toggleWeekends = () => {
+    this.setState({ // update a property
+      calendarWeekends: !this.state.calendarWeekends
+    })
+  }
+
+  gotoPast = () => {
+    let calendarApi = this.calendarComponentRef.current.getApi()
+    calendarApi.gotoDate('2000-01-01') // call a method on the Calendar object
+  }
+
+  handleDateClick = (arg) => {
+    if (window.confirm('Would you like to add an event to ' + arg.dateStr + ' ?')) {
+      this.setState({  // add new event data
+        calendarEvents: this.state.calendarEvents.concat({ // creates a new array
+          title: 'Add Some Event',
+          start: arg.date,
+          allDay: arg.allDay
+        })
+      })
+    }
+  }
+
+}
+export default Calendar
