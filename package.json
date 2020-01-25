@@ -1,7 +1,7 @@
 {
   "name": "RATL",
   "version": "1.0.0",
-  "description": "A job management application"
+  "description": "A job management application",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
