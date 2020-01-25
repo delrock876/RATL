@@ -38,7 +38,10 @@ const Jobs = () => {
   jobState.handleAddJob = (event) => {
     event.preventDefault()
 
-    //matches all words, commas, periods and whitespace and filters them
+    // let skillsRequired = JSON.parse(JSON.stringify(jobState.skillsRequired))
+    // const regex = /(\w{ 1, 20}| [^ !@$%^&* ()_ 	~`=.:;,])/g
+    // skillsRequired.match(regex)
+    // setJobState({...jobState, skillsRequired})
 
     let job = {
       companyName: jobState.compName,
@@ -49,7 +52,7 @@ const Jobs = () => {
       archived: false,
       date: jobState.dateApplied,
       jobTitle: jobState.job,
-      skills: jobState.skillsRequired
+      skills: jobState.skillsRequired.split(',')
     }
     addJob(job)
       .then(() => {
@@ -71,7 +74,7 @@ const Jobs = () => {
       })
       .catch(e => console.error(e))
   }
-  
+
   //get all jobs
   useEffect(()=>{
     getAllJobs()
