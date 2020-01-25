@@ -1,4 +1,4 @@
-module.exports = (model, Schema) => {
+  module.exports = (model, Schema) => {
 
   const Jobs = new Schema({
     companyName: String,
@@ -12,5 +12,5 @@ module.exports = (model, Schema) => {
     skills: [{ type: String }]
   })
 
-  return model('Jobs', Jobs)
-}
+    return model('Jobs', Jobs)
+  }
