@@ -2,6 +2,7 @@ require('dotenv').config()
 
 const express = require('express')
 const { join } = require('path')
+const { scrape } = require('./controller')
 
 const passport = require('passport')
 const { Strategy } = require('passport-local')
@@ -10,7 +11,7 @@ const { Strategy: JWTStrategy, ExtractJwt } = require('passport-jwt')
 const app = express()
 const { User } = require('./models')
 
-app.use(express.static(join(__dirname, 'client', 'build' )))
+app.use(express.static(join(__dirname, 'client', 'build')))
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 
