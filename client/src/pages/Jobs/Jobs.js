@@ -79,6 +79,7 @@ const Jobs = () => {
   useEffect(()=>{
     getAllJobs()
     .then(({data: jobs})=>{
+      console.log(jobs)
       setJobState({...jobState, jobs})
     })
     .catch(e => console.error(e))
