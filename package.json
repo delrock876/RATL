@@ -36,6 +36,7 @@
     "passport-local": "^1.0.0",
     "passport-local-mongoose": "^6.0.1",
     "react-big-calendar": "^0.23.0",
-    "react-parallax": "^3.0.3"
+    "react-parallax": "^3.0.3",
+    "typeface-roboto": "0.0.75"
   }
 }
