@@ -1,0 +1,36 @@
+.Calendar {
+    text-align: center;
+  }
+  
+  .Calendar-logo {
+    animation: App-logo-spin infinite 20s linear;
+    height: 80px;
+  }
+  
+  .Calendar-header {
+    background-color: #222;
+    height: 150px;
+    padding: 20px;
+    color: white;
+  }
+  
+  .Calendar-title {
+    font-size: 1.5em;
+  }
+  
+  .Calendar-intro {
+    font-size: large;
+  }
+  
+  @keyframes App-logo-spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(180deg); }
+  }
+
+  /* responsive */
+
+  @media screen and (min-width: 480px) {
+    .Calendar rbc-addons-dnd rbc-calender{
+      height: 30%;
+    }
+  }
