@@ -18,7 +18,7 @@ const useStyles = makeStyles(theme => ({
 const JobForm = () => {
 
   const classes = useStyles()
-  const { compName, namee, email, phone, type, archived, dateApplied, job, skillsRequired, handleInputChange, handleAddJob} = useContext(JobCardContext)
+  const { compName, namee, email, phone, type, archived, dateApplied, job, skillsRequired, handleInputChange, handleAddJob } = useContext(JobCardContext)
 
   return (
 
@@ -30,10 +30,10 @@ const JobForm = () => {
           id="outlined-basic"
           label="Company Name"
           variant="outlined"
-          name ="compName"
-          value= {compName}
+          name="compName"
+          value={compName}
           onChange={handleInputChange}
-           />
+        />
 
         <br />
 
@@ -43,7 +43,7 @@ const JobForm = () => {
           label="Job Title"
           variant="outlined"
           name="job"
-          value= {job}
+          value={job}
           onChange={handleInputChange} />
 
         <TextField
@@ -57,7 +57,7 @@ const JobForm = () => {
             shrink: true,
           }}
           name="dateApplied"
-          value= {dateApplied}
+          value={dateApplied}
           onChange={handleInputChange} />
 
         <br />
@@ -69,7 +69,7 @@ const JobForm = () => {
             label="Connection Type"
             variant="outlined"
             name="type"
-            value= {type}
+            value={type}
             onChange={handleInputChange} />
         </Tooltip>
 
@@ -87,9 +87,9 @@ const JobForm = () => {
           id="outlined-basic"
           label="Connection's Phone"
           variant="outlined"
-          name= "phone" 
+          name="phone"
           value={phone}
-          onChange={handleInputChange}/>
+          onChange={handleInputChange} />
 
         <TextField
           size="small"
@@ -97,13 +97,18 @@ const JobForm = () => {
           label="Connection's Email"
           variant="outlined"
           name="email"
-          value= {email}
+          value={email}
           onChange={handleInputChange} />
 
         <br />
+<<<<<<< HEAD
+
+        <Tooltip title="Example: Javascript">
+=======
       
         <Tooltip title="Separate each skill with a comma
         Example: Javascript, Python">
+>>>>>>> 9ecbc334b01ebde08750b7aa23951b5062ad0af1
           <TextField
             id="filled-multiline-static"
             label="Required Skills"
@@ -112,7 +117,7 @@ const JobForm = () => {
             rows="4"
             variant="filled"
             name="skillsRequired"
-            value= {skillsRequired}
+            value={skillsRequired}
             onChange={handleInputChange}
           />
         </Tooltip>
