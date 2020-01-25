@@ -4,13 +4,20 @@ import JobCardAPI from '../../utils/JobCardAPI'
 import JobCardContext from '../../utils/JobCardContext'
 
 
+
 const { getAllJobs, deleteJob } = JobCardAPI
 
 const Home = () => {
 
   const [jobState, setJobState] = useState({
-    jobs: []
+    jobs: [],
+    checkedA:true,
+    checkedB:true
   })
+
+  jobState.handleChange = name => event => {
+    setJobState({ ...jobState, [name]: event.target.checked })
+  }
 
 
   useEffect(() => {
@@ -21,12 +28,12 @@ const Home = () => {
       })
       .catch(e => console.error(e))
   }, [])
+  
   return (
 
     <>
       <h1>THIS IS THE HOME PAGE</h1>
       <JobCardContext.Provider value ={jobState}>
-
       <SimCard />
       </JobCardContext.Provider>
 

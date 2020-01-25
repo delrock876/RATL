@@ -6,12 +6,13 @@ import CardContent from '@material-ui/core/CardContent'
 import Button from '@material-ui/core/Button'
 import Typography from '@material-ui/core/Typography'
 import PeopleAltIcon from '@material-ui/icons/PeopleAlt'
+import JobCardContext from '../../utils/JobCardContext'
+import Switches from '../Switch'
 
-import JobCardContext from '../../utils/JobCardContext';
 
 const SimCard = () => {
 
-  const { jobs } = useContext(JobCardContext)
+  const { jobs, checkedA, checkedB, handleChange } = useContext(JobCardContext)
 
   const useStyles = makeStyles({
     card: {
@@ -34,9 +35,12 @@ const SimCard = () => {
   const bull = <span className={classes.bullet}>•</span>
 
   return (
+
+
     <div>
       {jobs.length ? jobs.map(job => (
-
+        
+        
         <Card className={classes.card}>
           <CardContent>
             <Typography className={classes.title} color="textSecondary" gutterBottom>
@@ -49,13 +53,14 @@ const SimCard = () => {
               {job.jobTitle}
             </Typography>
             <Typography variant="body2" component="p">
-              Current Status: [phone interview]
-          <br />
+              Started interview process:  <Switches />
               <br />
-              Next Step: [onsite]
-        </Typography>
+
+            </Typography>
+
           </CardContent>
           <CardActions>
+            
             <Button size="medium">
               <PeopleAltIcon></PeopleAltIcon>{job.contactName}
             </Button>
