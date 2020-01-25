@@ -102,7 +102,8 @@ const JobForm = () => {
 
         <br />
       
-        <Tooltip title="Example: Javascript">
+        <Tooltip title="Separate each skill with a comma
+        Example: Javascript, Python">
           <TextField
             id="filled-multiline-static"
             label="Required Skills"
