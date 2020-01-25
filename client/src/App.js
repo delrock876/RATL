@@ -6,6 +6,8 @@ import Home from './pages/Home'
 import Connections from './pages/Connections'
 import Archived from './pages/Archived'
 import Jobs from './pages/Jobs'
+import LandingPage from './components/LandingPage'
+
 import {
   BrowserRouter as Router,
   Switch,
@@ -13,38 +15,38 @@ import {
   Link
 } from 'react-router-dom'
 
-const App =()=>{
+const App = () => {
 
 
-  return(
+  return (
     <Router>
 
-    <Navbar/>
-  
-    <BottomNav />
+      <Navbar />
 
-    <Switch>
-   
-      <Route exact path="/">
-        <Home />
-      </Route>
+      <BottomNav />
+      {/* <LandingPage /> */}
+      <Switch>
 
-      <Route path="/archived">
-        <Archived />
-      </Route>
+        <Route exact path="/">
+          <Home />
+        </Route>
 
-      <Route path="/jobs">
-        <Jobs />
-      </Route>
+        <Route path="/archived">
+          <Archived />
+        </Route>
 
-      <Route path="/connections">
-        <Connections />
-      </Route>
+        <Route path="/jobs">
+          <Jobs />
+        </Route>
+
+        <Route path="/connections">
+          <Connections />
+        </Route>
       </Switch>
 
     </Router>
-  
-    
+
+
   )
 }
 
