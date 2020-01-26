@@ -10,6 +10,7 @@
     date: String,
     jobTitle: String,
     skills: [{ type: String }]
+    checked: Boolean
   })
 
     return model('Jobs', Jobs)

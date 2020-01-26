@@ -26,7 +26,6 @@ class MyHeader extends React.Component {
   }
 }
 
-
 const LandingPage = () => {
   return (
     <>
