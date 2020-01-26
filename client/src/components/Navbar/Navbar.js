@@ -5,7 +5,7 @@ import Toolbar from '@material-ui/core/Toolbar'
 import Typography from '@material-ui/core/Typography'
 import Button from '@material-ui/core/Button'
 import IconButton from '@material-ui/core/IconButton'
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import Box from '@material-ui/core/Box'
 
 
@@ -22,7 +22,6 @@ const Navbar = () => {
       flexGrow: 1,
     }
   }))
-
   
     const classes = useStyles()
      
@@ -34,7 +33,7 @@ const Navbar = () => {
           <Toolbar>
             <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
             </IconButton>
-            <Typography variant="h6" className={classes.title}><Link to = "/">Ratl</Link>
+            <Typography variant="h6" className={classes.title}><Link to = "/home">Ratl</Link>
           </Typography>
             <Link to = "/archived"><Button color="inherit">Archived</Button>
             </Link>

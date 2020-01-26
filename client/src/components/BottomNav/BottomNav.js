@@ -28,7 +28,7 @@ const BottomNav =()=>{
       showLabels
       className={classes.root}
     >
-        <BottomNavigationAction label="Home" icon={<Link to="/"><HomeIcon /></Link>} />
+        <BottomNavigationAction label="Home" icon={<Link to="/home"><HomeIcon /></Link>} />
         <BottomNavigationAction label="Archives" icon={<Link to="archived"><ArchiveIcon /></Link>} />
 
         <BottomNavigationAction label="Jobs" icon={<Link to="/jobs"><WorkIcon /></Link>} />

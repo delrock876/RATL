@@ -6,12 +6,11 @@ import Home from './pages/Home'
 import Calendar from './pages/Events'
 import Archived from './pages/Archived'
 import Jobs from './pages/Jobs'
-import LandingPage from './components/LandingPage'
+import Landing from './pages/Landing'
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link
+  Route
 } from 'react-router-dom'
 
 const App = () => {
@@ -27,6 +26,10 @@ const App = () => {
       <Switch>
 
         <Route exact path="/">
+          <Landing />
+        </Route>
+
+        <Route exact path="/home">
           <Home />
         </Route>
 
