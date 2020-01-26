@@ -39,7 +39,7 @@ const Navbar = () => {
             </Link>
             <Link to = "/jobs"><Button color="inherit">Jobs</Button>
             </Link>
-            <Link to = "/connections"><Button color="inherit">Calendar</Button>
+            <Link to = "/calendar"><Button color="inherit">Calendar</Button>
             </Link>
           </Toolbar>
         </AppBar>
