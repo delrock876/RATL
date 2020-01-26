@@ -22,7 +22,8 @@ const App = () => {
       <Navbar />
 
       <BottomNav />
-   
+
+
       <Switch>
 
         <Route exact path="/">
@@ -47,6 +48,7 @@ const App = () => {
       </Switch>
 
     </Router>
+
   )
 }
 
