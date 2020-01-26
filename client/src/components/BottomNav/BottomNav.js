@@ -32,7 +32,7 @@ const BottomNav =()=>{
         <BottomNavigationAction label="Archives" icon={<Link to="archived"><ArchiveIcon /></Link>} />
 
         <BottomNavigationAction label="Jobs" icon={<Link to="/jobs"><WorkIcon /></Link>} />
-        <BottomNavigationAction label="Connections" icon={<Link to="/connections"><PeopleAltIcon /></Link>} />
+        <BottomNavigationAction label="Calendar" icon={<Link to="/calendar"><PeopleAltIcon /></Link>} />
     </BottomNavigation>
     </Box>
   )
