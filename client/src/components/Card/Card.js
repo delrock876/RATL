@@ -12,7 +12,7 @@ import Switches from '../Switch'
 
 const SimCard = () => {
 
-  const { jobs, checkedA, checkedB, handleChange } = useContext(JobCardContext)
+  const { jobs } = useContext(JobCardContext)
 
   const useStyles = makeStyles({
     card: {
@@ -32,14 +32,11 @@ const SimCard = () => {
   })
 
   const classes = useStyles()
-  const bull = <span className={classes.bullet}>•</span>
-
+  
   return (
-
 
     <div>
       {jobs.length ? jobs.map(job => (
-        
         
         <Card className={classes.card}>
           <CardContent>

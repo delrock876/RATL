@@ -3,16 +3,14 @@ import './App.css'
 import Navbar from './components/Navbar'
 import BottomNav from './components/BottomNav'
 import Home from './pages/Home'
-import Connections from './pages/Connections'
+import Calendar from './pages/Events'
 import Archived from './pages/Archived'
 import Jobs from './pages/Jobs'
-import LandingPage from './components/LandingPage'
-
+import Landing from './pages/Landing'
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link
+  Route
 } from 'react-router-dom'
 
 const App = () => {
@@ -29,6 +27,10 @@ const App = () => {
       <Switch>
 
         <Route exact path="/">
+          <Landing />
+        </Route>
+
+        <Route exact path="/home">
           <Home />
         </Route>
 
@@ -40,23 +42,14 @@ const App = () => {
           <Jobs />
         </Route>
 
-        <Route path="/connections">
-          <Connections />
+        <Route path="/calendar">
+          <Calendar />
         </Route>
       </Switch>
 
     </Router>
-<<<<<<< HEAD
 
-
-=======
-
-
-
->>>>>>> 9ecbc334b01ebde08750b7aa23951b5062ad0af1
   )
 }
-
-
 
 export default App

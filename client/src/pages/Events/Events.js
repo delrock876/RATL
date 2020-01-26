@@ -1,6 +1,7 @@
 import React from 'react'
 import Calendar from '../../components/Calender'
-const Connections =()=>{
+
+const Events =()=>{
 
   return(
 
@@ -12,4 +13,4 @@ const Connections =()=>{
   )
 }
 
-export default Connections
+export default Events
