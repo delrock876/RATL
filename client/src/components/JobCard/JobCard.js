@@ -29,7 +29,7 @@ const useStyles = makeStyles({
 
 const JobCard =()=> {
 
-  const { jobs, handleDeleteJob} = useContext(JobCardContext)
+  const { jobs, handleDeleteJob, handleArchiveJob} = useContext(JobCardContext)
   const classes = useStyles()
 
   return (
@@ -48,7 +48,7 @@ const JobCard =()=> {
           Delete
       </Button>
         <Button
-          // onClick= {}
+          onClick= {()=> handleArchiveJob(job._id, job.archived)}
           variant="contained"
           className={classes.button}
           startIcon={<ArchiveIcon />}

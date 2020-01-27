@@ -4,7 +4,6 @@ import JobCardContext from '../../utils/JobCardContext'
 import JobCard from '../../components/JobCard'
 import JobDrawer from '../../components/JobDrawer'
 
-
 const { getAllJobs, addJob, updateJob, deleteJob } = JobCardAPI
 
 const Jobs = () => {
@@ -35,10 +34,15 @@ const Jobs = () => {
     setJobState({ ...jobState, [event.target.name]: event.target.value })
   }
 
+  jobState.handleArchiveJob =(id, archived)=>{
+    updateJob(id, {archived: true})
+      .then(()=>console.log('archived!'))
+      .catch(e=>console.error(e))
+  }
 
   jobState.handleDeleteJob =(id)=>{
     deleteJob(id)
-      .then(()=>console.log('hello'))
+      .then(()=>console.log('deleted!'))
       .catch(e=>console.error(e))
   }
 
@@ -69,7 +73,7 @@ const Jobs = () => {
     } else  {
 
     addJob(job)
-    
+
       .then(() => {
         let jobs = JSON.parse(JSON.stringify(jobState.jobs))
         jobs.push(job)
