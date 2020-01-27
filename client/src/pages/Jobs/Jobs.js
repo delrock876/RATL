@@ -35,6 +35,14 @@ const Jobs = () => {
     setJobState({ ...jobState, [event.target.name]: event.target.value })
   }
 
+
+  jobState.handleDeleteJob =(id)=>{
+    deleteJob(id)
+      .then(()=>console.log('hello'))
+      .catch(e=>console.error(e))
+  }
+
+
   jobState.handleAddJob = (event) => {
     event.preventDefault()
 
@@ -50,11 +58,18 @@ const Jobs = () => {
       contactPhone: jobState.phone,
       contactType: jobState.type,
       archived: false,
+      checked: false,
       date: jobState.dateApplied,
       jobTitle: jobState.job,
       skills: jobState.skillsRequired.split(',')
     }
+
+    if(job.companyName.length === 0 || job.jobTitle.length === 0 || job.skills.length === 0){
+      alert('Please fill out required fields')
+    } else  {
+
     addJob(job)
+    
       .then(() => {
         let jobs = JSON.parse(JSON.stringify(jobState.jobs))
         jobs.push(job)
@@ -69,10 +84,12 @@ const Jobs = () => {
           dateApplied: '',
           job: '',
           skillsRequired: ' ',
-          bottom: false
+          bottom: false,
+          checked: false
         })
       })
       .catch(e => console.error(e))
+    }
   }
 
   //get all jobs

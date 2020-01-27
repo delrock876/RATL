@@ -6,6 +6,8 @@ import CardContent from '@material-ui/core/CardContent'
 import Button from '@material-ui/core/Button'
 import Typography from '@material-ui/core/Typography'
 import Chip from '@material-ui/core/Chip'
+import DeleteIcon from '@material-ui/icons/Delete'
+import ArchiveIcon from '@material-ui/icons/Archive';
 import JobCardContext from '../../utils/JobCardContext'
 
 const useStyles = makeStyles({
@@ -25,11 +27,9 @@ const useStyles = makeStyles({
   },
 })
 
-
 const JobCard =()=> {
 
-  const { jobs } = useContext(JobCardContext)
-
+  const { jobs, handleDeleteJob} = useContext(JobCardContext)
   const classes = useStyles()
 
   return (
@@ -39,6 +39,23 @@ const JobCard =()=> {
     jobs.length ? jobs.map(job=>(
 
     <Card className={classes.card} variant="outlined">
+        <Button
+          onClick = {()=>handleDeleteJob(job._id)}
+          variant="contained"
+          className={classes.button}
+          startIcon={<DeleteIcon />}
+        >
+          Delete
+      </Button>
+        <Button
+          // onClick= {}
+          variant="contained"
+          className={classes.button}
+          startIcon={<ArchiveIcon />}
+        >
+          Archive
+      </Button>
+
       <CardContent>
         <Typography className={classes.title} color="textSecondary" gutterBottom>
          {job.date}
