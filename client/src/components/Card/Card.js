@@ -7,12 +7,12 @@ import Button from '@material-ui/core/Button'
 import Typography from '@material-ui/core/Typography'
 import PeopleAltIcon from '@material-ui/icons/PeopleAlt'
 import JobCardContext from '../../utils/JobCardContext'
-import Switches from '../Switch'
+import Switch from '@material-ui/core/Switch'
 
 
 const SimCard = () => {
 
-  const { jobs } = useContext(JobCardContext)
+  const { jobs, handleSwitch } = useContext(JobCardContext)
 
   const useStyles = makeStyles({
     card: {
@@ -50,7 +50,8 @@ const SimCard = () => {
               {job.jobTitle}
             </Typography>
             <Typography variant="body2" component="p">
-              Started interview process:  <Switches />
+              Started interview process: 
+              <Switch onChange={() => handleSwitch(job._id, job.checked)} inputProps={{ 'aria-label': 'primary checkbox' }} />
               <br />
 
             </Typography>

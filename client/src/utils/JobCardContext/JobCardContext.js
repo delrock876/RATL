@@ -17,6 +17,7 @@ const JobCardContext = createContext({
   handleArchiveJob: () => { },
   handleAddJob: () => { },
   handleDeleteJob: () => { },
+  handleArchiveJob: () => { },
   toggleDrawer: () => { }
 })
 
