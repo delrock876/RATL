@@ -2,6 +2,7 @@ const { User } = require ('../models')
 const jwt = require('jsonwebtoken')
 
 module.exports = app => {
+    
     //Register a User
     app.post('/api/users', (req, res) =>{
         const { name, email, username } = req.body
