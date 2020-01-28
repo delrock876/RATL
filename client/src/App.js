@@ -23,7 +23,6 @@ const App = () => {
 
       <BottomNav />
 
-
       <Switch>
 
         <Route exact path="/">
@@ -48,6 +47,7 @@ const App = () => {
       </Switch>
 
     </Router>
+
 
   )
 }
