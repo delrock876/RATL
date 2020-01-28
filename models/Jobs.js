@@ -9,7 +9,8 @@
     archived: Boolean,
     date: String,
     jobTitle: String,
-    skills: [{ type: String }]
+    checked: Boolean,
+    skills: [{ type: String }],
   })
 
     return model('Jobs', Jobs)

@@ -3,22 +3,13 @@ import SimCard from '../../components/Card'
 import JobCardAPI from '../../utils/JobCardAPI'
 import JobCardContext from '../../utils/JobCardContext'
 
-
-
-const { getAllJobs, deleteJob } = JobCardAPI
+const { getAllJobs, updateJob } = JobCardAPI
 
 const Home = () => {
 
   const [jobState, setJobState] = useState({
-    jobs: [],
-    checkedA:true,
-    checkedB:true
+    jobs: []
   })
-
-  jobState.handleChange = name => event => {
-    setJobState({ ...jobState, [name]: event.target.checked })
-  }
-
 
   useEffect(() => {
     getAllJobs()

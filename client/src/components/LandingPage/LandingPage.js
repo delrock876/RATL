@@ -37,10 +37,10 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-
 const LandingPage = () => {
   const classes = useStyles();
   return (
+    <>
     <div>
       <Parallax
         blur={0}
@@ -68,12 +68,12 @@ const LandingPage = () => {
         </Grid>
         <Grid item xs={12}>
           <Paper className={classes.paper}>  <h4> Company Insights </h4> <SearchIcon />
-            <p> Be in-the-know and armed with relevant information about companies & organizations  </p></p></Paper>
+            <p> Be in-the-know and armed with relevant information about companies & organizations  </p></Paper>
       </Grid>
 
       </Grid>
     </div >
-      
+      </>
 )
 }
 
