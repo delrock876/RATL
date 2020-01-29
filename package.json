@@ -30,11 +30,14 @@
     "if-env": "^1.0.4",
     "indeed-scraper": "^3.0.2",
     "jsonwebtoken": "^8.5.1",
+    "moment": "^2.24.0",
     "mongoose": "^5.8.9",
     "passport": "^0.4.1",
     "passport-jwt": "^4.0.0",
     "passport-local": "^1.0.0",
     "passport-local-mongoose": "^6.0.1",
-    "react-big-calendar": "^0.23.0"
+    "react-big-calendar": "^0.23.0",
+    "react-parallax": "^3.0.3",
+    "typeface-roboto": "0.0.75"
   }
 }

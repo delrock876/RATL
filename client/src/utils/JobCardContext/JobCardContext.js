@@ -1,4 +1,4 @@
-import {createContext} from 'react'
+import { createContext } from 'react'
 
 const JobCardContext = createContext({
   jobs: [],
@@ -12,10 +12,12 @@ const JobCardContext = createContext({
   job: '',
   skillsRequired: '',
   bottom: Boolean,
+  handleSwitch:()=>{},
   handleInputChange: () => { },
   handleArchiveJob: () => { },
   handleAddJob: () => { },
   handleDeleteJob: () => { },
+  handleArchiveJob: () => { },
   toggleDrawer: () => { }
 })
 

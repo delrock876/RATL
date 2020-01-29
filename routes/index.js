@@ -4,4 +4,5 @@ module.exports = app => {
   require('./userRoutes')(app)
   require('./postRoutes')(app)
   require('./scrapeRoutes')(app)
+  require('./connectionsRoutes')(app)
 }
