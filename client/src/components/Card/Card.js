@@ -51,7 +51,7 @@ const SimCard = () => {
             </Typography>
             <Typography variant="body2" component="p">
               Started interview process: 
-              <Switch onChange={() => handleSwitch(job._id, job.checked)} inputProps={{ 'aria-label': 'primary checkbox' }} />
+              {/* <Switch onChange={() => handleSwitch(job._id, job.checked)} inputProps={{ 'aria-label': 'primary checkbox' }} /> */}
               <br />
 
             </Typography>
