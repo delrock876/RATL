@@ -41,7 +41,7 @@ const App = () => {
         //store token in local storage
         //the retrieve  it and send as header in the request
         //req.user has all job info
-        //  window.location = "/home"
+         window.location = "/home"
         })
       .catch(e => console.error(e))
   }

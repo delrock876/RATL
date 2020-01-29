@@ -9,7 +9,7 @@ import PermContactCalendarIcon from '@material-ui/icons/PermContactCalendar'
 import TodayIcon from '@material-ui/icons/Today'
 import LocationCityIcon from '@material-ui/icons/LocationCity'
 import SearchIcon from '@material-ui/icons/Search'
-import 'typeface-roboto'
+// import 'typeface-roboto'
 import snakeImage from './assets/Snake-Vector-Illustration.jpg'
 
 
