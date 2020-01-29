@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
@@ -28,7 +28,7 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-const RegisterForm =()=> {
+const RegisterForm = () => {
   const { userFullName, usersname, userEmail, userPassword, handleInputChange, handleRegisterUser } = useContext(UserContext)
 
   const classes = useStyles()
@@ -37,7 +37,7 @@ const RegisterForm =()=> {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  const closeAndRegister =()=>{
+  const closeAndRegister = () => {
     handleClose()
     handleRegisterUser()
   }
@@ -54,42 +54,46 @@ const RegisterForm =()=> {
         </Modal.Header>
         <Modal.Body>
           <form className={classes.card}>
-            <TextField 
-            className={classes.pos}
-            name= "userFullName"
-            value={userFullName}
-            label= "Your Name" 
-            variant="outlined"></TextField>
+            <TextField
+              onChange={handleInputChange}
+              className={classes.pos}
+              name="userFullName"
+              value={userFullName}
+              label="Your Name"
+              variant="outlined"></TextField>
 
-            <TextField 
-            className={classes.pos}
-            name="userEmail"
-            value={userEmail}
-            label= "Email" 
-            variant="outlined"></TextField>
+            <TextField
+              onChange={handleInputChange}
+              className={classes.pos}
+              name="userEmail"
+              value={userEmail}
+              label="Email"
+              variant="outlined"></TextField>
 
-            <TextField 
-            className={classes.pos}
-            name="usersname"
-            value= {usersname}
-            label= "Username" 
-            variant="outlined"></TextField>
+            <TextField
+              onChange={handleInputChange}
+              className={classes.pos}
+              name="usersname"
+              value={usersname}
+              label="Username"
+              variant="outlined"></TextField>
 
-            <TextField 
-            className={classes.pos}
-            name= "userPassword"
-            value= {userPassword}
-            label= "Password" 
-            placeholder="Create a password!" 
-            variant="outlined"></TextField>
+            <TextField
+              onChange={handleInputChange}
+              className={classes.pos}
+              name="userPassword"
+              value={userPassword}
+              label="Password"
+              placeholder="Create a password!"
+              variant="outlined"></TextField>
           </form>
-          
-          </Modal.Body>
+
+        </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={closeAndRegister}>
             Register Account!
           </Button>
-          
+
         </Modal.Footer>
       </Modal>
     </>
@@ -108,7 +112,7 @@ export default RegisterForm
 //     <Card className= {classes.card}>
 //       <CardContent className= {classes.pos}>
 //     <form className={classes.root} noValidate autoComplete="off" >
-      
+
 //         <TextField
 //           id="outlined-multiline-flexible"
 //           label="Full Name"
@@ -147,7 +151,7 @@ export default RegisterForm
 //         />
 //         <br/>
 //         <Button onClick = {handleRegisterUser} variant= "contained" color= "secondary">Register!</Button>
-       
+
 //     </form>
 //     </CardContent>
 //     </Card>
