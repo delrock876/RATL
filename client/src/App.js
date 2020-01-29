@@ -29,6 +29,17 @@ const App = () => {
     userPassword: ''
   })
 
+  userState.handleLogin = (event)=>{
+    event.preventDefault()
+    let user = {
+      username: userState.usersname,
+      password: userState.userPassword
+    }
+    loginUser(user)
+      .then(()=> window.location = "/home")
+      .catch(e => console.error(e))
+  }
+
   userState.handleInputChange = (event) => {
     console.log(event.target.value)
     setUserState({ ...userState, [event.target.name]: event.target.value })
@@ -51,7 +62,6 @@ const App = () => {
   }
 
   return (
-
 
     <Router>
 

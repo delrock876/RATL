@@ -1,10 +1,11 @@
-const { Connections } = require('../models')
+const { Connections, Jobs } = require('../models')
 
 module.exports = app => {
 
   // Get all Connections
   app.get('/api/connections', (req, res) => {
-    Connections.find({})
+    Connections.find()
+      .populate('parent')
       .then(connections => res.json(connections))
       .catch(e => console.log(e))
   })
@@ -12,7 +13,17 @@ module.exports = app => {
   //Post one Connection
   app.post('/api/connections', (req, res) => {
     Connections.create(req.body)
-      .then(connections => res.json(connections))
+      .then(({ _id }) => {
+        Jobs.updateOne({
+          _id: req.body.parent
+          }, {
+            $push: {
+              connections: _id
+          }
+        })
+        .then(() => res.sendStatus(200))
+        .catch(e => console.log(e))
+      })
       .catch(e => console.log(e))
   })
 

@@ -34,11 +34,11 @@ export default class DemoApp extends React.Component {
 
   handleDateClick = (event) => {
 
-    swal("Type something:", {
+    swal("Set Reminder:", {
       content: "input",
     })
     .then((value) => {
-      
+      if( value !== null){
        this.setState({
          calendarEvents: this.state.calendarEvents.concat({
            title: `${value}`,
@@ -46,7 +46,12 @@ export default class DemoApp extends React.Component {
            allDay: event.allDay
          })
        })
-      console.log(value)
+      }else{
+        swal({
+          title: `Are you sure you want to leave the text area empty?`,
+          icon: 'warning'
+        })
+      }
     })
     .catch(e => console.error(e))
   }
