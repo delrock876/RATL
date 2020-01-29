@@ -9,6 +9,9 @@ import PermContactCalendarIcon from '@material-ui/icons/PermContactCalendar'
 import TodayIcon from '@material-ui/icons/Today'
 import LocationCityIcon from '@material-ui/icons/LocationCity'
 import SearchIcon from '@material-ui/icons/Search'
+import Card from '@material-ui/core/Card';
+import CardActionArea from '@material-ui/core/CardActionArea';
+import CardMedia from '@material-ui/core/CardMedia';
 
 
 const useStyles = makeStyles(theme => ({
@@ -25,6 +28,12 @@ const useStyles = makeStyles(theme => ({
     textAlign: 'center',
     color: theme.palette.text.secondary,
   },
+  card: {
+    maxWidth: 345,
+  },
+  media: {
+    height: 100,
+  },
 }));
 
 const LandingPage = () => {
@@ -32,10 +41,20 @@ const LandingPage = () => {
   return (
     <>
       <div>
-        <Grid container spacing={3}>
-          <Grid item xs={12}>
-            <Header className={classes.header}>Your efficient job search management tool</h3>
-            <p> RATL effectively helps manage your job search by providing tools to keep track of your application process, stay in touch with hiring managers and never loose a beat with an overview of key dates on your calendar such as upcoming interviews and networking events.  </p>
+        <Grid container spacing={2}>
+          <Grid item xs={6}>
+            <Paper className={classes.header}><h3>Your efficient job search management tool</h3>
+              <p> RATL effectively helps manage your job search by providing tools to keep track of your application process, stay in touch with hiring managers and never loose a beat with an overview of key dates on your calendar such as upcoming interviews and networking events.  </p>
+            </Paper>
+          </Grid>
+          <Grid item xs={6}>
+            <Card className={classes.card}>
+              <CardMedia
+                className={classes.media}
+                image="./assets/Snake-Vector-Illustration.jpg"
+                title="RATL snake"
+              />
+            </Card>
           </Grid>
         </Grid>
       </div>

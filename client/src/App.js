@@ -63,7 +63,7 @@ const App = () => {
 
       <BottomNav />
 
-      <LandingPage />
+
 
       <Switch>
 
