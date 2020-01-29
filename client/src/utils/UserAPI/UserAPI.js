@@ -2,7 +2,7 @@ import axios from 'axios'
 
 const UserAPI = {
   registerUser:(user)=> axios.post(`/api/users`, user),
-  loginUser:(username, password)=> axios.post('/api/login')
+  loginUser:(user)=> axios.post('/api/login', user)
 }
 
 export default UserAPI
