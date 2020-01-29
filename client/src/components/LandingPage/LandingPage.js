@@ -1,6 +1,6 @@
 import React from 'react'
 import { Parallax, Background } from 'react-parallax'
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles, Container } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import AccessAlarmIcon from '@material-ui/icons/AccessAlarm'
@@ -10,6 +10,8 @@ import TodayIcon from '@material-ui/icons/Today'
 import LocationCityIcon from '@material-ui/icons/LocationCity'
 import SearchIcon from '@material-ui/icons/Search'
 import 'typeface-roboto'
+import snakeImage from './assets/Snake-Vector-Illustration.jpg'
+
 
 
 const useStyles = makeStyles(theme => ({
@@ -26,12 +28,6 @@ const useStyles = makeStyles(theme => ({
     textAlign: 'center',
     color: theme.palette.text.secondary,
   },
-  card: {
-    maxWidth: 345,
-  },
-  media: {
-    height: 100,
-  },
 }));
 
 const LandingPage = () => {
@@ -39,19 +35,22 @@ const LandingPage = () => {
   return (
     <>
       <div>
-        <Grid container spacing={2}>
+        <Grid container spacing={3}>
           <Grid item xs={12}>
-            <Paper className={classes.header}><h3>Your efficient job search management tool</h3>
+            <Paper className={classes.header}><h2>Your efficient job search management tool</h2>
               <p> RATL effectively helps manage your job search by providing tools to keep track of your application process, stay in touch with hiring managers and never loose a beat with an overview of key dates on your calendar such as upcoming interviews and networking events.  </p>
             </Paper>
           </Grid>
+          {/* <Grid item xs={12}>
+            <img src={snakeImage} alt="RATL Snake" />
+          </Grid> */}
         </Grid>
       </div>
 
       <div>
         <Parallax
           blur={0}
-          bgImage={require('./assets/female_job_hunt.jpg')}
+          bgImage={require('./assets/Snake-Vector-Illustration.jpg')}
           bgImageAlt="group"
           strength={200}
         >
