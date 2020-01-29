@@ -71,15 +71,10 @@ const App = () => {
 
     <Router>
 
-      {/* <UserContext.Provider value={userState}>
-<RegisterForm/>
-</UserContext.Provider>   */}
 
       <Navbar />
 
       <BottomNav />
-
-
 
       <Switch>
 
