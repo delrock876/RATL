@@ -5,6 +5,7 @@ import dayGridPlugin from '@fullcalendar/daygrid'
 import timeGridPlugin from '@fullcalendar/timegrid'
 import interactionPlugin from '@fullcalendar/interaction' // needed for dayClick
 import swal from 'sweetalert'
+import axios from 'axios'
 
 import './Calendar.scss'
 
@@ -33,7 +34,7 @@ export default class DemoApp extends React.Component {
 
 
   handleDateClick = (event) => {
-
+    axios.post('')
     swal("Set Reminder:", {
       content: "input",
     })

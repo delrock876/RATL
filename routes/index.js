@@ -5,4 +5,5 @@ module.exports = app => {
   require('./postRoutes')(app)
   require('./scrapeRoutes')(app)
   require('./connectionsRoutes')(app)
+  require('./calendarRoutes')(app)
 }
