@@ -4,7 +4,8 @@ module.exports = app => {
 
   // Get all Jobs
   app.get('/api/jobs', (req, res) => {
-    Jobs.find({})
+    Jobs.find()
+    .populate('connections')
     .then(jobs => res.json(jobs))
     .catch(e => console.log(e))
   })
