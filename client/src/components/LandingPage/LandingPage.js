@@ -9,9 +9,7 @@ import PermContactCalendarIcon from '@material-ui/icons/PermContactCalendar'
 import TodayIcon from '@material-ui/icons/Today'
 import LocationCityIcon from '@material-ui/icons/LocationCity'
 import SearchIcon from '@material-ui/icons/Search'
-import Card from '@material-ui/core/Card';
-import CardActionArea from '@material-ui/core/CardActionArea';
-import CardMedia from '@material-ui/core/CardMedia';
+import 'typeface-roboto'
 
 
 const useStyles = makeStyles(theme => ({
@@ -42,19 +40,10 @@ const LandingPage = () => {
     <>
       <div>
         <Grid container spacing={2}>
-          <Grid item xs={6}>
+          <Grid item xs={12}>
             <Paper className={classes.header}><h3>Your efficient job search management tool</h3>
               <p> RATL effectively helps manage your job search by providing tools to keep track of your application process, stay in touch with hiring managers and never loose a beat with an overview of key dates on your calendar such as upcoming interviews and networking events.  </p>
             </Paper>
-          </Grid>
-          <Grid item xs={6}>
-            <Card className={classes.card}>
-              <CardMedia
-                className={classes.media}
-                image="./assets/Snake-Vector-Illustration.jpg"
-                title="RATL snake"
-              />
-            </Card>
           </Grid>
         </Grid>
       </div>
@@ -62,11 +51,11 @@ const LandingPage = () => {
       <div>
         <Parallax
           blur={0}
-          bgImage={require('./assets/Group-of-People.jpg')}
+          bgImage={require('./assets/female_job_hunt.jpg')}
           bgImageAlt="group"
           strength={200}
         >
-          <div style={{ height: '450px' }} />
+          <div style={{ height: '400px' }} />
         </Parallax>
       </div>
 
@@ -91,17 +80,17 @@ const LandingPage = () => {
 
         </Grid>
       </div >
-
       <div>
         <Parallax
           blur={0}
-          bgImage={require('./assets/female_job_hunt.jpg')}
+          bgImage={require('./assets/Group-of-People.jpg')}
           bgImageAlt="group"
           strength={200}
         >
-          <div style={{ height: '400px' }} />
+          <div style={{ height: '450px' }} />
         </Parallax>
       </div>
+
     </>
   )
 }
