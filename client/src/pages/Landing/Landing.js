@@ -14,9 +14,7 @@ const Landing = () => {
       <h2>Landing Page</h2>
       <LoginForm/>
       <RegisterForm/>
-      
       <LandingPage />
-
     </>
   )
 }
