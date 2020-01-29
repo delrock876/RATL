@@ -37,14 +37,14 @@ const RegisterForm = () => {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  const closeAndRegister = () => {
-    handleClose()
-    handleRegisterUser()
-  }
+  // const closeAndRegister = () => {
+  //   handleRegisterUser()
+  //   // handleClose()
+  // }
 
   return (
     <>
-      <Button variant="primary" onClick={handleShow}>
+      <Button variant="contained" onClick={handleShow}>
         Register
       </Button>
 
@@ -90,7 +90,7 @@ const RegisterForm = () => {
 
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={closeAndRegister}>
+          <Button variant="contained" onClick={handleRegisterUser}>
             Register Account!
           </Button>
 
