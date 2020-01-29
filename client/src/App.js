@@ -32,10 +32,10 @@ const App = () => {
     event.preventDefault()
     let user = {
       username: userState.usersname,
-      password: userState.password
+      password: userState.userPassword
     }
     loginUser(user)
-      .then(()=> console.log('log in successful!'))
+      .then(()=> window.location = "/home")
       .catch(e => console.error(e))
   }
 
