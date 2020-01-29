@@ -1,6 +1,8 @@
 import axios from 'axios'
 
 const UserAPI = {
-  registerUser:(email, name, username)=>axios.post(`/api/users`),
+  registerUser:(user)=> axios.post(`/api/users`, user),
   loginUser:(username, password)=> axios.post('/api/login')
 }
+
+export default UserAPI
