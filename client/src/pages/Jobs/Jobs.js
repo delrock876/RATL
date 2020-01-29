@@ -57,15 +57,19 @@ const Jobs = () => {
 
     let job = {
       companyName: jobState.compName,
-      contactName: jobState.namee,
-      contactEmail: jobState.email,
-      contactPhone: jobState.phone,
-      contactType: jobState.type,
+      jobTitle: jobState.job,
       archived: false,
       checked: false,
       date: jobState.dateApplied,
-      jobTitle: jobState.job,
       skills: jobState.skillsRequired.split(',')
+    }
+
+    let connection = {
+      name: jobState.namee,
+      title: jobState.type,
+      email: jobState.email,
+      phone: jobState.phone,
+      parent: 'parent'
     }
 
     if(job.companyName.length === 0 || job.jobTitle.length === 0 || job.skills.length === 0){
