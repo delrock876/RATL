@@ -15,6 +15,7 @@ import {
   Route
 } from 'react-router-dom'
 import RegisterForm from './components/RegisterForm'
+import LandingPage from './components/LandingPage'
 
 
 const { loginUser, registerUser } = UserAPI
@@ -77,6 +78,8 @@ const App = () => {
       <Navbar />
 
       <BottomNav />
+
+
 
       <Switch>
 
