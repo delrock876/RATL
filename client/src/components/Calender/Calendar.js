@@ -14,7 +14,8 @@ export default class DemoApp extends React.Component {
   state = {
     calendarWeekends: true,
     calendarEvents: [ // initial event data
-      { title: 'Event Now', start: new Date() }
+      { title: '', 
+      start: new Date() }
     ]
   }
 
@@ -30,13 +31,24 @@ export default class DemoApp extends React.Component {
     calendarApi.gotoDate('2000-01-01') // call a method on the Calendar object
   }
 
+
   handleDateClick = (event) => {
+
     swal("Type something:", {
       content: "input",
     })
     .then((value) => {
-      swal(`You typed: ${value}`);
-    });
+      
+       this.setState({
+         calendarEvents: this.state.calendarEvents.concat({
+           title: `${value}`,
+           start: event.date,
+           allDay: event.allDay
+         })
+       })
+      console.log(value)
+    })
+    .catch(e => console.error(e))
   }
 
   
@@ -59,6 +71,7 @@ export default class DemoApp extends React.Component {
             }}
             plugins={[ dayGridPlugin, timeGridPlugin, interactionPlugin ]}
             ref={ this.calendarComponentRef }
+            editable={true}
             weekends={ this.state.calendarWeekends }
             events={ this.state.calendarEvents }
             dateClick={ this.handleDateClick }
