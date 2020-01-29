@@ -32,15 +32,10 @@ const RegisterForm = () => {
   const { userFullName, usersname, userEmail, userPassword, handleInputChange, handleRegisterUser } = useContext(UserContext)
 
   const classes = useStyles()
-  const [show, setShow] = useState(false);
+  const [show, setShow] = useState(false)
 
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
-
-  // const closeAndRegister = () => {
-  //   handleRegisterUser()
-  //   // handleClose()
-  // }
+  const handleClose = () => setShow(false)
+  const handleShow = () => setShow(true)
 
   return (
     <>
@@ -97,65 +92,8 @@ const RegisterForm = () => {
         </Modal.Footer>
       </Modal>
     </>
-  );
+  )
 }
 
 export default RegisterForm
-
-
-// const RegisterForm = () => {
-//   const {userFullName, usersname, userEmail, userPassword, handleInputChange, handleRegisterUser} = useContext(UserContext)
-//   // const [value, setValue] = React.useState('Controlled');
-//   const classes = useStyles()
-
-//   return (
-//     <Card className= {classes.card}>
-//       <CardContent className= {classes.pos}>
-//     <form className={classes.root} noValidate autoComplete="off" >
-
-//         <TextField
-//           id="outlined-multiline-flexible"
-//           label="Full Name"
-//           name="userFullName"
-//           value={userFullName}
-//           placeholder= "Create a username"
-//           onChange={handleInputChange}
-//           variant="outlined"
-//         />
-//         <TextField
-//           id="outlined-multiline-flexible"
-//           label="Username"
-//           name= "usersname"
-//           value={usersname}
-//           placeholder= "Create a username"
-//           onChange={handleInputChange}
-//           variant="outlined"
-//         />
-//         <TextField
-//           id="outlined-multiline-flexible"
-//           label="Email"
-//           name= "userEmail"
-//           value={userEmail}
-//           placeholder= "johndoe@email.com"
-//           onChange={handleInputChange}
-//           variant="outlined"
-//         />
-//         <TextField
-//           id="outlined-multiline-flexible"
-//           label="Password"
-//           name= "userPassword"
-//           value={userPassword}
-//           placeholder= "Create a password"
-//           onChange={handleInputChange}
-//           variant="outlined"
-//         />
-//         <br/>
-//         <Button onClick = {handleRegisterUser} variant= "contained" color= "secondary">Register!</Button>
-
-//     </form>
-//     </CardContent>
-//     </Card>
-//   )
-// }
-
-// export default RegisterForm
+      

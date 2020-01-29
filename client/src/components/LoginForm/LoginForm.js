@@ -1,8 +1,17 @@
-import React, { useContext } from 'react'
+import React, { useState } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
 import UserContext from '../../utils/UserContext'
+import { useContext } from 'react'
+
+import Card from '@material-ui/core/Card';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+
+import 'bootstrap/dist/css/bootstrap.min.css'
+import Modal from 'react-bootstrap/Modal'
+
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -11,41 +20,63 @@ const useStyles = makeStyles(theme => ({
       width: 200,
     },
   },
+  card: {
+    maxWidth: 490,
+  },
+  pos: {
+    margin: 10
+  }
 }))
 
 const LoginForm = () => {
-  const { usersname, userPassword, handleInputChange, handleLogin } = useContext(UserContext)
-  // const [value, setValue] = React.useState('Controlled');
+  const { usersname, userPassword, handleInputChange, handleRegisterUser, handleLogin } = useContext(UserContext)
+
   const classes = useStyles()
+  const [show, setShow] = useState(false)
+
+  const handleClose = () => setShow(false)
+  const handleShow = () => setShow(true)
 
   return (
-    <form className={classes.root} noValidate autoComplete="off">
+    <>
+      <Button variant="contained" onClick={handleShow}>
+        Login
+      </Button>
 
-      <div>
-        <TextField
-          id="outlined-multiline-flexible"
-          label="usersname"
-          name="usersname"
-          value={usersname}
-          placeholder="Create a username"
-          onChange={handleInputChange}
-          variant="outlined"
-        />
+      <Modal show={show} onHide={handleClose} animation={true}>
+        <Modal.Header closeButton>
+          <Modal.Title>Login</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <form className={classes.card}>
 
-        <TextField
-          id="outlined-multiline-flexible"
-          label="Password"
-          name="userPassword"
-          value={userPassword}
-          // placeholder="Enter password"
-          onChange={handleInputChange}
-          variant="outlined"
-        />
-        
-        <Button onClick={handleLogin} variant="contained" color="secondary">Log In</Button>
+            <TextField
+              onChange={handleInputChange}
+              className={classes.pos}
+              name="usersname"
+              value={usersname}
+              label="Username"
+              variant="outlined"></TextField>
 
-      </div>
-    </form>
+            <TextField
+              onChange={handleInputChange}
+              className={classes.pos}
+              name="userPassword"
+              value={userPassword}
+              label="Password"
+              placeholder="Create a password!"
+              variant="outlined"></TextField>
+          </form>
+
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="contained" onClick={handleLogin}>
+            Enter
+          </Button>
+
+        </Modal.Footer>
+      </Modal>
+    </>
   )
 }
 
