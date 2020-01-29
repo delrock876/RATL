@@ -34,7 +34,7 @@ export default class DemoApp extends React.Component {
 
   handleDateClick = (event) => {
 
-    swal("Type something:", {
+    swal("Set Reminder:", {
       content: "input",
     })
     .then((value) => {
