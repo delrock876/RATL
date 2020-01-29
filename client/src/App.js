@@ -36,7 +36,13 @@ const App = () => {
       password: userState.userPassword
     }
     loginUser(user)
-      .then(()=> window.location = "/home")
+      .then((token)=> {
+        console.log(token)
+        //store token in local storage
+        //the retrieve  it and send as header in the request
+        //req.user has all job info
+         window.location = "/home"
+        })
       .catch(e => console.error(e))
   }
 
