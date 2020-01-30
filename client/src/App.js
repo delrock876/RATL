@@ -63,7 +63,14 @@ const App = () => {
     }
 
     registerUser(user)
-      .then(() => console.log('created!'))
+      .then(() => {
+        setUserState({...userState,
+        userFullName: '',
+        userEmail: '',
+        usersname: '',
+        userPassword:''
+      })
+      })
       .catch(e => console.error(e))
 
   }
@@ -71,7 +78,6 @@ const App = () => {
   return (
 
     <Router>
-
 
       <Navbar />
 
@@ -85,7 +91,7 @@ const App = () => {
           </UserContext.Provider>
         </Route>
 
-        <Route exact path="/home">
+        <Route path="/home">
           <Home />
         </Route>
 
