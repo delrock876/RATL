@@ -36,8 +36,9 @@ const App = () => {
       password: userState.userPassword
     }
     loginUser(user)
-      .then((token)=> {
-        console.log(token)
+      .then(({data})=> {
+        localStorage.setItem('userAuth', data.token)
+        console.log(data.token)
         //store token in local storage
         //the retrieve  it and send as header in the request
         //req.user has all job info

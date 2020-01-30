@@ -2,16 +2,13 @@
 
   const Jobs = new Schema({
     companyName: String,
-    // contactName: String,
-    // contactEmail: String,
-    // contactPhone: String,
-    // contactType: String,
     jobTitle: String,
     date: String,
     checked: Boolean,
+    archived: Boolean,
     skills: [{ type: String }],
     connections: [{ type: Schema.Types.ObjectId, ref: 'Connections'}],
-    archived: Boolean
+    userAuth: { type: Schema.Types.ObjectId, ref: 'User' }
   })
 
     return model('Jobs', Jobs)
