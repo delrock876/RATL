@@ -5,7 +5,7 @@ import JobCard from '../../components/JobCard'
 import JobDrawer from '../../components/JobDrawer'
 
 const { getAllJobs, addJob, updateJob, deleteJob } = JobCardAPI
-const token = localStorage.getItem('userAuth')
+
 
 const Jobs = () => {
 
@@ -70,10 +70,10 @@ const Jobs = () => {
 
     if (job.companyName.length === 0 || job.jobTitle.length === 0 || job.skills.length === 0) {
       alert('Please fill out required fields')
-      
+
     } else {
 
-      addJob(token, job)
+      addJob(job, localStorage.getItem('userAuth'))
         .then(() => {
 
           let jobs = JSON.parse(JSON.stringify(jobState.jobs))
@@ -100,10 +100,8 @@ const Jobs = () => {
 
   //get all jobs
   useEffect(() => {
-
-    console.log(token)
    
-    getAllJobs(token)
+    getAllJobs(localStorage.getItem('userAuth'))
       .then(({ data: jobs }) => {
         console.log(jobs)
         setJobState({ ...jobState, jobs })
