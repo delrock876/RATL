@@ -36,13 +36,13 @@ const Jobs = () => {
   }
 
   jobState.handleArchiveJob = (id, archived) => {
-    updateJob(id, { archived: true })
+    updateJob(id, { archived: true }, localStorage.getItem('userAuth'))
       .then(() => console.log('archived!'))
       .catch(e => console.error(e))
   }
 
   jobState.handleDeleteJob = (id) => {
-    deleteJob(id)
+    deleteJob(id, localStorage.getItem('userAuth'))
       .then(() => console.log('deleted!'))
       .catch(e => console.error(e))
   }
@@ -66,7 +66,6 @@ const Jobs = () => {
       skills: jobState.skillsRequired.split(',')
     }
 
-  
     if (job.companyName.length === 0 || job.jobTitle.length === 0 || job.skills.length === 0) {
       alert('Please fill out required fields')
 
@@ -102,7 +101,6 @@ const Jobs = () => {
    
     getAllJobs(localStorage.getItem('userAuth'))
       .then(({ data: jobs }) => {
-        console.log(jobs)
         setJobState({ ...jobState, jobs })
       })
       .catch(e => console.error(e))
