@@ -7,11 +7,11 @@ const JobCardAPI = {
       { 'Authorization': `Bearer ${token}` }
   }),
 
-  addJob: (token, job) => axios.post('/api/jobs',
+  addJob: (token, job) => axios.post('/api/jobs', job,
     {
       headers:
         { 'Authorization': `Bearer ${token}` }
-    }, job),
+    }),
 
   updateJob: (id, values) => axios.put(`/api/jobs/${id}`, values),
   deleteJob: (id) => axios.delete(`/api/jobs/${id}`)
