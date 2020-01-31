@@ -5,6 +5,7 @@ module.exports = app => {
     // get all reminders
     app.get('/api/calendar', (req,res) => {
         Calendar.find({})
+                .populate('parent')
                 .then(calendar => res.json(calendar))
                 .catch(e => console.error(e))
     })
