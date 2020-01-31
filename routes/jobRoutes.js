@@ -6,7 +6,6 @@ module.exports = app => {
   // Get all Jobs
   app.get('/api/jobs', passport.authenticate('jwt', { session: false }), (req, res) => {
     Jobs.find()
-      .populate('connections')
       .then(jobs => res.json(jobs))
       .catch(e => console.log(e))
   })
