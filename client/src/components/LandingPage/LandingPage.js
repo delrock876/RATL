@@ -8,10 +8,7 @@ import ThreeDRotation from '@material-ui/icons/ThreeDRotation'
 import PermContactCalendarIcon from '@material-ui/icons/PermContactCalendar'
 import TodayIcon from '@material-ui/icons/Today'
 import LocationCityIcon from '@material-ui/icons/LocationCity'
-import SearchIcon from '@material-ui/icons/Search'
-
-// import 'typeface-roboto'
-
+import WorkIcon from '@material-ui/icons/Work'
 import snakeImage from './assets/Snake-Vector-Illustration.jpg'
 
 
@@ -21,13 +18,14 @@ const useStyles = makeStyles(theme => ({
     color: "DB9A0D",
     backgroundColor: "FFFFFF",
     padding: "10px",
+    textAlign: "center",
   },
   root: {
     flexGrow: 1,
   },
   paper: {
-    padding: theme.spacing(2),
-    textAlign: 'center',
+    padding: theme.spacing(3),
+    textAlign: "center",
     color: theme.palette.text.secondary,
   },
 }));
@@ -39,13 +37,11 @@ const LandingPage = () => {
       <div>
         <Grid container spacing={3}>
           <Grid item xs={12}>
-            <Paper className={classes.header}><h2>Your efficient job search management tool</h2>
+            <Paper className={classes.header}><h3>Your efficient job search management tool</h3>
               <p> RATL effectively helps manage your job search by providing tools to keep track of your application process, stay in touch with hiring managers and never loose a beat with an overview of key dates on your calendar such as upcoming interviews and networking events.  </p>
             </Paper>
           </Grid>
-          {/* <Grid item xs={12}>
-            <img src={snakeImage} alt="RATL Snake" />
-          </Grid> */}
+
         </Grid>
       </div>
 
@@ -71,11 +67,11 @@ const LandingPage = () => {
               <p> Stay ahead of the game - keep track of important dates like upcoming interviews,  follow-up calls and networking events </p></Paper>
           </Grid>
           <Grid item xs={12}>
-            <Paper className={classes.paper}>  <h4> Job Leads </h4>   <LocationCityIcon />
+            <Paper className={classes.paper}>  <h4> Job Leads </h4>   <WorkIcon />
               <p> Receive an overview of latest listings in your custom feed </p></Paper>
           </Grid>
           <Grid item xs={12}>
-            <Paper className={classes.paper}>  <h4> Company Insights </h4> <SearchIcon />
+            <Paper className={classes.paper}>  <h4> Company Insights </h4> <LocationCityIcon />
               <p> Be in-the-know and armed with relevant information about companies & organizations  </p></Paper>
           </Grid>
 

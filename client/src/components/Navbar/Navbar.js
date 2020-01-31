@@ -1,5 +1,5 @@
 import React from 'react'
-import { makeStyles } from '@material-ui/core/styles'
+import { makeStyles, withStyles } from '@material-ui/core/styles'
 import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'
 import Typography from '@material-ui/core/Typography'
@@ -14,39 +14,41 @@ const Navbar = () => {
   const useStyles = makeStyles(theme => ({
     root: {
       flexGrow: 1,
+      backgroundColor: '#98A87A',
     },
     menuButton: {
       marginRight: theme.spacing(2),
     },
     title: {
       flexGrow: 1,
+      color: '#232A3C',
     }
   }))
-  
-    const classes = useStyles()
-     
-    return (
-      <Box display={{ xs: 'none', sm:'none', md: 'block' }} m={0} width="100%">
-      
+
+  const classes = useStyles()
+
+  return (
+    <Box display={{ xs: 'none', sm: 'none', md: 'block' }} m={0} width="100%">
+
       <div className={classes.root}>
-        <AppBar position="static">
+        <AppBar position="static" className={classes.root}>
           <Toolbar>
-            <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
+            <IconButton edge="start" className={classes.menuButton} color="primary" aria-label="menu">
             </IconButton>
-            <Typography variant="h6" className={classes.title}><Link to = "/home">Ratl</Link>
-          </Typography>
-            <Link to = "/archived"><Button color="inherit">Archived</Button>
+            <Typography variant="h6" className={classes.title}><Link to="/home">RATL</Link>
+            </Typography>
+            <Link to="/archived"><Button color="primary">Archived</Button>
             </Link>
-            <Link to = "/jobs"><Button color="inherit">Jobs</Button>
+            <Link to="/jobs"><Button color="primary">Jobs</Button>
             </Link>
-            <Link to = "/calendar"><Button color="inherit">Calendar</Button>
+            <Link to="/calendar"><Button color="primary">Calendar</Button>
             </Link>
           </Toolbar>
         </AppBar>
       </div>
-      </Box>
-    )
-  }
+    </Box>
+  )
+}
 
-  export default Navbar
+export default Navbar
 
