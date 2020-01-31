@@ -7,7 +7,7 @@ const JobCardAPI = {
       { 'Authorization': `Bearer ${token}` }
   }),
 
-  addJob: (token, job) => axios.post('/api/jobs', job,
+  addJob: (job, token) => axios.post('/api/jobs', job,
     {
       headers:
         { 'Authorization': `Bearer ${token}` }
