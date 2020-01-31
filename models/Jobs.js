@@ -7,7 +7,6 @@
     checked: Boolean,
     archived: Boolean,
     skills: [{ type: String }],
-    connections: [{type: Object}],
     userAuth: { type: Schema.Types.ObjectId, ref: 'User' }
   })
 

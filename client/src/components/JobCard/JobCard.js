@@ -79,10 +79,7 @@ const JobCard =()=> {
         </Typography>
       
         <br/>
-            {
-          //  let values = Object.values(job.connections)
-                }
-                
+          
         {/* <Typography className={classes.title} color="textSecondary" gutterBottom>
           {job.contactType}: {job.contactName}
           <br/>
