@@ -1,24 +1,81 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './App.css'
 import Navbar from './components/Navbar'
 import BottomNav from './components/BottomNav'
 import Home from './pages/Home'
-import Connections from './pages/Connections'
+import Calendar from './pages/Events'
 import Archived from './pages/Archived'
 import Jobs from './pages/Jobs'
-import LandingPage from './components/LandingPage'
-
+import Landing from './pages/Landing'
+import UserContext from './utils/UserContext'
+import UserAPI from './utils/UserAPI'
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link
+  Route
 } from 'react-router-dom'
+import RegisterForm from './components/RegisterForm'
+import LandingPage from './components/LandingPage'
+
+
+const { loginUser, registerUser } = UserAPI
 
 const App = () => {
 
+  const [userState, setUserState] = useState({
+    userFullName: '',
+    userEmail: '',
+    usersname: '',
+    userPassword: ''
+  })
+
+  userState.handleLogin = (event)=>{
+    event.preventDefault()
+    
+    let user = {
+      username: userState.usersname,
+      password: userState.userPassword
+    }
+
+    loginUser(user)
+      .then(({data})=> {
+        localStorage.setItem('userAuth', data.token)
+        console.log(data.token)
+      
+         window.location = "/home"
+        })
+      .catch(e => console.error(e))
+  }
+
+  userState.handleInputChange = (event) => {
+    setUserState({ ...userState, [event.target.name]: event.target.value })
+  }
+
+  userState.handleRegisterUser = (event) => {
+    event.preventDefault()
+
+    let user = {
+      name: userState.userFullName,
+      email: userState.userEmail,
+      username: userState.usersname,
+      password: userState.userPassword
+    }
+
+    registerUser(user)
+      .then(() => {
+        setUserState({...userState,
+        userFullName: '',
+        userEmail: '',
+        usersname: '',
+        userPassword:''
+      })
+      })
+      .catch(e => console.error(e))
+
+  }
 
   return (
+
     <Router>
 
       <Navbar />
@@ -28,6 +85,12 @@ const App = () => {
       <Switch>
 
         <Route exact path="/">
+          <UserContext.Provider value={userState}>
+            <Landing />
+          </UserContext.Provider>
+        </Route>
+
+        <Route path="/home">
           <Home />
         </Route>
 
@@ -39,8 +102,8 @@ const App = () => {
           <Jobs />
         </Route>
 
-        <Route path="/connections">
-          <Connections />
+        <Route path="/calendar">
+          <Calendar />
         </Route>
       </Switch>
 
@@ -49,7 +112,5 @@ const App = () => {
 
   )
 }
-
-
 
 export default App
