@@ -5,4 +5,5 @@ module.exports = {
   User: require('./User.js')(model, Schema),
   Leads: require('./Leads.js')(model, Schema),
   Connections: require('./Connections.js')(model, Schema),
+  Calendar: require('./Calendar.js')(model, Schema)
 }
