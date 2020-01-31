@@ -15,6 +15,7 @@ import {
   Route
 } from 'react-router-dom'
 import RegisterForm from './components/RegisterForm'
+import LandingPage from './components/LandingPage'
 
 
 const { loginUser, registerUser } = UserAPI
@@ -27,6 +28,23 @@ const App = () => {
     usersname: '',
     userPassword: ''
   })
+
+  userState.handleLogin = (event)=>{
+    event.preventDefault()
+    let user = {
+      username: userState.usersname,
+      password: userState.userPassword
+    }
+    loginUser(user)
+      .then((token)=> {
+        console.log(token)
+        //store token in local storage
+        //the retrieve  it and send as header in the request
+        //req.user has all job info
+         window.location = "/home"
+        })
+      .catch(e => console.error(e))
+  }
 
   userState.handleInputChange = (event) => {
     console.log(event.target.value)
@@ -51,7 +69,6 @@ const App = () => {
 
   return (
 
-
     <Router>
 
       {/* <UserContext.Provider value={userState}>
@@ -61,6 +78,8 @@ const App = () => {
       <Navbar />
 
       <BottomNav />
+
+
 
       <Switch>
 
