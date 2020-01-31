@@ -18,7 +18,7 @@ const useStyles = makeStyles(theme => ({
 const JobForm = () => {
 
   const classes = useStyles()
-  const { compName, namee, email, phone, type, archived, dateApplied, job, skillsRequired, handleInputChange, handleAddJob } = useContext(JobCardContext)
+  const { compName, namee, email, phone, type, dateApplied, job, skillsRequired, handleInputChange, handleAddJob } = useContext(JobCardContext)
 
   return (
 
@@ -101,8 +101,9 @@ const JobForm = () => {
           onChange={handleInputChange} />
 
         <br />
-
-        <Tooltip title="Example: Javascript">
+      
+        <Tooltip title="Separate each skill with a comma
+        Example: Javascript, Python">
           <TextField
             id="filled-multiline-static"
             label="Required Skills"
