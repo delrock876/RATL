@@ -31,23 +31,23 @@ const App = () => {
 
   userState.handleLogin = (event)=>{
     event.preventDefault()
+    
     let user = {
       username: userState.usersname,
       password: userState.userPassword
     }
+
     loginUser(user)
-      .then((token)=> {
-        console.log(token)
-        //store token in local storage
-        //the retrieve  it and send as header in the request
-        //req.user has all job info
+      .then(({data})=> {
+        localStorage.setItem('userAuth', data.token)
+        console.log(data.token)
+      
          window.location = "/home"
         })
       .catch(e => console.error(e))
   }
 
   userState.handleInputChange = (event) => {
-    console.log(event.target.value)
     setUserState({ ...userState, [event.target.name]: event.target.value })
   }
 
@@ -62,7 +62,14 @@ const App = () => {
     }
 
     registerUser(user)
-      .then(() => console.log('created!'))
+      .then(() => {
+        setUserState({...userState,
+        userFullName: '',
+        userEmail: '',
+        usersname: '',
+        userPassword:''
+      })
+      })
       .catch(e => console.error(e))
 
   }
@@ -71,15 +78,9 @@ const App = () => {
 
     <Router>
 
-      {/* <UserContext.Provider value={userState}>
-<RegisterForm/>
-</UserContext.Provider>   */}
-
       <Navbar />
 
       <BottomNav />
-
-
 
       <Switch>
 
@@ -89,7 +90,7 @@ const App = () => {
           </UserContext.Provider>
         </Route>
 
-        <Route exact path="/home">
+        <Route path="/home">
           <Home />
         </Route>
 

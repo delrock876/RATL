@@ -5,6 +5,7 @@ import JobCard from '../../components/JobCard'
 import JobDrawer from '../../components/JobDrawer'
 
 const { getAllJobs, addJob, updateJob, deleteJob } = JobCardAPI
+const token = localStorage.getItem('userAuth')
 
 const Jobs = () => {
 
@@ -20,7 +21,7 @@ const Jobs = () => {
     job: '',
     skillsRequired: '',
     bottom: false
-    
+
   })
 
   jobState.toggleDrawer = bool => event => {
@@ -34,26 +35,21 @@ const Jobs = () => {
     setJobState({ ...jobState, [event.target.name]: event.target.value })
   }
 
-  jobState.handleArchiveJob =(id, archived)=>{
-    updateJob(id, {archived: true})
-      .then(()=>console.log('archived!'))
-      .catch(e=>console.error(e))
+  jobState.handleArchiveJob = (id, archived) => {
+    updateJob(id, { archived: true })
+      .then(() => console.log('archived!'))
+      .catch(e => console.error(e))
   }
 
-  jobState.handleDeleteJob =(id)=>{
+  jobState.handleDeleteJob = (id) => {
     deleteJob(id)
-      .then(()=>console.log('deleted!'))
-      .catch(e=>console.error(e))
+      .then(() => console.log('deleted!'))
+      .catch(e => console.error(e))
   }
 
 
   jobState.handleAddJob = (event) => {
     event.preventDefault()
-
-    // let skillsRequired = JSON.parse(JSON.stringify(jobState.skillsRequired))
-    // const regex = /(\w{ 1, 20}| [^ !@$%^&* ()_ 	~`=.:;,])/g
-    // skillsRequired.match(regex)
-    // setJobState({...jobState, skillsRequired})
 
     let job = {
       companyName: jobState.compName,
@@ -72,42 +68,47 @@ const Jobs = () => {
       parent: 'parent'
     }
 
-    if(job.companyName.length === 0 || job.jobTitle.length === 0 || job.skills.length === 0){
+    if (job.companyName.length === 0 || job.jobTitle.length === 0 || job.skills.length === 0) {
       alert('Please fill out required fields')
-    } else  {
+      
+    } else {
 
-    addJob(job)
+      addJob(token, job)
+        .then(() => {
 
-      .then(() => {
-        let jobs = JSON.parse(JSON.stringify(jobState.jobs))
-        jobs.push(job)
-  
-        setJobState({...jobState,
-          jobs, 
-          compName: '',
-          namee: '',
-          email: '',
-          phone: '',
-          type: '',
-          dateApplied: '',
-          job: '',
-          skillsRequired: ' ',
-          bottom: false,
-          checked: false
+          let jobs = JSON.parse(JSON.stringify(jobState.jobs))
+          jobs.push(job)
+
+          setJobState({
+            ...jobState,
+            jobs,
+            compName: '',
+            namee: '',
+            email: '',
+            phone: '',
+            type: '',
+            dateApplied: '',
+            job: '',
+            skillsRequired: ' ',
+            bottom: false,
+            checked: false
+          })
         })
-      })
-      .catch(e => console.error(e))
+        .catch(e => console.error(e))
     }
   }
 
   //get all jobs
-  useEffect(()=>{
-    getAllJobs()
-    .then(({data: jobs})=>{
-      console.log(jobs)
-      setJobState({...jobState, jobs})
-    })
-    .catch(e => console.error(e))
+  useEffect(() => {
+
+    console.log(token)
+   
+    getAllJobs(token)
+      .then(({ data: jobs }) => {
+        console.log(jobs)
+        setJobState({ ...jobState, jobs })
+      })
+      .catch(e => console.error(e))
   }, [])
 
   return (

@@ -3,7 +3,7 @@ module.exports = (model, Schema) => {
         name: String,
         email: String,
         username: String,
-        posts: [{ type: Schema.Types.ObjectId, ref: 'Post' }]
+        userJobs: [{ type: Schema.Types.ObjectId, ref: 'Jobs' }]
     })
 
     User.plugin(require('passport-local-mongoose'))

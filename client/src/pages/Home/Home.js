@@ -4,6 +4,7 @@ import JobCardAPI from '../../utils/JobCardAPI'
 import JobCardContext from '../../utils/JobCardContext'
 
 const { getAllJobs, updateJob } = JobCardAPI
+const token = localStorage.getItem('userAuth')
 
 const Home = () => {
 
@@ -12,7 +13,7 @@ const Home = () => {
   })
 
   useEffect(() => {
-    getAllJobs()
+    getAllJobs(token)
       .then(({ data: jobs }) => {
         console.log(jobs)
         setJobState({ ...jobState, jobs })
