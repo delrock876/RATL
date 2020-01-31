@@ -26,8 +26,6 @@ const useStyles = makeStyles({
     marginBottom: 12,
   },
 })
-let contact = Object.values(job.connections)
-let job
 
 const JobCard =()=> {
   
@@ -83,9 +81,6 @@ const JobCard =()=> {
         <br/>
             {
           //  let values = Object.values(job.connections)
-
-
-
                 }
                 
         {/* <Typography className={classes.title} color="textSecondary" gutterBottom>

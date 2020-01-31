@@ -3,7 +3,6 @@ import LandingPage from '../../components/LandingPage'
 import RegisterForm from '../../components/RegisterForm'
 import UserContext from '../../utils/UserContext'
 import LoginForm from '../../components/LoginForm'
-// import Box from '@material-ui/core/Box'
 import Grid from '@material-ui/core/Grid'
 
 const Landing = () => {

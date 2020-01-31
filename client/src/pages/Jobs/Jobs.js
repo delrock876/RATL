@@ -47,10 +47,10 @@ const Jobs = () => {
       .catch(e => console.error(e))
   }
 
-
   jobState.handleAddJob = (event) => {
     event.preventDefault()
-
+  
+//turns input from user into an object that can be pushed into the database
     let job = {
       companyName: jobState.compName,
       jobTitle: jobState.job,
@@ -65,14 +65,14 @@ const Jobs = () => {
       },
       skills: jobState.skillsRequired.split(',')
     }
-
+//if fields are empty, user cannot create job
     if (job.companyName.length === 0 || job.jobTitle.length === 0 || job.skills.length === 0) {
+
       alert('Please fill out required fields')
 
     } else {
       addJob(job, localStorage.getItem('userAuth'))
       .then(() => {
-        console.log(job)
 
           let jobs = JSON.parse(JSON.stringify(jobState.jobs))
           jobs.push(job)
