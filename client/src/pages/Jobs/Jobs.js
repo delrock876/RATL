@@ -57,24 +57,23 @@ const Jobs = () => {
       archived: false,
       checked: false,
       date: jobState.dateApplied,
+      connections: {
+        name: jobState.namee,
+        type: jobState.type,
+        phone: jobState.phone,
+        email: jobState.email 
+      },
       skills: jobState.skillsRequired.split(',')
     }
 
-    let connection = {
-      name: jobState.namee,
-      title: jobState.type,
-      email: jobState.email,
-      phone: jobState.phone,
-      parent: 'parent'
-    }
-
+  
     if (job.companyName.length === 0 || job.jobTitle.length === 0 || job.skills.length === 0) {
       alert('Please fill out required fields')
 
     } else {
-
       addJob(job, localStorage.getItem('userAuth'))
-        .then(() => {
+      .then(() => {
+        console.log(job)
 
           let jobs = JSON.parse(JSON.stringify(jobState.jobs))
           jobs.push(job)
