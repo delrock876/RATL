@@ -31,24 +31,23 @@ const App = () => {
 
   userState.handleLogin = (event)=>{
     event.preventDefault()
+    
     let user = {
       username: userState.usersname,
       password: userState.userPassword
     }
+
     loginUser(user)
       .then(({data})=> {
         localStorage.setItem('userAuth', data.token)
         console.log(data.token)
-        //store token in local storage
-        //the retrieve  it and send as header in the request
-        //req.user has all job info
+      
          window.location = "/home"
         })
       .catch(e => console.error(e))
   }
 
   userState.handleInputChange = (event) => {
-    console.log(event.target.value)
     setUserState({ ...userState, [event.target.name]: event.target.value })
   }
 

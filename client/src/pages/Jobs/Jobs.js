@@ -51,11 +51,6 @@ const Jobs = () => {
   jobState.handleAddJob = (event) => {
     event.preventDefault()
 
-    // let skillsRequired = JSON.parse(JSON.stringify(jobState.skillsRequired))
-    // const regex = /(\w{ 1, 20}| [^ !@$%^&* ()_ 	~`=.:;,])/g
-    // skillsRequired.match(regex)
-    // setJobState({...jobState, skillsRequired})
-
     let job = {
       companyName: jobState.compName,
       jobTitle: jobState.job,
@@ -75,10 +70,12 @@ const Jobs = () => {
 
     if (job.companyName.length === 0 || job.jobTitle.length === 0 || job.skills.length === 0) {
       alert('Please fill out required fields')
+      
     } else {
 
       addJob(token, job)
         .then(() => {
+
           let jobs = JSON.parse(JSON.stringify(jobState.jobs))
           jobs.push(job)
 
@@ -103,8 +100,9 @@ const Jobs = () => {
 
   //get all jobs
   useEffect(() => {
+
     console.log(token)
-    // let token = localStorage.getItem('userAuth')
+   
     getAllJobs(token)
       .then(({ data: jobs }) => {
         console.log(jobs)
