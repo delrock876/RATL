@@ -86,23 +86,29 @@ const App = () => {
           </UserContext.Provider>
         </Route>
 
-      <Navbar />
         <Route path="/home">
+          <Navbar />
           <Home />
+          <BottomNav />
         </Route>
 
         <Route path="/archived">
+        <Navbar />
           <Archived />
+          <BottomNav />
         </Route>
 
         <Route path="/jobs">
+        <Navbar />
           <Jobs />
+          <BottomNav />
         </Route>
 
         <Route path="/calendar">
+        <Navbar />
           <Calendar />
+          <BottomNav />
         </Route>
-<BottomNav />
       </Switch>
 
     </Router>
