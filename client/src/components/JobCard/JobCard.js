@@ -80,14 +80,20 @@ const JobCard =()=> {
       
         <br/>
           
-        {/* <Typography className={classes.title} color="textSecondary" gutterBottom>
-          {job.contactType}: {job.contactName}
+        {
+        job.connections.map(item => 
+        <Typography className={classes.title} color="textSecondary" gutterBottom>
+          {item.type}: {item.name}
           <br/>
-          {job.contactPhone}
+          {item.phone}
           <br />
-          {job.contactEmail}
+          {item.email}
           <br />
-        </Typography> */}
+        </Typography> 
+        )
+
+        
+        }
       
       </CardContent>
       <CardActions>
