@@ -78,32 +78,36 @@ const App = () => {
 
     <Router>
 
-      <Navbar />
-
-      <BottomNav />
-
       <Switch>
 
-        <Route exact path="/">
+        <Route  path="/">
           <UserContext.Provider value={userState}>
             <Landing />
           </UserContext.Provider>
         </Route>
 
         <Route path="/home">
+        <Navbar />
           <Home />
+          <BottomNav />
         </Route>
 
         <Route path="/archived">
+        <Navbar />
           <Archived />
+          <BottomNav />
         </Route>
 
         <Route path="/jobs">
+        <Navbar />
           <Jobs />
+          <BottomNav />
         </Route>
 
         <Route path="/calendar">
+        <Navbar />
           <Calendar />
+          <BottomNav />
         </Route>
       </Switch>
 
