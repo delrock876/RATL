@@ -1,14 +1,8 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
 import UserContext from '../../utils/UserContext'
-import { useContext } from 'react'
-
-import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Modal from 'react-bootstrap/Modal'
 
@@ -38,7 +32,7 @@ const RegisterForm = () => {
   const handleShow = () => setShow(true)
 
   return (
-    <>
+    <div className="landing">
       <Button variant="contained" onClick={handleShow}>
         Register
       </Button>
@@ -91,7 +85,7 @@ const RegisterForm = () => {
 
         </Modal.Footer>
       </Modal>
-    </>
+    </div>
   )
 }
 

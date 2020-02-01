@@ -1,10 +1,10 @@
 import React from 'react'
 import { Parallax, Background } from 'react-parallax'
-import { makeStyles, Container, createMuiTheme } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
-import Grid from '@material-ui/core/Grid';
-import AccessAlarmIcon from '@material-ui/icons/AccessAlarm'
-import ThreeDRotation from '@material-ui/icons/ThreeDRotation'
+
+import { makeStyles, Container } from '@material-ui/core/styles'
+import Paper from '@material-ui/core/Paper'
+import Grid from '@material-ui/core/Grid'
+
 import PermContactCalendarIcon from '@material-ui/icons/PermContactCalendar'
 import TodayIcon from '@material-ui/icons/Today'
 import LocationCityIcon from '@material-ui/icons/LocationCity'
@@ -37,7 +37,7 @@ const useStyles = makeStyles(theme => ({
 const LandingPage = () => {
   const classes = useStyles();
   return (
-    <>
+    <div className="landing">
       <div>
         <Grid container spacing={3}>
           <Grid item xs={12}>
@@ -87,7 +87,7 @@ const LandingPage = () => {
       </div >
 
 
-    </>
+    </div>
   )
 }
 
