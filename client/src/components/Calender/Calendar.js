@@ -13,7 +13,7 @@ import CalendarContext from '../../utils/CalendarContext/CalendarContext'
 export default class DemoApp extends React.Component {
 
   calendarComponentRef = React.createRef()
-
+  
   state = {
     calendarWeekends: true,
     calendarEvents: [ // initial event data
@@ -37,38 +37,38 @@ export default class DemoApp extends React.Component {
   }
 
 
-  handleDateClick = (arg) => {
-      axios.post('/api/calendar',(req,res) => {
-          req.body = swal("Set Reminder:", {
-                content: "input",
-              })
-              .then((value) => {
-                if( value !== null){
-                 this.setState({
-                   calendarEvents: this.state.calendarEvents.concat({
-                     title: `${value}`,
-                     start: arg.date,
-                     allDay: arg.allDay
-                   })
-                 })
-                }else{
-                  swal({
-                    title: `Are you sure you want to leave the text area empty?`,
-                    icon: 'warning'
-                  })
-                }
-      })
-        
-          })
-          .catch(e => console.error(e))
-    }
+  handleDateClick = (event) => {
+    axios.post('/api/calendar', (req,res) => {
+      res.sendStatus(200)
+    })
+    swal("Set Reminder:", {
+      content: "input",
+    })
+    .then((value) => {
+      if( value !== null){
+       this.setState({
+         calendarEvents: this.state.calendarEvents.concat({
+           title: `${value}`,
+           start: event.date,
+           allDay: event.allDay
+         })
+       })
+      }else{
+        swal({
+          title: `Are you sure you want to leave the text area empty?`,
+          icon: 'warning'
+        })
+      }
+    })
+    .catch(e => console.error(e))
+  }
     
 
   
   
   render() {
     return (
-      <CalendarContext.Consumer>
+      // <CalendarContext.Consumer>
       <div className='demo-app'>
         <div className='demo-app-top'>
           <button className='btn' onClick={ this.toggleWeekends }>toggle weekends</button>&nbsp;
@@ -92,7 +92,7 @@ export default class DemoApp extends React.Component {
             />
         </div>
       </div>
-      </CalendarContext.Consumer>
+      // </CalendarContext.Consumer>
     )
   }
 }

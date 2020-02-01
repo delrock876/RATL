@@ -1,4 +1,4 @@
-const { Calendar } = require('../models')
+const { Calendar,User } = require('../models')
 const passport = require('passport')
 
 module.exports = app => {
@@ -6,7 +6,7 @@ module.exports = app => {
     // get all reminders
     app.get('/api/calendar', (req,res) => {
         Calendar.find()
-                .then(calendar => res.json(calendar))
+                .then(calendar => res.json('hi'))
                 .catch(e => console.error(e))
     })
 
@@ -28,16 +28,16 @@ module.exports = app => {
       })
 
     // Update a Calendar reminder
-    app.put('/api/calendar/:id', (req,res) => {
-        Calendar.findByIdAndUpdate(req.params.id, {$set: req.body})
-                .then(() => res.sendStatus(200))
-                .catch(e => console.error(e))
+    app.put('/api/calendar/:id', passport.authenticate('jwt', { session: false }), (req, res) => {
+      Calendar.findByIdAndUpdate(req.params.id, { $set: req.body })
+        .then(() => res.sendStatus(200))
+        .catch(e => console.log(e))
     })
 
     // Delete a Calendar reminder   
-    app.delete('/api/calendar/:id', (req,res) => {
-        Calendar.findByIdAndRemove(req.params.id)
-                .then(() => res.sendStatus(200))
-                .catch(e => console.error(e))
+    app.delete('/api/calendar/:id', passport.authenticate('jwt', { session: false }), (req, res) => {
+      Calendar.findByIdAndRemove(req.params.id)
+        .then(() => res.sendStatus(200))
+        .catch(e => console.log(e))
     })
 }
