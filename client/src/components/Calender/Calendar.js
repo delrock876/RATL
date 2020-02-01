@@ -69,7 +69,6 @@ export default class DemoApp extends React.Component {
   render() {
     return (
       <CalendarContext.Consumer>
-      
       <div className='demo-app'>
         <div className='demo-app-top'>
           <button className='btn' onClick={ this.toggleWeekends }>toggle weekends</button>&nbsp;
@@ -91,7 +90,6 @@ export default class DemoApp extends React.Component {
             events={ this.state.calendarEvents }
             dateClick={ this.handleDateClick }
             />
-       
         </div>
       </div>
       </CalendarContext.Consumer>
