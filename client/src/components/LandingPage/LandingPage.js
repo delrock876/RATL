@@ -9,7 +9,7 @@ import PermContactCalendarIcon from '@material-ui/icons/PermContactCalendar'
 import TodayIcon from '@material-ui/icons/Today'
 import LocationCityIcon from '@material-ui/icons/LocationCity'
 import WorkIcon from '@material-ui/icons/Work'
-// import logo from './assets/RATL.png'
+import logo from './assets/RATL.png'
 
 
 const useStyles = makeStyles(theme => ({
@@ -40,7 +40,11 @@ const LandingPage = () => {
       <div>
         <Grid container spacing={3}>
           <Grid item xs={12}>
-            <Paper elevation={0} className={classes.header} image="./assets/RATL.png"><h3>Your efficient job search management tool</h3>
+
+            <Paper elevation={0} className={classes.header}>
+              < img src={logo} alt="logo" />
+              <h3>Your efficient job search management tool</h3>
+
               <p> RATL effectively helps manage your job search by providing tools to keep track of your application process, stay in touch with hiring managers and never loose a beat with an overview of key dates on your calendar such as upcoming interviews and networking events.  </p>
             </Paper>
           </Grid>
