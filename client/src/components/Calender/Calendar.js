@@ -68,7 +68,7 @@ export default class DemoApp extends React.Component {
   
   render() {
     return (
-      <CalendarContext.Provider>
+      <CalendarContext.Consumer>
       
       <div className='demo-app'>
         <div className='demo-app-top'>
@@ -94,7 +94,7 @@ export default class DemoApp extends React.Component {
        
         </div>
       </div>
-      </CalendarContext.Provider>
+      </CalendarContext.Consumer>
     )
   }
 }

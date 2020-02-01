@@ -8,9 +8,9 @@ const Events =()=>{
 
     <>
     <h1>THIS IS YOUR CONNECTIONS PAGE</h1>
-    <CalendarContext.Consumer>
+    <CalendarContext.Provider>
     <Calendar /> 
-    </CalendarContext.Consumer>
+    </CalendarContext.Provider>
 
     </>
   )
