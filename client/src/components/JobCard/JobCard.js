@@ -28,15 +28,15 @@ const useStyles = makeStyles({
 })
 
 const JobCard =()=> {
-
+  
   const { jobs, handleDeleteJob, handleArchiveJob} = useContext(JobCardContext)
   const classes = useStyles()
-
+  
   return (
-
-  <div>
+    
+    <div>
     {
-    jobs.length ? jobs.map(job=>(
+      jobs.length ? jobs.map(job=>(
 
     <Card className={classes.card} variant="outlined">
         <Button
@@ -79,15 +79,15 @@ const JobCard =()=> {
         </Typography>
       
         <br/>
-
-        <Typography className={classes.title} color="textSecondary" gutterBottom>
+          
+        {/* <Typography className={classes.title} color="textSecondary" gutterBottom>
           {job.contactType}: {job.contactName}
           <br/>
           {job.contactPhone}
           <br />
           {job.contactEmail}
           <br />
-        </Typography>
+        </Typography> */}
       
       </CardContent>
       <CardActions>

@@ -13,9 +13,15 @@ const JobCardAPI = {
         { 'Authorization': `Bearer ${token}` }
     }),
 
-  updateJob: (id, values) => axios.put(`/api/jobs/${id}`, values),
-  deleteJob: (id) => axios.delete(`/api/jobs/${id}`)
-  // addConnection: ( connection, parent ) => axios.post('/api/connections/')
+  updateJob: (id, values, token) => axios.put(`/api/jobs/${id}`, values, {
+    headers:
+      { 'Authorization': `Bearer ${token}` }
+  }),
+  deleteJob: (id, token) => axios.delete(`/api/jobs/${id}`, {
+    headers:
+      { 'Authorization': `Bearer ${token}` }
+  })
+
 }
 
 export default JobCardAPI
