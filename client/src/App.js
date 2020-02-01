@@ -74,7 +74,7 @@ const App = () => {
   }
 
   return (
-    
+   
     <Router>
 
       <Switch>
@@ -111,6 +111,7 @@ const App = () => {
       </Switch>
 
     </Router>
+    
 
 
   )
