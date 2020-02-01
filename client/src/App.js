@@ -84,7 +84,7 @@ const App = () => {
 
       <Switch>
 
-        <Route exact path="/">
+        <Route  path="/">
           <UserContext.Provider value={userState}>
             <Landing />
           </UserContext.Provider>
