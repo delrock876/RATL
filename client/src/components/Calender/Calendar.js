@@ -1,5 +1,5 @@
 
-import React from 'react'
+import React, { useContext } from 'react'
 import FullCalendar from '@fullcalendar/react'
 import dayGridPlugin from '@fullcalendar/daygrid'
 import timeGridPlugin from '@fullcalendar/timegrid'
@@ -8,6 +8,7 @@ import swal from 'sweetalert'
 import axios from 'axios'
 
 import './Calendar.scss'
+import CalendarContext from '../../utils/CalendarContext/CalendarContext'
 
 export default class DemoApp extends React.Component {
 
@@ -19,6 +20,8 @@ export default class DemoApp extends React.Component {
       start: new Date() }
     ]
   }
+
+
 
 
   toggleWeekends = () => {
@@ -34,28 +37,34 @@ export default class DemoApp extends React.Component {
 
 
   handleDateClick = (event) => {
-    axios.post('')
-    swal("Set Reminder:", {
-      content: "input",
+    axios.post('/api/calendar',(req,res) => {
+      req.body = swal("Set Reminder:", {
+            content: "input",
+          })
+          .then((value) => {
+            if( value !== null){
+             this.setState({
+               calendarEvents: this.state.calendarEvents.concat({
+                 title: `${value}`,
+                 start: event.date,
+                 allDay: event.allDay
+               })
+             })
+            }else{
+              swal({
+                title: `Are you sure you want to leave the text area empty?`,
+                icon: 'warning'
+              })
+            }
+
     })
-    .then((value) => {
-      if( value !== null){
-       this.setState({
-         calendarEvents: this.state.calendarEvents.concat({
-           title: `${value}`,
-           start: event.date,
-           allDay: event.allDay
-         })
-       })
-      }else{
-        swal({
-          title: `Are you sure you want to leave the text area empty?`,
-          icon: 'warning'
+        .then(() => {
+
         })
-      }
-    })
-    .catch(e => console.error(e))
+        .catch(e => console.error(e))
   }
+}
+    
 
   
   
@@ -87,6 +96,5 @@ export default class DemoApp extends React.Component {
       </div>
     )
   }
-
-
 }
+
