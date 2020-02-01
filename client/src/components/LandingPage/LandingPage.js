@@ -9,7 +9,7 @@ import PermContactCalendarIcon from '@material-ui/icons/PermContactCalendar'
 import TodayIcon from '@material-ui/icons/Today'
 import LocationCityIcon from '@material-ui/icons/LocationCity'
 import WorkIcon from '@material-ui/icons/Work'
-import logo from './assets/RATL.png'
+import logo from './assets/RATL_4.png'
 
 
 const useStyles = makeStyles(theme => ({
