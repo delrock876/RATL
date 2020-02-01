@@ -36,45 +36,43 @@ const Jobs = () => {
   }
 
   jobState.handleArchiveJob = (id, archived) => {
-    updateJob(id, { archived: true })
+    updateJob(id, { archived: true }, localStorage.getItem('userAuth'))
       .then(() => console.log('archived!'))
       .catch(e => console.error(e))
   }
 
   jobState.handleDeleteJob = (id) => {
-    deleteJob(id)
+    deleteJob(id, localStorage.getItem('userAuth'))
       .then(() => console.log('deleted!'))
       .catch(e => console.error(e))
   }
 
-
   jobState.handleAddJob = (event) => {
     event.preventDefault()
-
+  
+//turns input from user into an object that can be pushed into the database
     let job = {
       companyName: jobState.compName,
       jobTitle: jobState.job,
       archived: false,
       checked: false,
       date: jobState.dateApplied,
+      connections: {
+        name: jobState.namee,
+        type: jobState.type,
+        phone: jobState.phone,
+        email: jobState.email 
+      },
       skills: jobState.skillsRequired.split(',')
     }
-
-    let connection = {
-      name: jobState.namee,
-      title: jobState.type,
-      email: jobState.email,
-      phone: jobState.phone,
-      parent: 'parent'
-    }
-
+//if fields are empty, user cannot create job
     if (job.companyName.length === 0 || job.jobTitle.length === 0 || job.skills.length === 0) {
+
       alert('Please fill out required fields')
 
     } else {
-
       addJob(job, localStorage.getItem('userAuth'))
-        .then(() => {
+      .then(() => {
 
           let jobs = JSON.parse(JSON.stringify(jobState.jobs))
           jobs.push(job)
@@ -103,7 +101,6 @@ const Jobs = () => {
    
     getAllJobs(localStorage.getItem('userAuth'))
       .then(({ data: jobs }) => {
-        console.log(jobs)
         setJobState({ ...jobState, jobs })
       })
       .catch(e => console.error(e))

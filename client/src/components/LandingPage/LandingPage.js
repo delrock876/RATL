@@ -12,7 +12,6 @@ import WorkIcon from '@material-ui/icons/Work'
 import snakeImage from './assets/Snake-Vector-Illustration.jpg'
 
 
-
 const useStyles = makeStyles(theme => ({
   header: {
     color: "DB9A0D",

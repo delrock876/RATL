@@ -3,10 +3,10 @@ const jwt = require('jsonwebtoken')
 
 module.exports = app => {
     
-    app.get('/api/users')
-        // .populate('calendar')
-        .then(() => res.sendStatus(200))
-        .catch(e => console.error(e))
+    // app.get('/api/users')
+    //     .populate('calendar')
+    //     .then(() => res.sendStatus(200))
+    //     .catch(e => console.error(e))
 
 
     //Register a User
