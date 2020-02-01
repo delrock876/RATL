@@ -29,21 +29,21 @@ const App = () => {
     userPassword: ''
   })
 
-  userState.handleLogin = (event)=>{
+  userState.handleLogin = (event) => {
     event.preventDefault()
-    
+
     let user = {
       username: userState.usersname,
       password: userState.userPassword
     }
 
     loginUser(user)
-      .then(({data})=> {
+      .then(({ data }) => {
         localStorage.setItem('userAuth', data.token)
         console.log(data.token)
-      
-         window.location = "/home"
-        })
+
+        window.location = "/home"
+      })
       .catch(e => console.error(e))
   }
 
@@ -63,19 +63,20 @@ const App = () => {
 
     registerUser(user)
       .then(() => {
-        setUserState({...userState,
-        userFullName: '',
-        userEmail: '',
-        usersname: '',
-        userPassword:''
-      })
+        setUserState({
+          ...userState,
+          userFullName: '',
+          userEmail: '',
+          usersname: '',
+          userPassword: ''
+        })
       })
       .catch(e => console.error(e))
 
   }
 
   return (
-    
+
     <Router>
 
       <Switch>
@@ -93,19 +94,19 @@ const App = () => {
         </Route>
 
         <Route path="/archived">
-        <Navbar />
+          <Navbar />
           <Archived />
           <BottomNav />
         </Route>
 
         <Route path="/jobs">
-        <Navbar />
+          <Navbar />
           <Jobs />
           <BottomNav />
         </Route>
 
         <Route path="/calendar">
-        <Navbar />
+          <Navbar />
           <Calendar />
           <BottomNav />
         </Route>
