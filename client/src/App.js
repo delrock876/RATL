@@ -75,19 +75,19 @@ const App = () => {
   }
 
   return (
-
+    
     <Router>
 
       <Switch>
 
-        <Route  path="/">
+        <Route exact path="/">
           <UserContext.Provider value={userState}>
             <Landing />
           </UserContext.Provider>
         </Route>
 
         <Route path="/home">
-        <Navbar />
+          <Navbar />
           <Home />
           <BottomNav />
         </Route>
