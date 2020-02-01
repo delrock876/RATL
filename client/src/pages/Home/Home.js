@@ -27,6 +27,19 @@ const Home = () => {
       <JobCardContext.Provider value ={jobState}>
       <SimCard />
       </JobCardContext.Provider>
+      <form>
+        <label>Job Type: </label>
+        <input></input>
+        <br />
+        <label>Location: </label>
+        <input></input>
+        <br />
+        <label>Distance: </label>
+        <input></input>
+        <br />
+        <label>Full Time: </label>
+        <input></input>
+      </form>
 
     </>
   )

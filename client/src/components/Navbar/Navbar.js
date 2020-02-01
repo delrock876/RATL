@@ -34,7 +34,7 @@ const Navbar = () => {
           <Toolbar>
             <IconButton edge="start" className={classes.menuButton} color="primary" aria-label="menu">
             </IconButton>
-            <Typography variant="h6" className={classes.title}><Link to="/home">RATLL</Link>
+            <Typography variant="h6" className={classes.title}><Link to="/home">RATL</Link>
             </Typography>
             <Link to="/archived"><Button color="primary">Archived</Button>
             </Link>
