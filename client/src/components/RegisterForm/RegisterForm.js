@@ -39,7 +39,7 @@ const RegisterForm = () => {
 
       <Modal show={show} onHide={handleClose} animation={true}>
         <Modal.Header closeButton>
-          <Modal.Title>Create an Account!</Modal.Title>
+          <Modal.Title>Create an Account</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <form className={classes.card}>
@@ -73,14 +73,14 @@ const RegisterForm = () => {
               name="userPassword"
               value={userPassword}
               label="Password"
-              placeholder="Create a password!"
+              placeholder="Create a password"
               variant="outlined"></TextField>
           </form>
 
         </Modal.Body>
         <Modal.Footer>
           <Button variant="contained" onClick={handleRegisterUser}>
-            Register Account!
+            Register Account
           </Button>
 
         </Modal.Footer>
@@ -90,4 +90,3 @@ const RegisterForm = () => {
 }
 
 export default RegisterForm
-      
