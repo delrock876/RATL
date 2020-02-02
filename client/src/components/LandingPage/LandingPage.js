@@ -1,15 +1,16 @@
 import React from 'react'
 import { Parallax, Background } from 'react-parallax'
-import { makeStyles, Container } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
-import Grid from '@material-ui/core/Grid';
-import AccessAlarmIcon from '@material-ui/icons/AccessAlarm'
-import ThreeDRotation from '@material-ui/icons/ThreeDRotation'
+
+import { makeStyles, Container } from '@material-ui/core/styles'
+import Paper from '@material-ui/core/Paper'
+import Grid from '@material-ui/core/Grid'
+
 import PermContactCalendarIcon from '@material-ui/icons/PermContactCalendar'
 import TodayIcon from '@material-ui/icons/Today'
 import LocationCityIcon from '@material-ui/icons/LocationCity'
 import WorkIcon from '@material-ui/icons/Work'
 import logo from './assets/RATL_4.png'
+
 
 
 const useStyles = makeStyles(theme => ({
@@ -36,7 +37,7 @@ const useStyles = makeStyles(theme => ({
 const LandingPage = () => {
   const classes = useStyles();
   return (
-    <>
+    <div className="landing">
       <div>
         <Grid container spacing={3}>
           <Grid item xs={12}>
@@ -84,18 +85,9 @@ const LandingPage = () => {
 
         </Grid>
       </div >
-      <div>
-        <Parallax
-          blur={0}
-          bgImage={require('./assets/female-looking-at-laptop.jpg')}
-          bgImageAlt="group"
-          strength={400}
-        >
-          <div style={{ height: '450px' }} />
-        </Parallax>
-      </div>
 
-    </>
+
+    </div>
   )
 }
 
