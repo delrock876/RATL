@@ -16,6 +16,7 @@ import {
 } from 'react-router-dom'
 import RegisterForm from './components/RegisterForm'
 import LandingPage from './components/LandingPage'
+import Scrape from './pages/Scrape'
 
 
 const { loginUser, registerUser } = UserAPI
@@ -107,6 +108,12 @@ const App = () => {
         <Route path="/calendar">
         <Navbar />
           <Calendar />
+          <BottomNav />
+        </Route>
+
+        <Route path="/scrape">
+        <Navbar />
+          <Scrape />
           <BottomNav />
         </Route>
       </Switch>
