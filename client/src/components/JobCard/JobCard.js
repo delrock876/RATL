@@ -91,8 +91,6 @@ const JobCard =()=> {
           <br />
         </Typography> 
         )
-
-        
         }
       
       </CardContent>

@@ -1,5 +1,6 @@
-import React from 'react'
-import { makeStyles, withStyles } from '@material-ui/core/styles'
+import React, {useContext} from 'react'
+import UserContext from '../../utils/UserContext'
+import { makeStyles } from '@material-ui/core/styles'
 import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'
 import Typography from '@material-ui/core/Typography'
@@ -9,6 +10,8 @@ import { Link } from 'react-router-dom'
 import Box from '@material-ui/core/Box'
 
 const Navbar = () => {
+
+  const {handleLogout} = useContext(UserContext)
 
   const useStyles = makeStyles(theme => ({
     root: {
@@ -42,6 +45,10 @@ const Navbar = () => {
             </Link>
             <Link to="/calendar"><Button color="primary">Calendar</Button>
             </Link>
+            {/* <Link to = "/"> */}
+              <Button color="primary" onClick={handleLogout}>Log Out</Button>
+              {/* </Link> */}
+           
           </Toolbar>
         </AppBar>
       </div>

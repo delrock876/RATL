@@ -28,6 +28,7 @@ const Home = () => {
       <JobCardContext.Provider value ={jobState}>
       <SimCard />
       </JobCardContext.Provider>
+      
 
     </>
   )
