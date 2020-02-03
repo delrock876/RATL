@@ -2,6 +2,7 @@ import React , {useState, useEffect} from 'react'
 import SimCard from '../../components/Card'
 import JobCardAPI from '../../utils/JobCardAPI'
 import JobCardContext from '../../utils/JobCardContext'
+import LeadScraper from '../../components/LeadScraper'
 
 const { getAllJobs, updateJob } = JobCardAPI
 
@@ -27,6 +28,7 @@ const Home = () => {
       <JobCardContext.Provider value ={jobState}>
       <SimCard />
       </JobCardContext.Provider>
+      <LeadScraper/>
 
     </>
   )

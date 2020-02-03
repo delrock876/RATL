@@ -5,8 +5,7 @@ import BottomNavigationAction from '@material-ui/core/BottomNavigationAction'
 import ArchiveIcon from '@material-ui/icons/Archive'
 import HomeIcon from '@material-ui/icons/Home'
 import WorkIcon from '@material-ui/icons/Work'
-import TodayIcon from '@material-ui/icons/Today';
-import PeopleAltIcon from '@material-ui/icons/PeopleAlt'
+import TodayIcon from '@material-ui/icons/Today'
 import Box from '@material-ui/core/Box'
 import { Link } from 'react-router-dom'
 
