@@ -15,8 +15,6 @@ import {
   Route
 } from 'react-router-dom'
 
-
-
 const { loginUser, registerUser } = UserAPI
 
 const App = () => {
@@ -27,6 +25,11 @@ const App = () => {
     usersname: '',
     userPassword: ''
   })
+
+  userState.handleLogout=()=>{
+    console.log('hi')
+    // localStorage.clear()
+  }
 
   userState.handleLogin = (event) => {
     event.preventDefault()
