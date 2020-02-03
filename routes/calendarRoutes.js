@@ -6,7 +6,7 @@ module.exports = app => {
     // get all reminders
     app.get('/api/calendar', (req,res) => {
         Calendar.find()
-                .then(calendar => res.json('hi'))
+                .then(calendar => res.json(calendar))
                 .catch(e => console.error(e))
     })
 

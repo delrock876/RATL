@@ -4,6 +4,7 @@ import { createContext } from 'react'
 const CalendarContext = createContext({
     reminder: [{type: String}],
     date: [{type:Date.now()}],
+    handleAddReminder: () => { },
     handleDateClick: () => { }
 })
 
