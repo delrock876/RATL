@@ -5,7 +5,7 @@ module.exports = app => {
 
   // Get all Jobs
   app.get('/api/jobs', passport.authenticate('jwt', { session: false }), (req, res) => {
-    Jobs.find()
+    Jobs.find({userAuth: req.user._id})
       // .populate(userAuth)
       .then(jobs => res.json(jobs))
       .catch(e => console.log(e))
@@ -17,7 +17,7 @@ module.exports = app => {
     const { _id: userAuth } = req.user
     const { companyName, jobTitle, date, checked, archived, skills, connections } = req.body
     //creates json with these key value pairs
-    Jobs.create({companyName, jobTitle, date, checked, archived, skills, connections, userAuth})
+    Jobs.create({ companyName, jobTitle, date, checked, archived, skills, connections, userAuth })
       .then(jobs => {
         User.updateOne({ _id: userAuth }, { $push: { userJobs: jobs } })
           .then(() => res.json(jobs))
