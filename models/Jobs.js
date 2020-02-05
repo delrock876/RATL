@@ -1,6 +1,7 @@
   module.exports = (model, Schema) => {
 
   const Jobs = new Schema({
+    summary: String,
     companyName: String,
     jobTitle: String,
     date: String,

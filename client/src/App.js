@@ -15,6 +15,9 @@ import {
   Route
 } from 'react-router-dom'
 
+import Scrape from './pages/Scrape'
+
+
 const { loginUser, registerUser } = UserAPI
 
 const App = () => {
@@ -112,7 +115,15 @@ const App = () => {
           <Calendar />
           <BottomNav />
         </Route>
+
+        <Route path="/scrape">
+        <Navbar />
+          <Scrape />
+          <BottomNav />
+        </Route>
+
           </UserContext.Provider>
+
       </Switch>
 
     </Router>

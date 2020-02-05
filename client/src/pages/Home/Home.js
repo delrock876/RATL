@@ -1,4 +1,6 @@
-import React, { useState, useEffect } from 'react'
+
+import React , {useState, useEffect, useContext } from 'react'
+
 import SimCard from '../../components/Card'
 import JobCardAPI from '../../utils/JobCardAPI'
 import JobCardContext from '../../utils/JobCardContext'
@@ -8,6 +10,7 @@ const { getAllJobs, updateJob } = JobCardAPI
 
 const Home = () => {
 
+  
   const [jobState, setJobState] = useState({
     jobs: []
   })
@@ -21,6 +24,7 @@ const Home = () => {
       .catch(e => console.error(e))
   }, [])
 
+
   return (
   
       <>
@@ -29,7 +33,6 @@ const Home = () => {
           <SimCard />
         </JobCardContext.Provider>
       </>
-
   )
 }
 
