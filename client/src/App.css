@@ -1,5 +1,8 @@
-.landing{
-background-color: #eab808;
-background-image: linear-gradient(0deg, #eab808 0%, #2AF598 100%);
+
+.mainBg {
+background-color: #eded30;
+background-image: linear-gradient(0deg, #eded30 0%, #b5e0b2 52%, #f9b353 90%);
+
 
 }
+

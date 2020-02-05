@@ -1,20 +1,21 @@
-
-import React from 'react'
+import React, { useContext } from 'react'
+import passport from 'passport'
 import FullCalendar from '@fullcalendar/react'
 import dayGridPlugin from '@fullcalendar/daygrid'
 import timeGridPlugin from '@fullcalendar/timegrid'
 import interactionPlugin from '@fullcalendar/interaction' // needed for dayClick
 import swal from 'sweetalert'
-import axios from 'axios'
-
 import './Calendar.scss'
+import CalendarAPI from '../../utils/CalendarAPI'
+const { addEvent, getAllReminders } = (CalendarAPI)
 
 export default class DemoApp extends React.Component {
 
   calendarComponentRef = React.createRef()
+  
   state = {
     calendarWeekends: true,
-    calendarEvents: [ // initial event data
+        calendarEvents : [ // initial event data
       { title: '', 
       start: new Date() }
     ]
@@ -34,33 +35,52 @@ export default class DemoApp extends React.Component {
 
 
   handleDateClick = (event) => {
-    axios.post('')
-    swal("Set Reminder:", {
-      content: "input",
-    })
-    .then((value) => {
-      if( value !== null){
-       this.setState({
-         calendarEvents: this.state.calendarEvents.concat({
-           title: `${value}`,
-           start: event.date,
-           allDay: event.allDay
-         })
-       })
-      }else{
-        swal({
-          title: `Are you sure you want to leave the text area empty?`,
-          icon: 'warning'
+
+      swal("Set Reminder:", {
+        content: "input",
+      })
+      .then((value) => {
+        if( value !== null){
+          console.log(value)
+          let newEvent = {
+            title: `${value}`,
+            date: event.date
+          }
+          addEvent(newEvent, localStorage.getItem('userAuth'))
+            this.setState({
+              calendarEvents: this.state.calendarEvents.concat({
+                title: `${value}`,
+                date: event.date,
+                allDay: event.allDay
+              })
+            })        
+        }else{
+          swal({
+            title: `Are you sure you want to leave the text area empty?`,
+            icon: 'warning'
+          })
+        }
+      })
+      .catch(e => console.error(e))
+    
+    }
+
+    componentDidMount = () => {
+      getAllReminders(localStorage.getItem('userAuth'))
+        .then(({ data: calendars }) => {
+          console.log(calendars)
+          this.setState({
+            calendarEvents: calendars
+          })
         })
-      }
-    })
-    .catch(e => console.error(e))
-  }
+    }
+    
 
   
   
   render() {
     return (
+      // <CalendarContext.Consumer>
       <div className='demo-app'>
         <div className='demo-app-top'>
           <button className='btn' onClick={ this.toggleWeekends }>toggle weekends</button>&nbsp;
@@ -82,11 +102,9 @@ export default class DemoApp extends React.Component {
             events={ this.state.calendarEvents }
             dateClick={ this.handleDateClick }
             />
-       
         </div>
       </div>
+      // </CalendarContext.Consumer>
     )
   }
-
-
 }
