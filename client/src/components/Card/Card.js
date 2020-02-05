@@ -7,7 +7,7 @@ import Button from '@material-ui/core/Button'
 import Typography from '@material-ui/core/Typography'
 import PeopleAltIcon from '@material-ui/icons/PeopleAlt'
 import JobCardContext from '../../utils/JobCardContext'
-import Switch from '@material-ui/core/Switch'
+// import Switch from '@material-ui/core/Switch'
 
 
 const SimCard = () => {

@@ -5,13 +5,14 @@ import BottomNavigationAction from '@material-ui/core/BottomNavigationAction'
 import ArchiveIcon from '@material-ui/icons/Archive'
 import HomeIcon from '@material-ui/icons/Home'
 import WorkIcon from '@material-ui/icons/Work'
-import TodayIcon from '@material-ui/icons/Today';
-import PeopleAltIcon from '@material-ui/icons/PeopleAlt'
+import TodayIcon from '@material-ui/icons/Today'
 import Box from '@material-ui/core/Box'
 import { Link } from 'react-router-dom'
 
 const useStyles = makeStyles({
-
+  // icons: {
+  //  color: '#000000'
+  // },
 })
 
 const BottomNav = () => {
@@ -29,11 +30,11 @@ const BottomNav = () => {
         showLabels
         className={classes.root}
       >
-        <BottomNavigationAction label="Home" color="primary" icon={<Link to="/home"><HomeIcon /></Link>} />
-        <BottomNavigationAction label="Archives" color="primary" icon={<Link to="archived"><ArchiveIcon /></Link>} />
+        <BottomNavigationAction label="Home" color="secondary" icon={<Link to="/home"><HomeIcon /></Link>} />
+        <BottomNavigationAction label="Archives" color="secondary" icon={<Link to="archived"><ArchiveIcon /></Link>} />
 
-        <BottomNavigationAction label="Jobs" color="primary" icon={<Link to="/jobs"><WorkIcon /></Link>} />
-        <BottomNavigationAction label="Calendar" color="primary" icon={<Link to="/calendar"><TodayIcon /></Link>} />
+        <BottomNavigationAction label="Jobs" color="secondary" icon={<Link to="/jobs"><WorkIcon /></Link>} />
+        <BottomNavigationAction label="Calendar" color="secondary" icon={<Link to="/calendar"><TodayIcon /></Link>} />
       </BottomNavigation>
     </Box>
   )

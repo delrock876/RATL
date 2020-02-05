@@ -92,7 +92,7 @@ const JobCard =()=> {
 
         <Typography variant="body2" component="p">
           Job Requirements: 
-          <br />
+          {/* <br /> */}
           { 
             job.skills.length ? job.skills.map(skill => (
               <Chip color="primary" label={skill} variant="outlined" />
@@ -113,8 +113,8 @@ const JobCard =()=> {
           <br />
         </Typography> 
         )
-        } */}
-
+        }
+      
       </CardContent>
 
       <CardActions disableSpacing>
