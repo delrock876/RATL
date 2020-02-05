@@ -2,7 +2,11 @@ import React, { useState, useEffect } from 'react'
 import SimCard from '../../components/Card'
 import JobCardAPI from '../../utils/JobCardAPI'
 import JobCardContext from '../../utils/JobCardContext'
+<<<<<<< HEAD
 import HomePage from '../../components/HomePage'
+=======
+import { Container } from '@material-ui/core'
+>>>>>>> ebfa7fc98cc81c174f21fb9159eb462301cb9f11
 
 const { getAllJobs, updateJob } = JobCardAPI
 

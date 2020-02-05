@@ -14,9 +14,6 @@ import {
   Switch,
   Route
 } from 'react-router-dom'
-import RegisterForm from './components/RegisterForm'
-import LandingPage from './components/LandingPage'
-
 
 const { loginUser, registerUser } = UserAPI
 
@@ -29,6 +26,13 @@ const App = () => {
     userPassword: ''
   })
 
+  userState.handleLogout=()=>{
+    console.log('hi')
+    localStorage.clear()
+    window.location = '/'
+    setUserState({...userState, })
+  }
+
   userState.handleLogin = (event) => {
     event.preventDefault()
 
@@ -40,8 +44,6 @@ const App = () => {
     loginUser(user)
       .then(({ data }) => {
         localStorage.setItem('userAuth', data.token)
-        console.log(data.token)
-
         window.location = "/home"
       })
       .catch(e => console.error(e))
@@ -81,10 +83,10 @@ const App = () => {
 
       <Switch>
 
-        <Route exact path="/">
           <UserContext.Provider value={userState}>
+        <Route exact path="/">
             <Landing />
-          </UserContext.Provider>
+            {/* <Navbar/> */}
         </Route>
 
         <Route path="/home">
@@ -110,9 +112,11 @@ const App = () => {
           <Calendar />
           <BottomNav />
         </Route>
+          </UserContext.Provider>
       </Switch>
 
     </Router>
+    
 
 
   )
