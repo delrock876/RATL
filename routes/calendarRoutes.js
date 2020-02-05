@@ -15,9 +15,9 @@ module.exports = app => {
     app.post('/api/calendar', passport.authenticate('jwt', { session: false }), (req, res) => {
 
         const { _id: userAuth } = req.user
-        const { reminder, date } = req.body
+        const { title, date } = req.body
         //creates json with these key value pairs
-        Calendar.create({ reminder, date })
+        Calendar.create({ title, date })
           .then(calendars => {
             
             User.updateOne({ _id: userAuth }, { $push: { userCalendar: calendars } })

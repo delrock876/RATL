@@ -41,16 +41,16 @@ export default class DemoApp extends React.Component {
       })
       .then((value) => {
         if( value !== null){
-
+          console.log(value)
           let newEvent = {
-            reminder: `${value}`,
+            title: `${value}`,
             date: event.date
           }
           addEvent(newEvent, localStorage.getItem('userAuth'))
             this.setState({
               calendarEvents: this.state.calendarEvents.concat({
                 title: `${value}`,
-                start: event.date,
+                date: event.date,
                 allDay: event.allDay
               })
             })        
@@ -68,6 +68,7 @@ export default class DemoApp extends React.Component {
     componentDidMount = () => {
       getAllReminders(localStorage.getItem('userAuth'))
         .then(({ data: calendars }) => {
+          console.log(calendars)
           this.setState({
             calendarEvents: calendars
           })
