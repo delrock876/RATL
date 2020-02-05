@@ -7,6 +7,7 @@ import Button from '@material-ui/core/Button'
 import Typography from '@material-ui/core/Typography'
 import Chip from '@material-ui/core/Chip'
 import DeleteIcon from '@material-ui/icons/Delete'
+import AddBoxIcon from '@material-ui/icons/AddBox';
 import ArchiveIcon from '@material-ui/icons/Archive';
 import ScrapeCardContext from '../../utils/ScrapeCardContext'
 
@@ -27,7 +28,7 @@ const useStyles = makeStyles({
   },
 })
 
-const ScrapeCard =()=> {
+const ScrapeCard = () => {
   
   const { leads, handleDeleteLeads, handleArchiveLeads, handleAddLeads } = useContext(ScrapeCardContext)
   const classes = useStyles()
@@ -41,12 +42,19 @@ const ScrapeCard =()=> {
     <Card className={classes.card} variant="outlined">
 
 <Button
-          onClick = {()=>handleAddLeads(leads._id)}
+          onClick = {()=>handleAddLeads({
+            companyName: leads.company,
+            id: leads._id,
+            jobTitle: leads.title,
+            summary: leads.summary,
+            archived: false,
+            checked: false,
+          })}
           variant="contained"
           className={classes.button}
-          startIcon={<DeleteIcon />}
+          startIcon={<AddBoxIcon />}
         >
-          Delete
+          Add
       </Button>
 
         <Button
@@ -68,13 +76,13 @@ const ScrapeCard =()=> {
 
       <CardContent>
         <Typography className={classes.title} color="textSecondary" gutterBottom>
-         {leads.date}
+         {leads.company}
         </Typography>
         <Typography variant="h5" component="h2">
-          {leads.companyName}
+          {leads.title}
         </Typography>
         <Typography className={classes.pos} color="textSecondary">
-          {leads.jobTitle}
+          {leads.summary}
         </Typography>
       
         <br/>

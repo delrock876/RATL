@@ -18,6 +18,7 @@ const Jobs = () => {
     type: '',
     archived: Boolean,
     dateApplied: '',
+    summary: 'hiiiiii',
     job: '',
     skillsRequired: '',
     bottom: false
@@ -54,6 +55,7 @@ const Jobs = () => {
     let job = {
       companyName: jobState.compName,
       jobTitle: jobState.job,
+      summary: jobState.summary,
       archived: false,
       checked: false,
       date: jobState.dateApplied,
@@ -83,6 +85,7 @@ const Jobs = () => {
             compName: '',
             namee: '',
             email: '',
+            summary: '',
             phone: '',
             type: '',
             dateApplied: '',

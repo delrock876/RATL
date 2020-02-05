@@ -14,6 +14,7 @@ import {
   Switch,
   Route
 } from 'react-router-dom'
+import Scrape from './pages/Scrape'
 
 
 const { loginUser, registerUser } = UserAPI

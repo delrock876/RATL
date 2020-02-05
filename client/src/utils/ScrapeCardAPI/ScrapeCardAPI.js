@@ -24,6 +24,11 @@ const ScrapeCardAPI = {
       { 'Authorization': `Bearer ${token}` }
   }),
 
+  addJobLeads: (event, token) => axios.post('/api/jobs', event, {
+    headers:
+      { 'Authorization': `Bearer ${token}` }
+  }),
+
 }
 
 export default ScrapeCardAPI

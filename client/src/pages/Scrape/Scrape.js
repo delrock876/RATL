@@ -4,7 +4,7 @@ import ScrapeCardContext from '../../utils/ScrapeCardContext'
 import ScrapeCardAPI from '../../utils/ScrapeCardAPI'
 import ScrapeCard from '../../components/ScrapeCard'
 
-const { getAllLeads, addLeads, updateLeads, deleteLeads } = ScrapeCardAPI
+const { getAllLeads, addLeads, updateLeads, deleteLeads, addJobLeads } = ScrapeCardAPI
 
 
 const Scrape = () => {
@@ -12,7 +12,10 @@ const Scrape = () => {
   const {  handleAddLeads } = useContext(ScrapeCardContext)
 
   const [leadsState, setLeadsState] = useState({
-    leads: []
+    leads: [],
+    company: '',
+    title: '',
+    summary: ''
   })
 
   leadsState.handleInputChange = (event) => {
@@ -31,10 +34,36 @@ const Scrape = () => {
       .catch(e => console.error(e))
   }
 
-  leadsState.handleAddLeads = () => {
+  leadsState.handleAddLeads = (event) => {
     // event.preventDefault()
-    console.log('hello')
+    
+    // axios.get('/api/leads')
+    // .then(({ data }) => console.log(data))
+    console.log(event)
+
+//write function that takes in event as job object
+    addJobLeads(event, localStorage.getItem('userAuth'))
+    .then(() => {
+      console.log('success')
+      // jobs.push(event)
+      deleteLeads(event.id, localStorage.getItem('userAuth'))
+      .then(() => console.log('deleted!'))
+      .catch(e => console.error(e))
+    }
+  )
+
+
   }
+
+//get all leads
+  useEffect(() => {
+   
+    getAllLeads(localStorage.getItem('userAuth'))
+      .then(({ data: leads }) => {
+        setLeadsState({ ...leadsState, leads })
+      })
+      .catch(e => console.error(e))
+  }, [])
 
   return (
     <>
