@@ -2,13 +2,32 @@ import axios from 'axios'
 
 const ScrapeCardAPI = {
   
-  getAllLeads= () => axios.get('/api/leads'),
+  getAllLeads: (token) => axios.get('/api/leads', {
+    headers:
+      { 'Authorization': `Bearer ${token}` }
+  }),
 
-  addLeads = () => axios.post('/api/leads'),
+  addLeads: (lead, token) => axios.post('/api/leads', lead, {
+    headers:
+      { 'Authorization': `Bearer ${token}` }
+  }),
 
-  updateLeads = () => axios.put(`/api/leads/${id}`),
+  updateLeads: (id, token, values) => axios.put(`/api/leads/${id}`, values,
+  {
+    headers:
+      { 'Authorization': `Bearer ${token}` }
+  }),
 
-  deleteLeads = () => axios.delete(`/api/leads/${id}`),
+  deleteLeads: (id, token) => axios.delete(`/api/leads/${id}`, 
+  {
+    headers:
+      { 'Authorization': `Bearer ${token}` }
+  }),
+
+  addJobLeads: (event, token) => axios.post('/api/jobs', event, {
+    headers:
+      { 'Authorization': `Bearer ${token}` }
+  }),
 
 }
 
