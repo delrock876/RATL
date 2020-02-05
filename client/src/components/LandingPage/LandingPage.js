@@ -3,9 +3,6 @@ import { Parallax, Background } from 'react-parallax'
 import { makeStyles, Container, createMuiTheme } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
-import Card from '@material-ui/core/Card';
-import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
 import AccessAlarmIcon from '@material-ui/icons/AccessAlarm'
 import ThreeDRotation from '@material-ui/icons/ThreeDRotation'
 import PermContactCalendarIcon from '@material-ui/icons/PermContactCalendar'

@@ -1,7 +1,7 @@
 .mainBg {
-background: #e1eec3;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right, #f05053, #e1eec3);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, #f05053, #e1eec3); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+background-color: #eded30;
+background-image: linear-gradient(0deg, #eded30 0%, #b5e0b2 52%, #f9b353 90%);
+
 
 }
 

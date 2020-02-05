@@ -21,14 +21,14 @@ const Home = () => {
   }, [])
 
   return (
-    <div className='mainBg'>
+  
       <>
         <h1>THIS IS THE HOME PAGE</h1>
         <JobCardContext.Provider value={jobState}>
           <SimCard />
         </JobCardContext.Provider>
       </>
-    </div>
+
   )
 }
 
