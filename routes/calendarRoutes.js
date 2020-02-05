@@ -4,10 +4,10 @@ const passport = require('passport')
 module.exports = app => {
 
     // get all reminders
-    app.get('/api/calendar', (req,res) => {
-        Calendar.find()
-                .then(calendar => res.json(calendar))
-                .catch(e => console.error(e))
+    app.get('/api/calendar', passport.authenticate('jwt', { session: false }), (req, res) => {
+      Calendar.find()
+        .then(calendars => res.json(calendars))
+        .catch(e => console.log(e))
     })
 
 
@@ -17,11 +17,11 @@ module.exports = app => {
         const { _id: userAuth } = req.user
         const { reminder, date } = req.body
         //creates json with these key value pairs
-        Calendar.create({ reminder,date })
-          .then(calendar => {
+        Calendar.create({ reminder, date })
+          .then(calendars => {
             
-            User.updateOne({ _id: userAuth }, { $push: { userCalendar: calendar } })
-              .then(() => res.json(calendar))
+            User.updateOne({ _id: userAuth }, { $push: { userCalendar: calendars } })
+              .then(() => res.json(calendars))
               .catch(e => console.error(e))
           })
           .catch(e => console.error(e))

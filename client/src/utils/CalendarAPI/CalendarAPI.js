@@ -1,7 +1,12 @@
 import axios from 'axios'
 
 const CalendarAPI = {
-        handleDateClick:(calendar, token) => axios.post('/api/calendar', calendar,
+
+        getAllReminders: (token) => axios.get('/api/calendar', {
+    headers:
+      { 'Authorization': `Bearer ${token}` }
+  }),    
+        addEvent:(calendar, token) => axios.post('/api/calendar', calendar,
         {
           headers:
             { 'Authorization': `Bearer ${token}` }
