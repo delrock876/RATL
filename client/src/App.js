@@ -120,6 +120,9 @@ const App = () => {
           <Scrape />
           <BottomNav />
         </Route>
+
+          </UserContext.Provider>
+
       </Switch>
 
     </Router>

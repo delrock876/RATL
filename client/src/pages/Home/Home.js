@@ -1,4 +1,6 @@
+
 import React , {useState, useEffect, useContext } from 'react'
+
 import SimCard from '../../components/Card'
 import JobCardAPI from '../../utils/JobCardAPI'
 import JobCardContext from '../../utils/JobCardContext'
@@ -22,12 +24,15 @@ const Home = () => {
       .catch(e => console.error(e))
   }, [])
 
-    <>
-      <h1>THIS IS THE HOME PAGE</h1>
-      <JobCardContext.Provider value ={jobState}>
-      <SimCard />
-      </JobCardContext.Provider>
-    </>
+
+  return (
+  
+      <>
+        <h1>THIS IS THE HOME PAGE</h1>
+        <JobCardContext.Provider value={jobState}>
+          <SimCard />
+        </JobCardContext.Provider>
+      </>
   )
 }
 

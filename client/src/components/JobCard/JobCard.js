@@ -113,8 +113,12 @@ const JobCard =()=> {
           <br />
         </Typography> 
         )
+        } */}
+
+
         }
       
+
       </CardContent>
 
       <CardActions disableSpacing>
