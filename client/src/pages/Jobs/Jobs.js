@@ -6,7 +6,6 @@ import JobDrawer from '../../components/JobDrawer'
 
 const { getAllJobs, addJob, updateJob, deleteJob } = JobCardAPI
 
-
 const Jobs = () => {
 
   const [jobState, setJobState] = useState({

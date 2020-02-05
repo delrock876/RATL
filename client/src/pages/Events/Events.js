@@ -1,9 +1,9 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState} from 'react'
 import Calendar from '../../components/Calender'
 import CalendarContext from '../../utils/CalendarContext/CalendarContext'
 import CalendarAPI from '../../utils/CalendarAPI'
 
-const {getAllReminders, handleDateClick} = CalendarAPI
+const {handleDateClick} = CalendarAPI
 
 const Events = () => {
 
