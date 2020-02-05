@@ -37,15 +37,17 @@ const Events = () => {
         .catch(e => console.error(e))
   }
 
-  return(
+  return (
 
     <>
+
     <h1>THIS IS YOUR CONNECTIONS PAGE</h1>
     <CalendarContext.Provider value={calendarState}>
     <Calendar /> 
     </CalendarContext.Provider>
 
     </>
+
   )
 }
 
