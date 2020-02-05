@@ -6,7 +6,7 @@ const CalendarAPI = {
     headers:
       { 'Authorization': `Bearer ${token}` }
   }),    
-        handleDateClick:(calendar, token) => axios.post('/api/calendar', calendar,
+        addEvent:(calendar, token) => axios.post('/api/calendar', calendar,
         {
           headers:
             { 'Authorization': `Bearer ${token}` }

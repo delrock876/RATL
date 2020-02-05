@@ -1,8 +1,8 @@
 module.exports = (model, Schema) => {
 
     const Calendar = new Schema({
-        reminder: [{type:String}],
-        date: [{type: Object}],
+        reminder: String,
+        date: String,
         userCalendar : { type: Schema.Types.ObjectId, ref: 'User'}
     })
     return model('Calendar', Calendar)

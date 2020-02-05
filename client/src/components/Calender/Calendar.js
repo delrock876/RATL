@@ -1,12 +1,13 @@
-
 import React, { useContext } from 'react'
+import passport from 'passport'
 import FullCalendar from '@fullcalendar/react'
 import dayGridPlugin from '@fullcalendar/daygrid'
 import timeGridPlugin from '@fullcalendar/timegrid'
 import interactionPlugin from '@fullcalendar/interaction' // needed for dayClick
 import swal from 'sweetalert'
 import './Calendar.scss'
-import CalendarContext from '../../utils/CalendarContext/CalendarContext'
+import CalendarAPI from '../../utils/CalendarAPI'
+const { addEvent, getAllReminders } = (CalendarAPI)
 
 export default class DemoApp extends React.Component {
 
@@ -14,13 +15,11 @@ export default class DemoApp extends React.Component {
   
   state = {
     calendarWeekends: true,
-    calendarEvents: [ // initial event data
+        calendarEvents : [ // initial event data
       { title: '', 
       start: new Date() }
     ]
   }
-
-
 
 
   toggleWeekends = () => {
@@ -36,27 +35,44 @@ export default class DemoApp extends React.Component {
 
 
   handleDateClick = (event) => {
-    swal("Set Reminder:", {
-      content: "input",
-    })
-    .then((value) => {
-      if( value !== null){
-        this.setState({
-         calendarEvents: this.state.calendarEvents.concat({
-           title: `${value}`,
-           start: event.date,
-           allDay: event.allDay
-         })
-       })
-      }else{
-        swal({
-          title: `Are you sure you want to leave the text area empty?`,
-          icon: 'warning'
+
+      swal("Set Reminder:", {
+        content: "input",
+      })
+      .then((value) => {
+        if( value !== null){
+
+          let newEvent = {
+            reminder: `${value}`,
+            date: event.date
+          }
+          addEvent(newEvent, localStorage.getItem('userAuth'))
+            this.setState({
+              calendarEvents: this.state.calendarEvents.concat({
+                title: `${value}`,
+                start: event.date,
+                allDay: event.allDay
+              })
+            })        
+        }else{
+          swal({
+            title: `Are you sure you want to leave the text area empty?`,
+            icon: 'warning'
+          })
+        }
+      })
+      .catch(e => console.error(e))
+    
+    }
+
+    componentDidMount = () => {
+      getAllReminders(localStorage.getItem('userAuth'))
+        .then(({ data: calendars }) => {
+          this.setState({
+            calendarEvents: calendars
+          })
         })
-      }
-    })
-    .catch(e => console.error(e))
-  }
+    }
     
 
   
@@ -91,4 +107,3 @@ export default class DemoApp extends React.Component {
     )
   }
 }
-

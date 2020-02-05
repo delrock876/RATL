@@ -37,18 +37,6 @@ const Events = () => {
         .catch(e => console.error(e))
   }
 
-    //get all jobs
-    useEffect(() => {
-   
-      getAllReminders(localStorage.getItem('userAuth'))
-        .then(({ data: calendars }) => {
-          setCalendarState({ ...calendarState, calendars })
-        })
-        .catch(e => console.error(e))
-    }, [])
-
-
-
   return(
 
     <>
