@@ -13,14 +13,15 @@ const Navbar = () => {
   const useStyles = makeStyles(theme => ({
     root: {
       flexGrow: 1,
-      backgroundColor: '#98A87A',
+      backgroundColor: 'transparent',
+      boxShadow: 'none',
     },
     menuButton: {
       marginRight: theme.spacing(2),
     },
     title: {
       flexGrow: 1,
-      color: '#232A3C',
+      color: 'black',
     }
   }))
 
@@ -32,15 +33,15 @@ const Navbar = () => {
       <div className={classes.root}>
         <AppBar position="static" className={classes.root}>
           <Toolbar>
-            <IconButton edge="start" className={classes.menuButton} color="primary" aria-label="menu">
+            <IconButton edge="start" className={classes.menuButton} color="black" aria-label="menu">
             </IconButton>
-            <Typography variant="h6" className={classes.title}><Link to="/home">RATLL</Link>
+            <Typography variant="h6" className={classes.title}><Link to="/home">RATL</Link>
             </Typography>
-            <Link to="/archived"><Button color="primary">Archived</Button>
+            <Link to="/archived"><Button color="black">Archived</Button>
             </Link>
-            <Link to="/jobs"><Button color="primary">Jobs</Button>
+            <Link to="/jobs"><Button color="black">Jobs</Button>
             </Link>
-            <Link to="/calendar"><Button color="primary">Calendar</Button>
+            <Link to="/calendar"><Button color="black">Calendar</Button>
             </Link>
           </Toolbar>
         </AppBar>

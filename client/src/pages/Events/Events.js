@@ -1,15 +1,15 @@
 import React from 'react'
 import Calendar from '../../components/Calender'
 
-const Events =()=>{
+const Events = () => {
 
-  return(
+  return (
 
     <>
-    <h1>THIS IS YOUR CONNECTIONS PAGE</h1>
-    <Calendar /> 
-
+      <h1>IMPORTANT DATES + EVENTS</h1>
+      <Calendar />
     </>
+
   )
 }
 
