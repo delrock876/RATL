@@ -26,7 +26,6 @@ const Home = () => {
 
 
   return (
-<<<<<<< HEAD
 
     <>
       <h1>THIS IS THE HOME PAGE</h1>
@@ -36,15 +35,6 @@ const Home = () => {
       <HomePage />
     </>
 
-=======
-  
-      <>
-        <h1>THIS IS THE HOME PAGE</h1>
-        <JobCardContext.Provider value={jobState}>
-          <SimCard />
-        </JobCardContext.Provider>
-      </>
->>>>>>> master
   )
 }
 
