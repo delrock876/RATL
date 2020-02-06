@@ -26,13 +26,15 @@ const Home = () => {
 
 
   return (
-  
-      <>
-        <h1>THIS IS THE HOME PAGE</h1>
-        <JobCardContext.Provider value={jobState}>
-          <SimCard />
-        </JobCardContext.Provider>
-      </>
+
+    <>
+      <h1>THIS IS THE HOME PAGE</h1>
+      <JobCardContext.Provider value={jobState}>
+        <SimCard />
+      </JobCardContext.Provider>
+      <HomePage />
+    </>
+
   )
 }
 
