@@ -6,7 +6,7 @@ import Toolbar from '@material-ui/core/Toolbar'
 import Typography from '@material-ui/core/Typography'
 import Button from '@material-ui/core/Button'
 import IconButton from '@material-ui/core/IconButton'
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import Box from '@material-ui/core/Box'
 
 const Navbar = () => {
@@ -38,17 +38,16 @@ const Navbar = () => {
           <Toolbar>
             <IconButton edge="start" className={classes.menuButton} color="black" aria-label="menu">
             </IconButton>
-            <Typography variant="h6" className={classes.title}><Link to="/home">RATL</Link>
+            <Typography variant="h6" className={classes.title}><NavLink style={{ color: 'red'}} to="/home">RATL</NavLink>
             </Typography>
-            <Link to="/archived"><Button color="black">Archived</Button>
-            </Link>
-            <Link to="/jobs"><Button color="black">Jobs</Button>
-            </Link>
-            <Link to="/calendar"><Button color="black">Calendar</Button>
-            </Link>
-            {/* <Link to = "/"> */}
+            <NavLink to="/archived" className="link"><Button >Archived</Button>
+            </NavLink>
+            <NavLink to="/jobs"><Button>Jobs</Button>
+            </NavLink>
+            <NavLink to="/calendar"><Button >Calendar</Button>
+            </NavLink>
+        
               <Button color="primary" onClick={handleLogout}>Log Out</Button>
-              {/* </Link> */}
            
           </Toolbar>
         </AppBar>

@@ -103,21 +103,6 @@ const JobCard = () => {
 
               <br />
 
-              {/* {
-        job.connections.map(item => 
-        <Typography className={classes.title} color="textSecondary" gutterBottom>
-          {item.type}: {item.name}
-          <br/>
-          {item.phone}
-          <br />
-          {item.email}
-          <br />
-        </Typography> 
-        )
-        } */}
-
-
-
             </CardContent>
 
             <CardActions disableSpacing>
