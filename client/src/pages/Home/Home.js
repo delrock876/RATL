@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect, useContext } from 'react'
-
+import Scrape from '../../pages/Scrape'
 import Grid from '@material-ui/core/Grid'
 import SimCard from '../../components/Card'
 import JobCardAPI from '../../utils/JobCardAPI'
@@ -44,23 +44,23 @@ const Home = () => {
             <JobCardContext.Provider value={jobState}>
               <SimCard />
             </JobCardContext.Provider>
+    
+            </Grid>
+            <Grid item xs={4}>
+              <p>Placement for Scrape card </p>
+              <Scrape />
+            </Grid>
+            <Grid item xs={12}>
+              <div className={classes.title}>
+                <p>Placement for Calendar overview</p>
+                {/* <Calendar /> */}
+              </div>
+            </Grid>
 
-          </Grid>
-          <Grid item xs={4}>
-            <p>Placement for Scrape card </p>
-            {/* <Scrape /> */}
-          </Grid>
-          <Grid item xs={12}>
-            <div className={classes.title}>
-              <p>Placement for Calendar overview</p>
-              {/* <Calendar /> */}
-            </div>
-          </Grid>
-
-        </Grid >
-      </div >
-    </>
-
+          </Grid >
+        </div >
+      </>
+  
   )
 }
 
