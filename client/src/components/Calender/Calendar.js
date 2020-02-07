@@ -1,5 +1,4 @@
-import React, { useContext } from 'react'
-import passport from 'passport'
+import React from 'react'
 import FullCalendar from '@fullcalendar/react'
 import dayGridPlugin from '@fullcalendar/daygrid'
 import timeGridPlugin from '@fullcalendar/timegrid'
@@ -74,8 +73,6 @@ export default class DemoApp extends React.Component {
           })
         })
     }
-    
-
   
   
   render() {
