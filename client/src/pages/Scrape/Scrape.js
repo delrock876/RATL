@@ -3,18 +3,17 @@ import ScrapeCardContext from '../../utils/ScrapeCardContext'
 import ScrapeCardAPI from '../../utils/ScrapeCardAPI'
 import ScrapeCard from '../../components/ScrapeCard'
 
-const { getAllLeads, addLeads, updateLeads, deleteLeads, addJobLeads, scrapeLeads } = ScrapeCardAPI
+const { getAllLeads, updateLeads, deleteLeads, addJobLeads, scrapeLeads } = ScrapeCardAPI
 
 
 const Scrape = () => {
-
-  const {  handleAddLeads, handleScrapeLeads } = useContext(ScrapeCardContext)
 
   const [leadsState, setLeadsState] = useState({
     leads: [],
     company: '',
     title: '',
-    summary: ''
+    summary: '',
+    archived: Boolean
   })
 
   leadsState.handleInputChange = (event) => {
@@ -23,7 +22,13 @@ const Scrape = () => {
 
   leadsState.handleArchiveLeads = (id, archived) => {
     updateLeads(id, { archived: true }, localStorage.getItem('userAuth'))
-      .then(() => console.log('archived!'))
+      .then(() =>{
+        let leads = JSON.parse(JSON.stringify(leadsState.leads))
+        let leadsFiltered = leads.filter(lead => id !== lead._id)
+        console.log(leadsFiltered)
+        setLeadsState({ ...leadsState, leads: leadsFiltered})
+        
+      })
       .catch(e => console.error(e))
   }
 
@@ -34,20 +39,22 @@ const Scrape = () => {
   }
 
   leadsState.handleScrapeLeads = () => {
-    console.log('testing123')
+    
     scrapeLeads()
     .then(({ data }) => {
-        let leads = JSON.parse(JSON.stringify(leadsState.leads))
-        leads = [...leads, ...data]
-        setLeadsState({ ...leadsState, leads })
-    })
+      // let leads = JSON.parse(JSON.stringify(leadsState.leads))
+      console.log(data)
+  
+      
+      // leads = [...leads, ...data]
+      
+  
+        // setLeadsState({ ...leadsState, leads})
+  
+      })
   }
 
   leadsState.handleAddLeads = (event) => {
-    // event.preventDefault()
-  
-    console.log(event)
-
 //write function that takes in event as job object
     addJobLeads(event, localStorage.getItem('userAuth'))
     .then(() => {
@@ -56,9 +63,7 @@ const Scrape = () => {
       deleteLeads(event.id, localStorage.getItem('userAuth'))
       .then(() => console.log('deleted!'))
       .catch(e => console.error(e))
-    }
-  )
-
+    })
   }
 
 //get all leads

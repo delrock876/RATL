@@ -37,16 +37,16 @@ const ScrapeCard = () => {
     
     <div>
     {
-      leads.length ? leads.map(leads=>(
+      leads ? leads.map(lead=> !lead.archived ? (
 
     <Card className={classes.card} variant="outlined">
 
 <Button
           onClick = {()=>handleAddLeads({
             companyName: leads.company,
-            id: leads._id,
-            jobTitle: leads.title,
-            summary: leads.summary,
+            id: lead._id,
+            jobTitle: lead.title,
+            summary: lead.summary,
             archived: false,
             checked: false,
           })}
@@ -58,7 +58,7 @@ const ScrapeCard = () => {
       </Button>
 
         <Button
-          onClick = {()=>handleDeleteLeads(leads._id)}
+          onClick = {()=>handleDeleteLeads(lead._id)}
           variant="contained"
           className={classes.button}
           startIcon={<DeleteIcon />}
@@ -66,7 +66,7 @@ const ScrapeCard = () => {
           Delete
       </Button>
         <Button
-          onClick= {()=> handleArchiveLeads(leads._id, leads.archived)}
+          onClick= {()=> handleArchiveLeads(lead._id, lead.archived)}
           variant="contained"
           className={classes.button}
           startIcon={<ArchiveIcon />}
@@ -76,20 +76,20 @@ const ScrapeCard = () => {
 
       <CardContent>
         <Typography className={classes.title} color="textSecondary" gutterBottom>
-         {leads.company}
+         {lead.company}
         </Typography>
         <Typography variant="h5" component="h2">
-          {leads.title}
+          {lead.title}
         </Typography>
         <Typography className={classes.pos} color="textSecondary">
-          {leads.summary}
+          {lead.summary}
         </Typography>
       
         <br/>
       
       </CardContent>
     </Card>
-    )): null
+  ):null): null
 }
     </div>
   )
