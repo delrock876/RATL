@@ -34,7 +34,7 @@ const Home = () => {
 
   const classes = useStyles();
   return (
-    <div className='mainBg'>
+  
       <>
         <div>
           <Grid container spacing={3} container padding='10px'>
