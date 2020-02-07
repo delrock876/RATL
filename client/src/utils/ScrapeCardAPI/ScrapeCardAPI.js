@@ -28,7 +28,8 @@ const ScrapeCardAPI = {
     headers:
       { 'Authorization': `Bearer ${token}` }
   }),
-
+ 
+  scrapeLeads: () => axios.get('/api/scrape')
 }
 
 export default ScrapeCardAPI
