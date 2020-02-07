@@ -47,6 +47,7 @@ const Jobs = () => {
   }
 
   jobState.handleDeleteJob = (id) => {
+    console.log(id)
     deleteJob(id, localStorage.getItem('userAuth'))
     .then(() => {
       let jobs = JSON.parse(JSON.stringify(jobState.jobs))
@@ -82,10 +83,10 @@ const Jobs = () => {
 
     } else {
       addJob(job, localStorage.getItem('userAuth'))
-      .then(() => {
+      .then(({ data }) => {
 
           let jobs = JSON.parse(JSON.stringify(jobState.jobs))
-          jobs.push(job)
+          jobs.push(data)
 
           setJobState({
             ...jobState,
