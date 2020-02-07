@@ -8,6 +8,7 @@ module.exports = (model, Schema) => {
     summary: String,
     location: String,
     postDate: String,
+    archived: Boolean
   })
 
   return model('Leads', Leads)
