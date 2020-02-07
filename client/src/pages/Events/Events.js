@@ -40,12 +40,12 @@ const Events = () => {
   return (
     <div className='mainBg'>
       <>
-
-        <h1>THIS IS YOUR CONNECTIONS PAGE</h1>
-        <CalendarContext.Provider value={calendarState}>
-          <Calendar />
-        </CalendarContext.Provider>
-
+        <div className='calendarBg'>
+          <h1>THIS IS YOUR CONNECTIONS PAGE</h1>
+          <CalendarContext.Provider value={calendarState}>
+            <Calendar />
+          </CalendarContext.Provider>
+        </div>
       </>
     </div>
   )
