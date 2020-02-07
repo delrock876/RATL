@@ -34,17 +34,17 @@ const Home = () => {
 
   const classes = useStyles();
   return (
-  
-      <>
-        <div>
-          <Grid container spacing={3} container padding='10px'>
-            <Grid item xs={8}>
-              <h3>*Placeholder text to indicate Homepage*</h3>
-              <p>Display SimCard content here</p>
-              <JobCardContext.Provider value={jobState}>
-                <SimCard />
-              </JobCardContext.Provider>
 
+    <>
+      <div className="homeBg">
+        <Grid container spacing={3} container padding='10px'>
+          <Grid item xs={8}>
+            <h3>*Placeholder text to indicate Homepage*</h3>
+            <p>Display SimCard content here</p>
+            <JobCardContext.Provider value={jobState}>
+              <SimCard />
+            </JobCardContext.Provider>
+    
             </Grid>
             <Grid item xs={4}>
               <p>Placement for Scrape card </p>
