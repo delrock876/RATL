@@ -128,9 +128,11 @@ const Jobs = () => {
         <JobCardContext.Provider value={jobState}>
 
           <JobDrawer />
-          <JobCard />
-
+        
+              <JobCard />
+        
         </JobCardContext.Provider>
+
       </div>
     </>
   )
