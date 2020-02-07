@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect, useContext } from 'react'
-
+import Scrape from '../../pages/Scrape'
 import Grid from '@material-ui/core/Grid'
 import SimCard from '../../components/Card'
 import JobCardAPI from '../../utils/JobCardAPI'
