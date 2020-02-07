@@ -33,7 +33,7 @@ export default class DemoApp extends React.Component {
   }
 
 
-  handleDateClick = (event) => {
+  handleDateClick = (arg) => {
 
       swal("Set Reminder:", {
         content: "input",
@@ -43,14 +43,14 @@ export default class DemoApp extends React.Component {
           console.log(value)
           let newEvent = {
             title: `${value}`,
-            date: event.date
+            date: arg.date
           }
           addEvent(newEvent, localStorage.getItem('userAuth'))
             this.setState({
               calendarEvents: this.state.calendarEvents.concat({
                 title: `${value}`,
-                date: event.date,
-                allDay: event.allDay
+                date: arg.date,
+                allDay: arg.allDay
               })
             })        
         }else{
@@ -84,7 +84,6 @@ export default class DemoApp extends React.Component {
         <div className='demo-app-top'>
           <button className='btn' onClick={ this.toggleWeekends }>toggle weekends</button>&nbsp;
           <button className='btn' onClick={ this.gotoPast }>go to a date in the past</button>&nbsp;
-          (also, click a date/time to add an event)
         </div>
         <div className='demo-app-calendar'>
           <FullCalendar

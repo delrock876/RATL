@@ -20,7 +20,7 @@ const Jobs = () => {
     summary: 'hiiiiii',
     job: '',
     skillsRequired: '',
-    bottom: false
+    bottom: false,
 
   })
 
@@ -37,7 +37,13 @@ const Jobs = () => {
 
   jobState.handleArchiveJob = (id, archived) => {
     updateJob(id, { archived: true }, localStorage.getItem('userAuth'))
-      .then(() => console.log('archived!'))
+      .then(() => {
+        let jobs = JSON.parse(JSON.stringify(jobState.jobs))
+        let jobsFiltered = jobs.filter(job => id !== job._id)
+        setJobState({ ...jobState, jobs: jobsFiltered })
+          console.log(jobs)
+        
+      })
       .catch(e => console.error(e))
   }
 
@@ -103,6 +109,7 @@ const Jobs = () => {
    
     getAllJobs(localStorage.getItem('userAuth'))
       .then(({ data: jobs }) => {
+        console.log(jobs)
         setJobState({ ...jobState, jobs })
       })
       .catch(e => console.error(e))
