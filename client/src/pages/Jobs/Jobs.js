@@ -41,15 +41,17 @@ const Jobs = () => {
         let jobs = JSON.parse(JSON.stringify(jobState.jobs))
         let jobsFiltered = jobs.filter(job => id !== job._id)
         setJobState({ ...jobState, jobs: jobsFiltered })
-          console.log(jobs)
         
       })
       .catch(e => console.error(e))
   }
 
   jobState.handleDeleteJob = (id) => {
+    let jobs = JSON.parse(JSON.stringify(jobState.jobs))
     deleteJob(id, localStorage.getItem('userAuth'))
-      .then(() => console.log('deleted!'))
+      .then(() => {
+        setJobState({...jobState, jobs})
+      })
       .catch(e => console.error(e))
   }
 
