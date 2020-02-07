@@ -7,7 +7,7 @@ module.exports = (model, Schema) => {
     salary: String,
     summary: String,
     location: String,
-    datePosted: String,
+    postDate: String,
   })
 
   return model('Leads', Leads)
