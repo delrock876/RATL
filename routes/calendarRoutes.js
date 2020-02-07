@@ -20,7 +20,7 @@ module.exports = app => {
         Calendar.create({ title, date })
           .then(calendars => {
             
-            User.updateOne({ _id: userAuth }, { $push: { userCalendar: calendars } })
+            User.updateOne({ _id: userCalendar }, { $push: { userCalendar: calendars } })
               .then(() => res.json(calendars))
               .catch(e => console.error(e))
           })
