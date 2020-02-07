@@ -47,10 +47,11 @@ const Jobs = () => {
   }
 
   jobState.handleDeleteJob = (id) => {
-    let jobs = JSON.parse(JSON.stringify(jobState.jobs))
     deleteJob(id, localStorage.getItem('userAuth'))
-      .then(() => {
-     
+    .then(() => {
+      let jobs = JSON.parse(JSON.stringify(jobState.jobs))
+       let newJobs = jobs.filter(job => id !== job._id)
+       setJobState({...jobState, jobs: newJobs})
       })
       .catch(e => console.error(e))
   }
@@ -111,7 +112,6 @@ const Jobs = () => {
    
     getAllJobs(localStorage.getItem('userAuth'))
       .then(({ data: jobs }) => {
-        console.log(jobs)
         setJobState({ ...jobState, jobs })
       })
       .catch(e => console.error(e))
