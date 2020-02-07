@@ -50,7 +50,7 @@ const Jobs = () => {
     let jobs = JSON.parse(JSON.stringify(jobState.jobs))
     deleteJob(id, localStorage.getItem('userAuth'))
       .then(() => {
-        setJobState({...jobState, jobs})
+     
       })
       .catch(e => console.error(e))
   }
