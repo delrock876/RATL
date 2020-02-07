@@ -59,6 +59,7 @@ const JobCard = () => {
     <div>
       {
         jobs ? jobs.map(job => !job.archived ? (
+  
 
           <Card className={classes.card} variant="outlined">
             <Button

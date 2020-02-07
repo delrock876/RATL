@@ -49,6 +49,7 @@ const Navbar = () => {
             </NavLink>
             {/* <Link to = "/"> */}
             <Button style={{ color: '#D5441C', fontFamily: 'Inder, sans-serif' }} onClick={handleLogout}><h6>Log Out</h6></Button>
+
             {/* </Link> */}
 
           </Toolbar>
