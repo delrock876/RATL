@@ -13,6 +13,7 @@ import profileS from './assets/sabrina.jpeg'
 import Paper from '@material-ui/core/Paper'
 import RegisterForm from '../RegisterForm'
 import LoginForm from '../LoginForm'
+import LinkedInIcon from '@material-ui/icons/LinkedIn';
 
 const useStyles = makeStyles(theme => ({
   header: {
@@ -53,12 +54,12 @@ const useStyles = makeStyles(theme => ({
     fontWeight: "bold",
     marginBottom: 20
   },
-  para:{
+  para: {
     fontSize: "1.4em",
     color: "white",
     fontFamily: 'Inder, sans-serif'
   },
-  topHead:{
+  topHead: {
     backgroundColor: '#ffb84d'
   }
 
@@ -81,17 +82,17 @@ const LandingPage = () => {
         <div>
           <Grid container spacing={3}>
             <Grid item xs={12}>
-         
+
               <div className={classes.header}>
                 {/* < img src={logo} className={classes.logo} alt="logo" /> */}
                 <div >
                   <h3 className={classes.title}>Manage your job search in a simple yet effective fashion with RATL</h3>
                   <p className={classes.para}>
-                Job hunting doesn't have to be complicated. RATL simplifies your application process without compromising quality.
+                    Job hunting doesn't have to be complicated. RATL simplifies your application process without compromising quality.
                   </p>
                 </div>
               </div>
-              
+
             </Grid>
 
           </Grid>
@@ -105,7 +106,7 @@ const LandingPage = () => {
             bgImageAlt="group"
             strength={200}
           >
-            <div style={{ height: '450px', width:'100px' }} />
+            <div style={{ height: '450px', width: '100px' }} />
           </Parallax>
 
         </div>
@@ -147,34 +148,47 @@ const LandingPage = () => {
               <h4 className={classes.title}> Meet the Team </h4>
             </Grid>
 
-            <Grid item xs={3} align="center">
-              < a href="https://www.linkedin.com/in/bryant-nguyen-695b0219a/">
-                < img className={classes.profile} src={profileB} alt="bryant" />
-                <div >  <h6> Bryant</h6>
-                </div>
-              </a>
-            </Grid>
-
-            <Grid item xs={3} align="center">
-              <a href="https://www.linkedin.com/in/cydcastillo">
-                < img className={classes.profile} src={profileC} alt="cyd" />
-                <div >  <h6> Cyd</h6>
-                </div>
-              </a>
-            </Grid>
-
-            <Grid item xs={3} align="center">
-              < img className={classes.profile} src={profileB} alt="javi" href="#" />
-              <div >  <h6> Javi</h6>
+            <Grid item xs={6} align="center">
+              < img className={classes.profile} src={profileB} alt="bryant" />
+              <div >
+                <a href="https://www.linkedin.com/in/bryant-nguyen-695b0219a/">
+                  <h6> <LinkedInIcon /> Bryant</h6>
+                  </a>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veniam ipsam sed sit blanditiis </p>
               </div>
             </Grid>
 
-            <Grid item xs={3} align="center">
-              <a href="https://www.linkedin.com/in/sabrina-rocha/">
+            <Grid item xs={6} align="center">
+              < img className={classes.profile} src={profileC} alt="cyd" />
+              <div >
+                <a href="https://www.linkedin.com/in/cydcastillo">
+                  <h6> <LinkedInIcon /> Cyd</h6>
+                  </a>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veniam ipsam sed sit blanditiis </p>
+              </div>
+            </Grid>
+
+            <Grid item xs={6} align="center">
+              < img className={classes.profile} src={profileB} alt="javi" />
+              <div >
+                <a href="#">
+                  <h6> <LinkedInIcon /> Francisco </h6>
+                </a>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veniam ipsam sed sit blanditiis </p>
+              </div>
+            </Grid>
+
+            <Grid item xs={6} align="center">
+              
                 < img className={classes.profile} src={profileS} alt="sabrina" />
-                <div >  <h6> Sabrina</h6>
-                </div>
+                <div >  
+          
+                <a href="https://www.linkedin.com/in/sabrina-rocha/" target="_blank">
+                  <h6> <LinkedInIcon /> Sabrina</h6>
               </a>
+              
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veniam ipsam sed sit blanditiis </p>
+                </div>
             </Grid>
 
           </Grid >
