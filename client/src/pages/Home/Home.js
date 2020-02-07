@@ -5,10 +5,9 @@ import Grid from '@material-ui/core/Grid'
 import SimCard from '../../components/Card'
 import JobCardAPI from '../../utils/JobCardAPI'
 import JobCardContext from '../../utils/JobCardContext'
-import { Container } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import Paper from '@material-ui/core/Paper'
-import UserContext from '../../utils/UserContext'
+
 
 
 const { getAllJobs, updateJob } = JobCardAPI
@@ -19,6 +18,11 @@ const useStyles = makeStyles({
     textAlign: 'center',
     height: "150px"
   },
+  bg: {
+    backgroundColor:"#ccff99",
+    width: "100%"
+ 
+  }
 });
 
 const Home = () => {
@@ -40,7 +44,9 @@ const Home = () => {
 
       <div className="homeBg">
         <Grid container spacing={1} padding='10px'>
+        <div className={classes.bg}>
         <h2>Welcome, {localStorage.getItem('name')}</h2>
+          </div>
 
         <Grid item xs={12}>
           <Paper elevation={4}>

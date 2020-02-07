@@ -32,7 +32,8 @@ background-image: linear-gradient(180deg, #54b931 7%, #eae3e3 72%);
 
 .jobsBg {
   overflow:hidden;
-  background-color: #A3C66D;
+    background-color: #54b931;
+background-image: linear-gradient(180deg, #54b931 7%, #eae3e3 72%);
 }
 
 .whiteCard {
