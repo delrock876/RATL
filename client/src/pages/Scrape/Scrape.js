@@ -1,5 +1,4 @@
 import React, { useContext, useState, useEffect } from 'react'
-import axios from 'axios'
 import ScrapeCardContext from '../../utils/ScrapeCardContext'
 import ScrapeCardAPI from '../../utils/ScrapeCardAPI'
 import ScrapeCard from '../../components/ScrapeCard'
@@ -46,9 +45,7 @@ const Scrape = () => {
 
   leadsState.handleAddLeads = (event) => {
     // event.preventDefault()
-    
-    // axios.get('/api/leads')
-    // .then(({ data }) => console.log(data))
+  
     console.log(event)
 
 //write function that takes in event as job object
@@ -61,7 +58,6 @@ const Scrape = () => {
       .catch(e => console.error(e))
     }
   )
-
 
   }
 
@@ -77,12 +73,10 @@ const Scrape = () => {
 
   return (
     <>
-      <h1>Scrape Info</h1>
+      
       <button onClick={leadsState.handleScrapeLeads}>LARGE BUTTON</button>
       <ScrapeCardContext.Provider value={leadsState}>
-
         <ScrapeCard />
-
       </ScrapeCardContext.Provider>
       </>
   )

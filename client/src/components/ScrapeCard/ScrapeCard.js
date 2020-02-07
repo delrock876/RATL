@@ -13,7 +13,7 @@ import ScrapeCardContext from '../../utils/ScrapeCardContext'
 
 const useStyles = makeStyles({
   card: {
-    minWidth: 275,
+    // minWidth: 275,
   },
   bullet: {
     display: 'inline-block',

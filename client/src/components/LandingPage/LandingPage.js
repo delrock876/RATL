@@ -1,10 +1,7 @@
 import React from 'react'
-import { Parallax, Background } from 'react-parallax'
-
-import { makeStyles, Container } from '@material-ui/core/styles'
-import Paper from '@material-ui/core/Paper'
+import { Parallax } from 'react-parallax'
+import { makeStyles } from '@material-ui/core/styles'
 import Grid from '@material-ui/core/Grid'
-
 import PermContactCalendarIcon from '@material-ui/icons/PermContactCalendar'
 import TodayIcon from '@material-ui/icons/Today'
 import LocationCityIcon from '@material-ui/icons/LocationCity'
@@ -13,60 +10,93 @@ import logo from './assets/RATL.png'
 import profileB from './assets/bryant.jpeg'
 import profileC from './assets/cyd.jpeg'
 import profileS from './assets/sabrina.jpeg'
-
-
-
+import Paper from '@material-ui/core/Paper'
+import RegisterForm from '../RegisterForm'
+import LoginForm from '../LoginForm'
 
 const useStyles = makeStyles(theme => ({
   header: {
+    margin: "auto",
     backgroundColor: "FFFFFF",
-    padding: "10px",
-    textAlign: "center",
+    width: "80%",
+    textAlign: "center"
   },
 
   logo: {
-    padding: "10px",
-    textAlign: "center",
+    width: "60px",
+    marginTop: 15,
+    marginLeft: "10px"
   },
   profile: {
-    padding: "10px",
-    width: "100px",
-    height: "100px",
+    height: "60px",
     borderRadius: "50%",
-    justifyContent: "center",
   },
   root: {
     flexGrow: 1,
   },
   paper: {
-    display: 'fixed',
-    padding: theme.spacing(3),
     textAlign: "center",
-    color: theme.palette.text.secondary,
+    backgroundColor: 'rgb(244, 255, 225)',
+    height: "240px",
+    paddingTop: "10%",
+    borderRadius: "3%",
+    margin: 5,
+    marginTop: 20
+
   },
+
+  title: {
+    marginTop: "6%",
+    fontSize: "2em",
+    color: "white",
+    fontFamily: 'Inder, sans-serif',
+    fontWeight: "bold",
+    marginBottom: 20
+  },
+  para:{
+    fontSize: "1.4em",
+    color: "white",
+    fontFamily: 'Inder, sans-serif'
+  },
+  topHead:{
+    backgroundColor: '#ffb84d'
+  }
 
 }));
 
 const LandingPage = () => {
   const classes = useStyles();
+
   return (
 
     <div className='mainBg'>
       <>
+        <Grid container className={classes.topHead}>
+          <Grid item xs={4}>< img src={logo} className={classes.logo} alt="logo" /></Grid>
+          <Grid item xs={8} container justify="flex-end" alignItems="flex-start" direcion="row">
+            <LoginForm />
+            <RegisterForm />
+          </Grid>
+        </Grid>
         <div>
           <Grid container spacing={3}>
             <Grid item xs={12}>
-
-
+         
               <div className={classes.header}>
-                < img src={logo} alt="logo" />
-                <h3>Your efficient job search management tool</h3>
-                <p> RATL effectively helps manage your job search by providing tools to keep track of your application process, stay in touch with hiring managers and never loose a beat with an overview of key dates on your calendar such as upcoming interviews and networking events.  </p>
+                {/* < img src={logo} className={classes.logo} alt="logo" /> */}
+                <div >
+                  <h3 className={classes.title}>Manage your job search in a simple yet effective fashion with RATL</h3>
+                  <p className={classes.para}>
+                Job hunting doesn't have to be complicated. RATL simplifies your application process without compromising quality.
+                  </p>
+                </div>
               </div>
+              
             </Grid>
 
           </Grid>
         </div>
+
 
         <div>
           <Parallax
@@ -75,38 +105,52 @@ const LandingPage = () => {
             bgImageAlt="group"
             strength={200}
           >
-            <div style={{ height: '400px' }} />
+            <div style={{ height: '450px', width:'100px' }} />
           </Parallax>
+
         </div>
 
         <div className={classes.root}>
-          <Grid container spacing={3} container padding='10px'>
-            <Grid item xs={6} height="150px">
-              <div className={classes.paper}> <h4> Manage Connections </h4> <PermContactCalendarIcon />
-                <p> Have key contact information readily on-hand so communication with hiring managers can be easily maintained</p></div>
+          <Grid container spacing={1}>
+            <Grid item xs={6} >
+              <Paper elevation={4} className={classes.paper}>
+                <div > <h4> Keep in Touch</h4> <PermContactCalendarIcon />
+                  <p> Have key contact information readily on-hand so communication with hiring managers can be easily maintained</p></div>
+              </Paper>
             </Grid>
-            <Grid item xs={6} height="150px">
-              <div className={classes.paper}> <h4> Calendar View </h4>  <TodayIcon />
-                <p> Stay ahead of the game - keep track of important dates like upcoming interviews,  follow-up calls and networking events </p></div>
+            <Grid item xs={6} >
+              <Paper elevation={4} className={classes.paper}>
+                <div > <h4> Track Events </h4>  <TodayIcon />
+                  <p> Stay ahead of the game - keep track of important dates like upcoming interviews,  follow-up calls and networking events </p>
+                </div>
+              </Paper>
             </Grid>
-            <Grid item xs={6} height="150px">
-              <div className={classes.paper}>  <h4> Job Leads </h4>   <WorkIcon />
-                <p> Receive an overview of latest listings in your custom feed </p></div>>
+
+            <Grid item xs={6} >
+              <Paper elevation={4} className={classes.paper}>
+                <div >  <h4> Discover Leads </h4>
+                  <WorkIcon />
+                  <p> Receive an overview of latest job listings in a custom feed based on your parameters</p>
+                </div>
+              </Paper>
             </Grid>
-            <Grid item xs={6} height="150px">
-              <div className={classes.paper}>  <h4> Company Insights </h4> <LocationCityIcon />
-                <p> Be in-the-know and armed with relevant information about companies & organizations  </p></div>
+            <Grid item xs={6} >
+              <Paper elevation={4} className={classes.paper}>
+                <div>  <h4> Be Prepared </h4> <LocationCityIcon />
+                  <p> Be in-the-know and armed with relevant information about companies & organizations  </p>
+                </div>
+              </Paper>
             </Grid>
 
 
-            <Grid item xs={12}>
-              <div className={classes.paper}>  <h3> Meet the Team </h3></div>
+            <Grid item xs={12} align="center">
+              <h4 className={classes.title}> Meet the Team </h4>
             </Grid>
 
             <Grid item xs={3} align="center">
               < a href="https://www.linkedin.com/in/bryant-nguyen-695b0219a/">
                 < img className={classes.profile} src={profileB} alt="bryant" />
-                <div className={classes.paper}>  <h6> Bryant</h6>
+                <div >  <h6> Bryant</h6>
                 </div>
               </a>
             </Grid>
@@ -114,21 +158,21 @@ const LandingPage = () => {
             <Grid item xs={3} align="center">
               <a href="https://www.linkedin.com/in/cydcastillo">
                 < img className={classes.profile} src={profileC} alt="cyd" />
-                <div className={classes.paper}>  <h6> Cyd</h6>
+                <div >  <h6> Cyd</h6>
                 </div>
               </a>
             </Grid>
 
             <Grid item xs={3} align="center">
               < img className={classes.profile} src={profileB} alt="javi" href="#" />
-              <div className={classes.paper}>  <h6> Javi</h6>
+              <div >  <h6> Javi</h6>
               </div>
             </Grid>
 
             <Grid item xs={3} align="center">
               <a href="https://www.linkedin.com/in/sabrina-rocha/">
                 < img className={classes.profile} src={profileS} alt="sabrina" />
-                <div className={classes.paper}>  <h6> Sabrina</h6>
+                <div >  <h6> Sabrina</h6>
                 </div>
               </a>
             </Grid>
