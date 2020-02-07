@@ -16,7 +16,6 @@ import {
 } from 'react-router-dom'
 import Scrape from './pages/Scrape'
 
-
 const { loginUser, registerUser } = UserAPI
 
 const App = () => {
@@ -29,10 +28,8 @@ const App = () => {
   })
 
   userState.handleLogout=()=>{
-    console.log('hi')
     localStorage.clear()
     window.location = '/'
-    setUserState({...userState, })
   }
 
   userState.handleLogin = (event) => {
@@ -76,7 +73,6 @@ const App = () => {
         })
       })
       .catch(e => console.error(e))
-
   }
 
   return (
@@ -88,7 +84,6 @@ const App = () => {
           <UserContext.Provider value={userState}>
         <Route exact path="/">
             <Landing />
-            {/* <Navbar/> */}
         </Route>
 
         <Route path="/home">
