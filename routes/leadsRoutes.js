@@ -1,4 +1,6 @@
 const { Leads } = require('../models')
+const { Scrape } = require('../controller')
+const indeed = require('indeed-scraper')
 
 module.exports = app => {
 
@@ -30,4 +32,24 @@ module.exports = app => {
     .then(() => res.sendStatus(200))
     .catch(e => console.log(e))
   })
+
+  //Scrape one time to add 5 leads
+  app.get('/api/scrape', (req, res) => {
+    indeed.query({
+      host: 'www.indeed.com',
+      query: 'Retail',
+      city: 'Seattle, WA',
+      radius: '25',
+      level: 'entry_level',
+      jobType: 'fulltime',
+      maxAge: '7',
+      sort: 'date',
+      limit: 5
+    }).then(leads => {
+      Leads.create(leads)
+        .then(leads => res.json(leads))
+        .catch(e => console.error(e))
+    })
+  })
+  
 }
