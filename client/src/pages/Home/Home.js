@@ -60,7 +60,6 @@ const Home = () => {
           </Grid >
         </div >
       </>
-  
   )
 }
 
