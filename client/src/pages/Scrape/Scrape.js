@@ -4,12 +4,12 @@ import ScrapeCardContext from '../../utils/ScrapeCardContext'
 import ScrapeCardAPI from '../../utils/ScrapeCardAPI'
 import ScrapeCard from '../../components/ScrapeCard'
 
-const { getAllLeads, addLeads, updateLeads, deleteLeads, addJobLeads } = ScrapeCardAPI
+const { getAllLeads, addLeads, updateLeads, deleteLeads, addJobLeads, scrapeLeads } = ScrapeCardAPI
 
 
 const Scrape = () => {
 
-  const {  handleAddLeads } = useContext(ScrapeCardContext)
+  const {  handleAddLeads, handleScrapeLeads } = useContext(ScrapeCardContext)
 
   const [leadsState, setLeadsState] = useState({
     leads: [],
@@ -32,6 +32,16 @@ const Scrape = () => {
     deleteLeads(id, localStorage.getItem('userAuth'))
       .then(() => console.log('deleted!'))
       .catch(e => console.error(e))
+  }
+
+  leadsState.handleScrapeLeads = () => {
+    console.log('testing123')
+    scrapeLeads()
+    .then(({ data }) => {
+        let leads = JSON.parse(JSON.stringify(leadsState.leads))
+        leads = [...leads, ...data]
+        setLeadsState({ ...leadsState, leads })
+    })
   }
 
   leadsState.handleAddLeads = (event) => {
@@ -68,26 +78,10 @@ const Scrape = () => {
   return (
     <>
       <h1>Scrape Info</h1>
+      <button onClick={leadsState.handleScrapeLeads}>LARGE BUTTON</button>
       <ScrapeCardContext.Provider value={leadsState}>
 
         <ScrapeCard />
-{/* 
-        <h1>THIS IS THE SCRAPE PAGE</h1>
-      <form>
-        <label>Job Type: </label>
-        <input></input>
-        <br />
-        <label>Location: </label>
-        <input></input>
-        <br />
-        <label>Distance: </label>
-        <input></input>
-        <br />
-        <label>Full Time: </label>
-        <input></input>
-      </form>
-
-      <button onClick={handleAddLeads}>BUTTON</button> */}
 
       </ScrapeCardContext.Provider>
       </>
