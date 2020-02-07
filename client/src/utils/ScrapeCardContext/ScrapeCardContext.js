@@ -5,7 +5,8 @@ const ScrapeCardContext = createContext({
   handleInputChange: () => { },
   handleAddLeads: () => { },
   handleDeleteLeads: () => { },
-  handleArchiveLeads: () => { }
+  handleArchiveLeads: () => { },
+  handleScrapeLeads: () => { }
 })
 
 export default ScrapeCardContext
