@@ -1,5 +1,4 @@
 const { Leads } = require('../models')
-const { Scrape } = require('../controller')
 const indeed = require('indeed-scraper')
 
 module.exports = app => {
