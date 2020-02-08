@@ -4,9 +4,24 @@ import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles({
   title: {
-    fontSize: 14,
-    textAlign: 'center',
+    marginTop: 20,
+    marginBottom: 20,
+    marginLeft: 10,
+    fontSize: "2em",
+    color: "white",
+    fontFamily: 'Inder, sans-serif',
+    fontWeight: "bold",
   },
+  para: {
+    fontSize: "1.4em",
+    color: "white",
+    fontFamily: 'DM Sans, sans-serif'
+  },
+  para2: {
+    fontSize: "1em",
+    color: "black",
+    fontFamily: 'DM Sans, sans-serif'
+  }
 });
 
 const Archived = () => {
@@ -17,15 +32,7 @@ const Archived = () => {
         <Grid container spacing={3} container padding='10px'>
 
           <Grid item xs={8}>
-            <h1> Place Archive Card Here</h1>
-          </Grid>
-          <Grid item xs={4}>
-            <h1> Place Addtl Info Here</h1>
-          </Grid>
-          <Grid item xs={12}>
-            <div className={classes.title}>
-              <h1> Place More Info  Here</h1>
-            </div>
+            <h1 className={classes.title}> Placeholder content area</h1>
           </Grid>
 
         </Grid>
