@@ -5,7 +5,7 @@ module.exports = app => {
 
     // get all reminders
     app.get('/api/calendar', passport.authenticate('jwt', { session: false }), (req, res) => {
-      Calendar.find({userCalendar: req.user._id})
+      Calendar.find({userCalendar: req.user._id} )
         .then(calendars => res.json(calendars))
         .catch(e => console.log(e))
     })

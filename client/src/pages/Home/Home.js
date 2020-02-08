@@ -7,6 +7,7 @@ import JobCardAPI from '../../utils/JobCardAPI'
 import JobCardContext from '../../utils/JobCardContext'
 import { makeStyles } from '@material-ui/core/styles'
 import Paper from '@material-ui/core/Paper'
+import CalendarForm from '../../components/CalendarForm'
 
 
 
@@ -49,10 +50,7 @@ const Home = () => {
 
         <Grid item xs={12}>
           <Paper elevation={4}>
-          <div className={classes.title}>
-            <h2>Place Calendar overview here</h2>
-            {/* <Calendar /> */}
-          </div>
+          <CalendarForm />
           </Paper>
         </Grid>
 

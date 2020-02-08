@@ -6,6 +6,7 @@ import interactionPlugin from '@fullcalendar/interaction' // needed for dayClick
 import swal from 'sweetalert'
 import './Calendar.scss'
 import CalendarAPI from '../../utils/CalendarAPI'
+import Card from '@material-ui/core/Card'
 const { addEvent, getAllReminders } = (CalendarAPI)
 
 export default class DemoApp extends React.Component {
@@ -13,7 +14,7 @@ export default class DemoApp extends React.Component {
   calendarComponentRef = React.createRef()
   
   state = {
-    calendarWeekends: true,
+    
         calendarEvents : [ // initial event data
       { title: '', 
       start: new Date() }
@@ -21,17 +22,8 @@ export default class DemoApp extends React.Component {
   }
 
 
-  toggleWeekends = () => {
-    this.setState({ // update a property
-      calendarWeekends: !this.state.calendarWeekends
-    })
-  }
 
-  gotoPast = () => {
-    let calendarApi = this.calendarComponentRef.current.getApi()
-    calendarApi.gotoDate('2000-01-01') // call a method on the Calendar object
-  }
-
+ 
 
   handleDateClick = (arg) => {
 
@@ -52,7 +44,7 @@ export default class DemoApp extends React.Component {
                 date: arg.date,
                 allDay: arg.allDay
               })
-            })        
+            })
         }else{
           swal({
             title: `Are you sure you want to leave the text area empty?`,
@@ -64,25 +56,25 @@ export default class DemoApp extends React.Component {
     
     }
 
+
+
     componentDidMount = () => {
       getAllReminders(localStorage.getItem('userAuth'))
         .then(({ data: calendars }) => {
           console.log(calendars)
           this.setState({
-            calendarEvents: calendars
-          })
+            calendarEvents: calendars        
+            })
         })
     }
   
   
   render() {
     return (
-      // <CalendarContext.Consumer>
       <div className='demo-app'>
-        <div className='demo-app-top'>
-          <button className='btn' onClick={ this.toggleWeekends }>toggle weekends</button>&nbsp;
-          <button className='btn' onClick={ this.gotoPast }>go to a date in the past</button>&nbsp;
-        </div>
+        <Card>
+                <h2>Reminder: {getAllReminders()}</h2>
+        </Card>
         <div className='demo-app-calendar'>
           <FullCalendar
             defaultView="dayGridMonth"
@@ -100,7 +92,6 @@ export default class DemoApp extends React.Component {
             />
         </div>
       </div>
-      // </CalendarContext.Consumer>
     )
   }
 }
