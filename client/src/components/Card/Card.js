@@ -5,14 +5,13 @@ import CardActions from '@material-ui/core/CardActions'
 import CardContent from '@material-ui/core/CardContent'
 import Button from '@material-ui/core/Button'
 import Typography from '@material-ui/core/Typography'
-import PeopleAltIcon from '@material-ui/icons/PeopleAlt'
 import JobCardContext from '../../utils/JobCardContext'
 // import Switch from '@material-ui/core/Switch'
 
 
 const SimCard = () => {
 
-  const { jobs, handleSwitch } = useContext(JobCardContext)
+  const { jobs } = useContext(JobCardContext)
 
   const useStyles = makeStyles({
     card: {
@@ -41,7 +40,7 @@ const SimCard = () => {
         <Card className={classes.card}>
           <CardContent>
             <Typography className={classes.title} color="textSecondary" gutterBottom>
-              job date {job.date}
+              Date Applied: {job.date}
             </Typography>
             <Typography variant="h5" component="h2">
               {job.companyName}
@@ -50,19 +49,16 @@ const SimCard = () => {
               {job.jobTitle}
             </Typography>
             <Typography variant="body2" component="p">
-              Started interview process: 
-              {/* <Switch onChange={() => handleSwitch(job._id, job.checked)} inputProps={{ 'aria-label': 'primary checkbox' }} /> */}
+              Status: 
+             
               <br />
 
             </Typography>
 
           </CardContent>
-          <CardActions>
-            
-            <Button size="medium">
-              <PeopleAltIcon></PeopleAltIcon>{job.contactName}
-            </Button>
-          </CardActions>
+          {/* <CardActions>
+          
+          </CardActions> */}
         </Card>
       )) : null
       }

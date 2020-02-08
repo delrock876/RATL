@@ -23,7 +23,8 @@ const useStyles = makeStyles(theme => ({
     margin: 10
   }, 
   myBtn: {
-    marginLeft: 5,
+    marginLeft: 10,
+    marginBottom: 15,
     borderRadius: 7,
     marginTop: 20, 
     color: "white",

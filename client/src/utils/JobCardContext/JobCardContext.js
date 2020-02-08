@@ -13,14 +13,13 @@ const JobCardContext = createContext({
   skillsRequired: '',
   bottom: Boolean,
   summary: '',
-  handleSwitch:()=>{},
   handleInputChange: () => { },
   handleArchiveJob: () => { },
   handleAddJob: () => { },
   handleDeleteJob: () => { },
-  handleArchiveJob: () => { },
   toggleDrawer: () => { },
   handleAddConnection: () => { }
+
 })
 
 export default JobCardContext

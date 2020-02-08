@@ -3,8 +3,31 @@ import JobCardAPI from '../../utils/JobCardAPI'
 import JobCardContext from '../../utils/JobCardContext'
 import JobCard from '../../components/JobCard'
 import JobDrawer from '../../components/JobDrawer'
+import { makeStyles } from '@material-ui/core/styles'
 
 const { getAllJobs, addJob, updateJob, deleteJob } = JobCardAPI
+
+const useStyles = makeStyles({
+  title: {
+    marginTop: 20,
+    marginBottom: 20,
+    marginLeft: 10,
+    fontSize: "2em",
+    color: "white",
+    fontFamily: 'Inder, sans-serif',
+    fontWeight: "bold",
+  },
+  bg: {
+    width: "100%",
+    marginLeft: 20,
+    marginTop: 20,
+  },
+  para: {
+    // fontSize: "1.4em",
+    color: "black",
+    fontFamily: 'DM Sans, sans-serif'
+  },
+});
 
 const Jobs = () => {
 
@@ -50,10 +73,10 @@ const Jobs = () => {
     console.log(id)
     deleteJob(id, localStorage.getItem('userAuth'))
 
-    .then(() => {
-      let jobs = JSON.parse(JSON.stringify(jobState.jobs))
-       let newJobs = jobs.filter(job => id !== job._id)
-       setJobState({...jobState, jobs: newJobs})
+      .then(() => {
+        let jobs = JSON.parse(JSON.stringify(jobState.jobs))
+        let newJobs = jobs.filter(job => id !== job._id)
+        setJobState({ ...jobState, jobs: newJobs })
 
       })
       .catch(e => console.error(e))
@@ -86,7 +109,7 @@ const Jobs = () => {
     } else {
       addJob(job, localStorage.getItem('userAuth'))
 
-      .then(({ data }) => {
+        .then(({ data }) => {
 
           let jobs = JSON.parse(JSON.stringify(jobState.jobs))
           jobs.push(data)
@@ -141,14 +164,15 @@ const Jobs = () => {
       .catch(e => console.error(e))
   }, [])
 
+  const classes = useStyles();
   return (
     <>
       <div className='jobsBg'>
-        <h1>Job Info</h1>
+        <h1 className={classes.title}>Job Info</h1>
         <JobCardContext.Provider value={jobState}>
 
           <JobDrawer />
-          
+
         
               <JobCard />
         </JobCardContext.Provider>
