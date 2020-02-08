@@ -5,7 +5,7 @@ module.exports = app => {
 
     // get all reminders
     app.get('/api/calendar', passport.authenticate('jwt', { session: false }), (req, res) => {
-      Calendar.find()
+      Calendar.find({userCalendar: req.user._id} )
         .then(calendars => res.json(calendars))
         .catch(e => console.log(e))
     })
@@ -14,13 +14,12 @@ module.exports = app => {
     // Post a Calendar remider
     app.post('/api/calendar', passport.authenticate('jwt', { session: false }), (req, res) => {
 
-        const { _id: userAuth } = req.user
+        const { _id: userCalendar } = req.user
         const { title, date } = req.body
         //creates json with these key value pairs
-        Calendar.create({ title, date })
+        Calendar.create({ title, date, userCalendar })
           .then(calendars => {
-            
-            User.updateOne({ _id: userAuth }, { $push: { userCalendar: calendars } })
+            User.updateOne({ _id: userCalendar }, { $push: { userCalendar: calendars } })
               .then(() => res.json(calendars))
               .catch(e => console.error(e))
           })

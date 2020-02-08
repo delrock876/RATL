@@ -5,6 +5,7 @@
 
 
 .demo-app {
+  color: #ffffffff;
   font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
   font-size: 12px;
 }
@@ -15,13 +16,11 @@
 }
 
 .demo-app-calendar {
+  color: green;
   margin: 0 auto;
   max-width: 900px;
 }
 
-.demo-app-calendar .header {
-  background-color: green;
-}
 
 .demo-app-top .btn{
   background-color: green;
