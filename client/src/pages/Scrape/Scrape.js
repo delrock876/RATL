@@ -62,12 +62,12 @@ const Scrape = () => {
 //write function that takes in event as job object
     addJobLeads(event, localStorage.getItem('userAuth'))
     .then(() => {
-      console.log('success')
       // jobs.push(event)
       deleteLeads(event.id, localStorage.getItem('userAuth'))
       .then(() => console.log('deleted!'))
       .catch(e => console.error(e))
     })
+    window.location.reload()
   }
 
 //get all leads
