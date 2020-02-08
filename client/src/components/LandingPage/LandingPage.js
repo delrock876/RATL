@@ -18,7 +18,7 @@ import LinkedInIcon from '@material-ui/icons/LinkedIn';
 const useStyles = makeStyles(theme => ({
   header: {
     margin: "auto",
-    backgroundColor: "FFFFFF",
+    // backgroundColor: "FFFFFF",
     width: "80%",
     textAlign: "center"
   },
@@ -84,7 +84,6 @@ const LandingPage = () => {
             <Grid item xs={12}>
 
               <div className={classes.header}>
-                {/* < img src={logo} className={classes.logo} alt="logo" /> */}
                 <div >
                   <h3 className={classes.title}>Manage your job search in a simple yet effective fashion with RATL</h3>
                   <p className={classes.para}>
