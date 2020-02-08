@@ -7,6 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import Modal from 'react-bootstrap/Modal'
 
 
+
 const useStyles = makeStyles(theme => ({
   root: {
     '& .MuiTextField-root': {
@@ -19,6 +20,13 @@ const useStyles = makeStyles(theme => ({
   },
   pos: {
     margin: 10
+  },
+  myBtn: {
+    marginRight: 20,
+    borderRadius: 5,
+    marginTop: 20,
+    backgroundColor: "white",
+    color: "#F4D03F"
   }
 }))
 
@@ -33,7 +41,7 @@ const RegisterForm = () => {
 
   return (
     <div className="landing">
-      <Button variant="contained" onClick={handleShow}>
+      <Button  className={classes.myBtn} onClick={handleShow}>
         Register
       </Button>
 

@@ -1,12 +1,37 @@
 import React from 'react'
+import Grid from '@material-ui/core/Grid'
+import { makeStyles } from '@material-ui/core/styles';
 
-const Archived =()=>{
+const useStyles = makeStyles({
+  title: {
+    fontSize: 14,
+    textAlign: 'center',
+  },
+});
 
-  return(
-
+const Archived = () => {
+  const classes = useStyles();
+  return (
     <>
-      <h1>THESE ARE THE ARCHIVES</h1>
+      <div className='archiveBg'>
+        <Grid container spacing={3} container padding='10px'>
+
+          <Grid item xs={8}>
+            <h1> Place Archive Card Here</h1>
+          </Grid>
+          <Grid item xs={4}>
+            <h1> Place Addtl Info Here</h1>
+          </Grid>
+          <Grid item xs={12}>
+            <div className={classes.title}>
+              <h1> Place More Info  Here</h1>
+            </div>
+          </Grid>
+
+        </Grid>
+      </div >
     </>
+
   )
 }
 

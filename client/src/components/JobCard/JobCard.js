@@ -18,7 +18,9 @@ import clsx from 'clsx';
 
 const useStyles = makeStyles(theme => ({
   card: {
-    minWidth: 275,
+    margin: "auto",
+    width: "95%",
+    paddingBottom: 0
   },
   bullet: {
     display: 'inline-block',
@@ -59,6 +61,7 @@ const JobCard = () => {
     <div>
       {
         jobs ? jobs.map(job => !job.archived ? (
+  
 
           <Card className={classes.card} variant="outlined">
             <Button
@@ -90,7 +93,7 @@ const JobCard = () => {
               </Typography>
 
 
-              <Typography variant="body2" component="p">
+              <Typography variant="body2" component="h3">
                 Job Requirements:
          <br />
                 <br />
@@ -121,7 +124,7 @@ const JobCard = () => {
               <CardContent>
                 {
                   jobs.connections ? job.connections.map(item =>
-                    <Typography paragraph>
+                    <Typography>
                       {item.type}: {item.name}
                       <br />
                       {item.phone}
@@ -131,9 +134,9 @@ const JobCard = () => {
                     </Typography>
                   ) : null
                 }
-                <Typography>
+                {/* <Typography>
                   {job.summary}
-                </Typography>
+                </Typography> */}
               </CardContent>
             </Collapse>
           </Card>
