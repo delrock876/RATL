@@ -7,8 +7,7 @@ module.exports = (model, Schema) => {
     salary: String,
     summary: String,
     location: String,
-    postDate: String,
-    archived: Boolean
+    postDate: String
   })
 
   return model('Leads', Leads)
