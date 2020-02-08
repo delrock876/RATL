@@ -16,6 +16,7 @@ import {
 } from 'react-router-dom'
 import Scrape from './pages/Scrape'
 
+
 const { loginUser, registerUser } = UserAPI
 
 const App = () => {
@@ -41,8 +42,11 @@ const App = () => {
     }
 
     loginUser(user)
+  
       .then(({ data }) => {
         localStorage.setItem('userAuth', data.token)
+        localStorage.setItem('name', data.currentUser)
+        console.log(data)
         window.location = "/home"
       })
       .catch(e => console.error(e))

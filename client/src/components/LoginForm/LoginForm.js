@@ -1,10 +1,12 @@
 import React, { useState, useContext } from 'react'
-import { makeStyles } from '@material-ui/core/styles'
+import { makeStyles, withTheme } from '@material-ui/core/styles'
 import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
 import UserContext from '../../utils/UserContext'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Modal from 'react-bootstrap/Modal'
+
+
 
 
 const useStyles = makeStyles(theme => ({
@@ -19,6 +21,13 @@ const useStyles = makeStyles(theme => ({
   },
   pos: {
     margin: 10
+  }, 
+  myBtn: {
+    marginLeft: 5,
+    borderRadius: 7,
+    marginTop: 20, 
+    color: "white",
+    backgroundColor: "transparent"
   }
 }))
 
@@ -33,7 +42,8 @@ const LoginForm = () => {
 
   return (
     <div className="landing">
-      <Button variant="contained" onClick={handleShow}>
+     
+      <Button className={classes.myBtn}  onClick={handleShow}>
         Login
       </Button>
 
