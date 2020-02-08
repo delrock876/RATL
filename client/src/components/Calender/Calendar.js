@@ -6,17 +6,20 @@ import interactionPlugin from '@fullcalendar/interaction' // needed for dayClick
 import swal from 'sweetalert'
 import './Calendar.scss'
 import CalendarAPI from '../../utils/CalendarAPI'
+
 const { addEvent, getAllReminders } = (CalendarAPI)
 
 export default class DemoApp extends React.Component {
 
   calendarComponentRef = React.createRef()
-  
+
   state = {
     calendarWeekends: true,
-        calendarEvents : [ // initial event data
-      { title: '', 
-      start: new Date() }
+    calendarEvents: [ // initial event data
+      {
+        title: '',
+        start: new Date()
+      }
     ]
   }
 
@@ -35,25 +38,25 @@ export default class DemoApp extends React.Component {
 
   handleDateClick = (arg) => {
 
-      swal("Set Reminder:", {
-        content: "input",
-      })
+    swal("Set Reminder:", {
+      content: "input",
+    })
       .then((value) => {
-        if( value !== null){
+        if (value !== null) {
           console.log(value)
           let newEvent = {
             title: `${value}`,
             date: arg.date
           }
           addEvent(newEvent, localStorage.getItem('userAuth'))
-            this.setState({
-              calendarEvents: this.state.calendarEvents.concat({
-                title: `${value}`,
-                date: arg.date,
-                allDay: arg.allDay
-              })
-            })        
-        }else{
+          this.setState({
+            calendarEvents: this.state.calendarEvents.concat({
+              title: `${value}`,
+              date: arg.date,
+              allDay: arg.allDay
+            })
+          })
+        } else {
           swal({
             title: `Are you sure you want to leave the text area empty?`,
             icon: 'warning'
@@ -61,29 +64,28 @@ export default class DemoApp extends React.Component {
         }
       })
       .catch(e => console.error(e))
-    
-    }
 
-    componentDidMount = () => {
-      getAllReminders(localStorage.getItem('userAuth'))
-        .then(({ data: calendars }) => {
-          console.log(calendars)
-          this.setState({
-            calendarEvents: calendars
-          })
+  }
+
+  componentDidMount = () => {
+    getAllReminders(localStorage.getItem('userAuth'))
+      .then(({ data: calendars }) => {
+        console.log(calendars)
+        this.setState({
+          calendarEvents: calendars
         })
-    }
-    
+      })
+  }
 
-  
-  
+
+
   render() {
     return (
       // <CalendarContext.Consumer>
       <div className='demo-app'>
         <div className='demo-app-top'>
-          <button className='btn' onClick={ this.toggleWeekends }>toggle weekends</button>&nbsp;
-          <button className='btn' onClick={ this.gotoPast }>go to a date in the past</button>&nbsp;
+          <button className='btn' onClick={this.toggleWeekends}>Toggle Weekends</button>&nbsp;
+          <button className='btn' onClick={this.gotoPast}>Go to a date in the past</button>&nbsp;
         </div>
         <div className='demo-app-calendar'>
           <FullCalendar
@@ -93,13 +95,13 @@ export default class DemoApp extends React.Component {
               center: 'title',
               right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
             }}
-            plugins={[ dayGridPlugin, timeGridPlugin, interactionPlugin ]}
-            ref={ this.calendarComponentRef }
+            plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
+            ref={this.calendarComponentRef}
             editable={true}
-            weekends={ this.state.calendarWeekends }
-            events={ this.state.calendarEvents }
-            dateClick={ this.handleDateClick }
-            />
+            weekends={this.state.calendarWeekends}
+            events={this.state.calendarEvents}
+            dateClick={this.handleDateClick}
+          />
         </div>
       </div>
       // </CalendarContext.Consumer>
