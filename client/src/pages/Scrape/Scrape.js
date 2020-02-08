@@ -47,8 +47,6 @@ const Scrape = () => {
   leadsState.handleAddLeads = (event) => {
     // event.preventDefault()
     
-    // axios.get('/api/leads')
-    // .then(({ data }) => console.log(data))
     console.log(event)
 
 //write function that takes in event as job object
