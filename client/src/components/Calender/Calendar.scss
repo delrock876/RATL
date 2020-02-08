@@ -17,7 +17,7 @@
 .demo-app-calendar {
   margin: 0 auto;
   max-width: 900px;
-  background-color:#ffffffff;
+  background-color:#FBF4CF;
 }
 
 .demo-app-calendar .header {
@@ -27,4 +27,11 @@
 .demo-app-top .btn{
   background-color: green;
   color:#ffffffff;
+}
+
+.fc-button-primary {
+  color: #fff;
+  background-color: #FBA90D;
+  border-color: #F76B1C;
+  padding: 10px;
 }
