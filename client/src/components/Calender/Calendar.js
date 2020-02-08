@@ -17,17 +17,17 @@ export default class DemoApp extends React.Component {
 
   state = {
 
-    
-        calendarEvents : [ // initial event data
-      { title: '', 
-      start: new Date() }
+
+    calendarEvents: [ // initial event data
+      {
+        title: '',
+        start: new Date()
+      }
 
     ]
   }
 
 
-
- 
 
   handleDateClick = (arg) => {
 
@@ -43,14 +43,14 @@ export default class DemoApp extends React.Component {
           }
           addEvent(newEvent, localStorage.getItem('userAuth'))
 
-            this.setState({
-              calendarEvents: this.state.calendarEvents.concat({
-                title: `${value}`,
-                date: arg.date,
-                allDay: arg.allDay
-              })
+          this.setState({
+            calendarEvents: this.state.calendarEvents.concat({
+              title: `${value}`,
+              date: arg.date,
+              allDay: arg.allDay
             })
-        }else{
+          })
+        } else {
 
           swal({
             title: `Are you sure you want to leave the text area empty?`,
@@ -59,35 +59,28 @@ export default class DemoApp extends React.Component {
         }
       })
       .catch(e => console.error(e))
+  }
 
-
-    componentDidMount = () => {
-      getAllReminders(localStorage.getItem('userAuth'))
-        .then(({ data: calendars }) => {
-          console.log(calendars)
-          this.setState({
-            calendarEvents: calendars        
-            })
+  componentDidMount = () => {
+    getAllReminders(localStorage.getItem('userAuth'))
+      .then(({ data: calendars }) => {
+        console.log(calendars)
+        this.setState({
+          calendarEvents: calendars
         })
-    }
-  
-  
+      })
+  }
+
+
 
   render() {
     return (
       <div className='demo-app'>
-<<<<<<< HEAD
-        {/* <div className='demo-app-top'>
-          <button className='btn' onClick={this.toggleWeekends}>Toggle Weekends</button>&nbsp;
-          <button className='btn' onClick={this.gotoPast}>Go to a date in the past</button>&nbsp;
-        </div> */}
-=======
 
         <Card>
-                <h2>Reminder: {getAllReminders()}</h2>
+          <h2>Reminder: </h2>
         </Card>
 
->>>>>>> master
         <div className='demo-app-calendar'>
           <FullCalendar
             defaultView="dayGridMonth"

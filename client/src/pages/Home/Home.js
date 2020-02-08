@@ -63,19 +63,8 @@ const Home = () => {
 
         <Grid item xs={12}>
           <Paper elevation={4}>
-<<<<<<< HEAD
             <h4 className={classes.para2}>Place Calendar overview here</h4>
             {/* <Calendar /> */}
-=======
-
-          <CalendarForm />
-
-            <div className={classes.title}>
-              <h4 className={classes.para}>Place Calendar overview here</h4>
-           
-            </div>
-
->>>>>>> master
           </Paper>
         </Grid>
 
