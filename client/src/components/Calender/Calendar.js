@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import FullCalendar from '@fullcalendar/react'
 import dayGridPlugin from '@fullcalendar/daygrid'
 import timeGridPlugin from '@fullcalendar/timegrid'
@@ -7,6 +7,8 @@ import swal from 'sweetalert'
 import './Calendar.scss'
 import CalendarAPI from '../../utils/CalendarAPI'
 
+import Card from '@material-ui/core/Card'
+
 const { addEvent, getAllReminders } = (CalendarAPI)
 
 export default class DemoApp extends React.Component {
@@ -14,27 +16,18 @@ export default class DemoApp extends React.Component {
   calendarComponentRef = React.createRef()
 
   state = {
-    calendarWeekends: true,
-    calendarEvents: [ // initial event data
-      {
-        title: '',
-        start: new Date()
-      }
+
+    
+        calendarEvents : [ // initial event data
+      { title: '', 
+      start: new Date() }
+
     ]
   }
 
 
-  toggleWeekends = () => {
-    this.setState({ // update a property
-      calendarWeekends: !this.state.calendarWeekends
-    })
-  }
 
-  gotoPast = () => {
-    let calendarApi = this.calendarComponentRef.current.getApi()
-    calendarApi.gotoDate('2000-01-01') // call a method on the Calendar object
-  }
-
+ 
 
   handleDateClick = (arg) => {
 
@@ -49,14 +42,16 @@ export default class DemoApp extends React.Component {
             date: arg.date
           }
           addEvent(newEvent, localStorage.getItem('userAuth'))
-          this.setState({
-            calendarEvents: this.state.calendarEvents.concat({
-              title: `${value}`,
-              date: arg.date,
-              allDay: arg.allDay
+
+            this.setState({
+              calendarEvents: this.state.calendarEvents.concat({
+                title: `${value}`,
+                date: arg.date,
+                allDay: arg.allDay
+              })
             })
-          })
-        } else {
+        }else{
+
           swal({
             title: `Are you sure you want to leave the text area empty?`,
             icon: 'warning'
@@ -65,28 +60,34 @@ export default class DemoApp extends React.Component {
       })
       .catch(e => console.error(e))
 
-  }
 
-  componentDidMount = () => {
-    getAllReminders(localStorage.getItem('userAuth'))
-      .then(({ data: calendars }) => {
-        console.log(calendars)
-        this.setState({
-          calendarEvents: calendars
+    componentDidMount = () => {
+      getAllReminders(localStorage.getItem('userAuth'))
+        .then(({ data: calendars }) => {
+          console.log(calendars)
+          this.setState({
+            calendarEvents: calendars        
+            })
         })
-      })
-  }
-
-
+    }
+  
+  
 
   render() {
     return (
-      // <CalendarContext.Consumer>
       <div className='demo-app'>
+<<<<<<< HEAD
         {/* <div className='demo-app-top'>
           <button className='btn' onClick={this.toggleWeekends}>Toggle Weekends</button>&nbsp;
           <button className='btn' onClick={this.gotoPast}>Go to a date in the past</button>&nbsp;
         </div> */}
+=======
+
+        <Card>
+                <h2>Reminder: {getAllReminders()}</h2>
+        </Card>
+
+>>>>>>> master
         <div className='demo-app-calendar'>
           <FullCalendar
             defaultView="dayGridMonth"
@@ -104,7 +105,6 @@ export default class DemoApp extends React.Component {
           />
         </div>
       </div>
-      // </CalendarContext.Consumer>
     )
   }
 }

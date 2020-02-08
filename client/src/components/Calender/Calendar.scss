@@ -5,7 +5,12 @@
 
 
 .demo-app {
+<<<<<<< HEAD
   fontFamily: DM Sans, sans-serif;
+=======
+  color: #ffffffff;
+  font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+>>>>>>> master
   font-size: 12px;
 }
 
@@ -15,14 +20,12 @@
 }
 
 .demo-app-calendar {
+  color: green;
   margin: 0 auto;
   max-width: 900px;
   background-color:#FBF4CF;
 }
 
-.demo-app-calendar .header {
-  background-color: green;
-}
 
 .demo-app-top .btn{
   background-color: green;
