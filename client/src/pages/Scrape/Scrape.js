@@ -20,17 +20,6 @@ const Scrape = () => {
     setLeadsState({ ...leadsState, [event.target.name]: event.target.value })
   }
 
-  leadsState.handleArchiveLeads = (id, archived) => {
-    updateLeads(id, { archived: true }, localStorage.getItem('userAuth'))
-      .then(() =>{
-        let leads = JSON.parse(JSON.stringify(leadsState.leads))
-        let leadsFiltered = leads.filter(lead => id !== lead._id)
-        console.log(leadsFiltered)
-        setLeadsState({ ...leadsState, leads: leadsFiltered})
-        
-      })
-      .catch(e => console.error(e))
-  }
 
   leadsState.handleDeleteLeads = (id) => {
     deleteLeads(id, localStorage.getItem('userAuth'))
@@ -39,17 +28,15 @@ const Scrape = () => {
   }
 
   leadsState.handleScrapeLeads = () => {
-    
     scrapeLeads()
     .then(({ data }) => {
-      // let leads = JSON.parse(JSON.stringify(leadsState.leads))
+      let leads = JSON.parse(JSON.stringify(leadsState.leads))
       console.log(data)
   
-      
-      // leads = [...leads, ...data]
+      leads = [...leads, ...data]
       
   
-        // setLeadsState({ ...leadsState, leads})
+        setLeadsState({ ...leadsState, leads})
   
       })
   }

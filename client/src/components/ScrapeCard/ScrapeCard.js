@@ -65,14 +65,7 @@ const ScrapeCard = () => {
         >
           Delete
       </Button>
-        <Button
-          onClick= {()=> handleArchiveLeads(lead._id, lead.archived)}
-          variant="contained"
-          className={classes.button}
-          startIcon={<ArchiveIcon />}
-        >
-          Archive
-      </Button>
+     
 
       <CardContent>
         <Typography className={classes.title} color="textSecondary" gutterBottom>
