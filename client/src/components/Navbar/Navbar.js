@@ -8,6 +8,7 @@ import Button from '@material-ui/core/Button'
 import IconButton from '@material-ui/core/IconButton'
 import { NavLink } from 'react-router-dom'
 import Box from '@material-ui/core/Box'
+import logo from './assets/RATL_V6.png'
 
 const Navbar = () => {
 
@@ -24,8 +25,12 @@ const Navbar = () => {
     },
     title: {
       flexGrow: 1,
-      color: 'red',
-    }
+    },
+    // logo: {
+    //   flexGrow: 1,
+    //   marginTop: "15px",
+    //   marginLeft: "10px"
+    // },
   }))
 
   const classes = useStyles()
@@ -38,9 +43,10 @@ const Navbar = () => {
           <Toolbar>
             <IconButton edge="start" className={classes.menuButton} aria-label="menu">
             </IconButton>
-            <Typography variant="h4" className={classes.title}>
-              <NavLink style={{ color: '#54A826', fontFamily: 'Inder, sans-serif' }} to="home">RATL</NavLink>
+            <Typography className={classes.title}>
+              <NavLink to="home">< img src={logo} alt="logo" /></NavLink>
             </Typography>
+
             <NavLink to="/archived"><Button style={{ color: '#F9B353', fontFamily: 'Inder, sans-serif' }}><h6>Archived</h6></Button>
             </NavLink>
             <NavLink to="/jobs"><Button style={{ color: '#98A87A', fontFamily: 'Inder, sans-serif' }}><h6>Jobs</h6></Button>
@@ -49,6 +55,7 @@ const Navbar = () => {
             </NavLink>
             {/* <Link to = "/"> */}
             <Button style={{ color: '#D5441C', fontFamily: 'Inder, sans-serif' }} onClick={handleLogout}><h6>Log Out</h6></Button>
+
 
             {/* </Link> */}
 

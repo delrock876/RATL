@@ -7,9 +7,24 @@ import JobCardContext from '../../utils/JobCardContext'
 
 const useStyles = makeStyles({
   title: {
-    fontSize: 14,
-    textAlign: 'center',
+    marginTop: 20,
+    marginBottom: 20,
+    marginLeft: 10,
+    fontSize: "2em",
+    color: "white",
+    fontFamily: 'Inder, sans-serif',
+    fontWeight: "bold",
   },
+  para: {
+    fontSize: "1.4em",
+    color: "white",
+    fontFamily: 'DM Sans, sans-serif'
+  },
+  para2: {
+    fontSize: "1em",
+    color: "black",
+    fontFamily: 'DM Sans, sans-serif'
+  }
 });
 
 const { getAllJobs } = JobCardAPI
@@ -33,11 +48,13 @@ const Archived = () => {
 
   return (
     <>
+
       <JobCardContext.Provider value={jobState}>
         <Grid xs={12}>
           <div className='archiveBg'>
             <ArchiveTable />
           </div >
+
         </Grid>
       </JobCardContext.Provider>
 

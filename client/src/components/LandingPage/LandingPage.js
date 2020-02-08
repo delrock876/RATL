@@ -6,7 +6,7 @@ import PermContactCalendarIcon from '@material-ui/icons/PermContactCalendar'
 import TodayIcon from '@material-ui/icons/Today'
 import LocationCityIcon from '@material-ui/icons/LocationCity'
 import WorkIcon from '@material-ui/icons/Work'
-import logo from './assets/RATL.png'
+import logo from './assets/RATL_V6.png'
 import profileB from './assets/bryant.jpeg'
 import profileC from './assets/cyd.jpeg'
 import profileS from './assets/sabrina.jpeg'
@@ -24,8 +24,7 @@ const useStyles = makeStyles(theme => ({
   },
 
   logo: {
-    width: "60px",
-    marginTop: 15,
+    marginTop: "15px",
     marginLeft: "10px"
   },
   profile: {
@@ -42,7 +41,9 @@ const useStyles = makeStyles(theme => ({
     paddingTop: "10%",
     borderRadius: "3%",
     margin: 5,
-    marginTop: 20
+    marginTop: 20,
+    padding: 15,
+    fontFamily: 'DM Sans, sans-serif'
 
   },
 
@@ -57,8 +58,14 @@ const useStyles = makeStyles(theme => ({
   para: {
     fontSize: "1.4em",
     color: "white",
-    fontFamily: 'Inder, sans-serif'
+    fontFamily: 'DM Sans, sans-serif'
   },
+  para2: {
+    fontSize: "1em",
+    color: "black",
+    fontFamily: 'DM Sans, sans-serif'
+  },
+
   topHead: {
     backgroundColor: '#ffb84d'
   }
@@ -144,7 +151,7 @@ const LandingPage = () => {
 
 
             <Grid item xs={12} align="center">
-              <h4 className={classes.title}> Meet the Team </h4>
+              <h className={classes.title}> Meet the Team </h>
             </Grid>
 
             <Grid item xs={6} align="center">
@@ -152,8 +159,8 @@ const LandingPage = () => {
               <div >
                 <a href="https://www.linkedin.com/in/bryant-nguyen-695b0219a/">
                   <h6> <LinkedInIcon /> Bryant</h6>
-                  </a>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veniam ipsam sed sit blanditiis </p>
+                </a>
+                <p className={classes.para2}>I like long walks on the beach, candlelight dinners and Javascript is my jam. </p>
               </div>
             </Grid>
 
@@ -162,8 +169,8 @@ const LandingPage = () => {
               <div >
                 <a href="https://www.linkedin.com/in/cydcastillo">
                   <h6> <LinkedInIcon /> Cyd</h6>
-                  </a>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veniam ipsam sed sit blanditiis </p>
+                </a>
+                <p className={classes.para2}>Aspiring digital nomad and on a perpetual mission for enlightenment. </p>
               </div>
             </Grid>
 
@@ -173,21 +180,18 @@ const LandingPage = () => {
                 <a href="#">
                   <h6> <LinkedInIcon /> Francisco </h6>
                 </a>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veniam ipsam sed sit blanditiis </p>
+                <p className={classes.para2}>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veniam ipsam sed sit blanditiis </p>
               </div>
             </Grid>
 
             <Grid item xs={6} align="center">
-              
-                < img className={classes.profile} src={profileS} alt="sabrina" />
-                <div >  
-          
+              < img className={classes.profile} src={profileS} alt="sabrina" />
+              <div >
                 <a href="https://www.linkedin.com/in/sabrina-rocha/" target="_blank">
                   <h6> <LinkedInIcon /> Sabrina</h6>
-              </a>
-              
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veniam ipsam sed sit blanditiis </p>
-                </div>
+                </a>
+                <p className={classes.para2}>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veniam ipsam sed sit blanditiis </p>
+              </div>
             </Grid>
 
           </Grid >
