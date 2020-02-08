@@ -41,24 +41,28 @@ const Jobs = () => {
         let jobs = JSON.parse(JSON.stringify(jobState.jobs))
         let jobsFiltered = jobs.filter(job => id !== job._id)
         setJobState({ ...jobState, jobs: jobsFiltered })
-        
+
       })
       .catch(e => console.error(e))
   }
 
   jobState.handleDeleteJob = (id) => {
-    let jobs = JSON.parse(JSON.stringify(jobState.jobs))
+    console.log(id)
     deleteJob(id, localStorage.getItem('userAuth'))
-      .then(() => {
-        setJobState({...jobState, jobs})
+
+    .then(() => {
+      let jobs = JSON.parse(JSON.stringify(jobState.jobs))
+       let newJobs = jobs.filter(job => id !== job._id)
+       setJobState({...jobState, jobs: newJobs})
+
       })
       .catch(e => console.error(e))
   }
 
   jobState.handleAddJob = (event) => {
     event.preventDefault()
-  
-//turns input from user into an object that can be pushed into the database
+
+    //turns input from user into an object that can be pushed into the database
     let job = {
       companyName: jobState.compName,
       jobTitle: jobState.job,
@@ -70,21 +74,22 @@ const Jobs = () => {
         name: jobState.namee,
         type: jobState.type,
         phone: jobState.phone,
-        email: jobState.email 
+        email: jobState.email
       },
       skills: jobState.skillsRequired.split(',')
     }
-//if fields are empty, user cannot create job
+    //if fields are empty, user cannot create job
     if (job.companyName.length === 0 || job.jobTitle.length === 0 || job.skills.length === 0) {
 
       alert('Please fill out required fields')
 
     } else {
       addJob(job, localStorage.getItem('userAuth'))
-      .then(() => {
+
+      .then(({ data }) => {
 
           let jobs = JSON.parse(JSON.stringify(jobState.jobs))
-          jobs.push(job)
+          jobs.push(data)
 
           setJobState({
             ...jobState,
@@ -108,10 +113,9 @@ const Jobs = () => {
 
   //get all jobs
   useEffect(() => {
-   
+
     getAllJobs(localStorage.getItem('userAuth'))
       .then(({ data: jobs }) => {
-        console.log(jobs)
         setJobState({ ...jobState, jobs })
       })
       .catch(e => console.error(e))
@@ -119,13 +123,17 @@ const Jobs = () => {
 
   return (
     <>
-      <h1>Job Info</h1>
-      <JobCardContext.Provider value={jobState}>
+      <div className='jobsBg'>
+        <h1>Job Info</h1>
+        <JobCardContext.Provider value={jobState}>
 
-        <JobDrawer />
-        <JobCard />
+          <JobDrawer />
+        
+              <JobCard />
+        
+        </JobCardContext.Provider>
 
-      </JobCardContext.Provider>
+      </div>
     </>
   )
 }

@@ -1,21 +1,55 @@
-
+/* body{
+    overflow-x:hidden;
+} */
 .mainBg {
-background-color: #eded30;
-background-image: linear-gradient(0deg, #eded30 0%, #b5e0b2 52%, #f9b353 90%);
+
+overflow:hidden;
+background-color: #5ba016;
+background-image: linear-gradient(0deg, #5ba016 1%, #F4D03F 88%);
+
+
+
+
 }
 
 .homeBg {
-  background-color: #F1E8BE;
+  overflow:hidden;
+  background-color: #54b931;
+background-image: linear-gradient(180deg, #54b931 7%, #eae3e3 72%);
+
+
 }
 
 .archiveBg {
-  background-color: #F1E8BE;
+  overflow:hidden;
+  background-color: #F7CE68;
 }
 
 .calendarBg {
-  background-color: #F1E8BE;
+  overflow:hidden;
+  background-color: #B3B0AE;
 }
 
 .jobsBg {
-  background-color: #F1E8BE;
+  overflow:hidden;
+    background-color: #54b931;
+background-image: linear-gradient(180deg, #54b931 7%, #eae3e3 72%);
 }
+
+.whiteCard {
+ background-color: rgb(244, 255, 225);
+ margin: 0;
+}
+
+.para{
+  margin: 0;
+}
+
+.parallax{
+  height: 450;
+}
+/* @media only screen and (max-width: 570px) {
+  .react-parallax-bgimage {
+    height: auto;
+  }
+} */

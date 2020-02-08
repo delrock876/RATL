@@ -5,18 +5,18 @@ import CalendarContext from '../../utils/CalendarContext/CalendarContext'
 const Events = () => {
 
 
-   return (
-     
-     <>
-
-    <h1>THIS IS YOUR CONNECTIONS PAGE</h1>
-    <CalendarContext.Provider >
-    <Calendar /> 
-    </CalendarContext.Provider>
-
-    </>
-
-)
+  return (
+    <div className='mainBg'>
+      <>
+        <div className='calendarBg'>
+          <h1>THIS IS YOUR CONNECTIONS PAGE</h1>
+          <CalendarContext.Provider>
+            <Calendar />
+          </CalendarContext.Provider>
+        </div>
+      </>
+    </div>
+  )
 }
 
 export default Events
