@@ -10,20 +10,28 @@ import Paper from '@material-ui/core/Paper'
 import CalendarForm from '../../components/CalendarForm'
 
 
-
 const { getAllJobs, updateJob } = JobCardAPI
 
 const useStyles = makeStyles({
   title: {
-    fontSize: 14,
-    textAlign: 'center',
-    height: "150px"
+    marginTop: 20,
+    marginBottom: 20,
+    marginLeft: 10,
+    fontSize: "2em",
+    color: "white",
+    fontFamily: 'Inder, sans-serif',
+    fontWeight: "bold",
   },
   bg: {
-    backgroundColor:"#ccff99",
-    width: "100%"
- 
-  }
+    width: "100%",
+    marginLeft: 20,
+    marginTop: 20,
+  },
+  para: {
+    // fontSize: "1.4em",
+    color: "black",
+    fontFamily: 'DM Sans, sans-serif'
+  },
 });
 
 const Home = () => {
@@ -42,34 +50,41 @@ const Home = () => {
   const classes = useStyles();
   return (
 
-      <div className="homeBg">
-        <Grid container spacing={1} padding='10px'>
+    <div className="homeBg">
+      <Grid container spacing={1} padding='10px'>
         <div className={classes.bg}>
-        <h2>Welcome, {localStorage.getItem('name')}</h2>
-          </div>
+          <h4 className={classes.para}>Welcome, {localStorage.getItem('name')}</h4>
+        </div>
 
         <Grid item xs={12}>
           <Paper elevation={4}>
+
           <CalendarForm />
+
+            <div className={classes.title}>
+              <h4 className={classes.para}>Place Calendar overview here</h4>
+           
+            </div>
+
           </Paper>
         </Grid>
 
-          <Grid item xs>
-        
-            <JobCardContext.Provider value={jobState}>
-              <SimCard />
-            </JobCardContext.Provider>
-          
-          </Grid>
+        <Grid item xs>
 
-          <Grid item xs>
-            <Scrape />
-          </Grid>
-          
+          <JobCardContext.Provider value={jobState}>
+            <SimCard />
+          </JobCardContext.Provider>
 
-        </Grid >
-      </div >
-   
+        </Grid>
+
+        <Grid item xs>
+          <Scrape />
+        </Grid>
+
+
+      </Grid >
+    </div >
+
 
   )
 }

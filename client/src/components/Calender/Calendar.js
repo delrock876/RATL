@@ -6,18 +6,22 @@ import interactionPlugin from '@fullcalendar/interaction' // needed for dayClick
 import swal from 'sweetalert'
 import './Calendar.scss'
 import CalendarAPI from '../../utils/CalendarAPI'
+
 import Card from '@material-ui/core/Card'
+
 const { addEvent, getAllReminders } = (CalendarAPI)
 
 export default class DemoApp extends React.Component {
 
   calendarComponentRef = React.createRef()
-  
+
   state = {
+
     
         calendarEvents : [ // initial event data
       { title: '', 
       start: new Date() }
+
     ]
   }
 
@@ -27,17 +31,18 @@ export default class DemoApp extends React.Component {
 
   handleDateClick = (arg) => {
 
-      swal("Set Reminder:", {
-        content: "input",
-      })
+    swal("Set Reminder:", {
+      content: "input",
+    })
       .then((value) => {
-        if( value !== null){
+        if (value !== null) {
           console.log(value)
           let newEvent = {
             title: `${value}`,
             date: arg.date
           }
           addEvent(newEvent, localStorage.getItem('userAuth'))
+
             this.setState({
               calendarEvents: this.state.calendarEvents.concat({
                 title: `${value}`,
@@ -46,6 +51,7 @@ export default class DemoApp extends React.Component {
               })
             })
         }else{
+
           swal({
             title: `Are you sure you want to leave the text area empty?`,
             icon: 'warning'
@@ -53,9 +59,6 @@ export default class DemoApp extends React.Component {
         }
       })
       .catch(e => console.error(e))
-    
-    }
-
 
 
     componentDidMount = () => {
@@ -69,12 +72,15 @@ export default class DemoApp extends React.Component {
     }
   
   
+
   render() {
     return (
       <div className='demo-app'>
+
         <Card>
                 <h2>Reminder: {getAllReminders()}</h2>
         </Card>
+
         <div className='demo-app-calendar'>
           <FullCalendar
             defaultView="dayGridMonth"
@@ -83,13 +89,13 @@ export default class DemoApp extends React.Component {
               center: 'title',
               right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
             }}
-            plugins={[ dayGridPlugin, timeGridPlugin, interactionPlugin ]}
-            ref={ this.calendarComponentRef }
+            plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
+            ref={this.calendarComponentRef}
             editable={true}
-            weekends={ this.state.calendarWeekends }
-            events={ this.state.calendarEvents }
-            dateClick={ this.handleDateClick }
-            />
+            weekends={this.state.calendarWeekends}
+            events={this.state.calendarEvents}
+            dateClick={this.handleDateClick}
+          />
         </div>
       </div>
     )
