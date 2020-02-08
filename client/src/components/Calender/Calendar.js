@@ -83,10 +83,10 @@ export default class DemoApp extends React.Component {
     return (
       // <CalendarContext.Consumer>
       <div className='demo-app'>
-        <div className='demo-app-top'>
+        {/* <div className='demo-app-top'>
           <button className='btn' onClick={this.toggleWeekends}>Toggle Weekends</button>&nbsp;
           <button className='btn' onClick={this.gotoPast}>Go to a date in the past</button>&nbsp;
-        </div>
+        </div> */}
         <div className='demo-app-calendar'>
           <FullCalendar
             defaultView="dayGridMonth"

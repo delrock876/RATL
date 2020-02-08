@@ -27,10 +27,15 @@ const useStyles = makeStyles({
     marginTop: 20,
   },
   para: {
-    // fontSize: "1.4em",
+    fontSize: "1.4em",
     color: "black",
     fontFamily: 'DM Sans, sans-serif'
   },
+  para2: {
+    fontSize: "1em",
+    color: "black",
+    fontFamily: 'DM Sans, sans-serif'
+  }
 });
 
 const Home = () => {
@@ -57,10 +62,8 @@ const Home = () => {
 
         <Grid item xs={12}>
           <Paper elevation={4}>
-            <div className={classes.title}>
-              <h4 className={classes.para}>Place Calendar overview here</h4>
-              {/* <Calendar /> */}
-            </div>
+            <h4 className={classes.para2}>Place Calendar overview here</h4>
+            {/* <Calendar /> */}
           </Paper>
         </Grid>
 
