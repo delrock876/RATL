@@ -15,6 +15,8 @@ import IconButton from '@material-ui/core/IconButton';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import ShareIcon from '@material-ui/icons/Share';
 import clsx from 'clsx';
+import AddIcon from '@material-ui/icons/Add';
+import ConnectionDrawer from '../ConnectionDrawer'
 
 const useStyles = makeStyles(theme => ({
   card: {
@@ -47,7 +49,7 @@ const useStyles = makeStyles(theme => ({
 
 const JobCard = () => {
 
-  const { jobs, handleDeleteJob, handleArchiveJob } = useContext(JobCardContext)
+  const { jobs, handleDeleteJob, handleArchiveJob, handleAddJob } = useContext(JobCardContext)
   const classes = useStyles()
 
   const [expanded, setExpanded] = React.useState(false);
@@ -61,9 +63,12 @@ const JobCard = () => {
     <div>
       {
         jobs ? jobs.map(job => !job.archived ? (
-  
+
 
           <Card className={classes.card} variant="outlined">
+
+              <ConnectionDrawer jobId = {job._id}/>
+
             <Button
               onClick={() => handleDeleteJob(job._id)}
               variant="contained"
@@ -123,7 +128,7 @@ const JobCard = () => {
             <Collapse in={expanded} timeout="auto" unmountOnExit>
               <CardContent>
                 {
-                  jobs.connections ? job.connections.map(item =>
+                  job.connections ? job.connections.map(item =>
                     <Typography>
                       {item.type}: {item.name}
                       <br />
@@ -131,12 +136,10 @@ const JobCard = () => {
                       <br />
                       {item.email}
                       <br />
+                      {item.summary}
                     </Typography>
                   ) : null
                 }
-                {/* <Typography>
-                  {job.summary}
-                </Typography> */}
               </CardContent>
             </Collapse>
           </Card>
