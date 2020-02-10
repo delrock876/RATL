@@ -35,7 +35,7 @@ const Archived = () => {
     archived: Boolean,
   })
 
-  
+
 
 
   useEffect(() => {
@@ -47,17 +47,16 @@ const Archived = () => {
       .catch(e => console.error(e))
   }, [])
 
-
+  const classes = useStyles();
   return (
     <>
-
-      <JobCardContext.Provider value={jobState}>
-        <Grid xs={12}>
-          <div className='archiveBg'>
+      <div className='archiveBg'>
+        <JobCardContext.Provider value={jobState}>
+          <Grid xs={12}>
             <ArchiveTable />
-          </div >
-        </Grid>
-      </JobCardContext.Provider>
+          </Grid>
+        </JobCardContext.Provider>
+      </div>
     </>
 
 
