@@ -35,13 +35,13 @@ const Archived = () => {
     archived: Boolean,
   })
 
+
   jobState.handleDeleteJob = (id) => {
     deleteJob(id, localStorage.getItem('userAuth'))
       .then(() => {
         let jobs = JSON.parse(JSON.stringify(jobState.jobs))
         let newJobs = jobs.filter(job => id !== job._id)
         setJobState({ ...jobState, jobs: newJobs })
-
       })
       .catch(e => console.error(e))
   }
@@ -65,7 +65,7 @@ const Archived = () => {
       .catch(e => console.error(e))
   }, [])
 
-
+  const classes = useStyles();
   return (
     <>
 
@@ -73,9 +73,9 @@ const Archived = () => {
         <Grid itemxs={12}>
           <div className='archiveBg'>
             <ArchiveTable />
-          </div >
-        </Grid>
-      </JobCardContext.Provider>
+          </Grid>
+        </JobCardContext.Provider>
+      </div>
     </>
 
 
