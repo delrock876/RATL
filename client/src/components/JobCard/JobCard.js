@@ -16,7 +16,7 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import ShareIcon from '@material-ui/icons/Share';
 import clsx from 'clsx';
 import AddIcon from '@material-ui/icons/Add';
-import ConnectionDrawer from '../ConnectionDrawer'
+
 
 const useStyles = makeStyles(theme => ({
   card: {
@@ -49,7 +49,7 @@ const useStyles = makeStyles(theme => ({
 
 const JobCard = () => {
 
-  const { jobs, handleDeleteJob, handleArchiveJob, handleAddJob } = useContext(JobCardContext)
+  const { jobs, handleDeleteJob, handleArchiveJob} = useContext(JobCardContext)
   const classes = useStyles()
 
   const [expanded, setExpanded] = React.useState(false);
@@ -67,7 +67,6 @@ const JobCard = () => {
 
           <Card className={classes.card} variant="outlined">
 
-              <ConnectionDrawer jobId = {job._id}/>
 
             <Button
               onClick={() => handleDeleteJob(job._id)}

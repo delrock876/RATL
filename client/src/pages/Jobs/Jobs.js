@@ -64,7 +64,6 @@ const Jobs = () => {
         let jobs = JSON.parse(JSON.stringify(jobState.jobs))
         let jobsFiltered = jobs.filter(job => id !== job._id)
         setJobState({ ...jobState, jobs: jobsFiltered })
-
       })
       .catch(e => console.error(e))
   }
