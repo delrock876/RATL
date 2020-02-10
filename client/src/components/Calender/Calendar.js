@@ -6,8 +6,34 @@ import interactionPlugin from '@fullcalendar/interaction' // needed for dayClick
 import swal from 'sweetalert'
 import './Calendar.scss'
 import CalendarAPI from '../../utils/CalendarAPI'
+import { makeStyles } from '@material-ui/core/styles'
 
 import Card from '@material-ui/core/Card'
+// import classes from '*.module.css'
+
+
+const useStyles = makeStyles({
+  title: {
+    marginTop: 20,
+    marginBottom: 20,
+    marginLeft: 10,
+    fontSize: "2em",
+    color: "white",
+    fontFamily: 'Inder, sans-serif',
+    fontWeight: "bold",
+  },
+  para: {
+    fontSize: "1.4em",
+    color: "white",
+    fontFamily: 'DM Sans, sans-serif'
+  },
+  para2: {
+    fontSize: "1em",
+    color: "black",
+    fontFamily: 'DM Sans, sans-serif'
+  }
+});
+
 
 const { addEvent, getAllReminders } = (CalendarAPI)
 
@@ -17,16 +43,17 @@ export default class DemoApp extends React.Component {
 
   state = {
 
-    
-        calendarEvents : [ // initial event data
-      { title: '', 
-      start: new Date() }
-        ]
-    
+
+    calendarEvents: [ // initial event data
+      {
+        title: '',
+        start: new Date()
+      }
+
+    ]
   }
 
 
-  // adds reminders to DB and onto the Calendar
   handleDateClick = (arg) => {
 
     swal("Set Reminder:", {
@@ -41,14 +68,14 @@ export default class DemoApp extends React.Component {
           }
           addEvent(newEvent, localStorage.getItem('userAuth'))
 
-            this.setState({
-              calendarEvents: this.state.calendarEvents.concat({
-                title: `${value}`,
-                date: arg.date,
-                allDay: arg.allDay
-              })
+          this.setState({
+            calendarEvents: this.state.calendarEvents.concat({
+              title: `${value}`,
+              date: arg.date,
+              allDay: arg.allDay
             })
-        }else{
+          })
+        } else {
 
           swal({
             title: `Are you sure you want to leave the text area empty?`,
@@ -57,36 +84,27 @@ export default class DemoApp extends React.Component {
         }
       })
       .catch(e => console.error(e))
-    }
+  }
 
-
-    // returns reminders from DB
-    componentDidMount = () => {
-      getAllReminders(localStorage.getItem('userAuth'))
-        .then(({ data: calendars }) => {
-          // console.log(calendars)
-          this.setState({
-            calendarEvents: calendars        
-          })
+  componentDidMount = () => {
+    getAllReminders(localStorage.getItem('userAuth'))
+      .then(({ data: calendars }) => {
+        console.log(calendars)
+        this.setState({
+          calendarEvents: calendars
         })
-      }
-      
-      
-      // loops through calendarEvents and returns each title
-      titleLoop = () => {
-        for( let i = 0; i < this.state.calendarEvents.length; i++) {
-            return this.state.calendarEvents[i].title
-        }
-}
+      })
+  }
+
+
 
       
       render() {
         console.log(this.titleLoop())
         return (
       <div className='demo-app'>
-        
         <Card>
-        <h2>Reminder: {this.titleLoop()} </h2>
+          <h5>Reminder:</h5>
         </Card>
 
         <div className='demo-app-calendar'>
@@ -105,8 +123,7 @@ export default class DemoApp extends React.Component {
             dateClick={this.handleDateClick}
           />
         </div>
-      </div>
+      </div >
     )
   }
-
 }

@@ -10,13 +10,13 @@ import DeleteIcon from '@material-ui/icons/Delete'
 import ArchiveIcon from '@material-ui/icons/Archive'
 import JobCardContext from '../../utils/JobCardContext'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
-import Collapse from '@material-ui/core/Collapse';
-import IconButton from '@material-ui/core/IconButton';
-import FavoriteIcon from '@material-ui/icons/Favorite';
-import ShareIcon from '@material-ui/icons/Share';
+import Collapse from '@material-ui/core/Collapse'
+import IconButton from '@material-ui/core/IconButton'
 import clsx from 'clsx';
-import AddIcon from '@material-ui/icons/Add';
-import ConnectionDrawer from '../ConnectionDrawer'
+import ConnectionForm from '../ConnectionForm'
+import Tooltip from '@material-ui/core/Tooltip';
+
+
 
 const useStyles = makeStyles(theme => ({
   card: {
@@ -45,11 +45,20 @@ const useStyles = makeStyles(theme => ({
   pos: {
     marginBottom: 12,
   },
+  button: {
+    padding: "0px",
+    width: "30px"
+
+  },
+  btnBox: {
+    display: "flex",
+    justifyContent: "flex-end"
+  }
 }))
 
 const JobCard = () => {
 
-  const { jobs, handleDeleteJob, handleArchiveJob, handleAddJob } = useContext(JobCardContext)
+  const { jobs, handleDeleteJob, handleArchiveJob } = useContext(JobCardContext)
   const classes = useStyles()
 
   const [expanded, setExpanded] = React.useState(false);
@@ -64,27 +73,29 @@ const JobCard = () => {
       {
         jobs ? jobs.map(job => !job.archived ? (
 
-
           <Card className={classes.card} variant="outlined">
 
-              <ConnectionDrawer jobId = {job._id}/>
 
-            <Button
-              onClick={() => handleDeleteJob(job._id)}
-              variant="contained"
-              className={classes.button}
-              startIcon={<DeleteIcon />}
-            >
-              Delete
-      </Button>
-            <Button
-              onClick={() => handleArchiveJob(job._id, job.archived)}
-              variant="contained"
-              className={classes.button}
-              startIcon={<ArchiveIcon />}
-            >
-              Archive
-      </Button>
+            <div className={classes.btnBox}>
+
+              <Tooltip title="Delete">
+                <Button
+                  onClick={() => handleDeleteJob(job._id)}
+                  className={classes.button}
+
+                ><DeleteIcon /></Button>
+              </Tooltip>
+
+              <Tooltip title="Archive">
+                <Button
+                  onClick={() => handleArchiveJob(job._id, job.archived)}
+                  className={classes.button}
+                ><ArchiveIcon /></Button>
+              </Tooltip>
+              
+                <ConnectionForm jobId={job._id} />
+             
+            </div>
 
             <CardContent>
               <Typography className={classes.title} color="textSecondary" gutterBottom >
@@ -100,7 +111,6 @@ const JobCard = () => {
 
               <Typography variant="body2" component="h3">
                 Job Requirements:
-         <br />
                 <br />
                 {
                   job.skills ? job.skills.map(skill => (
@@ -110,6 +120,7 @@ const JobCard = () => {
               </Typography>
 
               <br />
+              <p>{job.summary}</p>
 
             </CardContent>
 
@@ -132,11 +143,10 @@ const JobCard = () => {
                     <Typography>
                       {item.type}: {item.name}
                       <br />
-                      {item.phone}
+                      Phone: {item.phone}
                       <br />
-                      {item.email}
-                      <br />
-                      {item.summary}
+                      Email: {item.email}
+
                     </Typography>
                   ) : null
                 }

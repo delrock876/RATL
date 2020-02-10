@@ -175,9 +175,9 @@ const LandingPage = () => {
             </Grid>
 
             <Grid item xs={6} align="center">
-              < img className={classes.profile} src={profileB} alt="javi" />
+              < img className={classes.profile} src={profileB} alt="francisco" />
               <div >
-                <a href="#">
+                <a href="https://www.linkedin.com/in/francisco-raigoza-2857a51a1/">
                   <h6> <LinkedInIcon /> Francisco </h6>
                 </a>
                 <p className={classes.para2}>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veniam ipsam sed sit blanditiis </p>

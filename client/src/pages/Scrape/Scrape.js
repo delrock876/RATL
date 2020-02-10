@@ -2,6 +2,10 @@ import React, { useContext, useState, useEffect } from 'react'
 import ScrapeCardContext from '../../utils/ScrapeCardContext'
 import ScrapeCardAPI from '../../utils/ScrapeCardAPI'
 import ScrapeCard from '../../components/ScrapeCard'
+import ScrapeForm from '../../components/ScrapeForm'
+import Button from '@material-ui/core/Button'
+
+
 
 const { getAllLeads, updateLeads, deleteLeads, addJobLeads, scrapeLeads } = ScrapeCardAPI
 
@@ -13,13 +17,15 @@ const Scrape = () => {
     company: '',
     title: '',
     summary: '',
+    query: '',
+    city: '',
+    level: '',
     archived: Boolean
   })
 
   leadsState.handleInputChange = (event) => {
     setLeadsState({ ...leadsState, [event.target.name]: event.target.value })
   }
-
 
   leadsState.handleDeleteLeads = (id) => {
     deleteLeads(id, localStorage.getItem('userAuth'))
@@ -28,28 +34,29 @@ const Scrape = () => {
   }
 
   leadsState.handleScrapeLeads = () => {
+    
+    console.log(leadsState.query)
+    console.log(leadsState.level)
+    
     scrapeLeads()
-    .then(({ data }) => {
-      let leads = JSON.parse(JSON.stringify(leadsState.leads))
+    .then(({data}) => {
+   
       console.log(data)
+      let leads = JSON.parse(JSON.stringify(leadsState.leads))
   
       leads = [...leads, ...data]
       
-  
         setLeadsState({ ...leadsState, leads})
   
       })
+      .catch(e=>console.error(e))
   }
 
   leadsState.handleAddLeads = (event) => {
-    // event.preventDefault()
-    
-    console.log(event)
 
 //write function that takes in event as job object
     addJobLeads(event, localStorage.getItem('userAuth'))
     .then(() => {
-      // jobs.push(event)
       deleteLeads(event.id, localStorage.getItem('userAuth'))
       .then(() => console.log('deleted!'))
       .catch(e => console.error(e))
@@ -69,9 +76,8 @@ const Scrape = () => {
 
   return (
     <>
-      
-      <button onClick={leadsState.handleScrapeLeads}>LARGE BUTTON</button>
       <ScrapeCardContext.Provider value={leadsState}>
+        <ScrapeForm/>
         <ScrapeCard />
       </ScrapeCardContext.Provider>
       </>
