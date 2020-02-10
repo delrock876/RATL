@@ -73,9 +73,10 @@ const Archived = () => {
         <Grid itemxs={12}>
           <div className='archiveBg'>
             <ArchiveTable />
-          </Grid>
-        </JobCardContext.Provider>
-        </div>
+          </div>
+        </Grid>
+      </JobCardContext.Provider>
+
     </>
 
 

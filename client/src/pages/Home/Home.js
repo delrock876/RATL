@@ -45,7 +45,6 @@ const Home = () => {
     jobs: []
   })
   useEffect(() => {
-    console.log("before call getAllJobs")
     getAllJobs(localStorage.getItem('userAuth'))
       .then(({ data: jobs }) => {
         setJobState({ ...jobState, jobs })
