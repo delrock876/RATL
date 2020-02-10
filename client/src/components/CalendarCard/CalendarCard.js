@@ -1,22 +1,25 @@
 import React from 'react'
 import Card from '@material-ui/core/Card'
 import CardContent from '@material-ui/core/CardContent'
+import CalendarAPI from '../../utils/CalendarAPI'
 import Calendar from '../Calender'
 
+const {addEvent, getAllReminders} = CalendarAPI
 
 
-class CalendarForm extends React.Component {
+
+class CalendarCard extends React.Component {
 
 
     
-
-
+    
     render() {
+        console.log(addEvent)
         return( 
     
-        <Card className='Form'>
+        <Card className='Card'>
             <CardContent>
-        <h2> Reminder: {}</h2>
+        <h2> Reminder: {getAllReminders && getAllReminders.title}</h2>
          <h3> Date: {}</h3>
             </CardContent>
     
@@ -26,4 +29,4 @@ class CalendarForm extends React.Component {
     }
     }
 
-export default CalendarForm
+export default CalendarCard

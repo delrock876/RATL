@@ -21,14 +21,12 @@ export default class DemoApp extends React.Component {
         calendarEvents : [ // initial event data
       { title: '', 
       start: new Date() }
-
-    ]
+        ]
+    
   }
 
 
-
- 
-
+  // adds reminders to DB and onto the Calendar
   handleDateClick = (arg) => {
 
     swal("Set Reminder:", {
@@ -62,24 +60,33 @@ export default class DemoApp extends React.Component {
     }
 
 
+    // returns reminders from DB
     componentDidMount = () => {
       getAllReminders(localStorage.getItem('userAuth'))
         .then(({ data: calendars }) => {
-          console.log(calendars)
+          // console.log(calendars)
           this.setState({
             calendarEvents: calendars        
-            })
+          })
         })
-    }
-  
-  
+      }
+      
+      
+      // loops through calendarEvents and returns each title
+      titleLoop = () => {
+        for( let i = 0; i < this.state.calendarEvents.length; i++) {
+            return this.state.calendarEvents[i].title
+        }
+}
 
-  render() {
-    return (
+      
+      render() {
+        console.log(this.titleLoop())
+        return (
       <div className='demo-app'>
-
+        
         <Card>
-                <h2>Reminder: {}</h2>
+        <h2>Reminder: {this.titleLoop()} </h2>
         </Card>
 
         <div className='demo-app-calendar'>
