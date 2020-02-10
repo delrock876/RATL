@@ -4,23 +4,48 @@ import CardContent from '@material-ui/core/CardContent'
 import CalendarAPI from '../../utils/CalendarAPI'
 import Calendar from '../Calender'
 
-const {addEvent, getAllReminders} = CalendarAPI
+const {getAllReminders} = CalendarAPI
 
 
 
 class CalendarCard extends React.Component {
 
+    state = {
+
+
+        calendarEvents: [ // initial event data
+          {
+            title: '',
+            start: new Date()
+          }
+    
+        ]
+      }
+
+      componentDidMount = () => {
+        getAllReminders(localStorage.getItem('userAuth'))
+          .then(({ data: calendars }) => {
+            console.log(calendars)
+            this.setState({
+              calendarEvents: calendars
+            })
+          })
+      }
+
+      titleLoop = () => {
+        for( let i = 0; i < this.state.calendarEvents.length; i++) {
+            return this.state.calendarEvents[i].title
+        }
+    }
 
     
-    
     render() {
-        console.log(addEvent)
         return( 
     
         <Card className='Card'>
             <CardContent>
-        <h2> Reminder: {getAllReminders && getAllReminders.title}</h2>
-         <h3> Date: {}</h3>
+        <h2> Upcoming Events: {this.titleLoop()}</h2>
+       
             </CardContent>
     
         </Card>

@@ -96,21 +96,10 @@ export default class DemoApp extends React.Component {
       })
   }
 
-  titleLoop = () => {
-    for( let i = 0; i < this.state.calendarEvents.length; i++) {
-        return this.state.calendarEvents[i].title
-    }
-}
-
-   
       render() {
-        console.log(this.titleLoop())
         return (
       <div className='demo-app'>
-        <Card>
-          <h5>Reminder:</h5>
-        </Card>
-
+     
         <div className='demo-app-calendar'>
           <FullCalendar
             defaultView="dayGridMonth"
