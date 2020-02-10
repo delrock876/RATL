@@ -28,9 +28,17 @@ module.exports = app => {
   //Update one Job
   app.put('/api/jobs/:id', passport.authenticate('jwt', { session: false }), (req, res) => {
     Jobs.findByIdAndUpdate(req.params.id, { $set: req.body })
-      .then(() => res.sendStatus(200))
+      .then((jobs) => res.json(jobs))
       .catch(e => console.log(e))
   })
+
+//add connection
+  app.put('/api/jobs/connect/:id', passport.authenticate('jwt', { session: false }), (req, res) => {
+    Jobs.findByIdAndUpdate(req.params.id, { $push: { connections: req.body } })
+      .then((jobs) => res.json(jobs.connections))
+      .catch(e => console.log(e))
+  })
+
 
 
   //Delete one Job

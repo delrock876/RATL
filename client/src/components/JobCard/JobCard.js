@@ -15,6 +15,8 @@ import IconButton from '@material-ui/core/IconButton'
 import clsx from 'clsx';
 import ConnectionForm from '../ConnectionForm'
 
+
+
 const useStyles = makeStyles(theme => ({
   card: {
     margin: "auto",
@@ -46,7 +48,7 @@ const useStyles = makeStyles(theme => ({
 
 const JobCard = () => {
 
-  const { jobs, handleDeleteJob, handleArchiveJob, handleAddJob } = useContext(JobCardContext)
+  const { jobs, handleDeleteJob, handleArchiveJob} = useContext(JobCardContext)
   const classes = useStyles()
 
   const [expanded, setExpanded] = React.useState(false);
@@ -64,7 +66,7 @@ const JobCard = () => {
 
           <Card className={classes.card} variant="outlined">
 
-              <ConnectionForm jobId = {job._id}/>
+            <ConnectionForm jobId = {job._id}/>
 
             <Button
               onClick={() => handleDeleteJob(job._id)}
@@ -82,6 +84,8 @@ const JobCard = () => {
             >
               Archive
       </Button>
+
+    
 
             <CardContent>
               <Typography className={classes.title} color="textSecondary" gutterBottom >
@@ -129,7 +133,7 @@ const JobCard = () => {
                     <Typography>
                       {item.type}: {item.name}
                       <br />
-                      Phone number: {item.phone}
+                      Phone: {item.phone}
                       <br />
                       Email: {item.email}
                       <br />

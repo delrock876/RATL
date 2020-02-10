@@ -5,7 +5,7 @@ import JobCard from '../../components/JobCard'
 import JobDrawer from '../../components/JobDrawer'
 import { makeStyles } from '@material-ui/core/styles'
 
-const { getAllJobs, addJob, updateJob, deleteJob } = JobCardAPI
+const { getAllJobs, addJob, updateJob, deleteJob, addConnect } = JobCardAPI
 
 const useStyles = makeStyles({
   title: {
@@ -44,6 +44,7 @@ const Jobs = () => {
     job: '',
     skillsRequired: '',
     bottom: false,
+    connections: []
 
   })
 
@@ -64,7 +65,6 @@ const Jobs = () => {
         let jobs = JSON.parse(JSON.stringify(jobState.jobs))
         let jobsFiltered = jobs.filter(job => id !== job._id)
         setJobState({ ...jobState, jobs: jobsFiltered })
-
       })
       .catch(e => console.error(e))
   }
@@ -136,22 +136,18 @@ const Jobs = () => {
 
   jobState.handleAddConnection = (id) => {
  
-    let connections = {
+    let contactInfo = {
         name: jobState.namee,
         type: jobState.type,
         phone: jobState.phone,
         email: jobState.email
       }
+      
+      addConnect(id, contactInfo, localStorage.getItem('userAuth'))
+      .then(({data}) => {
 
-      console.log("I AM JOB please work" + id)
-      // console.log(connections.name, connections.type, connections.phone, connections.email)
-      updateJob(id, {connections}, localStorage.getItem('userAuth'))
-      .then(() => {
-        // console.log(connections)
-        let jobs = JSON.parse(JSON.stringify(jobState.jobs))
-        let jobsFiltered = jobs.filter(job => id !== job._id)
-        setJobState({ ...jobState, jobs: jobsFiltered })
-        window.location.reload()
+      console.log(data)
+        
       })
       .catch(e => console.error(e))
   }
@@ -174,8 +170,6 @@ const Jobs = () => {
         <JobCardContext.Provider value={jobState}>
 
           <JobDrawer />
-
-        
               <JobCard />
         </JobCardContext.Provider>
 
