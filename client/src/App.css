@@ -14,23 +14,25 @@ background-image: linear-gradient(0deg, #5ba016 1%, #F4D03F 88%);
   overflow:hidden;
   background-color: #54b931;
 background-image: linear-gradient(180deg, #54b931 7%, #eae3e3 72%);
-
 }
 
 .archiveBg {
-  overflow:hidden;
-  background-color: #F7CE68;
+   overflow:hidden;
+background-color: #fbaa10;
+background-image: linear-gradient(180deg, #fbaa10 0%, #78b746 99%);
 }
 
 .calendarBg {
   overflow:hidden;
-  background-color: #B3B0AE;
+background-color: #fbaa10;
+background-image: linear-gradient(180deg, #fbaa10 0%, #78b746 99%);
+
 }
 
 .jobsBg {
   overflow:hidden;
-    background-color: #54b931;
-background-image: linear-gradient(180deg, #54b931 7%, #eae3e3 72%);
+background-color: #fbaa10;
+background-image: linear-gradient(180deg, #fbaa10 0%, #78b746 99%);
 }
 
 .whiteCard {

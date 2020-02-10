@@ -10,7 +10,8 @@ import DeleteIcon from '@material-ui/icons/Delete'
 import AddBoxIcon from '@material-ui/icons/AddBox';
 import ArchiveIcon from '@material-ui/icons/Archive';
 import ScrapeCardContext from '../../utils/ScrapeCardContext'
-
+import List from '@material-ui/core/List'
+import ListItem from '@material-ui/core/ListItem'
 const useStyles = makeStyles({
   card: {
     // minWidth: 275,
@@ -30,11 +31,11 @@ const useStyles = makeStyles({
 
 const ScrapeCard = () => {
   
-  const { leads, handleDeleteLeads, handleArchiveLeads, handleAddLeads } = useContext(ScrapeCardContext)
+  const { leads, handleDeleteLeads, handleAddLeads } = useContext(ScrapeCardContext)
   const classes = useStyles()
   
   return (
-    
+    <List style={{ maxHeight: 800, overflow: 'auto' }}>
     <div>
     {
       leads ? leads.map(lead=> !lead.archived ? (
@@ -43,12 +44,11 @@ const ScrapeCard = () => {
 
 <Button
           onClick = {()=>handleAddLeads({
-            companyName: leads.company,
+            companyName: lead.company,
             id: lead._id,
             jobTitle: lead.title,
             summary: lead.summary,
-            archived: false,
-            checked: false,
+            archived: false
           })}
           variant="contained"
           className={classes.button}
@@ -85,6 +85,7 @@ const ScrapeCard = () => {
   ):null): null
 }
     </div>
+    </List>
   )
 }
  export default ScrapeCard

@@ -27,37 +27,55 @@ const useStyles = makeStyles({
   }
 });
 
-const { getAllJobs } = JobCardAPI
+const { getAllJobs, deleteJob, updateJob } = JobCardAPI
 
 const Archived = () => {
   const [jobState, setJobState] = useState({
-    jobs: []
+    jobs: [],
+    archived: Boolean,
   })
 
+
+  jobState.handleDeleteJob = (id) => {
+    deleteJob(id, localStorage.getItem('userAuth'))
+      .then(() => {
+        let jobs = JSON.parse(JSON.stringify(jobState.jobs))
+        let newJobs = jobs.filter(job => id !== job._id)
+        setJobState({ ...jobState, jobs: newJobs })
+      })
+      .catch(e => console.error(e))
+  }
+
+  jobState.handleArchiveJob = (id, archived) => {
+    updateJob(id, { archived: false }, localStorage.getItem('userAuth'))
+      .then(() => {
+        let jobs = JSON.parse(JSON.stringify(jobState.jobs))
+        let jobsFiltered = jobs.filter(job => id !== job._id)
+        setJobState({ ...jobState, jobs: jobsFiltered })
+      })
+      .catch(e => console.error(e))
+  }
 
   useEffect(() => {
 
     getAllJobs(localStorage.getItem('userAuth'))
       .then(({ data: jobs }) => {
-        console.log('got all jobs!')
         setJobState({ ...jobState, jobs })
       })
       .catch(e => console.error(e))
   }, [])
 
-
+  const classes = useStyles();
   return (
     <>
 
       <JobCardContext.Provider value={jobState}>
-        <Grid xs={12}>
+        <Grid itemxs={12}>
           <div className='archiveBg'>
             <ArchiveTable />
-          </div >
-
-        </Grid>
-      </JobCardContext.Provider>
-
+          </Grid>
+        </JobCardContext.Provider>
+      </div>
     </>
 
 

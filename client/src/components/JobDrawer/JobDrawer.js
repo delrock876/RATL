@@ -34,7 +34,7 @@ const JobDrawer = ()=> {
       
       </List>
     </div>
-  );
+  )
 
   return (
     <div>
