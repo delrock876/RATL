@@ -12,9 +12,15 @@ import ArchiveIcon from '@material-ui/icons/Archive';
 import ScrapeCardContext from '../../utils/ScrapeCardContext'
 import List from '@material-ui/core/List'
 import ListItem from '@material-ui/core/ListItem'
+import Tooltip from '@material-ui/core/Tooltip'
+
+
+
 const useStyles = makeStyles({
   card: {
-    // minWidth: 275,
+    width: "700px",
+    minWidth: "322.76px"
+    // minWidth: 375
   },
   bullet: {
     display: 'inline-block',
@@ -27,6 +33,10 @@ const useStyles = makeStyles({
   pos: {
     marginBottom: 12,
   },
+  btnBox: {
+    display: "flex",
+    justifyContent: "flex-end"
+  }
 })
 
 const ScrapeCard = () => {
@@ -36,35 +46,38 @@ const ScrapeCard = () => {
   
   return (
     <List style={{ maxHeight: 800, overflow: 'auto' }}>
-    <div>
+    <div ss-container>
     {
       leads ? leads.map(lead=> !lead.archived ? (
 
+        <ListItem>
     <Card className={classes.card} variant="outlined">
 
-<Button
+<div className={classes.btnBox}>
+
+<Tooltip title="Add to jobs">
+        <Button
           onClick = {()=>handleAddLeads({
             companyName: lead.company,
             id: lead._id,
             jobTitle: lead.title,
             summary: lead.summary,
             archived: false
-          })}
-          variant="contained"
+          })} 
           className={classes.button}
-          startIcon={<AddBoxIcon />}
-        >
-          Add
-      </Button>
+        ><AddBoxIcon />
+        </Button>
+        </Tooltip>
 
+<Tooltip title="Delete Lead">
         <Button
           onClick = {()=>handleDeleteLeads(lead._id)}
-          variant="contained"
           className={classes.button}
-          startIcon={<DeleteIcon />}
         >
-          Delete
+          <DeleteIcon />
       </Button>
+      </Tooltip>
+      </div>
      
 
       <CardContent>
@@ -82,6 +95,7 @@ const ScrapeCard = () => {
       
       </CardContent>
     </Card>
+    </ListItem>
   ):null): null
 }
     </div>

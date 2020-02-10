@@ -9,6 +9,10 @@ background-image: linear-gradient(0deg, #5ba016 1%, #F4D03F 88%);
 
 
 }
+  .simCard{
+    padding-top:100px;
+  
+  }
 
 .homeBg {
   overflow:hidden;
@@ -47,8 +51,16 @@ background-image: linear-gradient(180deg, #fbaa10 0%, #78b746 99%);
 .parallax{
   height: 450;
 }
-/* @media only screen and (max-width: 570px) {
-  .react-parallax-bgimage {
-    height: auto;
-  }
-} */
+
+::-webkit-scrollbar {
+  width: .5em;
+}
+ 
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+ 
+::-webkit-scrollbar-thumb {
+  background-color: lightgrey;
+  outline: .5px solid slategrey;
+}
