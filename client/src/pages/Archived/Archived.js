@@ -68,14 +68,14 @@ const Archived = () => {
   const classes = useStyles();
   return (
     <>
-
+    
       <JobCardContext.Provider value={jobState}>
         <Grid itemxs={12}>
           <div className='archiveBg'>
             <ArchiveTable />
           </Grid>
         </JobCardContext.Provider>
-      </div>
+        </div>
     </>
 
 
