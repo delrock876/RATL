@@ -14,6 +14,7 @@ import Collapse from '@material-ui/core/Collapse'
 import IconButton from '@material-ui/core/IconButton'
 import clsx from 'clsx';
 import ConnectionForm from '../ConnectionForm'
+import Tooltip from '@material-ui/core/Tooltip';
 
 
 
@@ -44,11 +45,20 @@ const useStyles = makeStyles(theme => ({
   pos: {
     marginBottom: 12,
   },
+  button: {
+    padding: "0px",
+    width: "30px"
+
+  },
+  btnBox: {
+    display: "flex",
+    justifyContent: "flex-end"
+  }
 }))
 
 const JobCard = () => {
 
-  const { jobs, handleDeleteJob, handleArchiveJob} = useContext(JobCardContext)
+  const { jobs, handleDeleteJob, handleArchiveJob } = useContext(JobCardContext)
   const classes = useStyles()
 
   const [expanded, setExpanded] = React.useState(false);
@@ -63,29 +73,29 @@ const JobCard = () => {
       {
         jobs ? jobs.map(job => !job.archived ? (
 
-
           <Card className={classes.card} variant="outlined">
 
-            <ConnectionForm jobId = {job._id}/>
 
-            <Button
-              onClick={() => handleDeleteJob(job._id)}
-              variant="contained"
-              className={classes.button}
-              startIcon={<DeleteIcon />}
-            >
-              Delete
-      </Button>
-            <Button
-              onClick={() => handleArchiveJob(job._id, job.archived)}
-              variant="contained"
-              className={classes.button}
-              startIcon={<ArchiveIcon />}
-            >
-              Archive
-      </Button>
+            <div className={classes.btnBox}>
 
-    
+              <Tooltip title="Delete">
+                <Button
+                  onClick={() => handleDeleteJob(job._id)}
+                  className={classes.button}
+
+                ><DeleteIcon /></Button>
+              </Tooltip>
+
+              <Tooltip title="Archive">
+                <Button
+                  onClick={() => handleArchiveJob(job._id, job.archived)}
+                  className={classes.button}
+                ><ArchiveIcon /></Button>
+              </Tooltip>
+              
+                <ConnectionForm jobId={job._id} />
+             
+            </div>
 
             <CardContent>
               <Typography className={classes.title} color="textSecondary" gutterBottom >
@@ -101,7 +111,6 @@ const JobCard = () => {
 
               <Typography variant="body2" component="h3">
                 Job Requirements:
-         <br />
                 <br />
                 {
                   job.skills ? job.skills.map(skill => (
@@ -111,6 +120,7 @@ const JobCard = () => {
               </Typography>
 
               <br />
+              <p>{job.summary}</p>
 
             </CardContent>
 
@@ -136,8 +146,7 @@ const JobCard = () => {
                       Phone: {item.phone}
                       <br />
                       Email: {item.email}
-                      <br />
-                      Notes: {job.summary}
+
                     </Typography>
                   ) : null
                 }

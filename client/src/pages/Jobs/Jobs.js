@@ -70,7 +70,6 @@ const Jobs = () => {
   }
 
   jobState.handleDeleteJob = (id) => {
-    console.log(id)
     deleteJob(id, localStorage.getItem('userAuth'))
 
       .then(() => {

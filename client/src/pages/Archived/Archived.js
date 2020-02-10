@@ -36,7 +36,25 @@ const Archived = () => {
   })
 
 
+  jobState.handleDeleteJob = (id) => {
+    deleteJob(id, localStorage.getItem('userAuth'))
+      .then(() => {
+        let jobs = JSON.parse(JSON.stringify(jobState.jobs))
+        let newJobs = jobs.filter(job => id !== job._id)
+        setJobState({ ...jobState, jobs: newJobs })
+      })
+      .catch(e => console.error(e))
+  }
 
+  jobState.handleArchiveJob = (id, archived) => {
+    updateJob(id, { archived: false }, localStorage.getItem('userAuth'))
+      .then(() => {
+        let jobs = JSON.parse(JSON.stringify(jobState.jobs))
+        let jobsFiltered = jobs.filter(job => id !== job._id)
+        setJobState({ ...jobState, jobs: jobsFiltered })
+      })
+      .catch(e => console.error(e))
+  }
 
   useEffect(() => {
 
@@ -50,9 +68,10 @@ const Archived = () => {
   const classes = useStyles();
   return (
     <>
-      <div className='archiveBg'>
-        <JobCardContext.Provider value={jobState}>
-          <Grid xs={12}>
+
+      <JobCardContext.Provider value={jobState}>
+        <Grid itemxs={12}>
+          <div className='archiveBg'>
             <ArchiveTable />
           </Grid>
         </JobCardContext.Provider>
