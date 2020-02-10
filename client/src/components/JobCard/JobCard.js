@@ -129,11 +129,11 @@ const JobCard = () => {
                     <Typography>
                       {item.type}: {item.name}
                       <br />
-                      {item.phone}
+                      Phone number: {item.phone}
                       <br />
-                      {item.email}
+                      Email: {item.email}
                       <br />
-                      {item.summary}
+                      Notes: {job.summary}
                     </Typography>
                   ) : null
                 }

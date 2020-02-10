@@ -107,7 +107,7 @@ const ConnectionForm = (props) => {
         <Modal.Footer>
           <Button onClick={() =>
             // console.log(props.jobId)
-            handleAddConnection(props.jobid)
+            handleAddConnection(props.jobId)
           }
           >Submit</Button>
 

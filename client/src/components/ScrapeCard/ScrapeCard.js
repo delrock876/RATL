@@ -43,7 +43,7 @@ const ScrapeCard = () => {
 
 <Button
           onClick = {()=>handleAddLeads({
-            companyName: leads.company,
+            companyName: lead.company,
             id: lead._id,
             jobTitle: lead.title,
             summary: lead.summary,
