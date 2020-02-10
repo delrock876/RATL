@@ -6,8 +6,34 @@ import interactionPlugin from '@fullcalendar/interaction' // needed for dayClick
 import swal from 'sweetalert'
 import './Calendar.scss'
 import CalendarAPI from '../../utils/CalendarAPI'
+import { makeStyles } from '@material-ui/core/styles'
 
 import Card from '@material-ui/core/Card'
+// import classes from '*.module.css'
+
+
+const useStyles = makeStyles({
+  title: {
+    marginTop: 20,
+    marginBottom: 20,
+    marginLeft: 10,
+    fontSize: "2em",
+    color: "white",
+    fontFamily: 'Inder, sans-serif',
+    fontWeight: "bold",
+  },
+  para: {
+    fontSize: "1.4em",
+    color: "white",
+    fontFamily: 'DM Sans, sans-serif'
+  },
+  para2: {
+    fontSize: "1em",
+    color: "black",
+    fontFamily: 'DM Sans, sans-serif'
+  }
+});
+
 
 const { addEvent, getAllReminders } = (CalendarAPI)
 
@@ -26,7 +52,6 @@ export default class DemoApp extends React.Component {
 
     ]
   }
-
 
 
   handleDateClick = (arg) => {
@@ -59,7 +84,6 @@ export default class DemoApp extends React.Component {
         }
       })
       .catch(e => console.error(e))
-<<<<<<< HEAD
   }
 
   componentDidMount = () => {
@@ -68,17 +92,6 @@ export default class DemoApp extends React.Component {
         console.log(calendars)
         this.setState({
           calendarEvents: calendars
-=======
-    }
-
-    componentDidMount = () => {
-      getAllReminders(localStorage.getItem('userAuth'))
-        .then(({ data: calendars }) => {
-          console.log(calendars)
-          this.setState({
-            calendarEvents: calendars        
-            })
->>>>>>> master
         })
       })
   }
@@ -88,9 +101,8 @@ export default class DemoApp extends React.Component {
   render() {
     return (
       <div className='demo-app'>
-
         <Card>
-                <h2>Reminder:</h2>
+          <h5>Reminder:</h5>
         </Card>
 
         <div className='demo-app-calendar'>
@@ -109,7 +121,7 @@ export default class DemoApp extends React.Component {
             dateClick={this.handleDateClick}
           />
         </div>
-      </div>
+      </div >
     )
   }
 }

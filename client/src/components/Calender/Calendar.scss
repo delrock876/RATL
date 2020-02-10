@@ -7,6 +7,8 @@
 .demo-app {
   fontFamily: DM Sans, sans-serif;
   font-size: 12px;
+  padding: 15px;
+
 }
 
 .demo-app-top {
@@ -15,7 +17,7 @@
 }
 
 .demo-app-calendar {
-  color: green;
+  color: #54a826;
   margin: 0 auto;
   max-width: 900px;
   background-color:#FBF4CF;
@@ -23,7 +25,7 @@
 
 
 .demo-app-top .btn{
-  background-color: green;
+  background-color: #54a826;
   color:#ffffffff;
 }
 
@@ -31,19 +33,25 @@
   color: #fff;
   background-color: #FBA90D;
   border-color: #FBAA10;
-  padding: 10px;
 }
 .fc-button-primary:not(:disabled):active, .fc-button-primary:not(:disabled).fc-button-active 
  {
   color: #fff;
-  background-color: #666666;
+  background-color: #54a826;
   border-color: #FBAA10;
-  padding: 10px;
+  // padding: 10px;
 }
 
 .fc-event, .fc-event-dot {
   background-color: #FBAA10;
 }
 .fc-button-primary:hover{
-background-color: #FBF4CF;
+background-color: #FDD749;
+  border-color: #FBAA10;
+}
+
+.fc-today-button.fc-button.fc-button-primary{
+ color: #fff;
+  background-color: #54a826;
+  border-color: #FBAA10;
 }

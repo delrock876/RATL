@@ -31,11 +31,11 @@ const useStyles = makeStyles({
 const { getAllReminders, handleDateClick } = CalendarAPI
 
 const Events = () => {
-
+  const classes = useStyles();
   return (
     <>
       <div className='calendarBg'>
-        <h1> THIS IS YOUR CONNECTIONS PAGE</h1>
+        <h3 className={classes.title}> THIS IS YOUR EVENTS PAGE</h3>
         <CalendarContext.Provider>
           <Calendar />
         </CalendarContext.Provider>
