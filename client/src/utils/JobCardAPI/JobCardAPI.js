@@ -20,6 +20,11 @@ const JobCardAPI = {
   deleteJob: (id, token) => axios.delete(`/api/jobs/${id}`, {
     headers:
       { 'Authorization': `Bearer ${token}` }
+  }),
+
+  addConnect: (id, values, token) => axios.put(`/api/jobs/connect/${id}`, values ,{
+    headers:
+      { 'Authorization': `Bearer ${token}` }
   })
 
 }

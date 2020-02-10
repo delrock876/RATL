@@ -13,7 +13,7 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 import Collapse from '@material-ui/core/Collapse'
 import IconButton from '@material-ui/core/IconButton'
 import clsx from 'clsx';
-import ConnectionForm from '../ConnectionForm/ConnectionForm'
+import ConnectionForm from '../ConnectionForm'
 
 
 
