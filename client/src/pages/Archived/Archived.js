@@ -35,8 +35,26 @@ const Archived = () => {
     archived: Boolean,
   })
 
-  
+  jobState.handleDeleteJob = (id) => {
+    deleteJob(id, localStorage.getItem('userAuth'))
+      .then(() => {
+        let jobs = JSON.parse(JSON.stringify(jobState.jobs))
+        let newJobs = jobs.filter(job => id !== job._id)
+        setJobState({ ...jobState, jobs: newJobs })
 
+      })
+      .catch(e => console.error(e))
+  }
+
+  jobState.handleArchiveJob = (id, archived) => {
+    updateJob(id, { archived: false }, localStorage.getItem('userAuth'))
+      .then(() => {
+        let jobs = JSON.parse(JSON.stringify(jobState.jobs))
+        let jobsFiltered = jobs.filter(job => id !== job._id)
+        setJobState({ ...jobState, jobs: jobsFiltered })
+      })
+      .catch(e => console.error(e))
+  }
 
   useEffect(() => {
 
@@ -52,7 +70,7 @@ const Archived = () => {
     <>
 
       <JobCardContext.Provider value={jobState}>
-        <Grid xs={12}>
+        <Grid itemxs={12}>
           <div className='archiveBg'>
             <ArchiveTable />
           </div >
