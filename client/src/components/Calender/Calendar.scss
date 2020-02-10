@@ -33,3 +33,17 @@
   border-color: #FBAA10;
   padding: 10px;
 }
+.fc-button-primary:not(:disabled):active, .fc-button-primary:not(:disabled).fc-button-active 
+ {
+  color: #fff;
+  background-color: #666666;
+  border-color: #FBAA10;
+  padding: 10px;
+}
+
+.fc-event, .fc-event-dot {
+  background-color: #FBAA10;
+}
+.fc-button-primary:hover{
+background-color: #FBF4CF;
+}
