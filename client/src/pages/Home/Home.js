@@ -68,7 +68,7 @@ const Home = () => {
         </Grid>
 
         <Grid item xs>
-
+      
           <JobCardContext.Provider value={jobState}>
             <SimCard />
           </JobCardContext.Provider>

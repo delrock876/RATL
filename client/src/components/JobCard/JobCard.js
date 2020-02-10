@@ -12,9 +12,11 @@ import JobCardContext from '../../utils/JobCardContext'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 import Collapse from '@material-ui/core/Collapse'
 import IconButton from '@material-ui/core/IconButton'
-import clsx from 'clsx';
+import clsx from 'clsx'
 import ConnectionForm from '../ConnectionForm'
-import Tooltip from '@material-ui/core/Tooltip';
+import List from '@material-ui/core/List'
+import ListItem from '@material-ui/core/ListItem'
+import Tooltip from '@material-ui/core/Tooltip'
 
 
 
@@ -22,7 +24,7 @@ const useStyles = makeStyles(theme => ({
   card: {
     margin: "auto",
     width: "95%",
-    paddingBottom: 0
+    paddingBottom: 0,
   },
   bullet: {
     display: 'inline-block',
@@ -70,8 +72,10 @@ const JobCard = () => {
   return (
 
     <div>
+      <List>
       {
         jobs ? jobs.map(job => !job.archived ? (
+          <ListItem>
 
           <Card className={classes.card} variant="outlined">
 
@@ -153,8 +157,10 @@ const JobCard = () => {
               </CardContent>
             </Collapse>
           </Card>
+          </ListItem>
         ) : null) : null
       }
+      </List>
     </div>
   )
 }

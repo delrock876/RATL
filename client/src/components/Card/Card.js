@@ -1,11 +1,13 @@
 import React, { useContext } from 'react'
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles'
 import Card from '@material-ui/core/Card'
 import CardActions from '@material-ui/core/CardActions'
 import CardContent from '@material-ui/core/CardContent'
 import Button from '@material-ui/core/Button'
 import Typography from '@material-ui/core/Typography'
 import JobCardContext from '../../utils/JobCardContext'
+import List from '@material-ui/core/List'
+import ListItem from '@material-ui/core/ListItem'
 // import Switch from '@material-ui/core/Switch'
 
 
@@ -15,7 +17,8 @@ const SimCard = () => {
 
   const useStyles = makeStyles({
     card: {
-      minWidth: 275,
+      width: "700px",
+      minWidth: "322.76px",
     },
     bullet: {
       display: 'inline-block',
@@ -34,9 +37,10 @@ const SimCard = () => {
   
   return (
 
-    <div>
+    <div className="simCard">
+      <List style={{ maxHeight: 800, overflow: 'auto' }}>
       {jobs.length ? jobs.map(job => (
-        
+        <ListItem>
         <Card className={classes.card}>
           <CardContent>
             <Typography className={classes.title} color="textSecondary" gutterBottom>
@@ -60,8 +64,10 @@ const SimCard = () => {
           
           </CardActions> */}
         </Card>
+        </ListItem>
       )) : null
       }
+      </List>
     </div>
   )
 }

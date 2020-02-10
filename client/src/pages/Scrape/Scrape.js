@@ -3,8 +3,6 @@ import ScrapeCardContext from '../../utils/ScrapeCardContext'
 import ScrapeCardAPI from '../../utils/ScrapeCardAPI'
 import ScrapeCard from '../../components/ScrapeCard'
 import ScrapeForm from '../../components/ScrapeForm'
-import Button from '@material-ui/core/Button'
-
 
 
 const { getAllLeads, updateLeads, deleteLeads, addJobLeads, scrapeLeads } = ScrapeCardAPI
