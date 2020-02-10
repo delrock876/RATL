@@ -96,9 +96,13 @@ export default class DemoApp extends React.Component {
       })
   }
 
+  titleLoop = () => {
+    for( let i = 0; i < this.state.calendarEvents.length; i++) {
+        return this.state.calendarEvents[i].title
+    }
+}
 
-
-      
+   
       render() {
         console.log(this.titleLoop())
         return (
