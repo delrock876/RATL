@@ -96,15 +96,10 @@ export default class DemoApp extends React.Component {
       })
   }
 
-
-
-  render() {
-    return (
+      render() {
+        return (
       <div className='demo-app'>
-        <Card>
-          <h5>Reminder:</h5>
-        </Card>
-
+     
         <div className='demo-app-calendar'>
           <FullCalendar
             defaultView="dayGridMonth"
