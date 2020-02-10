@@ -10,10 +10,8 @@ import DeleteIcon from '@material-ui/icons/Delete'
 import ArchiveIcon from '@material-ui/icons/Archive'
 import JobCardContext from '../../utils/JobCardContext'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
-import Collapse from '@material-ui/core/Collapse';
-import IconButton from '@material-ui/core/IconButton';
-import FavoriteIcon from '@material-ui/icons/Favorite';
-import ShareIcon from '@material-ui/icons/Share';
+import Collapse from '@material-ui/core/Collapse'
+import IconButton from '@material-ui/core/IconButton'
 import clsx from 'clsx';
 import AddIcon from '@material-ui/icons/Add';
 
@@ -66,7 +64,6 @@ const JobCard = () => {
 
 
           <Card className={classes.card} variant="outlined">
-
 
             <Button
               onClick={() => handleDeleteJob(job._id)}
@@ -131,11 +128,11 @@ const JobCard = () => {
                     <Typography>
                       {item.type}: {item.name}
                       <br />
-                      {item.phone}
+                      Phone number: {item.phone}
                       <br />
-                      {item.email}
+                      Email: {item.email}
                       <br />
-                      {item.summary}
+                      Notes: {job.summary}
                     </Typography>
                   ) : null
                 }

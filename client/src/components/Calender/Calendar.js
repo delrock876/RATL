@@ -61,7 +61,6 @@ export default class DemoApp extends React.Component {
       .catch(e => console.error(e))
     }
 
-
     componentDidMount = () => {
       getAllReminders(localStorage.getItem('userAuth'))
         .then(({ data: calendars }) => {
@@ -79,7 +78,7 @@ export default class DemoApp extends React.Component {
       <div className='demo-app'>
 
         <Card>
-                <h2>Reminder: </h2>
+                <h2>Reminder:</h2>
         </Card>
 
         <div className='demo-app-calendar'>
