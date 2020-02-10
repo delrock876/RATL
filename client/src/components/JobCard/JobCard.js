@@ -13,7 +13,8 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 import Collapse from '@material-ui/core/Collapse'
 import IconButton from '@material-ui/core/IconButton'
 import clsx from 'clsx';
-import AddIcon from '@material-ui/icons/Add';
+import ConnectionForm from '../ConnectionForm/ConnectionForm'
+
 
 
 const useStyles = makeStyles(theme => ({
@@ -65,6 +66,8 @@ const JobCard = () => {
 
           <Card className={classes.card} variant="outlined">
 
+            <ConnectionForm jobId = {job._id}/>
+
             <Button
               onClick={() => handleDeleteJob(job._id)}
               variant="contained"
@@ -81,6 +84,8 @@ const JobCard = () => {
             >
               Archive
       </Button>
+
+    
 
             <CardContent>
               <Typography className={classes.title} color="textSecondary" gutterBottom >
@@ -128,7 +133,7 @@ const JobCard = () => {
                     <Typography>
                       {item.type}: {item.name}
                       <br />
-                      Phone number: {item.phone}
+                      Phone: {item.phone}
                       <br />
                       Email: {item.email}
                       <br />

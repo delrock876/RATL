@@ -143,10 +143,10 @@ const Jobs = () => {
       }
 
       console.log("I AM JOB please work" + id)
-      // console.log(connections.name, connections.type, connections.phone, connections.email)
+      
       updateJob(id, {connections}, localStorage.getItem('userAuth'))
       .then(() => {
-        // console.log(connections)
+     
         let jobs = JSON.parse(JSON.stringify(jobState.jobs))
         let jobsFiltered = jobs.filter(job => id !== job._id)
         setJobState({ ...jobState, jobs: jobsFiltered })
