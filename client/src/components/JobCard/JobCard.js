@@ -10,13 +10,9 @@ import DeleteIcon from '@material-ui/icons/Delete'
 import ArchiveIcon from '@material-ui/icons/Archive'
 import JobCardContext from '../../utils/JobCardContext'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
-import Collapse from '@material-ui/core/Collapse';
-import IconButton from '@material-ui/core/IconButton';
-import FavoriteIcon from '@material-ui/icons/Favorite';
-import ShareIcon from '@material-ui/icons/Share';
+import Collapse from '@material-ui/core/Collapse'
+import IconButton from '@material-ui/core/IconButton'
 import clsx from 'clsx';
-import AddIcon from '@material-ui/icons/Add';
-import ConnectionDrawer from '../ConnectionDrawer'
 import ConnectionForm from '../ConnectionForm'
 
 const useStyles = makeStyles(theme => ({
@@ -68,7 +64,6 @@ const JobCard = () => {
 
           <Card className={classes.card} variant="outlined">
 
-              {/* <ConnectionDrawer jobId = {job._id}/> */}
               <ConnectionForm jobId = {job._id}/>
 
             <Button
