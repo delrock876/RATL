@@ -14,9 +14,9 @@ module.exports = app => {
   app.post('/api/jobs', passport.authenticate('jwt', { session: false }), (req, res) => {
 
     const { _id: userAuth } = req.user
-    const { companyName, jobTitle, date, checked, archived, skills, connections } = req.body
+    const { companyName, jobTitle, date, checked, archived, skills, connections, summary } = req.body
     //creates json with these key value pairs
-    Jobs.create({ companyName, jobTitle, date, checked, archived, skills, connections, userAuth })
+    Jobs.create({ companyName, jobTitle, date, checked, archived, skills, connections, userAuth, summary })
       .then(jobs => {
         User.updateOne({ _id: userAuth }, { $push: { userJobs: jobs } })
           .then(() => res.json(jobs))
@@ -28,9 +28,17 @@ module.exports = app => {
   //Update one Job
   app.put('/api/jobs/:id', passport.authenticate('jwt', { session: false }), (req, res) => {
     Jobs.findByIdAndUpdate(req.params.id, { $set: req.body })
-      .then(() => res.sendStatus(200))
+      .then((jobs) => res.json(jobs))
       .catch(e => console.log(e))
   })
+
+//add connection
+  app.put('/api/jobs/connect/:id', passport.authenticate('jwt', { session: false }), (req, res) => {
+    Jobs.findByIdAndUpdate(req.params.id, { $push: { connections: req.body } })
+      .then((jobs) => res.json(jobs.connections))
+      .catch(e => console.log(e))
+  })
+
 
 
   //Delete one Job

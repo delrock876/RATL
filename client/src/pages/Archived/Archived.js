@@ -27,19 +27,21 @@ const useStyles = makeStyles({
   }
 });
 
-const { getAllJobs } = JobCardAPI
+const { getAllJobs, deleteJob, updateJob } = JobCardAPI
 
 const Archived = () => {
   const [jobState, setJobState] = useState({
-    jobs: []
+    jobs: [],
+    archived: Boolean,
   })
+
+  
 
 
   useEffect(() => {
 
     getAllJobs(localStorage.getItem('userAuth'))
       .then(({ data: jobs }) => {
-        console.log('got all jobs!')
         setJobState({ ...jobState, jobs })
       })
       .catch(e => console.error(e))
@@ -54,10 +56,8 @@ const Archived = () => {
           <div className='archiveBg'>
             <ArchiveTable />
           </div >
-
         </Grid>
       </JobCardContext.Provider>
-
     </>
 
 

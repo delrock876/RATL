@@ -7,6 +7,8 @@ import TableContainer from '@material-ui/core/TableContainer'
 import TableHead from '@material-ui/core/TableHead'
 import TableRow from '@material-ui/core/TableRow'
 import Paper from '@material-ui/core/Paper'
+import DeleteIcon from '@material-ui/icons/Delete'
+import RestoreFromTrashIcon from '@material-ui/icons/RestoreFromTrash';
 import Button from '@material-ui/core/Button'
 import JobCardContext from '../../utils/JobCardContext'
 
@@ -28,60 +30,56 @@ const StyledTableRow = withStyles(theme => ({
   },
 }))(TableRow)
 
-// const rows = [
-//   {name: "hi", title: "one", date: "two"},
-//   {name: "gi", title: "owe", date: "two"},
-//   {name: "di", title: "ofe", date: "two"}
-// ]
-
 const useStyles = makeStyles({
   table: {
-    minWidth: 410,
+    minWidth: 375
   },
 })
 
 const ArchiveTable = () => {
 
-  const { jobs } = useContext(JobCardContext)
 
+  const { jobs, handleDeleteJob, handleArchiveJob } = useContext(JobCardContext)
 
   let archivedJobs = jobs.filter(job => job.archived === true)
   console.log(archivedJobs)
   const classes = useStyles()
 
   return (
-  <div>
+    <div>
 
 
-    <TableContainer component={Paper}>
-      <Table className={classes.table} aria-label="customized table">
-        <TableHead>
-          <TableRow>
-            <StyledTableCell>Company</StyledTableCell>
-            <StyledTableCell>Job Title</StyledTableCell>
-            <StyledTableCell>Date Archived</StyledTableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
+      <TableContainer component={Paper}>
+        <Table className={classes.table} aria-label="customized table">
+          <TableHead>
+            <TableRow>
+              <StyledTableCell>Company</StyledTableCell>
+              <StyledTableCell> Title</StyledTableCell>
+              <StyledTableCell>+/-</StyledTableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
 
-{  archivedJobs ? archivedJobs.map( archive =>(
-          // {jobs.map(row => (
-            <StyledTableRow>
-              <StyledTableCell component="th" scope="row">
-                {archive.companyName}
-              </StyledTableCell>
-              <StyledTableCell >{archive.jobTitle}</StyledTableCell>
-              <StyledTableCell >{archive.date}</StyledTableCell>
-              <Button>Delete</Button>
-              <Button>Add</Button>
-            </StyledTableRow>
-)):null 
-}
-         
-        </TableBody>
-    
-      </Table>
-    </TableContainer>
+            {archivedJobs ? archivedJobs.map(archive => (
+              // {jobs.map(row => (
+              <StyledTableRow>
+                <StyledTableCell style={{ fontWeight: "bold" }}>
+                  {archive.companyName}
+                </StyledTableCell>
+                <StyledTableCell >{archive.jobTitle}</StyledTableCell>
+
+                <StyledTableCell >
+                  <Button onClick={(handleDeleteJob)=>{console.log('hi')}}><DeleteIcon style={{ color: 'darkred' }} /></Button>
+                  <Button><RestoreFromTrashIcon style={{ color: 'darkgreen' }} /></Button>
+                </StyledTableCell>
+              </StyledTableRow>
+            )) : null
+            }
+
+          </TableBody>
+
+        </Table>
+      </TableContainer>
     </div>
   );
 }
