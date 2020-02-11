@@ -19,7 +19,9 @@ import Tooltip from '@material-ui/core/Tooltip'
 const useStyles = makeStyles({
   card: {
     width: "700px",
-    minWidth: "322.76px"
+    minWidth: "322.76px",
+    color: "#78b746",
+    // backgroundColor:"purple"
   },
   bullet: {
     display: 'inline-block',
@@ -44,13 +46,13 @@ const ScrapeCard = () => {
   const classes = useStyles()
   
   return (
-    <List style={{ maxHeight: 800, overflow: 'auto' }}>
+    <List style={{ maxHeight: 400, overflow: 'auto'}}>
     <div ss-container>
     {
       leads ? leads.map(lead=> !lead.archived ? (
 
         <ListItem>
-    <Card className={classes.card} variant="outlined">
+    <Card className={classes.card}  variant="outlined">
 
 <div className={classes.btnBox}>
 

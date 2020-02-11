@@ -13,29 +13,28 @@ import CalendarCard from '../../components/CalendarCard'
 const { getAllJobs, updateJob } = JobCardAPI
 
 const useStyles = makeStyles({
-  title: {
-    marginTop: 20,
-    marginBottom: 20,
-    marginLeft: 10,
-    fontSize: "2em",
-    color: "white",
-    fontFamily: 'Inder, sans-serif',
-    fontWeight: "bold",
-  },
+ 
   bg: {
     width: "100%",
-    marginLeft: 20,
     marginTop: 20,
   },
   para: {
-    fontSize: "1.4em",
+    color: "#78b746",
+    fontFamily: 'DM Sans, sans-serif',
+    // backgroundColor: "#ffeb99",
+    margin: "16px",
+    align: "left",
+    paddingLeft: "0px"
+  },
+  para2: {
+    fontSize: "2em",
     color: "black",
     fontFamily: 'DM Sans, sans-serif'
   },
-  para2: {
-    fontSize: "1em",
-    color: "black",
-    fontFamily: 'DM Sans, sans-serif'
+  marg:{
+    margin: "16px",
+    fontFamily: 'DM Sans, sans-serif',
+    color: "#ffd11a"
   }
 });
 
@@ -58,11 +57,13 @@ const Home = () => {
     <div className="homeBg">
       <Grid container spacing={1} padding='10px'>
         <div className={classes.bg}>
-          <h4 className={classes.para}>Welcome, {localStorage.getItem('name')}</h4>
+          <h3 className={classes.para}>Welcome back, {localStorage.getItem('name')}</h3>
+          <hr/>
         </div>
 
         <Grid item xs={12}>
-          <Paper elevation={4}>
+          <h4 className={classes.marg}>Upcoming Events</h4>
+          <Paper className={classes.marg} elevation={4}>
           <CalendarCard />
           </Paper>
         </Grid>
@@ -82,7 +83,6 @@ const Home = () => {
 
       </Grid >
     </div >
-
 
   )
 }

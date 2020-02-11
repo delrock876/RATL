@@ -8,6 +8,7 @@ import Input from '@material-ui/core/Input'
 import ScrapeCardContext from '../../utils/ScrapeCardContext'
 import Button from '@material-ui/core/Button'
 
+
 const useStyles = makeStyles(theme => ({
   formControl: {
     margin: theme.spacing(1),
@@ -16,6 +17,10 @@ const useStyles = makeStyles(theme => ({
   selectEmpty: {
     marginTop: theme.spacing(2),
   },
+  paper:{
+    backgroundColor: "transparent",
+    height: 70
+  }
 }))
 
 
@@ -49,8 +54,8 @@ const ScrapeForm =()=>{
         onChange= {handleInputChange}/>
         <FormHelperText>City, State (ex: Los Angeles, CA)</FormHelperText>
       </FormControl>
-
-      <Button onClick={handleScrapeLeads}>Find Jobs!</Button>
+      <Button onClick={handleScrapeLeads}>Find Leads</Button>
+      
     </div>
   )
 }

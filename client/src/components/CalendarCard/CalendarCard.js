@@ -30,30 +30,26 @@ class CalendarCard extends React.Component {
         })
       })
   }
-      
-      render() {
 
-        let currEvent = this.state.calendarEvents
-        return (
+  render() {
 
-      <Card className='Card'>
-        <CardContent>
-          <h2> Upcoming Events </h2>
-              <List style={{ maxHeight: 150, overflow: 'auto' }} >
-          
-          {
-         currEvent.map(item=>
-<ListItem>
-         <li>{item.title} on {item.date}</li>
-           </ListItem>
-         )
-        }
-       
-              </List>
-
+    let currEvent = this.state.calendarEvents
+    return (
+<div>
+      <Card >
+        <CardContent >
+          <List className="Card" style={{ maxHeight: 150, overflow: 'auto' }} >
+            {
+              currEvent.map(item =>
+                <ListItem>
+                  <li>{item.title} on {item.date}</li>
+                </ListItem>
+              )
+            }
+          </List>
         </CardContent>
-
       </Card>
+      </div>
     )
 
   }
