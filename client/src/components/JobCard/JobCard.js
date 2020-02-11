@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import Card from '@material-ui/core/Card'
+// import MiniMenu from '../MiniMenu'
 import CardActions from '@material-ui/core/CardActions'
 import CardContent from '@material-ui/core/CardContent'
 import Button from '@material-ui/core/Button'
@@ -17,7 +18,6 @@ import ConnectionForm from '../ConnectionForm'
 import List from '@material-ui/core/List'
 import ListItem from '@material-ui/core/ListItem'
 import Tooltip from '@material-ui/core/Tooltip'
-
 
 
 const useStyles = makeStyles(theme => ({
@@ -96,9 +96,11 @@ const JobCard = () => {
                   className={classes.button}
                 ><ArchiveIcon /></Button>
               </Tooltip>
-              
-                <ConnectionForm jobId={job._id} />
              
+                <ConnectionForm jobId={job._id} />
+                
+    
+              
             </div>
 
             <CardContent>
