@@ -27,7 +27,6 @@ const ScrapeForm =()=>{
   return (
     <div>
      
-
       <FormControl>
         <Input 
         name="query"
@@ -35,14 +34,20 @@ const ScrapeForm =()=>{
         onChange= {handleInputChange}/>
         <FormHelperText>Job Type (ex: software)</FormHelperText>
       </FormControl>
-      <br/>
 
       <FormControl>
         <Input 
         name="level"
         value={level}
         onChange= {handleInputChange}/>
-        <FormHelperText>Job Level(ex: entry_level)</FormHelperText>
+        <FormHelperText>Job Level (ex: entry_level)</FormHelperText>
+      </FormControl>
+      <FormControl>
+        <Input 
+        name="city"
+        value={city}
+        onChange= {handleInputChange}/>
+        <FormHelperText>City, State (ex: Los Angeles, CA)</FormHelperText>
       </FormControl>
 
       <Button onClick={handleScrapeLeads}>Find Jobs!</Button>

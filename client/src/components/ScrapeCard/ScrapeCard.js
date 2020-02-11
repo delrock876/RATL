@@ -20,7 +20,6 @@ const useStyles = makeStyles({
   card: {
     width: "700px",
     minWidth: "322.76px"
-    // minWidth: 375
   },
   bullet: {
     display: 'inline-block',
@@ -78,7 +77,6 @@ const ScrapeCard = () => {
       </Button>
       </Tooltip>
       </div>
-     
 
       <CardContent>
         <Typography className={classes.title} color="textSecondary" gutterBottom>
