@@ -11,34 +11,46 @@ import { Link } from 'react-router-dom'
 
 const useStyles = makeStyles({
   bg: {
- backgroundColor: "pink"
+    backgroundColor: "#fbaa10"
   },
   iconBtn :{
+    color: "white"
+  },
+  label:{
     color: "white"
   }
 })
 
 const BottomNav = () => {
-  const classes = useStyles();
-  const [value, setValue] = React.useState(0);
+  const classes = useStyles()
 
   return (
 
     <Box  display={{ xs: 'block', sm: 'block', md: 'none' }} m={0} bottom={0} position="fixed" width="100%" >
       <BottomNavigation
         className={classes.bg}
-        value={value}
-        onChange={(event, newValue) => {
-          setValue(newValue);
-        }}
         showLabels
-        // className={classes.root}
       >
-        <BottomNavigationAction label="Home" color="secondary" icon={<Link to="/home"><HomeIcon className={classes.iconBtn}/></Link>} />
-        <BottomNavigationAction label="Archives" color="secondary" icon={<Link to="archived"><ArchiveIcon className={classes.iconBtn} /></Link>} />
+        <BottomNavigationAction 
+        className={classes.label}
+        label="Home" color="secondary" 
+          icon={<Link to="/home"><HomeIcon className={classes.iconBtn} /></Link>} />
 
-        <BottomNavigationAction label="Jobs" color="secondary" icon={<Link to="/jobs"><WorkIcon className={classes.iconBtn}/></Link>} />
-        <BottomNavigationAction label="Calendar" color="secondary" icon={<Link to="/calendar"><TodayIcon className={classes.iconBtn} /></Link>} />
+        <BottomNavigationAction 
+        className={classes.label} 
+        label="Archives" color="secondary" 
+        icon={<Link to="archived"><ArchiveIcon 
+        className={classes.iconBtn} /></Link>} />
+
+        <BottomNavigationAction 
+        className={classes.label} 
+        label="Jobs"
+        icon={<Link to="/jobs"><WorkIcon className={classes.iconBtn}/></Link>} />
+
+        <BottomNavigationAction 
+        className={classes.label} 
+        label="Calendar"
+        icon={<Link to="/calendar"><TodayIcon className={classes.iconBtn} /></Link>} />
       </BottomNavigation>
     </Box>
   )

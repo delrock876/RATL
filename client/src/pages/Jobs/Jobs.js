@@ -13,8 +13,8 @@ const useStyles = makeStyles({
     marginBottom: 20,
     marginLeft: 10,
     fontSize: "2em",
-    color: "white",
-    fontFamily: 'Inder, sans-serif',
+    color: "#78b746",
+    fontFamily: 'DM Sans, sans-serif',
     fontWeight: "bold",
   },
   bg: {
@@ -111,7 +111,7 @@ const Jobs = () => {
         .then(({ data }) => {
 
           let jobs = JSON.parse(JSON.stringify(jobState.jobs))
-          jobs.push(data)
+          jobs.unshift(data)
 
           setJobState({
             ...jobState,
