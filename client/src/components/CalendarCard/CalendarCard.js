@@ -5,6 +5,7 @@ import CalendarAPI from '../../utils/CalendarAPI'
 import Calendar from '../Calender'
 import List from '@material-ui/core/List'
 import ListItem from '@material-ui/core/ListItem'
+import moment from 'moment'
 
 const { getAllReminders } = CalendarAPI
 
@@ -42,7 +43,7 @@ class CalendarCard extends React.Component {
             {
               currEvent.map(item =>
                 <ListItem>
-                  <li>{item.title} on {item.date}</li>
+                  <li>{item.title} on {item.date.moment().format('MMMM Do YYYY, h:mm:ss a')}</li>
                 </ListItem>
               )
             }
