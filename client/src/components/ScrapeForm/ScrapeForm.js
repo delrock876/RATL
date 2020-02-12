@@ -20,6 +20,11 @@ const useStyles = makeStyles(theme => ({
   paper:{
     backgroundColor: "transparent",
     height: 70
+  },
+  form:{
+    paddingBottom: "50px",
+    paddingLeft: "16px",
+    paddingTop: "0px"
   }
 }))
 
@@ -30,7 +35,7 @@ const ScrapeForm =()=>{
   const classes = useStyles()
 
   return (
-    <div>
+    <div className={classes.form}>
      
       <FormControl>
         <Input 
