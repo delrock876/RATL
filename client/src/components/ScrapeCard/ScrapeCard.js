@@ -89,25 +89,31 @@ const ScrapeCard = () => {
                   </Tooltip>
                 </div>
 
-                <CardContent>
-                  <Typography className={classes.title} color="textSecondary" gutterBottom>
-                    {lead.company}
-                  </Typography>
-                  <Typography className={classes.lead} variant="h5" component="h2">
-                    {lead.title}
-                  </Typography>
-                  <Typography className={classes.pos} color="textSecondary">
-                    {lead.summary}
-                  </Typography>
 
-                  <br />
+      <CardContent>
+      <Typography variant="h5" component="h2">
+          Company: {lead.company}
+        </Typography>
+        <Typography className={classes.pos} color="textSecondary">
+          Title: {lead.title}
+          <br />
+          Location: {lead.location}
+          <br />
+          Salary: {lead.salary}
+        </Typography>
+        <Typography className={classes.pos} color="textSecondary">
+          {lead.summary}
+        </Typography>
+      
+        <br/>
+      
+      </CardContent>
+    </Card>
+    </ListItem>
+  ):null): null
+}
+    </div>
 
-                </CardContent>
-              </Card>
-            </ListItem>
-          ) : null) : null
-        }
-      </div>
     </List>
   )
 }
