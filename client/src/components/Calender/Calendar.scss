@@ -30,6 +30,9 @@
 }
 
 .fc-button-primary {
+  margin-top: 10px;
+  margin-left: 5px;
+  margin-right: 5px;
   color: #fff;
   background-color: #FBA90D;
   border-color: #FBAA10;
@@ -39,11 +42,12 @@
   color: #fff;
   background-color: #54a826;
   border-color: #FBAA10;
-  // padding: 10px;
+
 }
 
 .fc-event, .fc-event-dot {
   background-color: #FBAA10;
+  border-color: #54a826;;
 }
 .fc-button-primary:hover{
 background-color: #FDD749;

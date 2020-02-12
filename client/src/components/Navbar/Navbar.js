@@ -47,7 +47,7 @@ const Navbar = () => {
               <NavLink to="home">< img src={logo} alt="logo" /></NavLink>
             </Typography>
 
-            <NavLink style={{ textDecoration: 'none' }} to="/archived"><Button style={{ color: 'green', fontFamily: 'Inder, sans-serif' }}><h6>Archived</h6></Button>
+            <NavLink style={{ textDecoration: 'none' }} to="/archived"><Button style={{ color: '#54a826', fontFamily: 'Inder, sans-serif' }}><h6>Archived</h6></Button>
             </NavLink>
             <NavLink style={{ textDecoration: 'none' }} to="/jobs"><Button style={{ color: '#98A87A', fontFamily: 'Inder, sans-serif' }}><h6>Jobs</h6></Button>
             </NavLink>
