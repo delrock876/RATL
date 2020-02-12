@@ -33,17 +33,17 @@ module.exports = app => {
   })
 
   //Scrape one time to add 5 leads
-  app.get('/api/scrape', (req, res) => {
+  app.post('/api/scrape', (req, res) => {
     indeed.query({
       host: 'www.indeed.com',
-      query: 'Retail',
-      city: 'Seattle, WA',
+      query: req.body.query,
+      city: req.body.city,
       radius: '25',
-      level: 'entry_level',
+      level: req.body.level,
       jobType: 'fulltime',
       maxAge: '7',
       sort: 'date',
-      limit: 5
+      limit: 25
     }).then(leads => {
       Leads.create(leads)
         .then(leads => res.json(leads))
