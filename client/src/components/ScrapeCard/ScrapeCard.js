@@ -80,11 +80,15 @@ const ScrapeCard = () => {
       </div>
 
       <CardContent>
-        <Typography className={classes.title} color="textSecondary" gutterBottom>
-         {lead.company}
+      <Typography variant="h5" component="h2">
+          Company: {lead.company}
         </Typography>
-        <Typography variant="h5" component="h2">
-          {lead.title}
+        <Typography className={classes.pos} color="textSecondary">
+          Title: {lead.title}
+          <br />
+          Location: {lead.location}
+          <br />
+          Salary: {lead.salary}
         </Typography>
         <Typography className={classes.pos} color="textSecondary">
           {lead.summary}
