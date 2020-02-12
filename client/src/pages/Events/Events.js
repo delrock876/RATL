@@ -11,8 +11,8 @@ const useStyles = makeStyles({
     marginBottom: 20,
     marginLeft: 10,
     fontSize: "2em",
-    color: "white",
-    fontFamily: 'Inder, sans-serif',
+    color: "black",
+    fontFamily: 'DM Sans, sans-serif',
     fontWeight: "bold",
     textAlign: "center"
   },

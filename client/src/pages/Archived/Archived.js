@@ -4,7 +4,7 @@ import { makeStyles } from '@material-ui/core/styles'
 import ArchiveTable from '../../components/ArchiveTable'
 import JobCardAPI from "../../utils/JobCardAPI"
 import JobCardContext from '../../utils/JobCardContext'
-import './Archived.css'
+
 
 const useStyles = makeStyles({
   title: {

@@ -29,14 +29,24 @@ const SimCard = () => {
         },
     title: {
       fontSize: 14,
+      fontFamily: 'DM Sans, sans-serif',
     },
     pos: {
       marginBottom: 12,
+      fontFamily: 'DM Sans, sans-serif',
     },
     simCard:{
       paddingTop: 50
-    }
-  })
+    },
+    compName: {
+      fontFamily: 'DM Sans, sans-serif'
+    },
+    para2: {
+      fontSize: "1em",
+      color: "black",
+      fontFamily: 'DM Sans, sans-serif'
+  }
+})
 
   const classes = useStyles()
   
@@ -53,13 +63,13 @@ const SimCard = () => {
             <Typography className={classes.title} color="textSecondary" gutterBottom>
               Date Applied: {job.date}
             </Typography>
-            <Typography variant="h5" component="h2">
+            <Typography variant="h5" component="h2" className={classes.compName}>
               {job.companyName}
             </Typography>
             <Typography className={classes.pos} color="textSecondary">
               {job.jobTitle}
             </Typography>
-            <Typography variant="body2" component="p">
+              <Typography variant="body2" component="p" className={classes.compName}>
               Status: 
              
               <br />
