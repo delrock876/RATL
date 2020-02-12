@@ -1,7 +1,6 @@
 import React, { useContext } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import Card from '@material-ui/core/Card'
-// import MiniMenu from '../MiniMenu'
 import CardActions from '@material-ui/core/CardActions'
 import CardContent from '@material-ui/core/CardContent'
 import Button from '@material-ui/core/Button'
@@ -60,6 +59,10 @@ const useStyles = makeStyles(theme => ({
   btnBox: {
     display: "flex",
     justifyContent: "flex-end"
+  },
+  chip: {
+    color: "#78b746",
+    // backgroundColor: ""
   }
 }))
 
@@ -72,12 +75,11 @@ const JobCard = () => {
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
-  };
+  }
 
   
   return (
    
-
     <div>
       <List>
       {
@@ -127,14 +129,13 @@ const JobCard = () => {
                 <br />
                 {
                   job.skills ? job.skills.map(skill => (
-                    <Chip color="primary" label={skill} variant="outlined" />
+                    <Chip className={classes.chip} label={skill} variant="outlined" />
                   )) : null
                 }
               </Typography>
 
-              <br />
                 <Typography className={classes.pos} color="textSecondary">
-              {job.summary}
+              {/* {job.summary} */}
               </Typography>
 
             </CardContent>
@@ -145,7 +146,7 @@ const JobCard = () => {
                   [classes.expandOpen]: expanded,
                 })}
                 onClick={handleExpandClick}
-                aria-expanded={expanded}
+                // aria-expanded={expanded}
                 aria-label="show more"
               >
                 <ExpandMoreIcon />
@@ -161,7 +162,6 @@ const JobCard = () => {
                       Phone: {item.phone}
                       <br />
                       Email: {item.email}
-
                     </Typography>
                   ) : null
                 }
