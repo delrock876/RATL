@@ -8,9 +8,14 @@ import JobCardContext from '../../utils/JobCardContext'
 import { makeStyles } from '@material-ui/core/styles'
 import Paper from '@material-ui/core/Paper'
 import CalendarCard from '../../components/CalendarCard'
+import Inspiration from '../../components/Inspiration'
+import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles'
+import Typography from '@material-ui/core/Typography'
 
 
 const { getAllJobs, updateJob } = JobCardAPI
+
+const theme = createMuiTheme();
 
 const useStyles = makeStyles({
  
@@ -42,8 +47,14 @@ const useStyles = makeStyles({
     margin: "16px",
     fontFamily: 'DM Sans, sans-serif',
     color: "#ffd11a"
+  }, 
+  quote: {
+    fontSize: "100px",
+    margin: "16px",
+    color:"black"
   }
 });
+
 
 const Home = () => {
 
@@ -74,6 +85,13 @@ const Home = () => {
           <CalendarCard />
           </Paper>
 
+        </Grid>
+
+        <Grid item xs={12}>
+      <Typography variant="h5" className={classes.para}>Quote of the Day</Typography>
+          <Paper className={classes.marg} elevation={4}>
+          <Inspiration className={classes.quote}/>
+          </Paper>
         </Grid>
 
         <Grid item xs>

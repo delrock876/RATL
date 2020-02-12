@@ -36,7 +36,7 @@ const Scrape = () => {
     console.log(leadsState.query)
     console.log(leadsState.level)
     
-    scrapeLeads()
+    scrapeLeads(leadsState.query, leadsState.level, leadsState.city)
     .then(({data}) => {
    
       let leads = JSON.parse(JSON.stringify(leadsState.leads))
