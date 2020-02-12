@@ -36,7 +36,7 @@ const SimCard = () => {
       fontFamily: 'DM Sans, sans-serif',
     },
     simCard:{
-      paddingTop: 50
+      paddingBottom: 30
     },
     compName: {
       fontFamily: 'DM Sans, sans-serif'
@@ -55,7 +55,7 @@ const SimCard = () => {
 
     <div className={classes.simCard}>
   
-      <List style={{ maxHeight: 400, overflow: 'auto' }}>
+      <List style={{ maxHeight: 700, overflow: 'auto' }}>
       {jobs.length ? jobs.map(job => (
         <ListItem>
         <Card className={classes.card}>

@@ -5,7 +5,7 @@ import ScrapeCard from '../../components/ScrapeCard'
 import ScrapeForm from '../../components/ScrapeForm'
 
 
-const { getAllLeads, updateLeads, deleteLeads, addJobLeads, scrapeLeads } = ScrapeCardAPI
+const { getAllLeads, deleteLeads, addJobLeads, scrapeLeads } = ScrapeCardAPI
 
 
 const Scrape = () => {

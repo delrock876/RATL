@@ -5,6 +5,7 @@ import Button from '@material-ui/core/Button'
 import UserContext from '../../utils/UserContext'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Modal from 'react-bootstrap/Modal'
+import InputAdornment from '@material-ui/core/InputAdornment'
 
 
 
@@ -64,6 +65,7 @@ const LoginForm = () => {
               variant="outlined"></TextField>
 
             <TextField
+              type="password"
               onChange={handleInputChange}
               className={classes.pos}
               name="userPassword"

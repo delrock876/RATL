@@ -33,7 +33,6 @@ const useStyles = makeStyles({
   para: {
     color: "#78b746",
     fontFamily: 'DM Sans, sans-serif',
-    // backgroundColor: "#ffeb99",
     margin: "16px",
     align: "left",
     paddingLeft: "0px"
@@ -52,6 +51,10 @@ const useStyles = makeStyles({
     fontSize: "100px",
     margin: "16px",
     color:"black"
+  },
+  job:{
+    
+    // paddingTop: "40px"
   }
 });
 
@@ -94,8 +97,8 @@ const Home = () => {
           </Paper>
         </Grid>
 
-        <Grid item xs>
-
+        <Grid item xs className={classes.job}>
+          <Typography variant="h5" className={classes.para}>Job Quickview</Typography>
           <JobCardContext.Provider value={jobState}>
             <SimCard />
           </JobCardContext.Provider>
@@ -103,6 +106,7 @@ const Home = () => {
         </Grid>
 
         <Grid item xs>
+          <Typography variant="h5" className={classes.para}>Find Job Leads</Typography>
           <Scrape />
         </Grid>
 

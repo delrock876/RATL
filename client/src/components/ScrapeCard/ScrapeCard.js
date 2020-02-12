@@ -55,7 +55,7 @@ const ScrapeCard = () => {
   const classes = useStyles()
 
   return (
-    <List style={{ maxHeight: 400, overflow: 'auto' }}>
+    <List style={{ maxHeight: 700, overflow: 'auto', paddingBottom: "100px" }}>
       <div ss-container>
         {
           leads ? leads.map(lead => !lead.archived ? (
@@ -89,10 +89,9 @@ const ScrapeCard = () => {
                   </Tooltip>
                 </div>
 
-
       <CardContent>
       <Typography variant="h5" component="h2">
-          Company: {lead.company}
+          {lead.company}
         </Typography>
         <Typography className={classes.pos} color="textSecondary">
           Title: {lead.title}
