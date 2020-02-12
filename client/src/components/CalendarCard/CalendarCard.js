@@ -3,13 +3,9 @@ import Card from '@material-ui/core/Card'
 import CardContent from '@material-ui/core/CardContent'
 import CalendarAPI from '../../utils/CalendarAPI'
 import Calendar from '../Calender'
-<<<<<<< HEAD
-import { makeStyles } from '@material-ui/core/styles'
-=======
 import List from '@material-ui/core/List'
 import ListItem from '@material-ui/core/ListItem'
 import moment from 'moment'
->>>>>>> master
 
 const { getAllReminders } = CalendarAPI
 
@@ -41,19 +37,11 @@ class CalendarCard extends React.Component {
 
   state = {
 
-<<<<<<< HEAD
-
-=======
->>>>>>> master
     calendarEvents: [ // initial event data
       {
         title: '',
         start: new Date()
       }
-<<<<<<< HEAD
-
-=======
->>>>>>> master
     ]
   }
 
