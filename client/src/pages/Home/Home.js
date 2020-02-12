@@ -17,6 +17,13 @@ const useStyles = makeStyles({
   bg: {
     width: "100%",
     marginTop: 20,
+    marginRight: 20,
+  },
+
+  cardBg: {
+    marginLeft: 10,
+    marginTop: 20,
+    marginRight: 10,
   },
   para: {
     color: "#78b746",
@@ -66,10 +73,11 @@ const Home = () => {
           <Paper className={classes.marg} elevation={4}>
           <CalendarCard />
           </Paper>
+
         </Grid>
 
         <Grid item xs>
-      
+
           <JobCardContext.Provider value={jobState}>
             <SimCard />
           </JobCardContext.Provider>

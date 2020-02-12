@@ -21,6 +21,7 @@ const StyledTableCell = withStyles(theme => ({
   },
   body: {
     fontSize: 14,
+    fontFamily: 'DM Sans, sans-serif',
   },
 }))(TableCell)
 
@@ -35,7 +36,16 @@ const StyledTableRow = withStyles(theme => ({
 
 const useStyles = makeStyles({
   table: {
-    minWidth: 375
+    minWidth: 375,
+    backgroundColor: "#f2f2f2",
+  },
+  // tableCell: {
+  //   backgroundColor: "gray",
+  // }
+  para2: {
+    fontSize: "16",
+    color: "white",
+    fontFamily: 'DM Sans, sans-serif',
   },
 })
 
@@ -56,33 +66,33 @@ const ArchiveTable = () => {
         <Table className={classes.table} aria-label="customized table">
           <TableHead>
             <TableRow>
-              <StyledTableCell>Company</StyledTableCell>
-              <StyledTableCell> Title</StyledTableCell>
+              <StyledTableCell className={classes.para2}><h6>Company</h6></StyledTableCell>
+              <StyledTableCell className={classes.para2}> <h6>Title</h6></StyledTableCell>
               <StyledTableCell width="50px"></StyledTableCell>
             </TableRow>
           </TableHead>
           <TableBody>
 
             {archivedJobs ? archivedJobs.map(archive => (
-      
+
               <StyledTableRow>
-                <StyledTableCell style={{ fontWeight: "bold" }}>
+                <StyledTableCell >
                   {archive.companyName}
                 </StyledTableCell>
                 <StyledTableCell >{archive.jobTitle}</StyledTableCell>
 
                 <StyledTableCell display="inline">
-                  <Tooltip title="Remove Permenantly">
-                  <Button 
-                  onClick={()=>(handleDeleteJob(archive._id))}>
-                    <DeleteIcon 
-                    style={{ color: 'darkred' }} />
+                  <Tooltip title="Remove Permanently">
+                    <Button
+                      onClick={() => (handleDeleteJob(archive._id))}>
+                      <DeleteIcon
+                        style={{ color: '#D5441C' }} />
                     </Button></Tooltip>
 
-                <Tooltip title="Add to Jobs">
-                  <Button
-                  onClick={()=>handleArchiveJob(archive._id)}>
-                    <RestoreFromTrashIcon style={{ color: 'darkgreen' }} />
+                  <Tooltip title="Add to Jobs">
+                    <Button
+                      onClick={() => handleArchiveJob(archive._id)}>
+                      <RestoreFromTrashIcon style={{ color: '#54a826' }} />
                     </Button>
                   </Tooltip>
                 </StyledTableCell>

@@ -5,6 +5,7 @@ import ArchiveTable from '../../components/ArchiveTable'
 import JobCardAPI from "../../utils/JobCardAPI"
 import JobCardContext from '../../utils/JobCardContext'
 
+
 const useStyles = makeStyles({
   title: {
     marginTop: 20,
@@ -68,15 +69,13 @@ const Archived = () => {
   const classes = useStyles();
   return (
     <>
-    
-      <JobCardContext.Provider value={jobState}>
-        <Grid itemxs={12}>
-          <div className='archiveBg'>
+      <div className='archiveBg'>
+        <JobCardContext.Provider value={jobState}>
+          <Grid itemxs={12}>
             <ArchiveTable />
-          </div>
-        </Grid>
-      </JobCardContext.Provider>
-
+          </Grid>
+        </JobCardContext.Provider>
+      </div>
     </>
 
 
