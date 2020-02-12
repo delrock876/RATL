@@ -43,7 +43,7 @@ class CalendarCard extends React.Component {
             {
               currEvent.map(item =>
                 <ListItem>
-                  <li>{item.title} on {item.date.moment().format('MMMM Do YYYY, h:mm:ss a')}</li>
+                  <li>{item.title} on {moment(item.date).format('MMMM Do YYYY')}</li>
                 </ListItem>
               )
             }
