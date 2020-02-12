@@ -72,7 +72,7 @@ const useStyles = makeStyles(theme => ({
 
 const JobCard = () => {
 
-  const { jobs, handleDeleteJob, handleArchiveJob} = useContext(JobCardContext)
+  const { jobs, handleDeleteJob, handleArchiveJob, handleDeleteSkill} = useContext(JobCardContext)
   const classes = useStyles()
 
   const [expanded, setExpanded] = React.useState(false);
@@ -111,8 +111,6 @@ const JobCard = () => {
               </Tooltip>
              
                 <ConnectionForm jobId={job._id} />
-                
-    
               
             </div>
 
@@ -130,32 +128,25 @@ const JobCard = () => {
 
                 <Typography variant="body2"  className={classes.pos}>
                 Job Requirements:
-              
                 <br />
                 {
                   job.skills ? job.skills.map(skill => (
-
-                    <Chip
+                    // <button id= "one" onClick={handleDeleteSkill}>
+                     <Chip
+                      id="hi"
                       className= {classes.chip}
                       variant="outlined"
                       size="small"
                       label={skill}
-                      onDelete={handleDeleteJob}
-                    />
+                      onDelete={(event)=>handleDeleteSkill(job._id, skill)}
+                    /> 
+                    // </button>
                             )) : null
                           }
               </Typography>
 
                 <Typography variant="body2" className={classes.pos}>
 
-                  {/* <Chip
-                  className= {classes.chip2}  
-                    variant="outlined"
-                    size="small"
-                    avatar={<AddCircleOutlineOutlinedIcon/>}
-                    label="Add Skill"
-                    onClick={()=>addSkills(job._id)}
-                  /> */}
                   <AddSkillForm jobId={job._id} />
                  
               </Typography>

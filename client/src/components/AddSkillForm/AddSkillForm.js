@@ -39,10 +39,8 @@ const useStyles = makeStyles(theme => ({
   btn:{
     display:"flex",
     justifyContent: "flex-start"
-  },
-  modal:{
-    // size: "small"
   }
+  
 }))
 
 
