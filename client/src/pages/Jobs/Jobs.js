@@ -76,12 +76,27 @@ const Jobs = () => {
     let newSkills = JSON.parse(JSON.stringify(jobState.newSkills))
     let arrSkills = newSkills.split(',')
     
+    
     addSkills(id, arrSkills, localStorage.getItem('userAuth'))
       .then(({data}) =>{
         data.push(arrSkills)
         setJobState({...jobState, skillsRequired: data})
       })
   }
+
+jobState.handleDeleteSkill = (id,  skill) =>{
+
+  let jobs = JSON.parse(JSON.stringify(jobState.jobs))
+  let modJobs = jobs.map(job => {
+    if (job._id === id) {
+      job.skills = job.skills.filter(jobSkill => jobSkill !== skill)
+      updateJob(id, { skills: job.skills }, localStorage.getItem('userAuth'))
+    }
+    return job
+  })
+  setJobState({ ...jobState, jobs: modJobs })
+
+}
 
   jobState.handleDeleteJob = (id) => {
     deleteJob(id, localStorage.getItem('userAuth'))
