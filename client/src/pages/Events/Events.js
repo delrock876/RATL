@@ -14,6 +14,7 @@ const useStyles = makeStyles({
     color: "white",
     fontFamily: 'Inder, sans-serif',
     fontWeight: "bold",
+    textAlign: "center"
   },
   para: {
     fontSize: "1.4em",
@@ -35,7 +36,7 @@ const Events = () => {
   return (
     <>
       <div className='calendarBg'>
-        <h3 className={classes.title}> THIS IS YOUR EVENTS PAGE</h3>
+        <h4 className={classes.title}> Your Events Overview</h4>
         <CalendarContext.Provider>
           <Calendar />
         </CalendarContext.Provider>
