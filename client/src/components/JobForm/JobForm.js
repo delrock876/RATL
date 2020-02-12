@@ -12,7 +12,28 @@ const useStyles = makeStyles(theme => ({
     '& > *': {
       margin: theme.spacing(1),
     },
+    '& label.Mui-focused': {
+      color: 'black',
+    },
+    '& .MuiInput-underline:after': {
+      borderBottomColor: '#5ba016',
+    },
+    '& .MuiOutlinedInput-root': {
+      '& fieldset': {
+        borderColor: 'white',
+      },
+      '&:hover fieldset': {
+        borderColor: 'black',
+      },
+      '&.Mui-focused fieldset': {
+        borderColor: '#5ba016',
+      },
+    },
+  
   },
+  labelFont: {
+    fontFamily: 'DM Sans, sans-serif'
+  }
 }))
 
 const JobForm = () => {
@@ -28,6 +49,11 @@ const JobForm = () => {
         <TextField
           size="small"
           id="outlined-basic"
+          InputProps={{
+            classes: {
+              textfieldColor : classes.textfieldColor
+            }
+          }}
           label="Company Name"
           variant="outlined"
           name="compName"
