@@ -20,7 +20,7 @@ const StyledTableCell = withStyles(theme => ({
     color: theme.palette.common.white,
   },
   body: {
-    fontSize: 16,
+    fontSize: 14,
     fontFamily: 'DM Sans, sans-serif',
   },
 }))(TableCell)
@@ -42,6 +42,11 @@ const useStyles = makeStyles({
   // tableCell: {
   //   backgroundColor: "gray",
   // }
+  para2: {
+    fontSize: "16",
+    color: "white",
+    fontFamily: 'DM Sans, sans-serif',
+  },
 })
 
 const ArchiveTable = () => {
@@ -61,8 +66,8 @@ const ArchiveTable = () => {
         <Table className={classes.table} aria-label="customized table">
           <TableHead>
             <TableRow>
-              <StyledTableCell className={classes.para2}>Company</StyledTableCell>
-              <StyledTableCell className={classes.para2}> Title</StyledTableCell>
+              <StyledTableCell className={classes.para2}><h6>Company</h6></StyledTableCell>
+              <StyledTableCell className={classes.para2}> <h6>Title</h6></StyledTableCell>
               <StyledTableCell width="50px"></StyledTableCell>
             </TableRow>
           </TableHead>
