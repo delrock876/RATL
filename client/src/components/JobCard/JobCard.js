@@ -1,13 +1,13 @@
 import React, { useContext } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import Card from '@material-ui/core/Card'
-// import MiniMenu from '../MiniMenu'
 import CardActions from '@material-ui/core/CardActions'
 import CardContent from '@material-ui/core/CardContent'
 import Button from '@material-ui/core/Button'
 import Typography from '@material-ui/core/Typography'
 import Chip from '@material-ui/core/Chip'
 import DeleteIcon from '@material-ui/icons/Delete'
+import DoneIcon from '@material-ui/icons/Done'
 import ArchiveIcon from '@material-ui/icons/Archive'
 import JobCardContext from '../../utils/JobCardContext'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
@@ -18,7 +18,8 @@ import ConnectionForm from '../ConnectionForm'
 import List from '@material-ui/core/List'
 import ListItem from '@material-ui/core/ListItem'
 import Tooltip from '@material-ui/core/Tooltip'
-
+import AddCircleOutlineOutlinedIcon from '@material-ui/icons/AddCircleOutlineOutlined'
+import AddSkillForm from '../AddSkillForm'
 
 const useStyles = makeStyles(theme => ({
   card: {
@@ -60,24 +61,29 @@ const useStyles = makeStyles(theme => ({
   btnBox: {
     display: "flex",
     justifyContent: "flex-end"
+  },
+  chip: {
+    color: "#78b746"
+  },
+  chip2:{
+    color: "#fbaa10"
   }
 }))
 
 const JobCard = () => {
 
-  const { jobs, handleDeleteJob, handleArchiveJob } = useContext(JobCardContext)
+  const { jobs, handleDeleteJob, handleArchiveJob} = useContext(JobCardContext)
   const classes = useStyles()
 
   const [expanded, setExpanded] = React.useState(false);
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
-  };
+  }
 
   
   return (
    
-
     <div>
       <List>
       {
@@ -114,7 +120,7 @@ const JobCard = () => {
               <Typography className={classes.title} color="textSecondary" gutterBottom >
                 {job.date}
               </Typography>
-                <Typography variant="h5" component="h2" className={classes.pos}>
+                <Typography variant="h5" className={classes.pos}>
                 {job.companyName}
               </Typography>
               <Typography className={classes.pos} color="textSecondary">
@@ -122,19 +128,40 @@ const JobCard = () => {
               </Typography>
 
 
-                <Typography variant="body2" component="h3" className={classes.pos}>
+                <Typography variant="body2"  className={classes.pos}>
                 Job Requirements:
+              
                 <br />
                 {
                   job.skills ? job.skills.map(skill => (
-                    <Chip color="primary" label={skill} variant="outlined" />
-                  )) : null
-                }
+
+                    <Chip
+                      className= {classes.chip}
+                      variant="outlined"
+                      size="small"
+                      label={skill}
+                      onDelete={handleDeleteJob}
+                    />
+                            )) : null
+                          }
               </Typography>
 
-              <br />
+                <Typography variant="body2" className={classes.pos}>
+
+                  {/* <Chip
+                  className= {classes.chip2}  
+                    variant="outlined"
+                    size="small"
+                    avatar={<AddCircleOutlineOutlinedIcon/>}
+                    label="Add Skill"
+                    onClick={()=>addSkills(job._id)}
+                  /> */}
+                  <AddSkillForm jobId={job._id} />
+                 
+              </Typography>
+
                 <Typography className={classes.pos} color="textSecondary">
-              {job.summary}
+              {/* {job.summary} */}
               </Typography>
 
             </CardContent>
@@ -145,7 +172,7 @@ const JobCard = () => {
                   [classes.expandOpen]: expanded,
                 })}
                 onClick={handleExpandClick}
-                aria-expanded={expanded}
+                // aria-expanded={expanded}
                 aria-label="show more"
               >
                 <ExpandMoreIcon />
@@ -161,7 +188,6 @@ const JobCard = () => {
                       Phone: {item.phone}
                       <br />
                       Email: {item.email}
-
                     </Typography>
                   ) : null
                 }

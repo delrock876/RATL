@@ -20,8 +20,7 @@ const useStyles = makeStyles({
   card: {
     width: "700px",
     minWidth: "322.76px",
-    color: "#78b746",
-    // backgroundColor:"purple"
+    color: "#78b746"
   },
   bullet: {
     display: 'inline-block',

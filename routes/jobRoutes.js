@@ -38,6 +38,12 @@ module.exports = app => {
       .then((jobs) => res.json(jobs.connections))
       .catch(e => console.log(e))
   })
+//add skills
+  app.put('/api/jobs/skills/:id', passport.authenticate('jwt', { session: false }), (req, res) => {
+    Jobs.findByIdAndUpdate(req.params.id, { $push: { skills: req.body } })
+      .then((jobs) => res.json(jobs.skills))
+      .catch(e => console.log(e))
+  })
 
 
 
