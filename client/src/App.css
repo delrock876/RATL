@@ -1,23 +1,16 @@
-/* body{
-    overflow-x:hidden;
-} */
+
 .mainBg {
 
 overflow:hidden;
 background-color: #5ba016;
 background-image: linear-gradient(0deg, #5ba016 1%, #F4D03F 88%);
 
-
 }
-  .simCard{
-    padding-top:100px;
-  
-  }
 
 .homeBg {
-   overflow:hidden;
-background-color: #fbaa10;
-background-image: linear-gradient(180deg, #fbaa10 0%, #78b746 99%);
+  overflow:hidden;
+ background-color:#f2f2f2;
+/* background-image: linear-gradient(180deg, #fbaa10 0%, #78b746 99%); */
 }
 
 .archiveBg {
@@ -28,15 +21,17 @@ background-image: linear-gradient(180deg, #fbaa10 0%, #78b746 99%);
 
 .calendarBg {
   overflow:hidden;
-background-color: #fbaa10;
-background-image: linear-gradient(180deg, #fbaa10 0%, #78b746 99%);
-height: auto;
+background-color: #f2f2f2;
+/* background-image: linear-gradient(180deg, #fbaa10 0%, #78b746 99%); */
+
 }
 
 .jobsBg {
   overflow:hidden;
-background-color: #fbaa10;
-background-image: linear-gradient(180deg, #fbaa10 0%, #78b746 99%);
+  background-color: #f2f2f2;
+
+/* background-color: #fbaa10;
+background-image: linear-gradient(180deg, #fbaa10 0%, #78b746 99%); */
 }
 
 .whiteCard {
@@ -52,6 +47,10 @@ background-image: linear-gradient(180deg, #fbaa10 0%, #78b746 99%);
   height: 450;
 }
 
+
+.Card{
+  margin-left: 16px;
+}
 ::-webkit-scrollbar {
   width: .5em;
 }

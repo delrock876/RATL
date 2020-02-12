@@ -8,6 +8,7 @@ import Typography from '@material-ui/core/Typography'
 import JobCardContext from '../../utils/JobCardContext'
 import List from '@material-ui/core/List'
 import ListItem from '@material-ui/core/ListItem'
+import Paper from '@material-ui/core/Paper'
 // import Switch from '@material-ui/core/Switch'
 
 
@@ -19,26 +20,32 @@ const SimCard = () => {
     card: {
       width: "700px",
       minWidth: "322.76px",
+      color: "#fbaa10"
+
     },
-    bullet: {
-      display: 'inline-block',
-      margin: '0 2px',
-      transform: 'scale(0.8)',
-    },
+    marg: {
+      margin: '16px',
+      backgroundColor: "transparent"
+        },
     title: {
       fontSize: 14,
     },
     pos: {
       marginBottom: 12,
+    },
+    simCard:{
+      paddingTop: 50
     }
   })
 
   const classes = useStyles()
   
   return (
+    
 
-    <div className="simCard">
-      <List style={{ maxHeight: 800, overflow: 'auto' }}>
+    <div className={classes.simCard}>
+  
+      <List style={{ maxHeight: 400, overflow: 'auto' }}>
       {jobs.length ? jobs.map(job => (
         <ListItem>
         <Card className={classes.card}>

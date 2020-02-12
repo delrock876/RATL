@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import Card from '@material-ui/core/Card'
+// import MiniMenu from '../MiniMenu'
 import CardActions from '@material-ui/core/CardActions'
 import CardContent from '@material-ui/core/CardContent'
 import Button from '@material-ui/core/Button'
@@ -19,12 +20,13 @@ import ListItem from '@material-ui/core/ListItem'
 import Tooltip from '@material-ui/core/Tooltip'
 
 
-
 const useStyles = makeStyles(theme => ({
   card: {
     margin: "auto",
     width: "95%",
     paddingBottom: 0,
+    color:"#fbaa10",
+    // fontFamily: 'DM Sans, sans-serif'
   },
   bullet: {
     display: 'inline-block',
@@ -43,9 +45,12 @@ const useStyles = makeStyles(theme => ({
   },
   title: {
     fontSize: 14,
+    fontFamily: 'DM Sans, sans-serif'
+
   },
   pos: {
     marginBottom: 12,
+    fontFamily: 'DM Sans, sans-serif'
   },
   button: {
     padding: "0px",
@@ -69,7 +74,9 @@ const JobCard = () => {
     setExpanded(!expanded);
   };
 
+  
   return (
+   
 
     <div>
       <List>
@@ -96,16 +103,18 @@ const JobCard = () => {
                   className={classes.button}
                 ><ArchiveIcon /></Button>
               </Tooltip>
-              
-                <ConnectionForm jobId={job._id} />
              
+                <ConnectionForm jobId={job._id} />
+                
+    
+              
             </div>
 
             <CardContent>
               <Typography className={classes.title} color="textSecondary" gutterBottom >
                 {job.date}
               </Typography>
-              <Typography variant="h5" component="h2">
+                <Typography variant="h5" component="h2" className={classes.pos}>
                 {job.companyName}
               </Typography>
               <Typography className={classes.pos} color="textSecondary">
@@ -113,7 +122,7 @@ const JobCard = () => {
               </Typography>
 
 
-              <Typography variant="body2" component="h3">
+                <Typography variant="body2" component="h3" className={classes.pos}>
                 Job Requirements:
                 <br />
                 {
@@ -124,7 +133,9 @@ const JobCard = () => {
               </Typography>
 
               <br />
-              <p>{job.summary}</p>
+                <Typography className={classes.pos} color="textSecondary">
+              {job.summary}
+              </Typography>
 
             </CardContent>
 

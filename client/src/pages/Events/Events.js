@@ -36,7 +36,7 @@ const Events = () => {
   return (
     <>
       <div className='calendarBg'>
-        <h4 className={classes.title}> Your Events Overview</h4>
+        <h3 className={classes.title}>Your Events</h3>
         <CalendarContext.Provider>
           <Calendar />
         </CalendarContext.Provider>

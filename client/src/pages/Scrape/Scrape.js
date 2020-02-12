@@ -39,7 +39,6 @@ const Scrape = () => {
     scrapeLeads()
     .then(({data}) => {
    
-      console.log(data)
       let leads = JSON.parse(JSON.stringify(leadsState.leads))
   
       leads = [...leads, ...data]
