@@ -7,6 +7,7 @@ import Button from '@material-ui/core/Button'
 import Typography from '@material-ui/core/Typography'
 import Chip from '@material-ui/core/Chip'
 import DeleteIcon from '@material-ui/icons/Delete'
+import DoneIcon from '@material-ui/icons/Done'
 import ArchiveIcon from '@material-ui/icons/Archive'
 import JobCardContext from '../../utils/JobCardContext'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
@@ -17,7 +18,8 @@ import ConnectionForm from '../ConnectionForm'
 import List from '@material-ui/core/List'
 import ListItem from '@material-ui/core/ListItem'
 import Tooltip from '@material-ui/core/Tooltip'
-
+import AddCircleOutlineOutlinedIcon from '@material-ui/icons/AddCircleOutlineOutlined'
+import AddSkillForm from '../AddSkillForm'
 
 const useStyles = makeStyles(theme => ({
   card: {
@@ -61,14 +63,16 @@ const useStyles = makeStyles(theme => ({
     justifyContent: "flex-end"
   },
   chip: {
-    color: "#78b746",
-    // backgroundColor: ""
+    color: "#78b746"
+  },
+  chip2:{
+    color: "#fbaa10"
   }
 }))
 
 const JobCard = () => {
 
-  const { jobs, handleDeleteJob, handleArchiveJob } = useContext(JobCardContext)
+  const { jobs, handleDeleteJob, handleArchiveJob} = useContext(JobCardContext)
   const classes = useStyles()
 
   const [expanded, setExpanded] = React.useState(false);
@@ -116,7 +120,7 @@ const JobCard = () => {
               <Typography className={classes.title} color="textSecondary" gutterBottom >
                 {job.date}
               </Typography>
-                <Typography variant="h5" component="h2" className={classes.pos}>
+                <Typography variant="h5" className={classes.pos}>
                 {job.companyName}
               </Typography>
               <Typography className={classes.pos} color="textSecondary">
@@ -124,14 +128,36 @@ const JobCard = () => {
               </Typography>
 
 
-                <Typography variant="body2" component="h3" className={classes.pos}>
+                <Typography variant="body2"  className={classes.pos}>
                 Job Requirements:
+              
                 <br />
                 {
                   job.skills ? job.skills.map(skill => (
-                    <Chip className={classes.chip} label={skill} variant="outlined" />
-                  )) : null
-                }
+
+                    <Chip
+                      className= {classes.chip}
+                      variant="outlined"
+                      size="small"
+                      label={skill}
+                      onDelete={handleDeleteJob}
+                    />
+                            )) : null
+                          }
+              </Typography>
+
+                <Typography variant="body2" className={classes.pos}>
+
+                  {/* <Chip
+                  className= {classes.chip2}  
+                    variant="outlined"
+                    size="small"
+                    avatar={<AddCircleOutlineOutlinedIcon/>}
+                    label="Add Skill"
+                    onClick={()=>addSkills(job._id)}
+                  /> */}
+                  <AddSkillForm jobId={job._id} />
+                 
               </Typography>
 
                 <Typography className={classes.pos} color="textSecondary">

@@ -19,7 +19,8 @@ const JobCardContext = createContext({
   handleAddJob: () => { },
   handleDeleteJob: () => { },
   toggleDrawer: () => { },
-  handleAddConnection: () => { }
+  handleAddConnection: () => { },
+  handleAddSkills:()=> { }
 })
 
 export default JobCardContext
