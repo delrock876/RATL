@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import BottomNavigation from '@material-ui/core/BottomNavigation'
 import BottomNavigationAction from '@material-ui/core/BottomNavigationAction'
@@ -6,52 +6,67 @@ import ArchiveIcon from '@material-ui/icons/Archive'
 import HomeIcon from '@material-ui/icons/Home'
 import WorkIcon from '@material-ui/icons/Work'
 import TodayIcon from '@material-ui/icons/Today'
+import MeetingRoomIcon from '@material-ui/icons/MeetingRoom'
 import Box from '@material-ui/core/Box'
 import { Link } from 'react-router-dom'
+import UserContext from '../../utils/UserContext'
 
 const useStyles = makeStyles({
   bg: {
     backgroundColor: "#fbaa10"
   },
-  iconBtn :{
+  iconBtn: {
     color: "white"
   },
-  label:{
+  label: {
     color: "white"
   }
 })
 
+
 const BottomNav = () => {
+
+  const { handleLogout } = useContext(UserContext)
   const classes = useStyles()
 
   return (
 
-    <Box  display={{ xs: 'block', sm: 'block', md: 'none' }} m={0} bottom={0} position="fixed" width="100%" >
+    <Box display={{ xs: 'block', sm: 'block', md: 'none' }} m={0} bottom={0} position="fixed" width="100%" >
+
       <BottomNavigation
         className={classes.bg}
         showLabels
       >
-        <BottomNavigationAction 
-        className={classes.label}
-        label="Home" color="secondary" 
+
+        <BottomNavigationAction
+          className={classes.label}
+          label="Home" color="secondary"
           icon={<Link to="/home"><HomeIcon className={classes.iconBtn} /></Link>} />
 
-        <BottomNavigationAction 
-        className={classes.label} 
-        label="Archives" color="secondary" 
-        icon={<Link to="archived"><ArchiveIcon 
-        className={classes.iconBtn} /></Link>} />
+        <BottomNavigationAction
+          className={classes.label}
+          label="Archives" color="secondary"
+          icon={<Link to="archived"><ArchiveIcon
+            className={classes.iconBtn} /></Link>} />
 
-        <BottomNavigationAction 
-        className={classes.label} 
-        label="Jobs"
-        icon={<Link to="/jobs"><WorkIcon className={classes.iconBtn}/></Link>} />
+        <BottomNavigationAction
+          className={classes.label}
+          label="Jobs"
+          icon={<Link to="/jobs"><WorkIcon className={classes.iconBtn} /></Link>} />
 
-        <BottomNavigationAction 
-        className={classes.label} 
-        label="Calendar"
-        icon={<Link to="/calendar"><TodayIcon className={classes.iconBtn} /></Link>} />
+        <BottomNavigationAction
+          className={classes.label}
+          label="Calendar"
+          icon={<Link to="/calendar"><TodayIcon className={classes.iconBtn} /></Link>} />
+
+        <BottomNavigationAction
+          onClick={handleLogout}
+          className={classes.label}
+          label="Logout"
+          icon={<Link to="#"><MeetingRoomIcon className={classes.iconBtn} /></Link>} />
+
       </BottomNavigation>
+
     </Box>
   )
 }

@@ -25,12 +25,7 @@ const Navbar = () => {
     },
     title: {
       flexGrow: 1,
-    },
-    // logo: {
-    //   flexGrow: 1,
-    //   marginTop: "15px",
-    //   marginLeft: "10px"
-    // },
+    }
   }))
 
   const classes = useStyles()
