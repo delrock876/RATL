@@ -5,7 +5,7 @@ import JobCard from '../../components/JobCard'
 import JobDrawer from '../../components/JobDrawer'
 import { makeStyles } from '@material-ui/core/styles'
 
-const { getAllJobs, addJob, updateJob, deleteJob, addConnect } = JobCardAPI
+const { getAllJobs, addJob, updateJob, deleteJob, addConnect, addSkills } = JobCardAPI
 
 const useStyles = makeStyles({
   title: {
@@ -44,7 +44,8 @@ const Jobs = () => {
     job: '',
     skillsRequired: '',
     bottom: false,
-    connections: []
+    connections: [],
+    newSkills: ''
 
   })
 
@@ -67,6 +68,19 @@ const Jobs = () => {
         setJobState({ ...jobState, jobs: jobsFiltered })
       })
       .catch(e => console.error(e))
+  }
+
+
+  jobState.handleAddSkills = (id) => {
+  
+    let newSkills = JSON.parse(JSON.stringify(jobState.newSkills))
+    let arrSkills = newSkills.split(',')
+    
+    addSkills(id, arrSkills, localStorage.getItem('userAuth'))
+      .then(({data}) =>{
+        data.push(arrSkills)
+        setJobState({...jobState, skillsRequired: data})
+      })
   }
 
   jobState.handleDeleteJob = (id) => {
@@ -133,8 +147,8 @@ const Jobs = () => {
     }
   }
 
+
   jobState.handleAddConnection = (id) => {
- 
     let contactInfo = {
         name: jobState.namee,
         type: jobState.type,
