@@ -51,10 +51,6 @@ const useStyles = makeStyles({
     fontSize: "100px",
     margin: "16px",
     color:"black"
-  },
-  job:{
-    
-    // paddingTop: "40px"
   }
 });
 
