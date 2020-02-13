@@ -1,4 +1,4 @@
-import React, {useContext} from 'react'
+import React, { useContext } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import Card from '@material-ui/core/Card'
 import CardActions from '@material-ui/core/CardActions'
@@ -21,7 +21,6 @@ const useStyles = makeStyles({
     width: "700px",
     minWidth: "322.76px",
     color: "#78b746",
-    // backgroundColor:"purple"
   },
   bullet: {
     display: 'inline-block',
@@ -30,62 +29,76 @@ const useStyles = makeStyles({
   },
   title: {
     fontSize: 14,
+    fontFamily: 'DM Sans, sans-serif'
   },
   pos: {
     marginBottom: 12,
+    fontFamily: 'DM Sans, sans-serif'
+  },
+  lead: {
+    fontFamily: 'DM Sans, sans-serif'
   },
   btnBox: {
     display: "flex",
-    justifyContent: "flex-end"
+    justifyContent: "flex-end",
+  },
+  delete: {
+    color: '#D5441C'
   }
+
+
 })
 
 const ScrapeCard = () => {
-  
+
   const { leads, handleDeleteLeads, handleAddLeads } = useContext(ScrapeCardContext)
   const classes = useStyles()
-  
+
   return (
-    <List style={{ maxHeight: 400, overflow: 'auto'}}>
-    <div ss-container>
-    {
-      leads ? leads.map(lead=> !lead.archived ? (
+    <List style={{ maxHeight: 700, overflow: 'auto', paddingBottom: "100px" }}>
+      <div ss-container>
+        {
+          leads ? leads.map(lead => !lead.archived ? (
 
-        <ListItem>
-    <Card className={classes.card}  variant="outlined">
+            <ListItem>
+              <Card className={classes.card} variant="outlined">
 
-<div className={classes.btnBox}>
+                <div className={classes.btnBox}>
 
-<Tooltip title="Add to jobs">
-        <Button
-          onClick = {()=>handleAddLeads({
-            companyName: lead.company,
-            id: lead._id,
-            jobTitle: lead.title,
-            summary: lead.summary,
-            archived: false
-          })} 
-          className={classes.button}
-        ><AddBoxIcon />
-        </Button>
-        </Tooltip>
+                  <Tooltip title="Add to jobs">
+                    <Button
+                      onClick={() => handleAddLeads({
+                        companyName: lead.company,
+                        id: lead._id,
+                        jobTitle: lead.title,
+                        summary: lead.summary,
+                        archived: false
+                      })}
+                      className={classes.button}
+                    ><AddBoxIcon />
+                    </Button>
+                  </Tooltip>
 
-<Tooltip title="Delete Lead">
-        <Button
-          onClick = {()=>handleDeleteLeads(lead._id)}
-          className={classes.button}
-        >
-          <DeleteIcon />
-      </Button>
-      </Tooltip>
-      </div>
+                  <Tooltip title="Delete Lead">
+                    <Button
+                      onClick={() => handleDeleteLeads(lead._id)}
+                      className={classes.button}
+                    >
+                      <DeleteIcon className={classes.delete} />
+                    </Button>
+                  </Tooltip>
+                </div>
 
       <CardContent>
-        <Typography className={classes.title} color="textSecondary" gutterBottom>
-         {lead.company}
+      <Typography variant="h5" component="h2">
+          {lead.company}
         </Typography>
-        <Typography variant="h5" component="h2">
-          {lead.title}
+        <Typography className={classes.pos} color="textSecondary">
+          Title: {lead.title}
+          <br />
+          Location: {lead.location}
+          <br />
+          Salary: {lead.salary}
         </Typography>
         <Typography className={classes.pos} color="textSecondary">
           {lead.summary}
@@ -99,7 +112,8 @@ const ScrapeCard = () => {
   ):null): null
 }
     </div>
+
     </List>
   )
 }
- export default ScrapeCard
+export default ScrapeCard

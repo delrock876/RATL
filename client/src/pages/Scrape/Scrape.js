@@ -5,7 +5,7 @@ import ScrapeCard from '../../components/ScrapeCard'
 import ScrapeForm from '../../components/ScrapeForm'
 
 
-const { getAllLeads, updateLeads, deleteLeads, addJobLeads, scrapeLeads } = ScrapeCardAPI
+const { getAllLeads, deleteLeads, addJobLeads, scrapeLeads } = ScrapeCardAPI
 
 
 const Scrape = () => {
@@ -26,44 +26,42 @@ const Scrape = () => {
   }
 
   leadsState.handleDeleteLeads = (id) => {
+
     deleteLeads(id, localStorage.getItem('userAuth'))
-      .then(() => console.log('deleted!'))
+      .then(() => {
+        let leads = JSON.parse(JSON.stringify(leadsState.leads))
+        let newLeads = leads.filter(lead => id !== lead._id)
+        setLeadsState({ ...leadsState, leads: newLeads })
+      })
       .catch(e => console.error(e))
   }
 
   leadsState.handleScrapeLeads = () => {
-    
-    console.log(leadsState.query)
-    console.log(leadsState.level)
-    
-    scrapeLeads()
-    .then(({data}) => {
-   
-      let leads = JSON.parse(JSON.stringify(leadsState.leads))
-  
-      leads = [...leads, ...data]
-      
-        setLeadsState({ ...leadsState, leads})
-  
+
+    scrapeLeads(leadsState.query, leadsState.level, leadsState.city)
+      .then(({ data }) => {
+
+        let leads = JSON.parse(JSON.stringify(leadsState.leads))
+        leads = [...leads, ...data]
+        setLeadsState({ ...leadsState, leads })
       })
-      .catch(e=>console.error(e))
+      .catch(e => console.error(e))
   }
 
-  leadsState.handleAddLeads = (event) => {
-
-//write function that takes in event as job object
-    addJobLeads(event, localStorage.getItem('userAuth'))
-    .then(() => {
-      deleteLeads(event.id, localStorage.getItem('userAuth'))
-      .then(() => console.log('deleted!'))
-      .catch(e => console.error(e))
-    })
+  leadsState.handleAddLeads = (lead) => {
+    //write function that takes in new lead as job object
+    addJobLeads(lead, localStorage.getItem('userAuth'))
+      .then(() => {  
+        deleteLeads(lead.id, localStorage.getItem('userAuth'))
+          .then(() =>console.log('deleted'))
+          .catch(e => console.error(e))
+      })
     window.location.reload()
   }
 
-//get all leads
+  //get all leads
   useEffect(() => {
-   
+
     getAllLeads(localStorage.getItem('userAuth'))
       .then(({ data: leads }) => {
         setLeadsState({ ...leadsState, leads })
@@ -74,10 +72,10 @@ const Scrape = () => {
   return (
     <>
       <ScrapeCardContext.Provider value={leadsState}>
-        <ScrapeForm/>
+        <ScrapeForm />
         <ScrapeCard />
       </ScrapeCardContext.Provider>
-      </>
+    </>
   )
 }
 

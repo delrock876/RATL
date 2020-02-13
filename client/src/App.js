@@ -120,8 +120,6 @@ const App = () => {
       </Switch>
 
     </Router>
-    
-
 
   )
 }

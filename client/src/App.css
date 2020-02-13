@@ -14,9 +14,9 @@ background-image: linear-gradient(0deg, #5ba016 1%, #F4D03F 88%);
 }
 
 .archiveBg {
-   overflow:hidden;
-background-color: #fbaa10;
-background-image: linear-gradient(180deg, #fbaa10 0%, #78b746 99%);
+   /* overflow:hidden; */
+background-color: #f2f2f2;
+/* background-image: linear-gradient(180deg, #fbaa10 0%, #78b746 99%); */
 }
 
 .calendarBg {
@@ -62,4 +62,12 @@ background-image: linear-gradient(180deg, #fbaa10 0%, #78b746 99%); */
 ::-webkit-scrollbar-thumb {
   background-color: lightgrey;
   outline: .5px solid slategrey;
+}
+
+.quote {
+  font-size: 16px;
+  margin: 20px;
+  color: black;
+  font-family: DM sans, sans-serif ;
+  padding: 20px;
 }

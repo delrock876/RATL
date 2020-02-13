@@ -10,6 +10,7 @@ import logo from './assets/RATL_V6.png'
 import profileB from './assets/bryant.jpeg'
 import profileC from './assets/cyd.jpeg'
 import profileS from './assets/sabrina.jpeg'
+import profileF from './assets/javi.jpeg'
 import Paper from '@material-ui/core/Paper'
 import RegisterForm from '../RegisterForm'
 import LoginForm from '../LoginForm'
@@ -170,27 +171,27 @@ const LandingPage = () => {
                 <a href="https://www.linkedin.com/in/cydcastillo">
                   <h6> <LinkedInIcon /> Cyd</h6>
                 </a>
-                <p className={classes.para2}>Aspiring digital nomad and on a perpetual mission for enlightenment. </p>
+                <p className={classes.para2}>Aspiring digital nomad on a perpetual mission for enlightenment. </p>
               </div>
             </Grid>
 
             <Grid item xs={6} align="center">
-              < img className={classes.profile} src={profileB} alt="francisco" />
+              < img className={classes.profile} src={profileF} alt="francisco" />
               <div >
                 <a href="https://www.linkedin.com/in/francisco-raigoza-2857a51a1/">
                   <h6> <LinkedInIcon /> Francisco </h6>
                 </a>
-                <p className={classes.para2}>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veniam ipsam sed sit blanditiis </p>
+                <p className={classes.para2}>Motivated developer and steward of new technologies on a mission to  better the lives of others </p>
               </div>
             </Grid>
 
             <Grid item xs={6} align="center">
               < img className={classes.profile} src={profileS} alt="sabrina" />
               <div >
-                <a href="https://www.linkedin.com/in/sabrina-rocha/" target="_blank">
+                <a href="https://www.linkedin.com/in/sabrina-rocha/" >
                   <h6> <LinkedInIcon /> Sabrina</h6>
                 </a>
-                <p className={classes.para2}>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veniam ipsam sed sit blanditiis </p>
+                <p className={classes.para2}>I love coding most days. I'd say I love coding 292/365 days of the year. That's big.</p>
               </div>
             </Grid>
 

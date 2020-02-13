@@ -1,7 +1,6 @@
 import React, { useContext } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import Card from '@material-ui/core/Card'
-// import MiniMenu from '../MiniMenu'
 import CardActions from '@material-ui/core/CardActions'
 import CardContent from '@material-ui/core/CardContent'
 import Button from '@material-ui/core/Button'
@@ -18,6 +17,8 @@ import ConnectionForm from '../ConnectionForm'
 import List from '@material-ui/core/List'
 import ListItem from '@material-ui/core/ListItem'
 import Tooltip from '@material-ui/core/Tooltip'
+import AddSkillForm from '../AddSkillForm'
+import AddStatusForm from '../AddStatusForm'
 
 
 const useStyles = makeStyles(theme => ({
@@ -25,7 +26,7 @@ const useStyles = makeStyles(theme => ({
     margin: "auto",
     width: "95%",
     paddingBottom: 0,
-    color:"#fbaa10",
+    color: "#fbaa10",
     // fontFamily: 'DM Sans, sans-serif'
   },
   bullet: {
@@ -60,117 +61,139 @@ const useStyles = makeStyles(theme => ({
   btnBox: {
     display: "flex",
     justifyContent: "flex-end"
+  },
+  chip: {
+    color: "#78b746"
+  },
+  chip2: {
+    color: "#fbaa10"
+  },
+  paper: {
+    maxWidth: "200px",
+
   }
 }))
 
 const JobCard = () => {
 
-  const { jobs, handleDeleteJob, handleArchiveJob } = useContext(JobCardContext)
+  const { jobs, handleDeleteJob, handleArchiveJob, handleDeleteSkill } = useContext(JobCardContext)
   const classes = useStyles()
 
   const [expanded, setExpanded] = React.useState(false);
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
-  };
+  }
 
-  
+
   return (
-   
 
     <div>
       <List>
-      {
-        jobs ? jobs.map(job => !job.archived ? (
-          <ListItem>
+        {
+          jobs ? jobs.map(job => !job.archived ? (
+            <ListItem>
 
-          <Card className={classes.card} variant="outlined">
+              <Card className={classes.card} variant="outlined">
+
+                <div className={classes.btnBox}>
+
+                  <Tooltip title="Delete">
+                    <Button
+                      onClick={() => handleDeleteJob(job._id)}
+                      className={classes.button}
+
+                    ><DeleteIcon /></Button>
+                  </Tooltip>
+
+                  <Tooltip title="Archive">
+                    <Button
+                      onClick={() => handleArchiveJob(job._id, job.archived)}
+                      className={classes.button}
+                    ><ArchiveIcon /></Button>
+                  </Tooltip>
+
+                  <ConnectionForm jobId={job._id} />
+
+                </div>
+
+                <CardContent>
+                  <Typography className={classes.title} color="textSecondary" gutterBottom >
+                    {job.date}
+                  </Typography>
+                  <Typography variant="h5" className={classes.pos}>
+                    {job.companyName}
+                  </Typography>
+                  <Typography className={classes.pos} color="textSecondary">
+                    {job.jobTitle}
+                  </Typography>
+
+                  <Typography variant="body2" className={classes.pos}>
+                    Job Requirements:
+                    <br />
+                    {
+                      job.skills ? job.skills.map(skill => (
+
+                        <Chip
+                          id="hi"
+                          className={classes.chip}
+                          variant="outlined"
+                          size="small"
+                          label={skill}
+                          onDelete={(event) => handleDeleteSkill(job._id, skill)}
+                        />
+                      )) : null
+                    }
+                  </Typography>
+
+                  <Typography variant="body2" className={classes.pos}>
+                    <AddSkillForm jobId={job._id} />
+                  </Typography>
+
+                  <Typography variant="body2" className={classes.chip}>
+                  <AddStatusForm jobId={job._id} />
+                  </Typography>
+                  <Typography variant="body2" className={classes.chip2}>
+                    {job.status}
+                 
+                  </Typography>
 
 
-            <div className={classes.btnBox}>
 
-              <Tooltip title="Delete">
-                <Button
-                  onClick={() => handleDeleteJob(job._id)}
-                  className={classes.button}
+                </CardContent>
 
-                ><DeleteIcon /></Button>
-              </Tooltip>
+                <CardActions disableSpacing>
+                  <IconButton
+                    className={clsx(classes.expand, {
+                      [classes.expandOpen]: expanded,
+                    })}
+                    onClick={handleExpandClick}
+                    aria-label="show more"
+                  >
+                    <ExpandMoreIcon />
+                  </IconButton>
+                </CardActions>
+                <Collapse in={expanded} timeout="auto" unmountOnExit>
+                  <CardContent>
+                    {
+                      job.connections ? job.connections.map(item =>
 
-              <Tooltip title="Archive">
-                <Button
-                  onClick={() => handleArchiveJob(job._id, job.archived)}
-                  className={classes.button}
-                ><ArchiveIcon /></Button>
-              </Tooltip>
-             
-                <ConnectionForm jobId={job._id} />
-                
-    
-              
-            </div>
+                        <Typography className={classes.pos}>
+                          {item.type}: {item.name}
+                          <br />
+                          Phone: {item.phone}
+                          <br />
+                          Email: {item.email}
+                        </Typography>
 
-            <CardContent>
-              <Typography className={classes.title} color="textSecondary" gutterBottom >
-                {job.date}
-              </Typography>
-                <Typography variant="h5" component="h2" className={classes.pos}>
-                {job.companyName}
-              </Typography>
-              <Typography className={classes.pos} color="textSecondary">
-                {job.jobTitle}
-              </Typography>
-
-
-                <Typography variant="body2" component="h3" className={classes.pos}>
-                Job Requirements:
-                <br />
-                {
-                  job.skills ? job.skills.map(skill => (
-                    <Chip color="primary" label={skill} variant="outlined" />
-                  )) : null
-                }
-              </Typography>
-
-              <br />
-                <Typography className={classes.pos} color="textSecondary">
-              {job.summary}
-              </Typography>
-
-            </CardContent>
-
-            <CardActions disableSpacing>
-              <IconButton
-                className={clsx(classes.expand, {
-                  [classes.expandOpen]: expanded,
-                })}
-                onClick={handleExpandClick}
-                aria-expanded={expanded}
-                aria-label="show more"
-              >
-                <ExpandMoreIcon />
-              </IconButton>
-            </CardActions>
-            <Collapse in={expanded} timeout="auto" unmountOnExit>
-              <CardContent>
-                {
-                  job.connections ? job.connections.map(item =>
-                    <Typography>
-                      {item.type}: {item.name}
-                      <br />
-                      Phone: {item.phone}
-                      <br />
-                      Email: {item.email}
-
-                    </Typography>
-                  ) : null
-                }
-              </CardContent>
-            </Collapse>
-          </Card>
-          </ListItem>
-        ) : null) : null
-      }
+                      ) : null
+                    }
+                  </CardContent>
+                </Collapse>
+              </Card>
+            </ListItem>
+          ) : null) : null
+        }
       </List>
     </div>
   )

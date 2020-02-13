@@ -8,18 +8,29 @@ import JobCardContext from '../../utils/JobCardContext'
 import { makeStyles } from '@material-ui/core/styles'
 import Paper from '@material-ui/core/Paper'
 import CalendarCard from '../../components/CalendarCard'
-import GoogleInfo from '../../components/GoogleInfo'
+import Inspiration from '../../components/Inspiration'
+import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles'
+import Typography from '@material-ui/core/Typography'
 
 
 
 const { getAllJobs} = JobCardAPI
 
 
+const theme = createMuiTheme();
+
 const useStyles = makeStyles({
  
   bg: {
     width: "100%",
     marginTop: 20,
+    marginRight: 20,
+  },
+
+  cardBg: {
+    marginLeft: 10,
+    marginTop: 20,
+    marginRight: 10,
   },
   para: {
     color: "#78b746",
@@ -37,8 +48,14 @@ const useStyles = makeStyles({
     margin: "16px",
     fontFamily: 'DM Sans, sans-serif',
     color: "#ffd11a"
+  }, 
+  quote: {
+    fontSize: "100px",
+    margin: "16px",
+    color:"black"
   }
 });
+
 
 const Home = () => {
 
@@ -75,10 +92,18 @@ const Home = () => {
           <Paper className={classes.marg} elevation={4}>
           <CalendarCard />
           </Paper>
+
         </Grid>
 
-        <Grid item xs>
-      
+        <Grid item xs={12}>
+      <Typography variant="h5" className={classes.para}>Quote of the Day</Typography>
+          <Paper className={classes.marg} elevation={4}>
+          <Inspiration className={classes.quote}/>
+          </Paper>
+        </Grid>
+
+        <Grid item xs className={classes.job}>
+          <Typography variant="h5" className={classes.para}>Job Quickview</Typography>
           <JobCardContext.Provider value={jobState}>
             <SimCard />
           </JobCardContext.Provider>
@@ -86,6 +111,7 @@ const Home = () => {
         </Grid>
 
         <Grid item xs>
+          <Typography variant="h5" className={classes.para}>Find Job Leads</Typography>
           <Scrape />
         </Grid>
 

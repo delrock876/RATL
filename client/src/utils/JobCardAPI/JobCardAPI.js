@@ -25,7 +25,12 @@ const JobCardAPI = {
   addConnect: (id, values, token) => axios.put(`/api/jobs/connect/${id}`, values ,{
     headers:
       { 'Authorization': `Bearer ${token}` }
+  }),
+  addSkills: (id, values, token) => axios.put(`/api/jobs/skills/${id}`, values ,{
+    headers:
+      { 'Authorization': `Bearer ${token}` }
   })
+
 
 }
 
