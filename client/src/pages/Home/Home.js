@@ -70,16 +70,11 @@ const Home = () => {
       .catch(e => console.error(e))
   }, [])
 
-  handleInputChange = () => {
-    console.log('hello')
-  }
-
   const classes = useStyles();
 
   return (
 
     <div className="homeBg">
-      <GoogleInfo/>
       <Grid container spacing={1} padding='10px'>
         <div className={classes.bg}>
           <h3 className={classes.para}>Welcome back, {localStorage.getItem('name')}</h3>
