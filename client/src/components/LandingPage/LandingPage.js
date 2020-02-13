@@ -188,10 +188,10 @@ const LandingPage = () => {
             <Grid item xs={6} align="center">
               < img className={classes.profile} src={profileS} alt="sabrina" />
               <div >
-                <a href="https://www.linkedin.com/in/sabrina-rocha/" target="_blank">
+                <a href="https://www.linkedin.com/in/sabrina-rocha/" >
                   <h6> <LinkedInIcon /> Sabrina</h6>
                 </a>
-                <p className={classes.para2}>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veniam ipsam sed sit blanditiis </p>
+                <p className={classes.para2}>I love coding most days. I'd say I love coding 292/365 days of the year. That's big.</p>
               </div>
             </Grid>
 

@@ -14,6 +14,8 @@ const JobCardContext = createContext({
   bottom: Boolean,
   summary: '',
   connections: [],
+  status: '',
+  handleAddStatus: () => { },
   handleInputChange: () => { },
   handleArchiveJob: () => { },
   handleAddJob: () => { },

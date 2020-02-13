@@ -45,7 +45,8 @@ const Jobs = () => {
     skillsRequired: '',
     bottom: false,
     connections: [],
-    newSkills: ''
+    newSkills: '',
+    status:''
 
   })
 
@@ -68,6 +69,14 @@ const Jobs = () => {
         setJobState({ ...jobState, jobs: jobsFiltered })
       })
       .catch(e => console.error(e))
+  }
+
+
+  jobState.handleAddStatus =()=>{
+    let status = JSON.parse(JSON.stringify(jobState.status))
+    
+
+    console.log(status)
   }
 
 
