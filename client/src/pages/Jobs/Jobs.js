@@ -177,20 +177,25 @@ jobState.handleDeleteSkill = (id,  skill) =>{
 
 
   jobState.handleAddConnection = (id) => {
+
+    let jobs = JSON.parse(JSON.stringify(jobState.jobs))
+
     let contactInfo = {
         name: jobState.namee,
         type: jobState.type,
         phone: jobState.phone,
         email: jobState.email
       }
-      
-      addConnect(id, contactInfo, localStorage.getItem('userAuth'))
-      .then(({data}) => {
 
-      console.log(data)
-        
-      })
-      .catch(e => console.error(e))
+    let modJob = jobs.map(job=>{
+      if( id === job._id){
+        job.connections.push(contactInfo) 
+        console.log(job.connections)
+        updateJob(id, {connections: job.connections}, localStorage.getItem('userAuth'))
+      }
+      return job
+    })
+    setJobState({...jobState, jobs: modJob})
   }
 
   //get all jobs
