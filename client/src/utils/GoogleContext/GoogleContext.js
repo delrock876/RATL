@@ -3,7 +3,7 @@ import { createContext } from 'react'
 const GoogleContext = createContext({
     company: '',
     handleInputChange: () => { },
-    getInfo: () => { }
+    handleGrabInfo: () => { }
 })
 
 export default GoogleContext

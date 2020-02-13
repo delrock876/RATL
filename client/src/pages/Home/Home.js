@@ -8,12 +8,12 @@ import JobCardContext from '../../utils/JobCardContext'
 import { makeStyles } from '@material-ui/core/styles'
 import Paper from '@material-ui/core/Paper'
 import CalendarCard from '../../components/CalendarCard'
-import GoogleAPI from '../../utils/GoogleAPI'
-import CalendarAPI from '../../utils/CalendarAPI'
+import GoogleInfo from '../../components/GoogleInfo'
 
 
-const { getAllJobs, updateJob } = JobCardAPI
-const { getInfo, handleInputChange } = GoogleAPI
+
+const { getAllJobs} = JobCardAPI
+
 
 const useStyles = makeStyles({
  
@@ -24,7 +24,6 @@ const useStyles = makeStyles({
   para: {
     color: "#78b746",
     fontFamily: 'DM Sans, sans-serif',
-    // backgroundColor: "#ffeb99",
     margin: "16px",
     align: "left",
     paddingLeft: "0px"
@@ -58,21 +57,18 @@ const Home = () => {
     console.log('hello')
   }
 
-
   const classes = useStyles();
 
   return (
 
     <div className="homeBg">
+      <GoogleInfo/>
       <Grid container spacing={1} padding='10px'>
         <div className={classes.bg}>
           <h3 className={classes.para}>Welcome back, {localStorage.getItem('name')}</h3>
           <hr/>
         </div>
 
-          <button onclick ={handleInputChange}>
-            Company
-          </button>
        
         <Grid item xs={12}>
           <h4 className={classes.marg}>Upcoming Events</h4>
