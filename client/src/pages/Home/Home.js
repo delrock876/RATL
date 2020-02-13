@@ -8,9 +8,12 @@ import JobCardContext from '../../utils/JobCardContext'
 import { makeStyles } from '@material-ui/core/styles'
 import Paper from '@material-ui/core/Paper'
 import CalendarCard from '../../components/CalendarCard'
+import GoogleAPI from '../../utils/GoogleAPI'
+import CalendarAPI from '../../utils/CalendarAPI'
 
 
 const { getAllJobs, updateJob } = JobCardAPI
+const { getInfo, handleInputChange } = GoogleAPI
 
 const useStyles = makeStyles({
  
@@ -51,7 +54,18 @@ const Home = () => {
       .catch(e => console.error(e))
   }, [])
 
+
+handleInputChange = () => {
+  getInfo()
+  .then(data => {
+    return data
+  })
+  .catch(e => console.error(e))
+
+}
+
   const classes = useStyles();
+
   return (
 
     <div className="homeBg">
@@ -61,6 +75,10 @@ const Home = () => {
           <hr/>
         </div>
 
+          <button onclick ={handleInputChange}>
+            Company
+          </button>
+       
         <Grid item xs={12}>
           <h4 className={classes.marg}>Upcoming Events</h4>
           <Paper className={classes.marg} elevation={4}>
@@ -79,7 +97,6 @@ const Home = () => {
         <Grid item xs>
           <Scrape />
         </Grid>
-
 
       </Grid >
     </div >
