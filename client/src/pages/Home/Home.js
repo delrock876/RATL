@@ -54,15 +54,10 @@ const Home = () => {
       .catch(e => console.error(e))
   }, [])
 
+  handleInputChange = () => {
+    console.log('hello')
+  }
 
-handleInputChange = () => {
-  getInfo()
-  .then(data => {
-    return data
-  })
-  .catch(e => console.error(e))
-
-}
 
   const classes = useStyles();
 

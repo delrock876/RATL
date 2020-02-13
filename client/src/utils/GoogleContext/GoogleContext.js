@@ -1,6 +1,6 @@
 import { createContext } from 'react'
 
-let GoogleContext = createContext({
+const GoogleContext = createContext({
     company: '',
     handleInputChange: () => { },
     getInfo: () => { }
