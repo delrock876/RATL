@@ -96,7 +96,6 @@ const JobCard = () => {
 
               <Card className={classes.card} variant="outlined">
 
-
                 <div className={classes.btnBox}>
 
                   <Tooltip title="Delete">
