@@ -70,16 +70,14 @@ const SimCard = () => {
               {job.jobTitle}
             </Typography>
               <Typography variant="body2" component="p" className={classes.compName}>
-              Status: 
+              Status: {job.status}
              
               <br />
 
             </Typography>
 
           </CardContent>
-          {/* <CardActions>
           
-          </CardActions> */}
         </Card>
         </ListItem>
       )) : null

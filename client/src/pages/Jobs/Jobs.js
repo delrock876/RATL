@@ -72,9 +72,13 @@ const Jobs = () => {
   }
 
 
-  jobState.handleAddStatus =()=>{
-    let status = JSON.parse(JSON.stringify(jobState.status))
-    
+  jobState.handleAddStatus =(id, status)=>{
+    let updateStatus = JSON.parse(JSON.stringify(jobState.status))
+
+    updateJob(id, {status: updateStatus}, localStorage.getItem('userAuth'))
+    .then(()=>{
+      console.log("status added")
+    })
 
     console.log(status)
   }

@@ -57,7 +57,7 @@ const AddStatusForm = (props) => {
       <Typography variant="body2" className={classes.pos}>
 
         <Chip
-          className={classes.chip2}
+          className={classes.chip}
           variant="outlined"
           size="small"
           // avatar={<AddCircleOutlineOutlinedIcon />}

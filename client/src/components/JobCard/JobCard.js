@@ -96,7 +96,6 @@ const JobCard = () => {
 
               <Card className={classes.card} variant="outlined">
 
-
                 <div className={classes.btnBox}>
 
                   <Tooltip title="Delete">
@@ -152,12 +151,14 @@ const JobCard = () => {
                   </Typography>
 
                   <Typography variant="body2" className={classes.chip}>
-                    Status:<AddStatusForm jobId={job._id} />
+                  <AddStatusForm jobId={job._id} />
+                  </Typography>
+                  <Typography variant="body2" className={classes.chip2}>
+                    {job.status}
+                 
                   </Typography>
 
-                  <Typography className={classes.pos} color="textSecondary">
 
-                  </Typography>
 
                 </CardContent>
 
