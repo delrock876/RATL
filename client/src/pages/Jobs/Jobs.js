@@ -99,48 +99,33 @@ const Jobs = () => {
 
   jobState.handleAddSkills = (id) => {
 
-    //   let jobs =  JSON.parse(JSON.stringify(jobState.jobs))
+    let jobs = JSON.parse(JSON.stringify(jobState.jobs))
 
-    //   let skill = jobState.newSkills
-    //   console.log(skill)
+    let skill = jobState.newSkills
 
-    //   let modJob = jobs.map(job=>{
-    //     if(job._id === id){
-    //       let upJob = job.skills.push(skill)
-    //       updateJob(id, {skills: upJob}, localStorage.getItem("userAuth"))
-    //     }
-    //     return job
-    //   })
-    // setJobState({...jobState, jobs: modJob})
-
-    let newSkills = JSON.parse(JSON.stringify(jobState.newSkills))
-    let arrSkills = newSkills.split(',')
-
-    addSkills(id, arrSkills, localStorage.getItem('userAuth'))
-      .then(({ data }) => {
-        data.push(arrSkills)
-        console.log(arrSkills)
-        setJobState({ 
-          ...jobState, 
-          skillsRequired: data,
-         newSkills: ''})
-      })
-      window.location.reload()
+    let modJob = jobs.map(job => {
+      if (job._id === id) {
+        job.skills = job.skills.concat(skill)
+        console.log(job.skills)
+        updateJob(id, { skills: job.skills }, localStorage.getItem("userAuth"))
+      }
+      return job
+    })
+    setJobState({ ...jobState, jobs: modJob })
   }
 
   jobState.handleDeleteSkill = (id, skill) => {
 
-    let jobs = JSON.parse(JSON.stringify(jobState.jobs))
-    let modJobs = jobs.map(job => {
-      if (job._id === id) {
-        job.skills = job.skills.filter(jobSkill => jobSkill !== skill)
-        updateJob(id, { skills: job.skills }, localStorage.getItem('userAuth'))
-      }
-      return job
-    })
-    setJobState({ ...jobState, jobs: modJobs })
-
-  }
+  let jobs = JSON.parse(JSON.stringify(jobState.jobs))
+  let modJobs = jobs.map(job => {
+    if (job._id === id) {
+      job.skills = job.skills.filter(jobSkill => jobSkill !== skill)
+      updateJob(id, { skills: job.skills }, localStorage.getItem('userAuth'))
+    }
+    return job
+  })
+  setJobState({ ...jobState, jobs: modJobs })
+}
 
   jobState.handleDeleteJob = (id) => {
     deleteJob(id, localStorage.getItem('userAuth'))
@@ -149,7 +134,6 @@ const Jobs = () => {
         let jobs = JSON.parse(JSON.stringify(jobState.jobs))
         let newJobs = jobs.filter(job => id !== job._id)
         setJobState({ ...jobState, jobs: newJobs })
-
       })
       .catch(e => console.error(e))
   }

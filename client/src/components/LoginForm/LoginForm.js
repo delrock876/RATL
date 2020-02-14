@@ -96,6 +96,7 @@ const LoginForm = () => {
         Login
       </Button>
 
+     
       <Modal show={show} onHide={handleClose} animation={true}>
         <Modal.Header closeButton>
           <Modal.Title>Login</Modal.Title>
