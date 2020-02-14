@@ -56,8 +56,14 @@ const useStyles = makeStyles(theme => ({
   button: {
     padding: "0px",
     width: "30px"
-
   },
+
+  btnDelete: {
+    color: '#D5441C',
+    padding: "0px",
+    width: "30px"
+  },
+  
   btnBox: {
     display: "flex",
     justifyContent: "flex-end"
@@ -101,7 +107,7 @@ const JobCard = () => {
                   <Tooltip title="Delete">
                     <Button
                       onClick={() => handleDeleteJob(job._id)}
-                      className={classes.button}
+                      className={classes.btnDelete}
 
                     ><DeleteIcon /></Button>
                   </Tooltip>
