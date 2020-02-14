@@ -4,6 +4,8 @@ import JobCardContext from '../../utils/JobCardContext'
 import JobCard from '../../components/JobCard'
 import JobDrawer from '../../components/JobDrawer'
 import { makeStyles } from '@material-ui/core/styles'
+import GoogleInfo from '../../components/GoogleInfo'
+
 
 const { getAllJobs, addJob, updateJob, deleteJob, addConnect, addSkills } = JobCardAPI
 
@@ -214,7 +216,7 @@ jobState.handleDeleteSkill = (id,  skill) =>{
       <div className='jobsBg'>
         <h1 className={classes.title}>Job Info</h1>
         <JobCardContext.Provider value={jobState}>
-
+        <GoogleInfo />
           <JobDrawer />
               <JobCard />
         </JobCardContext.Provider>

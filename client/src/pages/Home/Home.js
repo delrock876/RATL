@@ -81,7 +81,7 @@ const Home = () => {
           <hr/>
         </div>
 
-       
+        
         <Grid item xs={12}>
           <h4 className={classes.marg}>Upcoming Events</h4>
           <Paper className={classes.marg} elevation={4}>
