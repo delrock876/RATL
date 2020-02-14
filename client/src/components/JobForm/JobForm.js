@@ -60,8 +60,11 @@ const useStyles = makeStyles(theme => ({
         borderColor: '#5ba016',
       },
     },
-    
+    '& .MuiFilledInput-underline:after': {
+      borderColor: '#5ba016',
+    }
   },
+
   labelFont: {
     fontFamily: 'DM Sans, sans-serif'
   }
