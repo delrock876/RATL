@@ -9,7 +9,6 @@ import InputAdornment from '@material-ui/core/InputAdornment'
 
 
 
-
 const useStyles = makeStyles(theme => ({
   root: {
     '& .MuiTextField-root': {
@@ -21,16 +20,66 @@ const useStyles = makeStyles(theme => ({
     maxWidth: 490,
   },
   pos: {
-    margin: 10
-  }, 
+    margin: 10,
+    // color: '#5ba016'
+    '& label.Mui-focused': {
+      color: 'black',
+    },
+    '& .MuiInput-underline:after': {
+      borderBottomColor: '#5BA016',
+    },
+    '& .MuiOutlinedInput-root': {
+      '& fieldset': {
+        borderColor: 'white',
+      },
+      '&:hover fieldset': {
+        borderColor: 'black',
+      },
+      '&.Mui-focused fieldset': {
+        borderColor: '#5BA016',
+      },
+      '&.MuiFilledInput-underline': {
+        borderColor: '#5BA016',
+      },
+    },
+    '& label.Mui-focused': {
+      color: 'black',
+    },
+    '& .MuiInput-underline:after': {
+      borderBottomColor: '#5BA016',
+    },
+    '& .MuiOutlinedInput-root': {
+      '& fieldset': {
+        borderColor: 'white',
+      },
+      '&:hover fieldset': {
+        borderColor: 'black',
+      },
+      '&.Mui-focused fieldset': {
+        borderColor: '#5BA016',
+      },
+    },
+    '& .MuiInputBase-input': {
+      '& fieldset': {
+        borderColor: 'white',
+      },
+      '&:hover fieldset': {
+        borderColor: 'black',
+      },
+      '&.Mui-focused fieldset': {
+        borderColor: '#5BA016',
+      },
+    },
+  },
   myBtn: {
     marginLeft: 10,
     marginBottom: 15,
     borderRadius: 7,
-    marginTop: 20, 
+    marginTop: 20,
     color: "white",
     backgroundColor: "transparent"
-  }
+  },
+
 }))
 
 const LoginForm = () => {
@@ -44,8 +93,8 @@ const LoginForm = () => {
 
   return (
     <div className="landing">
-     
-      <Button className={classes.myBtn}  onClick={handleShow}>
+
+      <Button className={classes.myBtn} onClick={handleShow}>
         Login
       </Button>
 
