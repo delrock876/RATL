@@ -14,6 +14,13 @@ const useStyles = makeStyles({
   fullList: {
     width: 'auto',
   },
+  myBtn: {
+    marginLeft: 20,
+    marginTop: 20,
+    color:" #78b746",
+    backgroundColor: "transparent",
+    padding: 0
+  }
 })
 
 const JobDrawer = ()=> {
@@ -38,7 +45,7 @@ const JobDrawer = ()=> {
 
   return (
     <div>
-      <Button onClick={toggleDrawer(true)}>+Add Job</Button>
+      <Button className={classes.myBtn} onClick={toggleDrawer(true)}>Add Job</Button>
       
     
       <SwipeableDrawer

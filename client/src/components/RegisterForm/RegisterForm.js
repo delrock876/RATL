@@ -6,7 +6,7 @@ import UserContext from '../../utils/UserContext'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Modal from 'react-bootstrap/Modal'
 import Typography from '@material-ui/core/Typography';
-import Box from '@material-ui/core/Box';
+import Box from '@material-ui/core/Box'
 
 
 
@@ -108,7 +108,7 @@ const RegisterForm = () => {
           </Typography>
 
       <br/>
-          <form className={classes.card}>
+          <Box textAlign="center" className={classes.card}>
             <TextField
               onChange={handleInputChange}
               className={classes.pos}
@@ -137,11 +137,12 @@ const RegisterForm = () => {
               onChange={handleInputChange}
               className={classes.pos}
               name="userPassword"
+              type="password"
               value={userPassword}
               label="Password"
               placeholder="Create a password"
               variant="outlined"></TextField>
-          </form>
+          </Box>
 
           <hr/>
           <Typography className={classes.title2}>

@@ -6,6 +6,7 @@ import UserContext from '../../utils/UserContext'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Modal from 'react-bootstrap/Modal'
 import { Redirect } from 'react-router-dom'
+import Box from '@material-ui/core/Box'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -95,7 +96,7 @@ const LoginForm = () => {
           <Modal.Title className={classes.title}>Login</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <form className={classes.card}>
+          <Box textAlign="center"className={classes.card}>
 
             <TextField
               onChange={handleInputChange}
@@ -115,7 +116,7 @@ const LoginForm = () => {
               label="Password"
               placeholder="Enter Password"
               variant="outlined"></TextField>
-          </form>
+          </Box>
 
         </Modal.Body>
         <Modal.Footer>

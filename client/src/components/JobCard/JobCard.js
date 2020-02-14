@@ -26,8 +26,7 @@ const useStyles = makeStyles(theme => ({
     margin: "auto",
     width: "95%",
     paddingBottom: 0,
-    color: "#fbaa10",
-    // fontFamily: 'DM Sans, sans-serif'
+    color: "#fbaa10"
   },
   bullet: {
     display: 'inline-block',

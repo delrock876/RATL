@@ -1,20 +1,71 @@
 import React , {useState} from 'react'
+import { makeStyles } from '@material-ui/core/styles'
 import GoogleAPI from '../../utils/GoogleAPI'
 import Grid from '@material-ui/core/Grid'
 import Card from '@material-ui/core/Card'
 import CardContent from '@material-ui/core/CardContent'
-
-
 import Button from '@material-ui/core/Button'
+import TextField from '@material-ui/core/TextField';
 
+
+
+const useStyles = makeStyles(theme => ({
+    root: {
+        '& .MuiTextField-root': {
+            margin: theme.spacing(1),
+            width: 200,
+        },
+    },
+    pos: {
+        margin: 10,
+        '& label.Mui-focused': {
+            color: 'black',
+        },
+        '& .MuiInput-underline:after': {
+            borderBottomColor: '#5BA016',
+        },
+        '& .MuiOutlinedInput-root': {
+            '& fieldset': {
+                borderColor: 'light-grey',
+            },
+            '&:hover fieldset': {
+                borderColor: 'black',
+            },
+            '&.Mui-focused fieldset': {
+                borderColor: '#5BA016',
+            },
+            '&.MuiFilledInput-underline': {
+                borderColor: '#5BA016',
+            },
+        },
+        '& .MuiInputBase-input': {
+            '& fieldset': {
+                borderColor: 'white',
+            },
+            '&:hover fieldset': {
+                borderColor: 'black',
+            },
+            '&.Mui-focused fieldset': {
+                borderColor: '#5BA016',
+            },
+        },
+    },
+    myBtn: {
+        marginLeft: 10,
+        marginBottom: 15,
+        borderRadius: 7,
+        marginTop: 20,
+        color: "#fbaa10",
+        backgroundColor: "transparent"
+    }
+
+}))
 
 const { getInfo, handleInputChange } = GoogleAPI
 
-
-
 const GoogleInfo = () => {
 
-
+    const classes = useStyles()
     const [googleState, setGoogleState] = useState({
         company: '',
         compInfo: []
@@ -35,29 +86,29 @@ const GoogleInfo = () => {
             let img = itemListElement[0].result.image.contentUrl
             let info = [link, article, img]
             
-
             setGoogleState({...googleState, compInfo: info})
             
         })
      }
-      
    
         return (
             <div>
                 <Card>
                     <CardContent>
 
-                <input type='text' 
+                <TextField 
+                className={classes.pos}
+                type='text' 
                 name='company' 
                 value={googleState.company} 
                 onChange={googleState.handleInputChange}/>
 
-               <Button onClick= {googleState.handleGrabInfo}>Search</Button> 
+               <Button className={classes.myBtn}onClick= {googleState.handleGrabInfo}>Search</Button> 
                 { 
                         <div>
                            <p>{googleState.compInfo[0]}</p>
                            <p>{googleState.compInfo[1]}</p>
-                            <p><img src = {googleState.compInfo[2]} /></p>
+                        <p><img alt="" src = {googleState.compInfo[2]} /></p>
                         </div>
                         
                     }
