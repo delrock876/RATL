@@ -32,6 +32,11 @@ const App = () => {
   })
 
 
+
+  userState.setRedirect= (shouldRedirect) =>{
+    setUserState({...userState, shouldRedirect})
+  }
+
   userState.handleLogout = () => {
     localStorage.clear()
     window.location.href = '/'
