@@ -13,8 +13,6 @@ import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles'
 import Typography from '@material-ui/core/Typography'
 import UserContext from '../../utils/UserContext'
 
-
-
 const { getAllJobs} = JobCardAPI
 
 
@@ -59,10 +57,24 @@ const useStyles = makeStyles({
 
 
 const Home = () => {
+  // const { setRedirect, shouldRedirect } = useContext(UserContext)
 
   const [jobState, setJobState] = useState({
     jobs: []
   })
+
+
+
+// useEffect(()=>{
+
+//   setRedirect(false)
+//   console.log(shouldRedirect)
+
+// }, [])
+
+
+
+
   useEffect(() => {
     getAllJobs(localStorage.getItem('userAuth'))
       .then(({ data: jobs }) => {
@@ -71,12 +83,6 @@ const Home = () => {
       .catch(e => console.error(e))
   }, [])
 
-
-  const { setLoggingOut } = useContext(UserContext)
-
-  useEffect(() => {
-    setLoggingOut(false)
-  }, [])
   const classes = useStyles();
 
   return (

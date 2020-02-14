@@ -26,8 +26,7 @@ const useStyles = makeStyles(theme => ({
     margin: "auto",
     width: "95%",
     paddingBottom: 0,
-    color: "#fbaa10",
-    // fontFamily: 'DM Sans, sans-serif'
+    color: "#fbaa10"
   },
   bullet: {
     display: 'inline-block',
@@ -63,7 +62,7 @@ const useStyles = makeStyles(theme => ({
     padding: "0px",
     width: "30px"
   },
-  
+
   btnBox: {
     display: "flex",
     justifyContent: "flex-end"
@@ -76,8 +75,7 @@ const useStyles = makeStyles(theme => ({
   },
   paper: {
     maxWidth: "200px",
-
-  }
+  },
 }))
 
 const JobCard = () => {
@@ -157,11 +155,11 @@ const JobCard = () => {
                   </Typography>
 
                   <Typography variant="body2" className={classes.chip}>
-                  <AddStatusForm jobId={job._id} />
+                    <AddStatusForm jobId={job._id} />
                   </Typography>
                   <Typography variant="body2" className={classes.chip2}>
                     {job.status}
-                 
+
                   </Typography>
 
 

@@ -53,10 +53,13 @@ const Scrape = () => {
     addJobLeads(lead, localStorage.getItem('userAuth'))
       .then(() => {  
         deleteLeads(lead.id, localStorage.getItem('userAuth'))
-          .then(() =>console.log('deleted'))
-          .catch(e => console.error(e))
-          setLeadsState({ ...leadsState, lead})
+        .then(() =>console.log('deleted'))
+        .catch(e => console.error(e))
+        setLeadsState({ ...leadsState, lead})
       })
+
+      window.location.href= '/home'
+    
   }
 
   //get all leads

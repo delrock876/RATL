@@ -5,12 +5,12 @@ const UserContext = createContext({
   userEmail: String,
   usersname: String,
   userPassword: String,
-  loggingOut: Boolean,
+  shouldRedirect: false,
+  setRedirect:()=>{ },
   handleInputChange: () => { },
   handleRegisterUser: () => { },
   handleLogin: () => { },
-  handleLogout: () => { },
-  setLoggingOut: () => { }
+  handleLogout: () => { }
 })
 
 export default UserContext
