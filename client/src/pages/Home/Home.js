@@ -11,6 +11,7 @@ import CalendarCard from '../../components/CalendarCard'
 import Inspiration from '../../components/Inspiration'
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles'
 import Typography from '@material-ui/core/Typography'
+import UserContext from '../../utils/UserContext'
 
 
 const { getAllJobs, updateJob } = JobCardAPI
@@ -68,6 +69,12 @@ const Home = () => {
       .catch(e => console.error(e))
   }, [])
 
+
+  const { setLoggingOut } = useContext(UserContext)
+
+  useEffect(() => {
+    setLoggingOut(false)
+  }, [])
   const classes = useStyles();
   return (
 

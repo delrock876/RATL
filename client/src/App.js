@@ -12,7 +12,8 @@ import UserAPI from './utils/UserAPI'
 import {
   BrowserRouter as Router,
   Switch,
-  Route
+  Route,
+  Redirect
 } from 'react-router-dom'
 
 
@@ -22,16 +23,32 @@ const { loginUser, registerUser } = UserAPI
 
 const App = () => {
 
+  const [goHome, setGoHome] = useState(false)
+
+  const renderRedirectHome = () => {
+    if (goHome) {
+      return <Redirect to="/home" />
+    }
+  }
+
+
   const [userState, setUserState] = useState({
     userFullName: '',
     userEmail: '',
     usersname: '',
-    userPassword: ''
+    userPassword: '',
+    loggingOut: false
   })
 
-  userState.handleLogout=()=>{
+  const renderRedirectLanding = () => {
+    if (userState.loggingOut) {
+      return <Redirect to="/" />
+    }
+  }
+
+  userState.handleLogout = () => {
     localStorage.clear()
-    window.location = '/'
+    setUserState({ ...userState, loggingOut: true })
   }
 
   userState.handleLogin = (event) => {
@@ -43,18 +60,21 @@ const App = () => {
     }
 
     loginUser(user)
-  
+
       .then(({ data }) => {
         localStorage.setItem('userAuth', data.token)
         localStorage.setItem('name', data.currentUser)
-        console.log(data)
-        window.location = "/home"
+        setGoHome(true)
       })
       .catch(e => console.error(e))
   }
 
   userState.handleInputChange = (event) => {
     setUserState({ ...userState, [event.target.name]: event.target.value })
+  }
+
+  userState.setLoggingOut = loggingOut => {
+    setUserState({ ...userState, loggingOut })
   }
 
   userState.handleRegisterUser = (event) => {
@@ -83,39 +103,40 @@ const App = () => {
   return (
 
     <Router>
-
+      {renderRedirectHome()}
+      {renderRedirectLanding()}
       <Switch>
 
-          <UserContext.Provider value={userState}>
-        <Route exact path="/">
+        <UserContext.Provider value={userState}>
+          <Route exact path="/">
             <Landing />
-        </Route>
+          </Route>
 
-        <Route path="/home">
-          <Navbar />
-          <Home />
-          <BottomNav />
-        </Route>
+          <Route path="/home">
+            <Navbar />
+            <Home />
+            <BottomNav />
+          </Route>
 
-        <Route path="/archived">
-          <Navbar />
-          <Archived />
-          <BottomNav />
-        </Route>
+          <Route path="/archived">
+            <Navbar />
+            <Archived />
+            <BottomNav />
+          </Route>
 
-        <Route path="/jobs">
-          <Navbar />
-          <Jobs />
-          <BottomNav />
-        </Route>
+          <Route path="/jobs">
+            <Navbar />
+            <Jobs />
+            <BottomNav />
+          </Route>
 
-        <Route path="/calendar">
-          <Navbar />
-          <Calendar />
-          <BottomNav />
-        </Route>
+          <Route path="/calendar">
+            <Navbar />
+            <Calendar />
+            <BottomNav />
+          </Route>
 
-          </UserContext.Provider>
+        </UserContext.Provider>
 
       </Switch>
 
