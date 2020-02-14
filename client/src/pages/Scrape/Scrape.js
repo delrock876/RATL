@@ -55,8 +55,8 @@ const Scrape = () => {
         deleteLeads(lead.id, localStorage.getItem('userAuth'))
           .then(() =>console.log('deleted'))
           .catch(e => console.error(e))
+          setLeadsState({ ...leadsState, lead})
       })
-    window.location.reload()
   }
 
   //get all leads
