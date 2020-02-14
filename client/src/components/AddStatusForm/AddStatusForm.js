@@ -37,7 +37,58 @@ const useStyles = makeStyles(theme => ({
   btn: {
     display: "flex",
     justifyContent: "flex-start"
-  }
+  },
+
+  inputField: {
+    '& label.Mui-focused': {
+      color: 'black',
+    },
+    '& .MuiInput-underline:after': {
+      borderBottomColor: '#5BA016',
+    },
+    '& .MuiOutlinedInput-root': {
+      '& fieldset': {
+        borderColor: '#5BA016',
+      },
+      '&:hover fieldset': {
+        borderColor: 'black',
+      },
+      '&.Mui-focused fieldset': {
+        borderColor: '#5BA016',
+      },
+      '&.MuiFilledInput-underline': {
+        borderColor: '#5BA016',
+      },
+    },
+    '& label.Mui-focused': {
+      color: 'black',
+    },
+    '& .MuiInput-underline:after': {
+      borderBottomColor: '#5BA016',
+    },
+    '& .MuiOutlinedInput-root': {
+      '& fieldset': {
+        borderColor: '#5BA016',
+      },
+      '&:hover fieldset': {
+        borderColor: 'black',
+      },
+      '&.Mui-focused fieldset': {
+        borderColor: '#5BA016',
+      },
+    },
+    '& .MuiInputBase-input': {
+      '& fieldset': {
+        borderColor: '#5BA016',
+      },
+      '&:hover fieldset': {
+        borderColor: 'black',
+      },
+      '&.Mui-focused fieldset': {
+        borderColor: '#5BA016',
+      },
+    },
+  },
 
 }))
 
@@ -74,6 +125,7 @@ const AddStatusForm = (props) => {
 
         <form className={classes.card}>
           <TextField
+            className={classes.inputField}
             id="outlined-multiline-static"
             label="Where are you in the application and/or interview process?"
             rows="3"
