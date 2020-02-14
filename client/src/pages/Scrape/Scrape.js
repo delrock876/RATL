@@ -58,7 +58,7 @@ const Scrape = () => {
         setLeadsState({ ...leadsState, lead})
       })
 
-      window.location.href= '/home'
+      // window.location.href= '/home'
     
   }
 
