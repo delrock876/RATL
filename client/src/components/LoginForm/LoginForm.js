@@ -89,7 +89,7 @@ const LoginForm = () => {
   const handleClose = () => setShow(false)
   const handleShow = () => setShow(true)
 
-  return shouldRedirect ? <Redirect to='/home' /> && setRedirect(false): (
+  return shouldRedirect ? <Redirect to='/home' /> : (
     <div className="landing">
 
       <Button className={classes.myBtn} onClick={handleShow}>
