@@ -48,7 +48,7 @@ const Jobs = () => {
     bottom: false,
     connections: [],
     newSkills: '',
-    status:''
+    status: ''
 
   })
 
@@ -74,22 +74,22 @@ const Jobs = () => {
   }
 
 
-  jobState.handleAddStatus =(id, status)=>{
-    
+  jobState.handleAddStatus = (id, status) => {
+
     let jobs = JSON.parse(JSON.stringify(jobState.jobs))
 
     // let updateStatus = JSON.parse(JSON.stringify(jobState.status))
 
-    let modJob = jobs.map(job=> {
-      if (job._id === id){
-          job.status = jobState.status
-          updateJob(id, {status: job.status}, localStorage.getItem('userAuth'))
-          console.log(job.status)  
-          
+    let modJob = jobs.map(job => {
+      if (job._id === id) {
+        job.status = jobState.status
+        updateJob(id, { status: job.status }, localStorage.getItem('userAuth'))
+        console.log(job.status)
+
       }
       return job
     })
-setJobState({...jobState, jobs: modJob})
+    setJobState({ ...jobState, jobs: modJob })
     // updateJob(id, {status: updateStatus}, localStorage.getItem('userAuth'))
 
     // setJobState({})
@@ -99,43 +99,48 @@ setJobState({...jobState, jobs: modJob})
 
   jobState.handleAddSkills = (id) => {
 
-  //   let jobs =  JSON.parse(JSON.stringify(jobState.jobs))
+    //   let jobs =  JSON.parse(JSON.stringify(jobState.jobs))
 
-  //   let skill = jobState.newSkills
-  //   console.log(skill)
+    //   let skill = jobState.newSkills
+    //   console.log(skill)
 
-  //   let modJob = jobs.map(job=>{
-  //     if(job._id === id){
-  //       let upJob = job.skills.push(skill)
-  //       updateJob(id, {skills: upJob}, localStorage.getItem("userAuth"))
-  //     }
-  //     return job
-  //   })
-  // setJobState({...jobState, jobs: modJob})
+    //   let modJob = jobs.map(job=>{
+    //     if(job._id === id){
+    //       let upJob = job.skills.push(skill)
+    //       updateJob(id, {skills: upJob}, localStorage.getItem("userAuth"))
+    //     }
+    //     return job
+    //   })
+    // setJobState({...jobState, jobs: modJob})
 
     let newSkills = JSON.parse(JSON.stringify(jobState.newSkills))
     let arrSkills = newSkills.split(',')
-    
+
     addSkills(id, arrSkills, localStorage.getItem('userAuth'))
-      .then(({data}) =>{
+      .then(({ data }) => {
         data.push(arrSkills)
-        setJobState({...jobState, skillsRequired: data})
+        console.log(arrSkills)
+        setJobState({ 
+          ...jobState, 
+          skillsRequired: data,
+         newSkills: ''})
       })
+      window.location.reload()
   }
 
-jobState.handleDeleteSkill = (id,  skill) =>{
+  jobState.handleDeleteSkill = (id, skill) => {
 
-  let jobs = JSON.parse(JSON.stringify(jobState.jobs))
-  let modJobs = jobs.map(job => {
-    if (job._id === id) {
-      job.skills = job.skills.filter(jobSkill => jobSkill !== skill)
-      updateJob(id, { skills: job.skills }, localStorage.getItem('userAuth'))
-    }
-    return job
-  })
-  setJobState({ ...jobState, jobs: modJobs })
+    let jobs = JSON.parse(JSON.stringify(jobState.jobs))
+    let modJobs = jobs.map(job => {
+      if (job._id === id) {
+        job.skills = job.skills.filter(jobSkill => jobSkill !== skill)
+        updateJob(id, { skills: job.skills }, localStorage.getItem('userAuth'))
+      }
+      return job
+    })
+    setJobState({ ...jobState, jobs: modJobs })
 
-}
+  }
 
   jobState.handleDeleteJob = (id) => {
     deleteJob(id, localStorage.getItem('userAuth'))
@@ -207,21 +212,28 @@ jobState.handleDeleteSkill = (id,  skill) =>{
     let jobs = JSON.parse(JSON.stringify(jobState.jobs))
 
     let contactInfo = {
-        name: jobState.namee,
-        type: jobState.type,
-        phone: jobState.phone,
-        email: jobState.email
-      }
+      name: jobState.namee,
+      type: jobState.type,
+      phone: jobState.phone,
+      email: jobState.email
+    }
 
-    let modJob = jobs.map(job=>{
-      if( id === job._id){
-        job.connections.push(contactInfo) 
+    let modJob = jobs.map(job => {
+      if (id === job._id) {
+        job.connections.push(contactInfo)
         console.log(job.connections)
-        updateJob(id, {connections: job.connections}, localStorage.getItem('userAuth'))
+        updateJob(id, { connections: job.connections }, localStorage.getItem('userAuth'))
       }
       return job
     })
-    setJobState({...jobState, jobs: modJob})
+    setJobState({
+      ...jobState,
+      jobs: modJob,
+      namee: '',
+      type: '',
+      phone: '',
+      email: ''
+    })
   }
 
   //get all jobs
@@ -242,7 +254,7 @@ jobState.handleDeleteSkill = (id,  skill) =>{
         <JobCardContext.Provider value={jobState}>
         <GoogleInfo />
           <JobDrawer />
-              <JobCard />
+          <JobCard />
         </JobCardContext.Provider>
 
       </div>

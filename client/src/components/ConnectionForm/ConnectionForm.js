@@ -7,7 +7,6 @@ import Modal from 'react-bootstrap/Modal'
 import JobCardContext from '../../utils/JobCardContext'
 import RecentActorsIcon from '@material-ui/icons/RecentActors';
 import Tooltip from '@material-ui/core/Tooltip'
-
 import PersonAddIcon from '@material-ui/icons/PersonAdd';
 
 
@@ -101,10 +100,15 @@ const ConnectionForm = (props) => {
 
         </Modal.Body>
         <Modal.Footer>
-          <Button onClick={() =>
-            handleAddConnection(props.jobId)
-          }
+          <Button 
+          onClick={() => 
+            handleAddConnection(props.jobId)}
           >Submit</Button>
+
+<Button 
+          onClick={() => 
+            handleClose()}
+          >Close</Button>
 
         </Modal.Footer>
       </Modal>
