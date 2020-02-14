@@ -78,7 +78,7 @@ export default class DemoApp extends React.Component {
         } else {
 
           swal({
-            title: `Are you sure you want to leave the text area empty?`,
+            title: `No reminder was set!`,
             icon: 'warning'
           })
         }
