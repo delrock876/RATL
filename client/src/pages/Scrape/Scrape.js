@@ -57,6 +57,9 @@ const Scrape = () => {
         .catch(e => console.error(e))
         setLeadsState({ ...leadsState, lead})
       })
+
+      window.location.href= '/home'
+    
   }
 
   //get all leads
