@@ -19,7 +19,6 @@ const useStyles = makeStyles(theme => ({
   },
   pos: {
     margin: 10,
-    // color: '#5ba016'
     '& label.Mui-focused': {
       color: 'black',
     },
@@ -37,23 +36,6 @@ const useStyles = makeStyles(theme => ({
         borderColor: '#5BA016',
       },
       '&.MuiFilledInput-underline': {
-        borderColor: '#5BA016',
-      },
-    },
-    '& label.Mui-focused': {
-      color: 'black',
-    },
-    '& .MuiInput-underline:after': {
-      borderBottomColor: '#5BA016',
-    },
-    '& .MuiOutlinedInput-root': {
-      '& fieldset': {
-        borderColor: 'white',
-      },
-      '&:hover fieldset': {
-        borderColor: 'black',
-      },
-      '&.Mui-focused fieldset': {
         borderColor: '#5BA016',
       },
     },
@@ -77,11 +59,26 @@ const useStyles = makeStyles(theme => ({
     color: "white",
     backgroundColor: "transparent"
   },
+  title:{
+    fontFamily: 'DM Sans, sans-serif'
+  },
+  enter:{
+    backgroundColor: "#78b746",
+    color: "white"
+
+  },
+  outline:{
+    backgroundColor: "#78b746",
+    color: "white"
+  },
+  outlineBottom:{
+    color: "#fbaa10"
+  }
 
 }))
 
 const LoginForm = () => {
-  const { usersname, userPassword, handleInputChange, handleLogin, shouldRedirect, setRedirect } = useContext(UserContext)
+  const { usersname, userPassword, handleInputChange, handleLogin, shouldRedirect, } = useContext(UserContext)
 
   const classes = useStyles()
   const [show, setShow] = useState(false)
@@ -98,8 +95,8 @@ const LoginForm = () => {
 
      
       <Modal show={show} onHide={handleClose} animation={true}>
-        <Modal.Header closeButton>
-          <Modal.Title>Login</Modal.Title>
+        <Modal.Header className= {classes.outline}closeButton>
+          <Modal.Title className={classes.title}>Login</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <form className={classes.card}>
@@ -110,7 +107,8 @@ const LoginForm = () => {
               name="usersname"
               value={usersname}
               label="Username"
-              variant="outlined"></TextField>
+              variant="outlined"
+              placeholder="Enter Username"></TextField>
 
             <TextField
               type="password"
@@ -119,13 +117,13 @@ const LoginForm = () => {
               name="userPassword"
               value={userPassword}
               label="Password"
-              placeholder="Create a password!"
+              placeholder="Enter Password!"
               variant="outlined"></TextField>
           </form>
 
         </Modal.Body>
-        <Modal.Footer>
-            <Button variant="contained" onClick={handleLogin}>
+        <Modal.Footer className={classes.outlineBottom}>
+            <Button className={classes.enter}variant="contained" onClick={handleLogin}>
               Enter
           </Button>
 
