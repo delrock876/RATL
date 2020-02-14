@@ -91,27 +91,19 @@ setJobState({...jobState, jobs: modJob})
 
   jobState.handleAddSkills = (id) => {
 
-  //   let jobs =  JSON.parse(JSON.stringify(jobState.jobs))
+    let jobs = JSON.parse(JSON.stringify(jobState.jobs))
 
-  //   let skill = jobState.newSkills
-  //   console.log(skill)
+    let skill = jobState.newSkills
 
-  //   let modJob = jobs.map(job=>{
-  //     if(job._id === id){
-  //       let upJob = job.skills.push(skill)
-  //       updateJob(id, {skills: upJob}, localStorage.getItem("userAuth"))
-  //     }
-  //     return job
-  //   })
-  // setJobState({...jobState, jobs: modJob})
-
-    let newSkills = JSON.parse(JSON.stringify(jobState.newSkills))
-    let arrSkills = newSkills.split(',')
-    addSkills(id, arrSkills, localStorage.getItem('userAuth'))
-      .then(({data}) =>{
-        data.push(arrSkills)
-        setJobState({...jobState, skillsRequired: data})
-      })
+    let modJob = jobs.map(job => {
+      if (job._id === id) {
+        job.skills = job.skills.concat(skill)
+        console.log(job.skills)
+        updateJob(id, { skills: job.skills }, localStorage.getItem("userAuth"))
+      }
+      return job
+    })
+    setJobState({ ...jobState, jobs: modJob })
   }
 
 jobState.handleDeleteSkill = (id,  skill) =>{
