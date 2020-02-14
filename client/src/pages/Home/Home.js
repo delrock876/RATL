@@ -19,7 +19,7 @@ const { getAllJobs, updateJob } = JobCardAPI
 const theme = createMuiTheme();
 
 const useStyles = makeStyles({
- 
+
   bg: {
     width: "100%",
     marginTop: 20,
@@ -43,15 +43,15 @@ const useStyles = makeStyles({
     color: "black",
     fontFamily: 'DM Sans, sans-serif'
   },
-  marg:{
+  marg: {
     margin: "16px",
     fontFamily: 'DM Sans, sans-serif',
-    color: "#ffd11a"
-  }, 
+    color: "#fbaa10"
+  },
   quote: {
     fontSize: "100px",
     margin: "16px",
-    color:"black"
+    color: "black"
   }
 });
 
@@ -82,21 +82,21 @@ const Home = () => {
       <Grid container spacing={1} padding='10px'>
         <div className={classes.bg}>
           <h3 className={classes.para}>Welcome back, {localStorage.getItem('name')}</h3>
-          <hr/>
+          <hr />
         </div>
 
         <Grid item xs={12}>
           <h4 className={classes.marg}>Upcoming Events</h4>
           <Paper className={classes.marg} elevation={4}>
-          <CalendarCard />
+            <CalendarCard />
           </Paper>
 
         </Grid>
 
         <Grid item xs={12}>
-      <Typography variant="h5" className={classes.para}>Quote of the Day</Typography>
+          <Typography variant="h5" className={classes.para}>Quote of the Day</Typography>
           <Paper className={classes.marg} elevation={4}>
-          <Inspiration className={classes.quote}/>
+            <Inspiration className={classes.quote} />
           </Paper>
         </Grid>
 
