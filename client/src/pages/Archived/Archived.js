@@ -26,7 +26,7 @@ const useStyles = makeStyles({
     color: "black",
     fontFamily: 'DM Sans, sans-serif'
   }
-});
+})
 
 const { getAllJobs, deleteJob, updateJob } = JobCardAPI
 
