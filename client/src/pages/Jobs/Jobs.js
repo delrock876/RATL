@@ -105,7 +105,7 @@ const Jobs = () => {
 
     let modJob = jobs.map(job => {
       if (job._id === id) {
-        job.skills = job.skills.concat(skill)
+        job.skills = job.skills.concat(skill.split(','))
         console.log(job.skills)
         updateJob(id, { skills: job.skills }, localStorage.getItem("userAuth"))
       }
