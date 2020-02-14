@@ -57,7 +57,7 @@ const useStyles = makeStyles({
 
 
 const Home = () => {
-  const { setRedirect } = useContext(UserContext)
+  // const { setRedirect, shouldRedirect } = useContext(UserContext)
 
   const [jobState, setJobState] = useState({
     jobs: []
@@ -65,11 +65,12 @@ const Home = () => {
 
 
 
-useEffect(()=>{
+// useEffect(()=>{
 
-  setRedirect(false)
+//   setRedirect(false)
+//   console.log(shouldRedirect)
 
-}, [])
+// }, [])
 
 
 

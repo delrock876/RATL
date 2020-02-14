@@ -81,7 +81,7 @@ const useStyles = makeStyles(theme => ({
 }))
 
 const LoginForm = () => {
-  const { usersname, userPassword, handleInputChange, handleLogin, shouldRedirect } = useContext(UserContext)
+  const { usersname, userPassword, handleInputChange, handleLogin, shouldRedirect, setRedirect } = useContext(UserContext)
 
   const classes = useStyles()
   const [show, setShow] = useState(false)
@@ -89,7 +89,7 @@ const LoginForm = () => {
   const handleClose = () => setShow(false)
   const handleShow = () => setShow(true)
 
-  return shouldRedirect ? <Redirect to='/home' /> : (
+  return shouldRedirect ? <Redirect to='/home' /> && setRedirect(false): (
     <div className="landing">
 
       <Button className={classes.myBtn} onClick={handleShow}>
@@ -132,6 +132,8 @@ const LoginForm = () => {
       </Modal>
     </div>
   )
+
+
 }
 
 export default LoginForm
