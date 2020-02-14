@@ -6,11 +6,6 @@ import UserContext from '../../utils/UserContext'
 
 const Landing = () => {
 
-  const { setLoggingOut } = useContext(UserContext)
-
-  useEffect(()=>{
-    setLoggingOut(false)
-  }, [])
   return (
 
     <>
