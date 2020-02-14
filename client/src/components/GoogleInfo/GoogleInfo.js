@@ -61,7 +61,7 @@ const useStyles = makeStyles(theme => ({
 
 }))
 
-const { getInfo, handleInputChange } = GoogleAPI
+const { getInfo, handleInputChange, removeInfo } = GoogleAPI
 
 const GoogleInfo = () => {
 
@@ -86,9 +86,16 @@ const GoogleInfo = () => {
             let img = itemListElement[0].result.image.contentUrl
             let info = [link, article, img]
             
-            setGoogleState({...googleState, compInfo: info})
+            setGoogleState({...googleState, compInfo: info, company: ''})
             
         })
+     }
+
+     googleState.handleClearInfo = () => {
+
+        removeInfo(googleState.company)
+  
+        setGoogleState({...googleState, compInfo: ''})
      }
    
         return (
@@ -104,6 +111,7 @@ const GoogleInfo = () => {
                 onChange={googleState.handleInputChange}/>
 
                <Button className={classes.myBtn}onClick= {googleState.handleGrabInfo}>Search</Button> 
+               <Button className={classes.myBtn}onClick= {googleState.handleClearInfo}>Clear</Button> 
                 { 
                         <div>
                            <p>{googleState.compInfo[0]}</p>
