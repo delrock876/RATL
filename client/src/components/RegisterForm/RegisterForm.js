@@ -5,6 +5,8 @@ import Button from '@material-ui/core/Button'
 import UserContext from '../../utils/UserContext'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Modal from 'react-bootstrap/Modal'
+import Typography from '@material-ui/core/Typography';
+import Box from '@material-ui/core/Box';
 
 
 
@@ -28,7 +30,7 @@ const useStyles = makeStyles(theme => ({
     },
     '& .MuiOutlinedInput-root': {
       '& fieldset': {
-        borderColor: 'white',
+        borderColor: 'light-grey',
       },
       '&:hover fieldset': {
         borderColor: 'black',
@@ -40,23 +42,7 @@ const useStyles = makeStyles(theme => ({
         borderColor: '#5BA016',
       },
     },
-    '& label.Mui-focused': {
-      color: 'black',
-    },
-    '& .MuiInput-underline:after': {
-      borderBottomColor: '#5BA016',
-    },
-    '& .MuiOutlinedInput-root': {
-      '& fieldset': {
-        borderColor: 'white',
-      },
-      '&:hover fieldset': {
-        borderColor: 'black',
-      },
-      '&.Mui-focused fieldset': {
-        borderColor: '#5BA016',
-      },
-    },
+  
     '& .MuiInputBase-input': {
       '& fieldset': {
         borderColor: 'white',
@@ -75,7 +61,22 @@ const useStyles = makeStyles(theme => ({
     marginTop: 20,
     backgroundColor: "white",
     color: "#F4D03F"
-  }
+  },
+  outline: {
+    backgroundColor: "#78b746",
+    color: "white"
+  },
+  title: {
+    fontFamily: 'DM Sans, sans-serif'
+  },
+  title2:{
+    fontFamily: 'DM Sans, sans-serif',
+    fontSize: "13px"
+  },
+  enter: {
+    backgroundColor: "#78b746",
+    color: "white"
+  },
 }))
 
 const RegisterForm = () => {
@@ -94,17 +95,26 @@ const RegisterForm = () => {
       </Button>
 
       <Modal show={show} onHide={handleClose} animation={true}>
-        <Modal.Header closeButton>
-          <Modal.Title>Create an Account</Modal.Title>
+        <Modal.Header className={classes.outline} closeButton>
+
+          
+          <Modal.Title className={classes.title}>Register</Modal.Title>
         </Modal.Header>
         <Modal.Body>
+          <Typography className={classes.title}>
+          <Box textAlign="center" m={1}>
+            Create your account. It's free and only takes a minute.
+      </Box>
+          </Typography>
+
+      <br/>
           <form className={classes.card}>
             <TextField
               onChange={handleInputChange}
               className={classes.pos}
               name="userFullName"
               value={userFullName}
-              label="Your Name"
+              label="First Name"
               variant="outlined"></TextField>
 
             <TextField
@@ -133,9 +143,15 @@ const RegisterForm = () => {
               variant="outlined"></TextField>
           </form>
 
+          <hr/>
+          <Typography className={classes.title2}>
+            <Box textAlign="center" m={1}>
+              By clicking the Register Account button you are agreeing to make your job hunt easier.
+      </Box>
+          </Typography>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="contained" onClick={handleRegisterUser}>
+          <Button className={classes.enter}variant="contained" onClick={handleRegisterUser}>
             Register Account
           </Button>
 

@@ -27,7 +27,7 @@ const useStyles = makeStyles(theme => ({
     },
     '& .MuiOutlinedInput-root': {
       '& fieldset': {
-        borderColor: 'white',
+        borderColor: 'light-grey',
       },
       '&:hover fieldset': {
         borderColor: 'black',
@@ -65,14 +65,10 @@ const useStyles = makeStyles(theme => ({
   enter:{
     backgroundColor: "#78b746",
     color: "white"
-
   },
   outline:{
     backgroundColor: "#78b746",
     color: "white"
-  },
-  outlineBottom:{
-    color: "#fbaa10"
   }
 
 }))
@@ -117,12 +113,12 @@ const LoginForm = () => {
               name="userPassword"
               value={userPassword}
               label="Password"
-              placeholder="Enter Password!"
+              placeholder="Enter Password"
               variant="outlined"></TextField>
           </form>
 
         </Modal.Body>
-        <Modal.Footer className={classes.outlineBottom}>
+        <Modal.Footer>
             <Button className={classes.enter}variant="contained" onClick={handleLogin}>
               Enter
           </Button>
