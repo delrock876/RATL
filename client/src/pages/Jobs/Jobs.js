@@ -4,6 +4,8 @@ import JobCardContext from '../../utils/JobCardContext'
 import JobCard from '../../components/JobCard'
 import JobDrawer from '../../components/JobDrawer'
 import { makeStyles } from '@material-ui/core/styles'
+import GoogleInfo from '../../components/GoogleInfo'
+
 
 const { getAllJobs, addJob, updateJob, deleteJob, addConnect, addSkills } = JobCardAPI
 
@@ -46,7 +48,7 @@ const Jobs = () => {
     bottom: false,
     connections: [],
     newSkills: '',
-    status:''
+    status: ''
 
   })
 
@@ -72,20 +74,26 @@ const Jobs = () => {
   }
 
 
-  jobState.handleAddStatus =(id, status)=>{
-    
+  jobState.handleAddStatus = (id, status) => {
+
     let jobs = JSON.parse(JSON.stringify(jobState.jobs))
 
-    let modJob = jobs.map(job=> {
-      if (job._id === id){
-          job.status = jobState.status
-          updateJob(id, {status: job.status}, localStorage.getItem('userAuth'))
-          console.log(job.status)    
+    // let updateStatus = JSON.parse(JSON.stringify(jobState.status))
+
+    let modJob = jobs.map(job => {
+      if (job._id === id) {
+        job.status = jobState.status
+        updateJob(id, { status: job.status }, localStorage.getItem('userAuth'))
+        console.log(job.status)
+
       }
       return job
     })
-setJobState({...jobState, jobs: modJob})
-    
+    setJobState({ ...jobState, jobs: modJob })
+    // updateJob(id, {status: updateStatus}, localStorage.getItem('userAuth'))
+
+    // setJobState({})
+    // console.log(status)
   }
 
 
@@ -106,7 +114,7 @@ setJobState({...jobState, jobs: modJob})
     setJobState({ ...jobState, jobs: modJob })
   }
 
-jobState.handleDeleteSkill = (id,  skill) =>{
+  jobState.handleDeleteSkill = (id, skill) => {
 
   let jobs = JSON.parse(JSON.stringify(jobState.jobs))
   let modJobs = jobs.map(job => {
@@ -188,21 +196,28 @@ jobState.handleDeleteSkill = (id,  skill) =>{
     let jobs = JSON.parse(JSON.stringify(jobState.jobs))
 
     let contactInfo = {
-        name: jobState.namee,
-        type: jobState.type,
-        phone: jobState.phone,
-        email: jobState.email
-      }
+      name: jobState.namee,
+      type: jobState.type,
+      phone: jobState.phone,
+      email: jobState.email
+    }
 
-    let modJob = jobs.map(job=>{
-      if( id === job._id){
-        job.connections.push(contactInfo) 
+    let modJob = jobs.map(job => {
+      if (id === job._id) {
+        job.connections.push(contactInfo)
         console.log(job.connections)
-        updateJob(id, {connections: job.connections}, localStorage.getItem('userAuth'))
+        updateJob(id, { connections: job.connections }, localStorage.getItem('userAuth'))
       }
       return job
     })
-    setJobState({...jobState, jobs: modJob})
+    setJobState({
+      ...jobState,
+      jobs: modJob,
+      namee: '',
+      type: '',
+      phone: '',
+      email: ''
+    })
   }
 
   //get all jobs
@@ -221,9 +236,9 @@ jobState.handleDeleteSkill = (id,  skill) =>{
       <div className='jobsBg'>
         <h1 className={classes.title}>Job Info</h1>
         <JobCardContext.Provider value={jobState}>
-
+        <GoogleInfo />
           <JobDrawer />
-              <JobCard />
+          <JobCard />
         </JobCardContext.Provider>
 
       </div>

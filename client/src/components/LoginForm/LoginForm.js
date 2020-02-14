@@ -1,13 +1,11 @@
 import React, { useState, useContext } from 'react'
-import { makeStyles, withTheme } from '@material-ui/core/styles'
+import { makeStyles } from '@material-ui/core/styles'
 import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
 import UserContext from '../../utils/UserContext'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Modal from 'react-bootstrap/Modal'
-import InputAdornment from '@material-ui/core/InputAdornment'
-import Snackbars from '../../components/Snackbars'
-
+import { Redirect } from 'react-router-dom'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -20,20 +18,70 @@ const useStyles = makeStyles(theme => ({
     maxWidth: 490,
   },
   pos: {
-    margin: 10
-  }, 
+    margin: 10,
+    // color: '#5ba016'
+    '& label.Mui-focused': {
+      color: 'black',
+    },
+    '& .MuiInput-underline:after': {
+      borderBottomColor: '#5BA016',
+    },
+    '& .MuiOutlinedInput-root': {
+      '& fieldset': {
+        borderColor: 'white',
+      },
+      '&:hover fieldset': {
+        borderColor: 'black',
+      },
+      '&.Mui-focused fieldset': {
+        borderColor: '#5BA016',
+      },
+      '&.MuiFilledInput-underline': {
+        borderColor: '#5BA016',
+      },
+    },
+    '& label.Mui-focused': {
+      color: 'black',
+    },
+    '& .MuiInput-underline:after': {
+      borderBottomColor: '#5BA016',
+    },
+    '& .MuiOutlinedInput-root': {
+      '& fieldset': {
+        borderColor: 'white',
+      },
+      '&:hover fieldset': {
+        borderColor: 'black',
+      },
+      '&.Mui-focused fieldset': {
+        borderColor: '#5BA016',
+      },
+    },
+    '& .MuiInputBase-input': {
+      '& fieldset': {
+        borderColor: 'white',
+      },
+      '&:hover fieldset': {
+        borderColor: 'black',
+      },
+      '&.Mui-focused fieldset': {
+        borderColor: '#5BA016',
+      },
+    },
+  },
   myBtn: {
     marginLeft: 10,
     marginBottom: 15,
     borderRadius: 7,
-    marginTop: 20, 
+    marginTop: 20,
     color: "white",
     backgroundColor: "transparent"
-  }
+  },
+
 }))
 
 const LoginForm = () => {
-  const { usersname, userPassword, handleInputChange, handleLogin } = useContext(UserContext)
+  const { usersname, userPassword, handleInputChange, handleLogin, shouldRedirect, setRedirect } = useContext(UserContext)
 
   const classes = useStyles()
   const [show, setShow] = useState(false)
@@ -41,10 +89,10 @@ const LoginForm = () => {
   const handleClose = () => setShow(false)
   const handleShow = () => setShow(true)
 
-  return (
+  return shouldRedirect ? <Redirect to='/home' /> : (
     <div className="landing">
-     
-      <Button className={classes.myBtn}  onClick={handleShow}>
+
+      <Button className={classes.myBtn} onClick={handleShow}>
         Login
       </Button>
 
@@ -77,14 +125,16 @@ const LoginForm = () => {
 
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="contained" onClick={handleLogin}>
-            Enter
+            <Button variant="contained" onClick={handleLogin}>
+              Enter
           </Button>
 
         </Modal.Footer>
       </Modal>
     </div>
   )
+
+
 }
 
 export default LoginForm

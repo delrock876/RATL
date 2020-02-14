@@ -26,7 +26,7 @@ const SimCard = () => {
     marg: {
       margin: '16px',
       backgroundColor: "transparent"
-        },
+    },
     title: {
       fontSize: 14,
       fontFamily: 'DM Sans, sans-serif',
@@ -35,53 +35,101 @@ const SimCard = () => {
       marginBottom: 12,
       fontFamily: 'DM Sans, sans-serif',
     },
-    simCard:{
+    simCard: {
       paddingBottom: 30
     },
     compName: {
-      fontFamily: 'DM Sans, sans-serif'
+      fontFamily: 'DM Sans, sans-serif',
+      '& label.Mui-focused': {
+        color: 'black',
+      },
+      '& .MuiInput-underline:after': {
+        borderBottomColor: '#5BA016',
+      },
+      '& .MuiOutlinedInput-root': {
+        '& fieldset': {
+          borderColor: 'white',
+        },
+        '&:hover fieldset': {
+          borderColor: 'black',
+        },
+        '&.Mui-focused fieldset': {
+          borderColor: '#5BA016',
+        },
+        '&.MuiFilledInput-underline': {
+          borderColor: '#5BA016',
+        },
+      },
+      '& label.Mui-focused': {
+        color: 'black',
+      },
+      '& .MuiInput-underline:after': {
+        borderBottomColor: '#5BA016',
+      },
+      '& .MuiOutlinedInput-root': {
+        '& fieldset': {
+          borderColor: 'white',
+        },
+        '&:hover fieldset': {
+          borderColor: 'black',
+        },
+        '&.Mui-focused fieldset': {
+          borderColor: '#5BA016',
+        },
+      },
+      '& .MuiInputBase-input': {
+        '& fieldset': {
+          borderColor: 'white',
+        },
+        '&:hover fieldset': {
+          borderColor: 'black',
+        },
+        '&.Mui-focused fieldset': {
+          borderColor: '#5BA016',
+        },
+      },
     },
     para2: {
       fontSize: "1em",
       color: "black",
       fontFamily: 'DM Sans, sans-serif'
-  }
-})
+    }
+  })
 
   const classes = useStyles()
-  
+
   return (
-    
+
 
     <div className={classes.simCard}>
-  
+
       <List style={{ maxHeight: 700, overflow: 'auto' }}>
-      {jobs.length ? jobs.map(job => (
-        <ListItem>
-        <Card className={classes.card}>
-          <CardContent>
-            <Typography className={classes.title} color="textSecondary" gutterBottom>
-              Date Applied: {job.date}
-            </Typography>
-            <Typography variant="h5" component="h2" className={classes.compName}>
-              {job.companyName}
-            </Typography>
-            <Typography className={classes.pos} color="textSecondary">
-              {job.jobTitle}
-            </Typography>
-              <Typography variant="body2" component="p" className={classes.compName}>
-              Status: {job.status}
-             
-              <br />
+        {jobs.length ? jobs.map(job => (
+          <ListItem>
+            <Card className={classes.card}>
+              <CardContent>
+                <Typography className={classes.title} color="textSecondary" gutterBottom>
+                  Date Applied: {job.date}
+                </Typography>
+                <Typography variant="h5" component="h2" className={classes.compName}>
+                  {job.companyName}
+                </Typography>
+                <Typography className={classes.pos} color="textSecondary">
+                  {job.jobTitle}
+                </Typography>
+                <Typography variant="body2" component="p" className={classes.compName}>
+                  Status: {job.status}
 
-            </Typography>
+                  <br />
 
-          </CardContent>
-          
-        </Card>
-        </ListItem>
-      )) : null
-      }
+                </Typography>
+
+              </CardContent>
+
+            </Card>
+          </ListItem>
+        )) : null
+        }
       </List>
     </div>
   )

@@ -27,19 +27,23 @@ const App = () => {
     userFullName: '',
     userEmail: '',
     usersname: '',
-    userPassword: ''
+    userPassword: '',
+    shouldRedirect: false
   })
 
 
 
+  userState.setRedirect= (shouldRedirect) =>{
+    setUserState({...userState, shouldRedirect})
+  }
+
   userState.handleLogout = () => {
     localStorage.clear()
-   window.location.href= "/"
+    window.location.href = '/'
   }
 
   userState.handleLogin = (event) => {
     event.preventDefault()
-
     let user = {
       username: userState.usersname,
       password: userState.userPassword
@@ -50,7 +54,8 @@ const App = () => {
       .then(({ data }) => {
         localStorage.setItem('userAuth', data.token)
         localStorage.setItem('name', data.currentUser)
-        window.location.href='/home'
+        setUserState({ ...userState, shouldRedirect: true })
+        // window.location.href = '/home'
       })
       .catch(e => console.error(e))
   }
@@ -85,7 +90,6 @@ const App = () => {
   return (
 
     <Router>
-      
       <Switch>
 
         <UserContext.Provider value={userState}>

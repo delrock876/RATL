@@ -7,7 +7,6 @@ import Modal from 'react-bootstrap/Modal'
 import JobCardContext from '../../utils/JobCardContext'
 import RecentActorsIcon from '@material-ui/icons/RecentActors';
 import Tooltip from '@material-ui/core/Tooltip'
-
 import PersonAddIcon from '@material-ui/icons/PersonAdd';
 
 
@@ -23,7 +22,55 @@ const useStyles = makeStyles(theme => ({
     maxWidth: 490,
   },
   pos: {
-    margin: 10
+    margin: 10,
+    '& label.Mui-focused': {
+      color: 'black',
+    },
+    '& .MuiInput-underline:after': {
+      borderBottomColor: '#5BA016',
+    },
+    '& .MuiOutlinedInput-root': {
+      '& fieldset': {
+        borderColor: 'white',
+      },
+      '&:hover fieldset': {
+        borderColor: 'black',
+      },
+      '&.Mui-focused fieldset': {
+        borderColor: '#5BA016',
+      },
+      '&.MuiFilledInput-underline': {
+        borderColor: '#5BA016',
+      },
+    },
+    '& label.Mui-focused': {
+      color: 'black',
+    },
+    '& .MuiInput-underline:after': {
+      borderBottomColor: '#5BA016',
+    },
+    '& .MuiOutlinedInput-root': {
+      '& fieldset': {
+        borderColor: 'white',
+      },
+      '&:hover fieldset': {
+        borderColor: 'black',
+      },
+      '&.Mui-focused fieldset': {
+        borderColor: '#5BA016',
+      },
+    },
+    '& .MuiInputBase-input': {
+      '& fieldset': {
+        borderColor: 'white',
+      },
+      '&:hover fieldset': {
+        borderColor: 'black',
+      },
+      '&.Mui-focused fieldset': {
+        borderColor: '#5BA016',
+      },
+    },
   },
   button: {
     padding: 3
@@ -44,10 +91,10 @@ const ConnectionForm = (props) => {
   return (
     <>
       <Tooltip title="Add Connection">
-      <Button
-        onClick={() => handleShow()}
-        className={classes.button}
-      ><PersonAddIcon/></Button>
+        <Button
+          onClick={() => handleShow()}
+          className={classes.button}
+        ><PersonAddIcon /></Button>
       </Tooltip>
 
       <Modal show={show} onHide={handleClose} animation={true}>
@@ -59,6 +106,7 @@ const ConnectionForm = (props) => {
 
             <Tooltip title="Example: Hiring Manager">
               <TextField
+                className={classes.pos}
                 size="small"
                 id="outlined-basic"
                 label="Connection Type"
@@ -69,6 +117,7 @@ const ConnectionForm = (props) => {
             </Tooltip>
 
             <TextField
+              className={classes.pos}
               size="small"
               id="outlined-basic"
               label="Connection's Name"
@@ -78,6 +127,7 @@ const ConnectionForm = (props) => {
               onChange={handleInputChange} />
 
             <TextField
+              className={classes.pos}
               size="small"
               id="outlined-basic"
               label="Connection's Phone"
@@ -87,6 +137,7 @@ const ConnectionForm = (props) => {
               onChange={handleInputChange} />
 
             <TextField
+              className={classes.pos}
               size="small"
               id="outlined-basic"
               label="Connection's Email"
@@ -101,10 +152,15 @@ const ConnectionForm = (props) => {
 
         </Modal.Body>
         <Modal.Footer>
-          <Button onClick={() =>
-            handleAddConnection(props.jobId)
-          }
+          <Button 
+          onClick={() => 
+            handleAddConnection(props.jobId)}
           >Submit</Button>
+
+<Button 
+          onClick={() => 
+            handleClose()}
+          >Close</Button>
 
         </Modal.Footer>
       </Modal>

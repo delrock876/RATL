@@ -36,11 +36,61 @@ const useStyles = makeStyles(theme => ({
   chip2: {
     color: "#fbaa10"
   },
-  btn:{
-    display:"flex",
+  btn: {
+    display: "flex",
     justifyContent: "flex-start"
-  }
-  
+  },
+
+  inputField: {
+    '& label.Mui-focused': {
+      color: 'black',
+    },
+    '& .MuiInput-underline:after': {
+      borderBottomColor: '#5BA016',
+    },
+    '& .MuiOutlinedInput-root': {
+      '& fieldset': {
+        borderColor: '#5BA016',
+      },
+      '&:hover fieldset': {
+        borderColor: 'black',
+      },
+      '&.Mui-focused fieldset': {
+        borderColor: '#5BA016',
+      },
+      '&.MuiFilledInput-underline': {
+        borderColor: '#5BA016',
+      },
+    },
+    '& label.Mui-focused': {
+      color: 'black',
+    },
+    '& .MuiInput-underline:after': {
+      borderBottomColor: '#5BA016',
+    },
+    '& .MuiOutlinedInput-root': {
+      '& fieldset': {
+        borderColor: '#5BA016',
+      },
+      '&:hover fieldset': {
+        borderColor: 'black',
+      },
+      '&.Mui-focused fieldset': {
+        borderColor: '#5BA016',
+      },
+    },
+    '& .MuiInputBase-input': {
+      '& fieldset': {
+        borderColor: '#5BA016',
+      },
+      '&:hover fieldset': {
+        borderColor: 'black',
+      },
+      '&.Mui-focused fieldset': {
+        borderColor: '#5BA016',
+      },
+    },
+  },
 }))
 
 
@@ -73,26 +123,27 @@ const AddSkillForm = (props) => {
       <Modal show={show} onHide={handleClose} animation={true}>
         <Modal.Header>
         </Modal.Header>
-  
-          <form className={classes.card}>
-            <TextField
-              id="outlined-multiline-static"
-              label="Add Skills"
-              multiline
-              rows="3"
-              fullWidth
-              placeholder="Separate each skill with a comma"
-              variant="outlined"
-              name="newSkills"
-              value= {newSkills} 
-              onChange= {handleInputChange}
-            />
-          </form>
 
-          <Button className= {classes.btn}  onClick={() => handleAddSkills(props.jobId)}>
-            <Chip
-            label="Add Skills"/>
-          </Button>
+        <form className={classes.card}>
+          <TextField
+            className={classes.inputField}
+            id="outlined-multiline-static"
+            label="Add Skills"
+            multiline
+            rows="3"
+            fullWidth
+            placeholder="Separate each skill with a comma"
+            variant="outlined"
+            name="newSkills"
+            value={newSkills}
+            onChange={handleInputChange}
+          />
+        </form>
+
+        <Button className={classes.btn} onClick={() => handleAddSkills(props.jobId)}>
+          <Chip
+            label="Add Skills" />
+        </Button>
       </Modal>
     </div>
   )
