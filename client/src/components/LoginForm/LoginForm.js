@@ -6,8 +6,7 @@ import UserContext from '../../utils/UserContext'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Modal from 'react-bootstrap/Modal'
 import InputAdornment from '@material-ui/core/InputAdornment'
-
-
+import { Redirect } from 'react-router-dom'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -83,7 +82,7 @@ const useStyles = makeStyles(theme => ({
 }))
 
 const LoginForm = () => {
-  const { usersname, userPassword, handleInputChange, handleLogin } = useContext(UserContext)
+  const { usersname, userPassword, handleInputChange, handleLogin, shouldRedirect } = useContext(UserContext)
 
   const classes = useStyles()
   const [show, setShow] = useState(false)
@@ -91,7 +90,7 @@ const LoginForm = () => {
   const handleClose = () => setShow(false)
   const handleShow = () => setShow(true)
 
-  return (
+  return shouldRedirect ? <Redirect to='/home' /> : (
     <div className="landing">
 
       <Button className={classes.myBtn} onClick={handleShow}>
@@ -126,8 +125,8 @@ const LoginForm = () => {
 
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="contained" onClick={handleLogin}>
-            Enter
+            <Button variant="contained" onClick={handleLogin}>
+              Enter
           </Button>
 
         </Modal.Footer>
