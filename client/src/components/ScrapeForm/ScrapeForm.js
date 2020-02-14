@@ -1,4 +1,4 @@
-import React , { useContext } from 'react'
+import React, { useContext } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import InputLabel from '@material-ui/core/InputLabel'
 import FormHelperText from '@material-ui/core/FormHelperText'
@@ -10,6 +10,62 @@ import Button from '@material-ui/core/Button'
 
 
 const useStyles = makeStyles(theme => ({
+  // root: {
+  //   '& > *': {
+  //     margin: theme.spacing(1),
+  //   },
+  //   '& label.Mui-focused': {
+  //     color: 'black',
+  //   },
+  //   '& .MuiInput-underline:after': {
+  //     borderBottomColor: '#5ba016',
+  //   },
+  //   '& .MuiOutlinedInput-root': {
+  //     '& fieldset': {
+  //       borderColor: 'white',
+  //     },
+  //     '&:hover fieldset': {
+  //       borderColor: 'black',
+  //     },
+  //     '&.Mui-focused fieldset': {
+  //       borderColor: '#5ba016',
+  //     },
+  //     '&.MuiFilledInput-underline': {
+  //       borderColor: '#5ba016',
+  //     },
+  //   },
+  //   '& label.Mui-focused': {
+  //     color: 'black',
+  //   },
+  //   '& .MuiInput-underline:after': {
+  //     borderBottomColor: '#5ba016',
+  //   },
+  //   '& .MuiOutlinedInput-root': {
+  //     '& fieldset': {
+  //       borderColor: 'white',
+  //     },
+  //     '&:hover fieldset': {
+  //       borderColor: 'black',
+  //     },
+  //     '&.Mui-focused fieldset': {
+  //       borderColor: '#5ba016',
+  //     },
+  //   },
+  //   '& .MuiInputBase-input': {
+  //     '& fieldset': {
+  //       borderColor: 'white',
+  //     },
+  //     '&:hover fieldset': {
+  //       borderColor: 'black',
+  //     },
+  //     '&.Mui-focused fieldset': {
+  //       borderColor: '#5ba016',
+  //     },
+  //   },
+  //   '& .MuiFilledInput-underline:after': {
+  //     borderColor: '#5ba016',
+  //   }
+  // },
   formControl: {
     margin: theme.spacing(1),
     minWidth: 120,
@@ -17,50 +73,63 @@ const useStyles = makeStyles(theme => ({
   selectEmpty: {
     marginTop: theme.spacing(2),
   },
-  paper:{
+  paper: {
     backgroundColor: "transparent",
     height: 70
   },
-  form:{
+  form: {
     paddingBottom: "50px",
     paddingLeft: "16px",
     paddingTop: "0px"
+  },
+  pos: {
+    '& .MuiInput-underline:after': {
+      borderBottomColor: '#5BA016',
+    },
+    '& .MuiOutlinedInput-root': {
+      '&:hover fieldset': {
+        borderColor: '#5BA016'
+      },
+    },
+    '& .MuiInput-root:hover::before': {
+      borderColor: '#fbaa10',
+    },
   }
 }))
 
 
-const ScrapeForm =()=>{
+const ScrapeForm = () => {
 
-  const {query, city, level, handleScrapeLeads, handleInputChange}= useContext(ScrapeCardContext)
+  const { query, city, level, handleScrapeLeads, handleInputChange } = useContext(ScrapeCardContext)
   const classes = useStyles()
 
   return (
     <div className={classes.form}>
-     
-      <FormControl>
-        <Input 
-        name="query"
-        value={query}
-        onChange= {handleInputChange}/>
+
+      <FormControl className={classes.pos}>
+        <Input
+          name="query"
+          value={query}
+          onChange={handleInputChange} />
         <FormHelperText>Job Type (ex: software)</FormHelperText>
       </FormControl>
 
-      <FormControl>
-        <Input 
-        name="level"
-        value={level}
-        onChange= {handleInputChange}/>
+      <FormControl className={classes.pos}>
+        <Input
+          name="level"
+          value={level}
+          onChange={handleInputChange} />
         <FormHelperText>Job Level (ex: entry_level)</FormHelperText>
       </FormControl>
-      <FormControl>
-        <Input 
-        name="city"
-        value={city}
-        onChange= {handleInputChange}/>
+      <FormControl className={classes.pos}>
+        <Input
+          name="city"
+          value={city}
+          onChange={handleInputChange} />
         <FormHelperText>City, State (ex: Los Angeles, CA)</FormHelperText>
       </FormControl>
       <Button onClick={handleScrapeLeads}>Find Leads</Button>
-      
+
     </div>
   )
 }
