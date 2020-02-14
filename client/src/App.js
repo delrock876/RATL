@@ -12,8 +12,7 @@ import UserAPI from './utils/UserAPI'
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Redirect
+  Route
 } from 'react-router-dom'
 
 
@@ -23,32 +22,17 @@ const { loginUser, registerUser } = UserAPI
 
 const App = () => {
 
-  const [goHome, setGoHome] = useState(false)
-
-  const renderRedirectHome = () => {
-    if (goHome) {
-      return <Redirect to="/home" />
-    }
-  }
-
-
   const [userState, setUserState] = useState({
     userFullName: '',
     userEmail: '',
     usersname: '',
-    userPassword: '',
-    loggingOut: false
+    userPassword: ''
   })
 
-  const renderRedirectLanding = () => {
-    if (userState.loggingOut) {
-      return <Redirect to="/" />
-    }
-  }
 
   userState.handleLogout = () => {
     localStorage.clear()
-    setUserState({ ...userState, loggingOut: true })
+    window.location.href = '/'
   }
 
   userState.handleLogin = (event) => {
@@ -64,17 +48,13 @@ const App = () => {
       .then(({ data }) => {
         localStorage.setItem('userAuth', data.token)
         localStorage.setItem('name', data.currentUser)
-        setGoHome(true)
+        window.location.href = '/home'
       })
       .catch(e => console.error(e))
   }
 
   userState.handleInputChange = (event) => {
     setUserState({ ...userState, [event.target.name]: event.target.value })
-  }
-
-  userState.setLoggingOut = loggingOut => {
-    setUserState({ ...userState, loggingOut })
   }
 
   userState.handleRegisterUser = (event) => {
@@ -103,8 +83,7 @@ const App = () => {
   return (
 
     <Router>
-      {renderRedirectHome()}
-      {renderRedirectLanding()}
+    
       <Switch>
 
         <UserContext.Provider value={userState}>
