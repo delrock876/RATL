@@ -1,11 +1,10 @@
 import React, { useState, useContext } from 'react'
-import { makeStyles, withTheme } from '@material-ui/core/styles'
+import { makeStyles } from '@material-ui/core/styles'
 import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
 import UserContext from '../../utils/UserContext'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Modal from 'react-bootstrap/Modal'
-import InputAdornment from '@material-ui/core/InputAdornment'
 import { Redirect } from 'react-router-dom'
 
 const useStyles = makeStyles(theme => ({
