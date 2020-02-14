@@ -76,22 +76,16 @@ const Jobs = () => {
     
     let jobs = JSON.parse(JSON.stringify(jobState.jobs))
 
-    // let updateStatus = JSON.parse(JSON.stringify(jobState.status))
-
     let modJob = jobs.map(job=> {
       if (job._id === id){
           job.status = jobState.status
           updateJob(id, {status: job.status}, localStorage.getItem('userAuth'))
-          console.log(job.status)  
-          
+          console.log(job.status)    
       }
       return job
     })
 setJobState({...jobState, jobs: modJob})
-    // updateJob(id, {status: updateStatus}, localStorage.getItem('userAuth'))
-
-    // setJobState({})
-    // console.log(status)
+    
   }
 
 
@@ -113,7 +107,6 @@ setJobState({...jobState, jobs: modJob})
 
     let newSkills = JSON.parse(JSON.stringify(jobState.newSkills))
     let arrSkills = newSkills.split(',')
-    
     addSkills(id, arrSkills, localStorage.getItem('userAuth'))
       .then(({data}) =>{
         data.push(arrSkills)
@@ -132,7 +125,6 @@ jobState.handleDeleteSkill = (id,  skill) =>{
     return job
   })
   setJobState({ ...jobState, jobs: modJobs })
-
 }
 
   jobState.handleDeleteJob = (id) => {
@@ -142,7 +134,6 @@ jobState.handleDeleteSkill = (id,  skill) =>{
         let jobs = JSON.parse(JSON.stringify(jobState.jobs))
         let newJobs = jobs.filter(job => id !== job._id)
         setJobState({ ...jobState, jobs: newJobs })
-
       })
       .catch(e => console.error(e))
   }

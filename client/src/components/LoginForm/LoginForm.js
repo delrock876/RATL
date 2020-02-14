@@ -6,8 +6,7 @@ import UserContext from '../../utils/UserContext'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Modal from 'react-bootstrap/Modal'
 import InputAdornment from '@material-ui/core/InputAdornment'
-
-
+import Snackbars from '../../components/Snackbars'
 
 
 const useStyles = makeStyles(theme => ({
@@ -49,6 +48,7 @@ const LoginForm = () => {
         Login
       </Button>
 
+     
       <Modal show={show} onHide={handleClose} animation={true}>
         <Modal.Header closeButton>
           <Modal.Title>Login</Modal.Title>
