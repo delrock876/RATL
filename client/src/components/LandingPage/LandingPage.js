@@ -19,7 +19,6 @@ import LinkedInIcon from '@material-ui/icons/LinkedIn';
 const useStyles = makeStyles(theme => ({
   header: {
     margin: "auto",
-    // backgroundColor: "FFFFFF",
     width: "80%",
     textAlign: "center"
   },
@@ -38,7 +37,7 @@ const useStyles = makeStyles(theme => ({
   paper: {
     textAlign: "center",
     backgroundColor: 'rgb(244, 255, 225)',
-    height: "240px",
+    height: "285px",
     paddingTop: "10%",
     borderRadius: "3%",
     margin: 5,

@@ -17,8 +17,6 @@ import {
 } from 'react-router-dom'
 
 
-
-
 const { loginUser, registerUser } = UserAPI
 
 const App = () => {
@@ -31,8 +29,6 @@ const App = () => {
     shouldRedirect: false
   })
 
-
-
   userState.setRedirect= (shouldRedirect) =>{
     setUserState({...userState, shouldRedirect})
   }
@@ -44,18 +40,17 @@ const App = () => {
 
   userState.handleLogin = (event) => {
     event.preventDefault()
+
     let user = {
       username: userState.usersname,
       password: userState.userPassword
     }
 
     loginUser(user)
-
       .then(({ data }) => {
         localStorage.setItem('userAuth', data.token)
         localStorage.setItem('name', data.currentUser)
         setUserState({ ...userState, shouldRedirect: true })
-        // window.location.href = '/home'
       })
       .catch(e => console.error(e))
   }
