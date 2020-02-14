@@ -14,7 +14,9 @@ import Typography from '@material-ui/core/Typography'
 import UserContext from '../../utils/UserContext'
 
 
-const { getAllJobs, updateJob } = JobCardAPI
+
+const { getAllJobs} = JobCardAPI
+
 
 const theme = createMuiTheme();
 
@@ -76,6 +78,7 @@ const Home = () => {
     setLoggingOut(false)
   }, [])
   const classes = useStyles();
+
   return (
 
     <div className="homeBg">
@@ -85,6 +88,7 @@ const Home = () => {
           <hr />
         </div>
 
+        
         <Grid item xs={12}>
           <h4 className={classes.marg}>Upcoming Events</h4>
           <Paper className={classes.marg} elevation={4}>
@@ -112,7 +116,6 @@ const Home = () => {
           <Typography variant="h5" className={classes.para}>Find Job Leads</Typography>
           <Scrape />
         </Grid>
-
 
       </Grid >
     </div >
