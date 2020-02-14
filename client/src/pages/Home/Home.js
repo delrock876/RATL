@@ -70,11 +70,6 @@ const Home = () => {
   }, [])
 
 
-  const { setLoggingOut } = useContext(UserContext)
-
-  useEffect(() => {
-    setLoggingOut(false)
-  }, [])
   const classes = useStyles();
   return (
 
