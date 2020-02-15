@@ -95,7 +95,7 @@ const JobCard = () => {
     <div>
       <List>
         {
-          jobs ? jobs.map(job => !job.archived ? (
+          jobs ? jobs.map(job =>  !job.archived ? (
             <ListItem>
 
               <Card className={classes.card} variant="outlined">
