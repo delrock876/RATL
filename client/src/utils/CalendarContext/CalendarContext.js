@@ -6,7 +6,8 @@ const CalendarContext = createContext({
     date: '',
     events: [],
     handleAddReminder: () => { },
-    handleDateClick: () => { }
+    handleDateClick: () => { },
+    handleDeleteReminder: () => { }
 })
 
 export default CalendarContext

@@ -51,13 +51,14 @@ const useStyles = makeStyles(theme => ({
         },
     },
     myBtn: {
-        marginLeft: 10,
+        marginLeft: 2,
         marginBottom: 15,
-        borderRadius: 7,
+        borderRadius: 3,
         marginTop: 20,
         color: "#fbaa10",
         backgroundColor: "transparent"
-    }
+    },
+
 
 }))
 

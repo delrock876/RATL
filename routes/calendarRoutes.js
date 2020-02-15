@@ -35,8 +35,8 @@ module.exports = app => {
 
     // Delete a Calendar reminder   
     app.delete('/api/calendar/:id', passport.authenticate('jwt', { session: false }), (req, res) => {
-      Calendar.findByIdAndRemove(req.params.id)
-        .then(() => res.sendStatus(200))
-        .catch(e => console.log(e))
+      Calendar.findByIdAndRemove(req.params.id, { $push: { calendars: req.body } })
+      .then((calendars) => res.json(jobs.calendars))
+      .catch(e => console.log(e))
     })
 }

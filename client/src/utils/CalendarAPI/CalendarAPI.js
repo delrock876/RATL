@@ -10,6 +10,10 @@ const CalendarAPI = {
         {
           headers:
             { 'Authorization': `Bearer ${token}` }
+        }),
+        removeReminder:  (id, token) => axios.delete(`/api/calendar/${id}`, {
+          headers:
+            { 'Authorization': `Bearer ${token}` }
         })
 }
 

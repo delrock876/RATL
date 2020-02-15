@@ -5,10 +5,12 @@ import CalendarAPI from '../../utils/CalendarAPI'
 import Calendar from '../Calender'
 import List from '@material-ui/core/List'
 import ListItem from '@material-ui/core/ListItem'
+import Button from '@material-ui/core/Button'
+
 import moment from 'moment'
 import { makeStyles } from '@material-ui/core/styles'
 
-const { getAllReminders } = CalendarAPI
+const { getAllReminders, removeReminder } = CalendarAPI
 
 
 const useStyles = makeStyles({
@@ -44,7 +46,18 @@ class CalendarCard extends React.Component {
         start: new Date()
       }
     ]
-  }
+ }
+
+  handleDeleteReminder = (id) => {
+      removeReminder(id, localStorage.getItem('userAuth'))
+
+      .then( () => {
+        let calendars = JSON.parse(JSON.stringify(this.state.calendarEvents))
+        let newCalendar = calendars.filter(calendar => id !== calendar._id)
+        this.setState({calendarEvents: newCalendar})
+      })
+      .catch(e => console.error(e))
+    }
 
   componentDidMount = () => {
     getAllReminders(localStorage.getItem('userAuth'))
@@ -54,6 +67,7 @@ class CalendarCard extends React.Component {
         })
       })
   }
+
 
   render() {
 
@@ -71,6 +85,7 @@ class CalendarCard extends React.Component {
                 )
               }
             </List>
+              <Button className='something' onClick={() => {this.handleDeleteReminder()}}>Clear</Button>
           </CardContent>
         </Card>
       </div>
