@@ -64,17 +64,6 @@ const Home = () => {
   })
 
 
-
-// useEffect(()=>{
-
-//   setRedirect(false)
-//   console.log(shouldRedirect)
-
-// }, [])
-
-
-
-
   useEffect(() => {
     getAllJobs(localStorage.getItem('userAuth'))
       .then(({ data: jobs }) => {

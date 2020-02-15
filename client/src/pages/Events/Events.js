@@ -3,7 +3,7 @@ import Calendar from '../../components/Calender'
 import CalendarContext from '../../utils/CalendarContext/CalendarContext'
 import CalendarAPI from '../../utils/CalendarAPI'
 import { makeStyles } from '@material-ui/core/styles';
-// import classes from '*.module.css';
+
 
 const useStyles = makeStyles({
   title: {
@@ -25,6 +25,11 @@ const useStyles = makeStyles({
     fontSize: "1em",
     color: "black",
     fontFamily: 'DM Sans, sans-serif'
+  },
+  marg: {
+    margin: "16px",
+    fontFamily: 'DM Sans, sans-serif',
+    color: "#fbaa10"
   }
 });
 
@@ -36,7 +41,8 @@ const Events = () => {
   return (
     <>
       <div className='calendarBg'>
-        <h3 className={classes.title}>Your Events</h3>
+        <h3 className={classes.marg}>Your Events</h3>
+        <hr/>
         <CalendarContext.Provider>
           <Calendar />
         </CalendarContext.Provider>

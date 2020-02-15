@@ -51,12 +51,15 @@ const useStyles = makeStyles(theme => ({
         },
     },
     myBtn: {
-        marginLeft: 10,
-        marginBottom: 15,
-        borderRadius: 7,
-        marginTop: 20,
         color: "#fbaa10",
         backgroundColor: "transparent"
+    },
+    container:{
+        margin: 10
+    },
+    padding:{
+        padding: 0
+
     }
 
 }))
@@ -99,9 +102,9 @@ const GoogleInfo = () => {
      }
    
         return (
-            <div>
+            <div className={classes.container}>
                 <Card>
-                    <CardContent>
+                    <CardContent className={classes.padding}>
 
                 <TextField 
                 className={classes.pos}

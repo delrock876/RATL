@@ -234,7 +234,7 @@ const Jobs = () => {
   return (
     <>
       <div className='jobsBg'>
-        <h1 className={classes.title}>Job Info</h1>
+        <h1 className={classes.title}>Your Jobs</h1>
         <JobCardContext.Provider value={jobState}>
         <GoogleInfo />
           <JobDrawer />
