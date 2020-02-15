@@ -111,7 +111,7 @@ const Jobs = () => {
       }
       return job
     })
-    setJobState({ ...jobState, jobs: modJob })
+    setJobState({ ...jobState, jobs: modJob, newSkills: '' })
   }
 
   jobState.handleDeleteSkill = (id, skill) => {

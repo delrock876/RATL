@@ -104,7 +104,8 @@ const SimCard = () => {
     <div className={classes.simCard}>
 
       <List style={{ maxHeight: 700, overflow: 'auto' }}>
-        {jobs.length ? jobs.map(job => (
+        {
+        jobs ? jobs.map(job =>  !job.archived ? (
           <ListItem>
             <Card className={classes.card}>
               <CardContent>
@@ -128,7 +129,7 @@ const SimCard = () => {
 
             </Card>
           </ListItem>
-        )) : null
+        ) : null) : null
         }
       </List>
     </div>

@@ -89,7 +89,7 @@ const App = () => {
 
         <UserContext.Provider value={userState}>
           <Route exact path="/">
-            <Landing />
+           <Landing />
           </Route>
 
           <Route path="/home">
