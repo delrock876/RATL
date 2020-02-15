@@ -89,11 +89,8 @@ const Jobs = () => {
       }
       return job
     })
-    setJobState({ ...jobState, jobs: modJob })
-    // updateJob(id, {status: updateStatus}, localStorage.getItem('userAuth'))
+    setJobState({ ...jobState, jobs: modJob, status:'' })
 
-    // setJobState({})
-    // console.log(status)
   }
 
 
