@@ -13,12 +13,12 @@ to make a copy. After it's been installed run  `npm i` in the root and client fo
 
 https://glacial-reaches-79922.herokuapp.com/
 
-![landingpage](assets\landingPage.PNG)  
-![homepage](assets\homePage.PNG)
+![landingpage](landingPage.PNG)  
+![homepage](homePage.PNG)
 
 ====
 
-### Technologies Used 
+### Technologies Used
 
 * React - A javascript library for building user interfaces
 * MongoDb - document oriented NoSQL database used used for high volume data storage.
