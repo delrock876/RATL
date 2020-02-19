@@ -9,11 +9,12 @@ Run
 to make a copy. After it's been installed run  `npm i` in the root and client folder to install all dependencies. Once all packages are installed run `npm start` in the root folder to run the application.
 
 
-### Live Deployed(https://glacial-reaches-79922.herokuapp.com/) 
+### Live Deployed
 
 https://glacial-reaches-79922.herokuapp.com/
 
-![landingpage](assets/landingPage.png)  ![homepage](assets/homePage.png)
+![landingpage](assets\landingPage.PNG)  
+![homepage](assets\homePage.PNG)
 
 ====
 
