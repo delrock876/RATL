@@ -14,11 +14,8 @@ to make a copy. After it's been installed run  `npm i` in the root and client fo
 https://glacial-reaches-79922.herokuapp.com/
 
 
-<img src="/assets/landingPage.PNG" width="250" height="250"> 
-
-![landingpage](/assets/landingPage.PNG)  
-![homepage](/assets/homePage.PNG)
-
+<img src="/assets/landingPage.PNG" width="250" height="400"> 
+<img src="/assets/homePage.PNG" width="250" height="400"> 
 
 ====
 
