@@ -1,13 +1,10 @@
 import React, { useContext } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
-import InputLabel from '@material-ui/core/InputLabel'
 import FormHelperText from '@material-ui/core/FormHelperText'
 import FormControl from '@material-ui/core/FormControl'
-import Select from '@material-ui/core/Select'
 import Input from '@material-ui/core/Input'
 import ScrapeCardContext from '../../utils/ScrapeCardContext'
 import Button from '@material-ui/core/Button'
-
 
 const useStyles = makeStyles(theme => ({
   formControl: {
@@ -41,7 +38,7 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-
+// FORM ON HOMEPAGE TO SCRAPE JOB LEADS 
 const ScrapeForm = () => {
 
   const { query, city, level, handleScrapeLeads, handleInputChange } = useContext(ScrapeCardContext)
@@ -49,7 +46,6 @@ const ScrapeForm = () => {
 
   return (
     <div className={classes.form}>
-
       <FormControl className={classes.pos}>
         <Input
           name="query"
@@ -65,6 +61,7 @@ const ScrapeForm = () => {
           onChange={handleInputChange} />
         <FormHelperText>Job Level (ex: entry_level)</FormHelperText>
       </FormControl>
+
       <FormControl className={classes.pos}>
         <Input
           name="city"
@@ -73,7 +70,6 @@ const ScrapeForm = () => {
         <FormHelperText>City, State (ex: Los Angeles, CA)</FormHelperText>
       </FormControl>
       <Button onClick={handleScrapeLeads}>Find Leads</Button>
-
     </div>
   )
 }

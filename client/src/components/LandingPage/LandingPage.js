@@ -14,7 +14,7 @@ import profileF from './assets/javi.jpeg'
 import Paper from '@material-ui/core/Paper'
 import RegisterForm from '../RegisterForm'
 import LoginForm from '../LoginForm'
-import LinkedInIcon from '@material-ui/icons/LinkedIn';
+import LinkedInIcon from '@material-ui/icons/LinkedIn'
 
 const useStyles = makeStyles(theme => ({
   header: {
@@ -22,7 +22,6 @@ const useStyles = makeStyles(theme => ({
     width: "80%",
     textAlign: "center"
   },
-
   logo: {
     marginTop: "15px",
     marginLeft: "10px"
@@ -44,9 +43,7 @@ const useStyles = makeStyles(theme => ({
     marginTop: 20,
     padding: 15,
     fontFamily: 'DM Sans, sans-serif'
-
   },
-
   title: {
     marginTop: "6%",
     fontSize: "2em",
@@ -65,18 +62,15 @@ const useStyles = makeStyles(theme => ({
     color: "black",
     fontFamily: 'DM Sans, sans-serif'
   },
-
   topHead: {
     backgroundColor: '#ffb84d'
   }
-
-}));
+}))
 
 const LandingPage = () => {
-  const classes = useStyles();
+  const classes = useStyles()
 
   return (
-
     <div className='mainBg'>
       <>
         <Grid container className={classes.topHead}>
@@ -98,12 +92,9 @@ const LandingPage = () => {
                   </p>
                 </div>
               </div>
-
             </Grid>
-
           </Grid>
         </div>
-
 
         <div>
           <Parallax
@@ -114,7 +105,6 @@ const LandingPage = () => {
           >
             <div style={{ height: '450px', width: '100px' }} />
           </Parallax>
-
         </div>
 
         <div className={classes.root}>
@@ -201,6 +191,4 @@ const LandingPage = () => {
     </div>
   )
 }
-
-
 export default LandingPage

@@ -19,7 +19,6 @@ const useStyles = makeStyles(theme => ({
     maxWidth: 490,
   },
   pos: {
-
     margin: 10,
     '& label.Mui-focused': {
       color: 'black',
@@ -41,7 +40,6 @@ const useStyles = makeStyles(theme => ({
         borderColor: '#5BA016',
       },
     },
-
     '& .MuiInputBase-input': {
       '& fieldset': {
         borderColor: 'white',
@@ -99,7 +97,7 @@ const useStyles = makeStyles(theme => ({
   helperText: {
     color: 'red'
   },
-  successText:{
+  successText: {
     color: 'green'
   }
 }))
@@ -109,7 +107,6 @@ const RegisterForm = () => {
 
   const classes = useStyles()
   const [show, setShow] = useState(false)
-
   const handleClose = () => setShow(false)
   const handleShow = () => setShow(true)
 
@@ -118,20 +115,18 @@ const RegisterForm = () => {
       <Button className={classes.myBtn} onClick={handleShow}>
         Register
       </Button>
-
       <Modal show={show} onHide={handleClose} animation={true}>
+
         <Modal.Header className={classes.outline} closeButton>
-
-
           <Modal.Title className={classes.title}>Register</Modal.Title>
         </Modal.Header>
+
         <Modal.Body>
           <Typography className={classes.title}>
             <Box textAlign="center" m={1}>
               Create your account. It's free and only takes a minute.
-      </Box>
+            </Box>
           </Typography>
-
           <br />
           <Box textAlign="center" className={classes.card}>
             <TextField
@@ -140,20 +135,19 @@ const RegisterForm = () => {
               name="userFullName"
               value={userFullName}
               label="First Name"
-              variant="outlined"></TextField>
+              variant="outlined">
+            </TextField>
 
             <TextField
               onChange={handleInputChange}
+              // IF FORM INFO IS INVALID, SHOW ERROR MESSAGE AND RED BORDER
               className={(!formValid) ? classes.error : classes.pos}
               name="userEmail"
               value={userEmail}
               label="Email"
               variant="outlined"
-              helperText={
-                (!formValid) ? 'Please use a valid email' : ''
-              }
-
-            ></TextField>
+              helperText={(!formValid) ? 'Please use a valid email' : ''}>
+            </TextField>
 
             <TextField
               onChange={handleInputChange}
@@ -162,9 +156,8 @@ const RegisterForm = () => {
               value={usersname}
               label="Username"
               variant="outlined"
-              helperText={
-                (!formValid) ? 'Must be at least 6 characters' : ''
-              }></TextField>
+              helperText={(!formValid) ? 'Must be at least 6 characters' : ''}>
+            </TextField>
 
             <TextField
               onChange={handleInputChange}
@@ -175,21 +168,20 @@ const RegisterForm = () => {
               label="Password"
               placeholder="Create a password"
               variant="outlined"
-              helperText={
-                (!formValid) ? 'Must be at least 8 characters' : ''
-              }></TextField>
+              helperText={(!formValid) ? 'Must be at least 8 characters' : ''}>
+            </TextField>
           </Box>
 
           <Box
             textAlign="center"
+            // IF USERNAME ALREADY EXISTS SHOW THIS ERR MSG
             visibility={userExists ? 'visible' : 'hidden'}
             className={classes.helperText}>{helperText}
-            </Box>
+          </Box>
           <Box
             textAlign="center"
             className={classes.successText}>{successMsg}
-            </Box>
-
+          </Box>
           <hr />
           <Typography className={classes.title2}>
             <Box textAlign="center" m={1}>

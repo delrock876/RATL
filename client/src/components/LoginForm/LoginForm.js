@@ -76,36 +76,28 @@ const useStyles = makeStyles(theme => ({
     fontFamily: 'DM Sans, sans-serif',
     margin: 0
   }
-
 }))
-
-
 
 const LoginForm = () => {
   const { usersname, userPassword, handleInputChange, handleLogin, shouldRedirect, loginValid } = useContext(UserContext)
-
   const classes = useStyles()
   const [show, setShow] = useState(false)
-
-
   const handleClose = () => setShow(false)
   const handleShow = () => setShow(true)
 
   return shouldRedirect ? <Redirect to='/home' /> : (
     <div className="landing">
-
       <Button className={classes.myBtn} onClick={handleShow}>
         Login
       </Button>
-
      
       <Modal show={show} onHide={handleClose} animation={true}>
         <Modal.Header className= {classes.outline}closeButton>
           <Modal.Title className={classes.title}>Login</Modal.Title>
         </Modal.Header>
+
         <Modal.Body>
           <Box textAlign="center"className={classes.card}>
-
             <TextField
               onChange={handleInputChange}
               className={classes.pos}
@@ -125,16 +117,16 @@ const LoginForm = () => {
               placeholder="Enter Password"
               variant="outlined"></TextField>
               <Box
+              // IF THE LOGIN INFO IS INVALID, SHOW THIS ERROR MSG
               visibility= {(!loginValid)? 'visible': 'hidden'}
               className={classes.error}>Not valid password/username combo</Box>
           </Box>
-
         </Modal.Body>
+
         <Modal.Footer>
             <Button className={classes.enter}variant="contained" onClick={handleLogin}>
               Enter
           </Button>
-
         </Modal.Footer>
       </Modal>
     </div>

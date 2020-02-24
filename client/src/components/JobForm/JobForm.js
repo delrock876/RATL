@@ -6,7 +6,6 @@ import Grid from '@material-ui/core/Grid'
 import Tooltip from '@material-ui/core/Tooltip'
 import JobCardContext from '../../utils/JobCardContext'
 
-
 const useStyles = makeStyles(theme => ({
   root: {
     '& > *': {
@@ -32,23 +31,6 @@ const useStyles = makeStyles(theme => ({
         borderColor: '#5ba016',
       },
     },
-     '& label.Mui-focused': {
-      color: 'black',
-    },
-    '& .MuiInput-underline:after': {
-      borderBottomColor: '#5ba016',
-    },
-    '& .MuiOutlinedInput-root': {
-      '& fieldset': {
-        borderColor: 'white',
-      },
-      '&:hover fieldset': {
-        borderColor: 'black',
-      },
-      '&.Mui-focused fieldset': {
-        borderColor: '#5ba016',
-      },
-    },
     '& .MuiInputBase-input': {
       '& fieldset': {
         borderColor: 'white',
@@ -64,12 +46,12 @@ const useStyles = makeStyles(theme => ({
       borderColor: '#5ba016',
     }
   },
-
   labelFont: {
     fontFamily: 'DM Sans, sans-serif'
   }
 }))
 
+// FORM IN JOB DRAWER WHERE ALL INITIAL JOB INFO IS FILLED OUT TO CREATE NEW JOB CARD
 const JobForm = () => {
 
   const classes = useStyles()
@@ -78,8 +60,9 @@ const JobForm = () => {
   return (
 
     <Grid container justify="center" width="100%">
-
-      <form className={classes.root} noValidate autoComplete="off">
+      <form 
+      className={classes.root} 
+      noValidate autoComplete="off">
         <TextField
           size="small"
           id="outlined-basic"
@@ -96,7 +79,6 @@ const JobForm = () => {
         />
 
         <br />
-
         <TextField
           size="small"
           id="outlined-basic"
@@ -176,7 +158,6 @@ const JobForm = () => {
             onChange={handleInputChange}
           />
         </Tooltip>
-
         <br />
         <Button onClick={handleAddJob}>Submit</Button>
       </form>

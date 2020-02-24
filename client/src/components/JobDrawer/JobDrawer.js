@@ -22,9 +22,8 @@ const useStyles = makeStyles({
     padding: 0
   }
 })
-
+// SWIPEABLE FORM ON JOBS PAGE THAT CONTAINS JOBFORM TO MANUALLY ADD JOBS
 const JobDrawer = ()=> {
-
   const { bottom, toggleDrawer } = useContext(JobCardContext)
   const classes = useStyles()
   
@@ -34,11 +33,9 @@ const JobDrawer = ()=> {
       role="presentation"
     >
       <List>
-        
           <ListItem>
           <JobForm/>
           </ListItem>
-      
       </List>
     </div>
   )
@@ -46,8 +43,6 @@ const JobDrawer = ()=> {
   return (
     <div>
       <Button className={classes.myBtn} onClick={toggleDrawer(true)}>Add Job</Button>
-      
-    
       <SwipeableDrawer
         anchor="bottom"
         open={bottom}
