@@ -70,6 +70,11 @@ const useStyles = makeStyles(theme => ({
   outline:{
     backgroundColor: "#78b746",
     color: "white"
+  },
+  error:{
+    color: 'red',
+    fontFamily: 'DM Sans, sans-serif',
+    margin: 0
   }
 
 }))
@@ -77,7 +82,7 @@ const useStyles = makeStyles(theme => ({
 
 
 const LoginForm = () => {
-  const { usersname, userPassword, handleInputChange, handleLogin, shouldRedirect, } = useContext(UserContext)
+  const { usersname, userPassword, handleInputChange, handleLogin, shouldRedirect, loginValid } = useContext(UserContext)
 
   const classes = useStyles()
   const [show, setShow] = useState(false)
@@ -119,6 +124,9 @@ const LoginForm = () => {
               label="Password"
               placeholder="Enter Password"
               variant="outlined"></TextField>
+              <Box
+              visibility= {(!loginValid)? 'visible': 'hidden'}
+              className={classes.error}>Not valid password/username combo</Box>
           </Box>
 
         </Modal.Body>

@@ -27,12 +27,8 @@ const App = () => {
     usersname: '',
     userPassword: '',
     shouldRedirect: false,
-    errors: {
-      username: 'Username required',
-      email: 'Email required',
-      password: 'Password required'
-    },
-    formValid: true
+    formValid: true,
+    loginValid: true
   })
 
   userState.setRedirect = (shouldRedirect) => {
@@ -46,7 +42,7 @@ const App = () => {
 
   userState.handleLogin = (event) => {
     event.preventDefault()
-
+let loginValid = JSON.parse(JSON.stringify(userState.loginValid))
     let user = {
       username: userState.usersname,
       password: userState.userPassword
@@ -58,7 +54,13 @@ const App = () => {
         localStorage.setItem('name', data.currentUser)
         setUserState({ ...userState, shouldRedirect: true })
       })
-      .catch(e => console.error(`${e}`))
+      .catch(e => { 
+        if(e.response.status === 404){
+          loginValid = false
+          setUserState({...userState, loginValid})
+          console.log('DOESNT EXIST')
+      }
+    })
   }
 
   userState.handleInputChange = (event) => {
@@ -66,7 +68,6 @@ const App = () => {
   }
 
   userState.handleRegisterUser = (event) => {
-    // event.preventDefault()
 
     let formValid = JSON.parse(JSON.stringify(userState.formValid))
 
