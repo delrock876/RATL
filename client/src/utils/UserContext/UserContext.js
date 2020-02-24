@@ -6,6 +6,8 @@ const UserContext = createContext({
   usersname: String,
   userPassword: String,
   shouldRedirect: false,
+  errors: Object,
+  formValid: Boolean,
   setRedirect:()=>{ },
   handleInputChange: () => { },
   handleRegisterUser: () => { },

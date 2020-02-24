@@ -77,10 +77,27 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: "#78b746",
     color: "white"
   },
+  error: {
+    '& .MuiOutlinedInput-root': {
+      '& fieldset': {
+        borderColor: 'red',
+      },
+      '&:hover fieldset': {
+        borderColor: 'red',
+      },
+      '&.Mui-focused fieldset': {
+        borderColor: 'red',
+      },
+      '&.MuiFilledInput-underline': {
+        borderColor: 'red'
+      }
+    }
+
+  }
 }))
 
 const RegisterForm = () => {
-  const { userFullName, usersname, userEmail, userPassword, handleInputChange, handleRegisterUser } = useContext(UserContext)
+  const { userFullName, usersname, userEmail, userPassword, handleInputChange, handleRegisterUser, errors, formValid } = useContext(UserContext)
 
   const classes = useStyles()
   const [show, setShow] = useState(false)
@@ -119,7 +136,7 @@ const RegisterForm = () => {
 
             <TextField
               onChange={handleInputChange}
-              className={classes.pos}
+              className={(!formValid && errors.username) ? classes.error : classes.pos}
               name="userEmail"
               value={userEmail}
               label="Email"
@@ -152,7 +169,7 @@ const RegisterForm = () => {
           </Typography>
         </Modal.Body>
         <Modal.Footer>
-          <Button className={classes.enter}variant="contained" onClick={handleRegisterUser}>
+          <Button className={classes.enter}variant="contained" onClick={(event)=>handleRegisterUser()}>
             Register Account
           </Button>
 

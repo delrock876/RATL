@@ -26,11 +26,17 @@ const App = () => {
     userEmail: '',
     usersname: '',
     userPassword: '',
-    shouldRedirect: false
+    shouldRedirect: false,
+    errors: {
+      username: 'Username required',
+      email: 'Email required',
+      password: 'Password required'
+    },
+    formValid: true
   })
 
-  userState.setRedirect= (shouldRedirect) =>{
-    setUserState({...userState, shouldRedirect})
+  userState.setRedirect = (shouldRedirect) => {
+    setUserState({ ...userState, shouldRedirect })
   }
 
   userState.handleLogout = () => {
@@ -52,7 +58,7 @@ const App = () => {
         localStorage.setItem('name', data.currentUser)
         setUserState({ ...userState, shouldRedirect: true })
       })
-      .catch(e => console.error(e))
+      .catch(e => console.error(`${e}`))
   }
 
   userState.handleInputChange = (event) => {
@@ -60,7 +66,14 @@ const App = () => {
   }
 
   userState.handleRegisterUser = (event) => {
-    event.preventDefault()
+    // event.preventDefault()
+
+    let formValid = JSON.parse(JSON.stringify(userState.formValid))
+
+    const emailRegex =
+      RegExp(/^[^@\s]+@[^@\s.]+\.[^@.\s]+$/i)
+
+    let errors = JSON.parse(JSON.stringify(userState.errors))
 
     let user = {
       name: userState.userFullName,
@@ -68,18 +81,40 @@ const App = () => {
       username: userState.usersname,
       password: userState.userPassword
     }
+    if (user.name.length < 4) {
+      console.log(errors.username)
+      formValid = false
+    }
+    if (!emailRegex.test(user.email)) {
+      console.log(errors.email)
+      formValid = false
+    }
+    if (user.password.length < 4) {
+      console.log(errors.password)
+      formValid = false
+    }
 
-    registerUser(user)
-      .then(() => {
-        setUserState({
-          ...userState,
-          userFullName: '',
-          userEmail: '',
-          usersname: '',
-          userPassword: ''
+    setUserState({...userState, formValid})
+
+    if (formValid) {
+
+      registerUser(user)
+        .then(() => {
+          setUserState({
+            ...userState,
+            userFullName: '',
+            userEmail: '',
+            usersname: '',
+            userPassword: ''
+          })
         })
-      })
-      .catch(e => console.error(e))
+        .catch(e => {
+          if (e.response.status === 409) {
+            console.log('ALREADY EXISTS')
+          }
+        })
+    }
+
   }
 
   return (
@@ -89,7 +124,7 @@ const App = () => {
 
         <UserContext.Provider value={userState}>
           <Route exact path="/">
-           <Landing />
+            <Landing />
           </Route>
 
           <Route path="/home">

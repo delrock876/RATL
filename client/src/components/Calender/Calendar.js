@@ -49,7 +49,6 @@ export default class DemoApp extends React.Component {
         title: '',
         start: new Date()
       }
-
     ]
   }
 

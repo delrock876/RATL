@@ -6,12 +6,23 @@ module.exports = app => {
     //Register a User
     app.post('/api/users', (req, res) =>{
         const { name, email, username } = req.body
-        User.register(new User({ name, email, username }),req.body.password, e =>{
-                if(e) {
-                    console.log(e)
-                }
-                res.sendStatus(200)
-            })
+        User.findOne({username: req.body.username}, (e, user)=>{
+            if(e){
+                console.log(e)
+            }
+             if (user){
+                res.sendStatus(409)
+            }else {
+                 User.register(new User({ name, email, username }), req.body.password, e => {
+                     if (e) {
+                         console.log(e)
+                     }
+                     res.sendStatus(200)
+                 })
+
+            }
+        })
+        
     })  
 
     // Login 
