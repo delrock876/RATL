@@ -22,6 +22,7 @@ const useStyles = makeStyles(theme => ({
     maxWidth: 490,
   },
   pos: {
+
     margin: 10,
     '& label.Mui-focused': {
       color: 'black',
@@ -79,6 +80,7 @@ const useStyles = makeStyles(theme => ({
     color: "white"
   },
   error: {
+    margin: 10,
     '& label.Mui-focused': {
       color: 'black',
     },
@@ -105,7 +107,7 @@ const useStyles = makeStyles(theme => ({
 }))
 
 const RegisterForm = () => {
-  const { userFullName, usersname, userEmail, userPassword, handleInputChange, handleRegisterUser, errors, formValid } = useContext(UserContext)
+  const { userFullName, usersname, userEmail, userPassword, handleInputChange, handleRegisterUser, formValid } = useContext(UserContext)
 
   const classes = useStyles()
   const [show, setShow] = useState(false)
