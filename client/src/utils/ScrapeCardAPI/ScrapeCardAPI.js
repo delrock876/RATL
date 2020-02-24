@@ -29,7 +29,10 @@ const ScrapeCardAPI = {
       { 'Authorization': `Bearer ${token}` }
   }),
  
-  scrapeLeads: (query, level, city ) => axios.post('/api/scrape', {query, level, city})
+  scrapeLeads: (query, level, city, token) => axios.post('/api/scrape', { query, level, city, }, {
+    headers:
+      { 'Authorization': `Bearer ${token}` }
+  })
 
 }
 

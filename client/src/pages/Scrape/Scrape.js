@@ -38,7 +38,7 @@ const Scrape = () => {
 
   leadsState.handleScrapeLeads = () => {
 
-    scrapeLeads(leadsState.query, leadsState.level, leadsState.city)
+    scrapeLeads(leadsState.query, leadsState.level, leadsState.city, localStorage.getItem('userAuth'))
       .then(({ data }) => {
 
         let leads = JSON.parse(JSON.stringify(leadsState.leads))
