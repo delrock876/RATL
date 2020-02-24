@@ -102,6 +102,9 @@ const useStyles = makeStyles(theme => ({
   },
   helperText: {
     color: 'red'
+  },
+  successText:{
+    color: 'green'
   }
 }))
 
@@ -188,7 +191,7 @@ const RegisterForm = () => {
             </Box>
           <Box
             textAlign="center"
-            className={classes.helperText}>{successMsg}
+            className={classes.successText}>{successMsg}
             </Box>
 
           <hr />
