@@ -26,9 +26,11 @@ const App = () => {
     userEmail: '',
     usersname: '',
     userPassword: '',
+    helperText: '',
     shouldRedirect: false,
     formValid: true,
-    loginValid: true
+    loginValid: true,
+    userExists: false
   })
 
   userState.setRedirect = (shouldRedirect) => {
@@ -55,10 +57,10 @@ let loginValid = JSON.parse(JSON.stringify(userState.loginValid))
         setUserState({ ...userState, shouldRedirect: true })
       })
       .catch(e => { 
+        //if user already exists, show error
         if(e.response.status === 404){
           loginValid = false
           setUserState({...userState, loginValid})
-          console.log('DOESNT EXIST')
       }
     })
   }
@@ -70,11 +72,10 @@ let loginValid = JSON.parse(JSON.stringify(userState.loginValid))
   userState.handleRegisterUser = (event) => {
 
     let formValid = JSON.parse(JSON.stringify(userState.formValid))
-
+    let helperText = JSON.parse(JSON.stringify(userState.helperText))
+    let userExists = JSON.parse(JSON.stringify(userState.userExists))
     const emailRegex =
       RegExp(/^[^@\s]+@[^@\s.]+\.[^@.\s]+$/i)
-
-    let errors = JSON.parse(JSON.stringify(userState.errors))
 
     let user = {
       name: userState.userFullName,
@@ -82,18 +83,11 @@ let loginValid = JSON.parse(JSON.stringify(userState.loginValid))
       username: userState.usersname,
       password: userState.userPassword
     }
-    if (user.name.length < 6) {
-      console.log(errors.username)
+
+    if (user.name.length < 4 || !emailRegex.test(user.email) || (user.password.length < 4)) {
       formValid = false
     }
-    if (!emailRegex.test(user.email)) {
-      console.log(errors.email)
-      formValid = false
-    }
-    if (user.password.length < 6) {
-      console.log(errors.password)
-      formValid = false
-    }
+   
 
     setUserState({...userState, formValid})
 
@@ -106,12 +100,15 @@ let loginValid = JSON.parse(JSON.stringify(userState.loginValid))
             userFullName: '',
             userEmail: '',
             usersname: '',
-            userPassword: ''
+            userPassword: '',
+            helperText: ''
           })
         })
         .catch(e => {
           if (e.response.status === 409) {
-            console.log('ALREADY EXISTS')
+            userExists = true 
+            helperText = 'This username already exists'
+            setUserState({...userState, userExists, helperText})
           }
         })
     }

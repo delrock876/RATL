@@ -44,7 +44,7 @@ const useStyles = makeStyles(theme => ({
         borderColor: '#5BA016',
       },
     },
-  
+
     '& .MuiInputBase-input': {
       '& fieldset': {
         borderColor: 'white',
@@ -71,7 +71,7 @@ const useStyles = makeStyles(theme => ({
   title: {
     fontFamily: 'DM Sans, sans-serif'
   },
-  title2:{
+  title2: {
     fontFamily: 'DM Sans, sans-serif',
     fontSize: "13px"
   },
@@ -107,7 +107,7 @@ const useStyles = makeStyles(theme => ({
 }))
 
 const RegisterForm = () => {
-  const { userFullName, usersname, userEmail, userPassword, handleInputChange, handleRegisterUser, formValid } = useContext(UserContext)
+  const { userFullName, usersname, userEmail, userPassword, handleInputChange, handleRegisterUser, formValid, userExists, helperText } = useContext(UserContext)
 
   const classes = useStyles()
   const [show, setShow] = useState(false)
@@ -124,17 +124,17 @@ const RegisterForm = () => {
       <Modal show={show} onHide={handleClose} animation={true}>
         <Modal.Header className={classes.outline} closeButton>
 
-          
+
           <Modal.Title className={classes.title}>Register</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Typography className={classes.title}>
-          <Box textAlign="center" m={1}>
-            Create your account. It's free and only takes a minute.
+            <Box textAlign="center" m={1}>
+              Create your account. It's free and only takes a minute.
       </Box>
           </Typography>
 
-      <br/>
+          <br />
           <Box textAlign="center" className={classes.card}>
             <TextField
               onChange={handleInputChange}
@@ -151,11 +151,11 @@ const RegisterForm = () => {
               value={userEmail}
               label="Email"
               variant="outlined"
-              helperText= {
-                (!formValid) ? 'Please use a valid email': ''
-            }
-              
-              ></TextField>
+              helperText={
+                (!formValid) ? 'Please use a valid email' : ''
+              }
+
+            ></TextField>
 
             <TextField
               onChange={handleInputChange}
@@ -182,7 +182,13 @@ const RegisterForm = () => {
               }></TextField>
           </Box>
 
-          <hr/>
+          <Box
+            textAlign="center"
+            visibility={userExists ? 'visible' : 'hidden'}
+            className={classes.helperText}>{helperText}
+            </Box>
+
+          <hr />
           <Typography className={classes.title2}>
             <Box textAlign="center" m={1}>
               By clicking the Register Account button you are agreeing to make your job hunt easier.
@@ -190,7 +196,7 @@ const RegisterForm = () => {
           </Typography>
         </Modal.Body>
         <Modal.Footer>
-          <Button className={classes.enter}variant="contained" onClick={(event)=>handleRegisterUser()}>
+          <Button className={classes.enter} variant="contained" onClick={(event) => handleRegisterUser()}>
             Register Account
           </Button>
 
