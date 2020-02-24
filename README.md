@@ -1,7 +1,7 @@
 # RATL
 Manage your job search in a simple yet effective fashion with RATL. Have key contact information on-hand so communication with hiring managers can be easily maintained. Recieve an overview of the lastest job listings. Be armed with relevant information about the companies you're interested in. Track important dates and networking events with our calendar. 
 
-## Getting Started
+## How it works
 
 1. Create an account by click register in the top right of page
 2. Once you've created an account log in where if successful you will be directed to te homepage
@@ -29,6 +29,44 @@ https://glacial-reaches-79922.herokuapp.com/
 * JSON Web Token - used to securely transmit informaiton between parties as a JSON object.
 * Axios - promise based HTTP client for the browser 
 * Material UI - React UI framework
+
+## Available Scripts
+In the project directory, you can run:
+
+ #### `npm start`
+
+Runs the app in the development mode.<br />
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+
+The page will reload if you make edits.<br />
+You will also see any lint errors in the console.
+
+#### `npm test`
+
+Launches the test runner in the interactive watch mode.<br />
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+
+#### `npm run build`
+
+Builds the app for production to the `build` folder.<br />
+It correctly bundles React in production mode and optimizes the build for the best performance.
+
+The build is minified and the filenames include the hashes.<br />
+Your app is ready to be deployed!
+
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+
+
+## Learn More
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+
+### Deployment
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+
+### `npm run build` fails to minify
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
 
 ## Contributors 
 * Sabrina Rocha https://github.com/delrock876
