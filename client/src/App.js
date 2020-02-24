@@ -27,10 +27,12 @@ const App = () => {
     usersname: '',
     userPassword: '',
     helperText: '',
+    successMsg: '',
     shouldRedirect: false,
     formValid: true,
     loginValid: true,
-    userExists: false
+    userExists: false,
+
   })
 
   userState.setRedirect = (shouldRedirect) => {
@@ -66,11 +68,14 @@ let loginValid = JSON.parse(JSON.stringify(userState.loginValid))
   }
 
   userState.handleInputChange = (event) => {
-    setUserState({ ...userState, [event.target.name]: event.target.value })
+    let formValid = JSON.parse(JSON.stringify(userState.formValid))
+    formValid = true
+    setUserState({ ...userState, [event.target.name]: event.target.value, formValid } )
   }
 
   userState.handleRegisterUser = (event) => {
 
+    let successMsg = JSON.parse(JSON.stringify(userState.successMsg))
     let formValid = JSON.parse(JSON.stringify(userState.formValid))
     let helperText = JSON.parse(JSON.stringify(userState.helperText))
     let userExists = JSON.parse(JSON.stringify(userState.userExists))
@@ -87,16 +92,16 @@ let loginValid = JSON.parse(JSON.stringify(userState.loginValid))
     if (user.name.length < 4 || !emailRegex.test(user.email) || (user.password.length < 4)) {
       formValid = false
     }
-   
-
     setUserState({...userState, formValid})
 
     if (formValid) {
 
       registerUser(user)
         .then(() => {
+         successMsg = 'Your account has been created'
           setUserState({
             ...userState,
+            successMsg,
             userFullName: '',
             userEmail: '',
             usersname: '',

@@ -10,6 +10,7 @@ const UserContext = createContext({
   formValid: Boolean,
   loginValid: Boolean,
   userExists: Boolean,
+  openSnack: Boolean,
   setRedirect:()=>{ },
   handleInputChange: () => { },
   handleRegisterUser: () => { },

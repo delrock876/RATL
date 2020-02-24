@@ -1,8 +1,9 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import Button from '@material-ui/core/Button'
 import Snackbar from '@material-ui/core/Snackbar'
 import MuiAlert from '@material-ui/lab/Alert'
 import { makeStyles } from '@material-ui/core/styles'
+import UserContext from '../../utils/UserContext'
 
 function Alert(props) {
   return <MuiAlert elevation={6} variant="filled" {...props} />
@@ -21,7 +22,10 @@ const Snackbars =()=> {
   const classes = useStyles()
   const [open, setOpen] = React.useState(false)
 
+  const { openSnack } = useContext(UserContext)
+
   const handleClick = () => {
+    if(openSnack){}
     setOpen(true)
   }
 

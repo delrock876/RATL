@@ -7,6 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import Modal from 'react-bootstrap/Modal'
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box'
+import Snackbars from '../Snackbars'
 import { red } from '@material-ui/core/colors'
 
 
@@ -97,9 +98,7 @@ const useStyles = makeStyles(theme => ({
       '&.MuiFilledInput-underline': {
         borderColor: 'red'
       },
-
     }
-
   },
   helperText: {
     color: 'red'
@@ -107,7 +106,7 @@ const useStyles = makeStyles(theme => ({
 }))
 
 const RegisterForm = () => {
-  const { userFullName, usersname, userEmail, userPassword, handleInputChange, handleRegisterUser, formValid, userExists, helperText } = useContext(UserContext)
+  const { userFullName, usersname, userEmail, userPassword, handleInputChange, handleRegisterUser, formValid, userExists, helperText, successMsg } = useContext(UserContext)
 
   const classes = useStyles()
   const [show, setShow] = useState(false)
@@ -186,6 +185,10 @@ const RegisterForm = () => {
             textAlign="center"
             visibility={userExists ? 'visible' : 'hidden'}
             className={classes.helperText}>{helperText}
+            </Box>
+          <Box
+            textAlign="center"
+            className={classes.helperText}>{successMsg}
             </Box>
 
           <hr />
