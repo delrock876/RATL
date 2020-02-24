@@ -81,7 +81,7 @@ const App = () => {
       username: userState.usersname,
       password: userState.userPassword
     }
-    if (user.name.length < 4) {
+    if (user.name.length < 6) {
       console.log(errors.username)
       formValid = false
     }
@@ -89,7 +89,7 @@ const App = () => {
       console.log(errors.email)
       formValid = false
     }
-    if (user.password.length < 4) {
+    if (user.password.length < 6) {
       console.log(errors.password)
       formValid = false
     }

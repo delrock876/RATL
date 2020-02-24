@@ -7,6 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import Modal from 'react-bootstrap/Modal'
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box'
+import { red } from '@material-ui/core/colors'
 
 
 
@@ -78,6 +79,9 @@ const useStyles = makeStyles(theme => ({
     color: "white"
   },
   error: {
+    '& label.Mui-focused': {
+      color: 'black',
+    },
     '& .MuiOutlinedInput-root': {
       '& fieldset': {
         borderColor: 'red',
@@ -90,9 +94,13 @@ const useStyles = makeStyles(theme => ({
       },
       '&.MuiFilledInput-underline': {
         borderColor: 'red'
-      }
+      },
+
     }
 
+  },
+  helperText: {
+    color: 'red'
   }
 }))
 
@@ -136,29 +144,40 @@ const RegisterForm = () => {
 
             <TextField
               onChange={handleInputChange}
-              className={(!formValid && errors.username) ? classes.error : classes.pos}
+              className={(!formValid) ? classes.error : classes.pos}
               name="userEmail"
               value={userEmail}
               label="Email"
-              variant="outlined"></TextField>
+              variant="outlined"
+              helperText= {
+                (!formValid) ? 'Please use a valid email': ''
+            }
+              
+              ></TextField>
 
             <TextField
               onChange={handleInputChange}
-              className={classes.pos}
+              className={(!formValid) ? classes.error : classes.pos}
               name="usersname"
               value={usersname}
               label="Username"
-              variant="outlined"></TextField>
+              variant="outlined"
+              helperText={
+                (!formValid) ? 'Must be at least 6 characters' : ''
+              }></TextField>
 
             <TextField
               onChange={handleInputChange}
-              className={classes.pos}
+              className={(!formValid) ? classes.error : classes.pos}
               name="userPassword"
               type="password"
               value={userPassword}
               label="Password"
               placeholder="Create a password"
-              variant="outlined"></TextField>
+              variant="outlined"
+              helperText={
+                (!formValid) ? 'Must be at least 8 characters' : ''
+              }></TextField>
           </Box>
 
           <hr/>
