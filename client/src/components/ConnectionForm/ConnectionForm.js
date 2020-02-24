@@ -1,15 +1,12 @@
 import React, { useState, useContext } from 'react'
-import { makeStyles, withTheme } from '@material-ui/core/styles'
+import { makeStyles } from '@material-ui/core/styles'
 import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Modal from 'react-bootstrap/Modal'
 import JobCardContext from '../../utils/JobCardContext'
-import RecentActorsIcon from '@material-ui/icons/RecentActors';
 import Tooltip from '@material-ui/core/Tooltip'
-import PersonAddIcon from '@material-ui/icons/PersonAdd';
-
-
+import PersonAddIcon from '@material-ui/icons/PersonAdd'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -43,23 +40,6 @@ const useStyles = makeStyles(theme => ({
         borderColor: '#5BA016',
       },
     },
-    '& label.Mui-focused': {
-      color: 'black',
-    },
-    '& .MuiInput-underline:after': {
-      borderBottomColor: '#5BA016',
-    },
-    '& .MuiOutlinedInput-root': {
-      '& fieldset': {
-        borderColor: 'white',
-      },
-      '&:hover fieldset': {
-        borderColor: 'black',
-      },
-      '&.Mui-focused fieldset': {
-        borderColor: '#5BA016',
-      },
-    },
     '& .MuiInputBase-input': {
       '& fieldset': {
         borderColor: 'white',
@@ -74,17 +54,15 @@ const useStyles = makeStyles(theme => ({
   },
   button: {
     padding: 3
-
   }
 }))
 
+// FORM TO ADD ADDITIONAL CONTACTS IN THE JOBS CARD ON THE JOB PAGE
 const ConnectionForm = (props) => {
 
   const classes = useStyles()
-  const { jobs, namee, email, phone, type, handleInputChange, handleAddConnection } = useContext(JobCardContext)
-
+  const { namee, email, phone, type, handleInputChange, handleAddConnection } = useContext(JobCardContext)
   const [show, setShow] = useState(false)
-
   const handleClose = () => setShow(false)
   const handleShow = () => setShow(true)
 
@@ -145,21 +123,18 @@ const ConnectionForm = (props) => {
               name="email"
               value={email}
               onChange={handleInputChange} />
-
-
-
           </form>
 
         </Modal.Body>
         <Modal.Footer>
-          <Button 
-          onClick={() => 
-            handleAddConnection(props.jobId)}
+          <Button
+            onClick={() =>
+              handleAddConnection(props.jobId)}
           >Submit</Button>
 
-<Button 
-          onClick={() => 
-            handleClose()}
+          <Button
+            onClick={() =>
+              handleClose()}
           >Close</Button>
 
         </Modal.Footer>

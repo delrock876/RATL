@@ -7,7 +7,6 @@ import ScrapeForm from '../../components/ScrapeForm'
 
 const { getAllLeads, deleteLeads, addJobLeads, scrapeLeads } = ScrapeCardAPI
 
-
 const Scrape = () => {
 
   const [leadsState, setLeadsState] = useState({

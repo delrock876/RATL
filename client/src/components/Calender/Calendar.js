@@ -8,10 +8,6 @@ import './Calendar.scss'
 import CalendarAPI from '../../utils/CalendarAPI'
 import { makeStyles } from '@material-ui/core/styles'
 
-import Card from '@material-ui/core/Card'
-// import classes from '*.module.css'
-
-
 const useStyles = makeStyles({
   title: {
     marginTop: 20,
@@ -42,8 +38,6 @@ export default class DemoApp extends React.Component {
   calendarComponentRef = React.createRef()
 
   state = {
-
-
     calendarEvents: [ // initial event data
       {
         title: '',
@@ -51,7 +45,6 @@ export default class DemoApp extends React.Component {
       }
     ]
   }
-
 
   handleDateClick = (arg) => {
 
@@ -88,7 +81,6 @@ export default class DemoApp extends React.Component {
   componentDidMount = () => {
     getAllReminders(localStorage.getItem('userAuth'))
       .then(({ data: calendars }) => {
-        console.log(calendars)
         this.setState({
           calendarEvents: calendars
         })

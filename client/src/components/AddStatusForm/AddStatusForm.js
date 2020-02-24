@@ -18,7 +18,6 @@ const useStyles = makeStyles(theme => ({
     paddingBottom: 0,
     color: "#fbaa10"
   },
-
   title: {
     fontSize: 14,
     fontFamily: 'DM Sans, sans-serif'
@@ -27,7 +26,6 @@ const useStyles = makeStyles(theme => ({
     marginBottom: 12,
     fontFamily: 'DM Sans, sans-serif'
   },
-
   chip: {
     color: "#78b746"
   },
@@ -38,7 +36,6 @@ const useStyles = makeStyles(theme => ({
     display: "flex",
     justifyContent: "flex-start"
   },
-
   inputField: {
     '& label.Mui-focused': {
       color: 'black',
@@ -60,23 +57,6 @@ const useStyles = makeStyles(theme => ({
         borderColor: '#5BA016',
       },
     },
-    '& label.Mui-focused': {
-      color: 'black',
-    },
-    '& .MuiInput-underline:after': {
-      borderBottomColor: '#5BA016',
-    },
-    '& .MuiOutlinedInput-root': {
-      '& fieldset': {
-        borderColor: '#5BA016',
-      },
-      '&:hover fieldset': {
-        borderColor: 'black',
-      },
-      '&.Mui-focused fieldset': {
-        borderColor: '#5BA016',
-      },
-    },
     '& .MuiInputBase-input': {
       '& fieldset': {
         borderColor: '#5BA016',
@@ -92,7 +72,7 @@ const useStyles = makeStyles(theme => ({
 
 }))
 
-
+//FORM TO UPDATE/ADD A STATUS THAT APPEARS IN THE JOB CARDS ON HOMEPAGE & JOB PAGE
 const AddStatusForm = (props) => {
   const { handleInputChange, handleAddStatus, status } = useContext(JobCardContext)
 
@@ -111,7 +91,6 @@ const AddStatusForm = (props) => {
           className={classes.chip}
           variant="outlined"
           size="small"
-          // avatar={<AddCircleOutlineOutlinedIcon />}
           label="Update Status"
           onClick={handleShow}
         />

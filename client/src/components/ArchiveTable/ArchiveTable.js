@@ -39,9 +39,6 @@ const useStyles = makeStyles({
     minWidth: 375,
     backgroundColor: "#f2f2f2",
   },
-  // tableCell: {
-  //   backgroundColor: "gray",
-  // }
   para2: {
     fontSize: "16",
     color: "white",
@@ -51,17 +48,13 @@ const useStyles = makeStyles({
 
 const ArchiveTable = () => {
 
-
   const { jobs, handleDeleteJob, handleArchiveJob } = useContext(JobCardContext)
-
+  //FILTER JOBS SO THAT ONLY ARCHIVED JOBS REMAIN
   let archivedJobs = jobs.filter(job => job.archived === true)
-  console.log(archivedJobs)
   const classes = useStyles()
 
   return (
     <div>
-
-
       <TableContainer component={Paper}>
         <Table className={classes.table} aria-label="customized table">
           <TableHead>
@@ -72,9 +65,8 @@ const ArchiveTable = () => {
             </TableRow>
           </TableHead>
           <TableBody>
-
+            {/* DISPLAY ALL ARCHIVED JOBS IN THE TABLE */}
             {archivedJobs ? archivedJobs.map(archive => (
-
               <StyledTableRow>
                 <StyledTableCell >
                   {archive.companyName}

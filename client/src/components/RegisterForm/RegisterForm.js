@@ -7,10 +7,6 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import Modal from 'react-bootstrap/Modal'
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box'
-import Snackbars from '../Snackbars'
-import { red } from '@material-ui/core/colors'
-
-
 
 const useStyles = makeStyles(theme => ({
   root: {

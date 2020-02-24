@@ -23,7 +23,6 @@ const useStyles = makeStyles({
   }
 })
 
-
 const BottomNav = () => {
 
   const { handleLogout } = useContext(UserContext)
@@ -64,7 +63,6 @@ const BottomNav = () => {
           className={classes.label}
           label="Logout"
           icon={<Link to="#"><MeetingRoomIcon className={classes.iconBtn} /></Link>} />
-
       </BottomNavigation>
 
     </Box>

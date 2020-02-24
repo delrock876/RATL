@@ -20,7 +20,6 @@ import Tooltip from '@material-ui/core/Tooltip'
 import AddSkillForm from '../AddSkillForm'
 import AddStatusForm from '../AddStatusForm'
 
-
 const useStyles = makeStyles(theme => ({
   card: {
     margin: "auto",
@@ -46,7 +45,6 @@ const useStyles = makeStyles(theme => ({
   title: {
     fontSize: 14,
     fontFamily: 'DM Sans, sans-serif'
-
   },
   pos: {
     marginBottom: 12,
@@ -56,13 +54,11 @@ const useStyles = makeStyles(theme => ({
     padding: "0px",
     width: "30px"
   },
-
   btnDelete: {
     color: '#D5441C',
     padding: "0px",
     width: "30px"
   },
-
   btnBox: {
     display: "flex",
     justifyContent: "flex-end"
@@ -82,32 +78,31 @@ const JobCard = () => {
 
   const { jobs, handleDeleteJob, handleArchiveJob, handleDeleteSkill } = useContext(JobCardContext)
   const classes = useStyles()
+  const [expanded, setExpanded] = React.useState(false)
 
-  const [expanded, setExpanded] = React.useState(false);
-
+  // SHOWS CONNECTIONS ON DROPDOWN
   const handleExpandClick = () => {
-    setExpanded(!expanded);
+    setExpanded(!expanded)
   }
 
-
   return (
-
     <div>
       <List>
         {
-          jobs ? jobs.map(job =>  !job.archived ? (
+          // RENDERS AS LONG AS JOBS ARE NOT ARCHIVED
+          jobs ? jobs.map(job => !job.archived ? (
             <ListItem>
-
-              <Card className={classes.card} variant="outlined">
-
+              <Card
+                className={classes.card}
+                variant="outlined">
                 <div className={classes.btnBox}>
 
                   <Tooltip title="Delete">
                     <Button
                       onClick={() => handleDeleteJob(job._id)}
                       className={classes.btnDelete}
-
-                    ><DeleteIcon /></Button>
+                    ><DeleteIcon />
+                    </Button>
                   </Tooltip>
 
                   <Tooltip title="Archive">
@@ -122,13 +117,20 @@ const JobCard = () => {
                 </div>
 
                 <CardContent>
-                  <Typography className={classes.title} color="textSecondary" gutterBottom >
+                  <Typography
+                    className={classes.title}
+                    color="textSecondary"
+                    gutterBottom >
                     {job.date}
                   </Typography>
-                  <Typography variant="h5" className={classes.pos}>
+                  <Typography
+                    variant="h5"
+                    className={classes.pos}>
                     {job.companyName}
                   </Typography>
-                  <Typography className={classes.pos} color="textSecondary">
+                  <Typography
+                    className={classes.pos}
+                    color="textSecondary">
                     {job.jobTitle}
                   </Typography>
 
@@ -136,8 +138,8 @@ const JobCard = () => {
                     Job Requirements:
                     <br />
                     {
+                      //CREATES A CHIP FOR EACH SKILL ENTERED IN THE INPUT FIELD 
                       job.skills ? job.skills.map(skill => (
-
                         <Chip
                           id="hi"
                           className={classes.chip}
@@ -150,20 +152,23 @@ const JobCard = () => {
                     }
                   </Typography>
 
-                  <Typography variant="body2" className={classes.pos}>
+                  <Typography
+                    variant="body2"
+                    className={classes.pos}>
                     <AddSkillForm jobId={job._id} />
                   </Typography>
 
-                  <Typography variant="body2" className={classes.chip}>
+                  <Typography
+                    variant="body2"
+                    className={classes.chip}>
                     <AddStatusForm jobId={job._id} />
                   </Typography>
-                  <Typography variant="body2" className={classes.chip2}>
+
+                  <Typography
+                    variant="body2"
+                    className={classes.chip2}>
                     {job.status}
-
                   </Typography>
-
-
-
                 </CardContent>
 
                 <CardActions disableSpacing>
@@ -180,8 +185,8 @@ const JobCard = () => {
                 <Collapse in={expanded} timeout="auto" unmountOnExit>
                   <CardContent>
                     {
+                      // DISPLAY ALL CONTACTS IN THE DROPDOWN AREA
                       job.connections ? job.connections.map(item =>
-
                         <Typography className={classes.pos}>
                           {item.type}: {item.name}
                           <br />
@@ -189,7 +194,6 @@ const JobCard = () => {
                           <br />
                           Email: {item.email}
                         </Typography>
-
                       ) : null
                     }
                   </CardContent>

@@ -20,7 +20,6 @@ const useStyles = makeStyles(theme => ({
     paddingBottom: 0,
     color: "#fbaa10"
   },
-
   title: {
     fontSize: 14,
     fontFamily: 'DM Sans, sans-serif'
@@ -40,7 +39,6 @@ const useStyles = makeStyles(theme => ({
     display: "flex",
     justifyContent: "flex-start"
   },
-
   inputField: {
     '& label.Mui-focused': {
       color: 'black',
@@ -62,23 +60,6 @@ const useStyles = makeStyles(theme => ({
         borderColor: '#5BA016',
       },
     },
-    '& label.Mui-focused': {
-      color: 'black',
-    },
-    '& .MuiInput-underline:after': {
-      borderBottomColor: '#5BA016',
-    },
-    '& .MuiOutlinedInput-root': {
-      '& fieldset': {
-        borderColor: '#5BA016',
-      },
-      '&:hover fieldset': {
-        borderColor: 'black',
-      },
-      '&.Mui-focused fieldset': {
-        borderColor: '#5BA016',
-      },
-    },
     '& .MuiInputBase-input': {
       '& fieldset': {
         borderColor: '#5BA016',
@@ -93,13 +74,12 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
-
+//FORM TO ADD ADDITIONAL SKILLS ON THE JOBS PAGE
 const AddSkillForm = (props) => {
   const { handleAddSkills, newSkills, handleInputChange } = useContext(JobCardContext)
 
   const classes = useStyles()
   const [show, setShow] = useState(false)
-
   const handleClose = () => setShow(false)
   const handleShow = () => setShow(true)
 
@@ -116,7 +96,6 @@ const AddSkillForm = (props) => {
           label="Add Skill"
           onClick={handleShow}
         />
-
       </Typography>
 
 
