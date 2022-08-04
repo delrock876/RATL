@@ -1,5 +1,5 @@
 # RATL
-Manage your job search in a simple yet effective fashion with RATL. Have key contact information on-hand so communication with hiring managers can be easily maintained. Recieve an overview of the lastest job listings. Be armed with relevant information about the companies you're interested in. Track important dates and networking events with our calendar. 
+Manage your job search in a simple yet effective fashion with RATL. Have key contact information on-hand so communication with hiring managers can be easily maintained. Receive an overview of the lastest job listings. Be armed with relevant information about the companies you're interested in. Track important dates and networking events with our calendar. 
 
 ## How it works
 
