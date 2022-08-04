@@ -1,10 +1,10 @@
 # RATL
-Manage your job search in a simple yet effective fashion with RATL. Have key contact information on-hand so communication with hiring managers can be easily maintained. Recieve an overview of the lastest job listings. Be armed with relevant information about the companies you're interested in. Track important dates and networking events with our calendar. 
+Manage your job search in a simple yet effective fashion with RATL. Have key contact information on-hand so communication with hiring managers can be easily maintained. Recieve an overview of the latest job listings. Be armed with relevant information about the companies you're interested in. Track important dates and networking events with our calendar. 
 
 ## How it works
 
 1. Create an account by click register in the top right of page
-2. Once you've created an account log in where if successful you will be directed to te homepage
+2. Once you've created an account log in where if successful you will be directed to the homepage
 3. Homepage gives you an overview of any upcoming events, a search option to find new job leads, and a short description of all current jobs you've added. 
 4. Navigate to the jobs tab to manually add in and edit any jobs you have. You can also choose to archive or delete jobs. 
 5. Navigate to the calendar and click on any date to create a new event. 
